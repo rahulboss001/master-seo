@@ -1,0 +1,1824 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complete SEO Learning Roadmap</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0c10;
+  --bg2: #111318;
+  --bg3: #181c24;
+  --card: #13161e;
+  --border: #252a36;
+  --gold: #f0a500;
+  --gold2: #ffc84a;
+  --teal: #00c9a7;
+  --red: #ff5757;
+  --blue: #4c9aff;
+  --purple: #b47cff;
+  --text: #e8eaf0;
+  --muted: #7a8099;
+  --light: #c0c6d8;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.75;
+  font-size: 15px;
+}
+
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+/* ─── HERO ─── */
+.hero {
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  padding: 80px 40px 60px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; top: -100px; right: -100px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(240,165,0,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute; bottom: -80px; left: -80px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(0,201,167,0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-inner { max-width: 1100px; margin: 0 auto; position: relative; }
+.hero-label {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(240,165,0,0.1); border: 1px solid rgba(240,165,0,0.3);
+  color: var(--gold); font-size: 0.75em; font-weight: 600;
+  letter-spacing: 2px; text-transform: uppercase;
+  padding: 6px 16px; border-radius: 50px; margin-bottom: 24px;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8em, 6vw, 5em);
+  font-weight: 900;
+  line-height: 1.05;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #fff 30%, var(--gold) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-sub {
+  font-size: 1.1em; color: var(--light); max-width: 620px;
+  margin-bottom: 40px; font-weight: 300;
+}
+.hero-stats {
+  display: flex; gap: 40px; flex-wrap: wrap;
+}
+.stat {
+  display: flex; flex-direction: column; gap: 4px;
+}
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2em; font-weight: 700; color: var(--gold); line-height: 1;
+}
+.stat-label { font-size: 0.8em; color: var(--muted); font-weight: 500; letter-spacing: 1px; text-transform: uppercase; }
+
+/* ─── NAV ─── */
+.toc {
+  background: var(--bg3);
+  border-bottom: 1px solid var(--border);
+  padding: 0 40px;
+  position: sticky; top: 0; z-index: 100;
+  overflow-x: auto;
+}
+.toc-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; gap: 0;
+}
+.toc-item {
+  display: flex; align-items: center; gap: 8px;
+  padding: 16px 20px;
+  color: var(--muted); font-size: 0.82em; font-weight: 600;
+  text-decoration: none; white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+  letter-spacing: 0.3px;
+}
+.toc-item:hover { color: var(--gold); border-bottom-color: var(--gold); }
+.toc-num {
+  background: var(--border);
+  color: var(--muted); font-size: 0.75em;
+  width: 20px; height: 20px; border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* ─── LAYOUT ─── */
+.container { max-width: 1100px; margin: 0 auto; padding: 60px 40px; }
+
+/* ─── MODULE ─── */
+.module {
+  margin-bottom: 70px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--card);
+}
+.module-header {
+  display: flex; align-items: stretch;
+  border-bottom: 1px solid var(--border);
+}
+.module-num-block {
+  min-width: 90px; display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 4px;
+  background: var(--bg3);
+  border-right: 1px solid var(--border);
+  padding: 28px 20px;
+}
+.module-num-block .big-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 2.4em; font-weight: 600; color: var(--gold); line-height: 1;
+}
+.module-num-block .mod-label {
+  font-size: 0.6em; text-transform: uppercase; letter-spacing: 1.5px; color: var(--muted);
+}
+.module-title-block { padding: 28px 32px; flex: 1; }
+.module-title-block h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.55em; font-weight: 700; color: #fff; margin-bottom: 6px;
+}
+.module-title-block .module-desc { color: var(--muted); font-size: 0.92em; max-width: 700px; }
+.module-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+.tag {
+  font-size: 0.72em; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;
+  padding: 3px 10px; border-radius: 4px;
+}
+.tag-gold { background: rgba(240,165,0,0.12); color: var(--gold); border: 1px solid rgba(240,165,0,0.25); }
+.tag-teal { background: rgba(0,201,167,0.1); color: var(--teal); border: 1px solid rgba(0,201,167,0.2); }
+.tag-blue { background: rgba(76,154,255,0.1); color: var(--blue); border: 1px solid rgba(76,154,255,0.2); }
+.tag-red { background: rgba(255,87,87,0.1); color: var(--red); border: 1px solid rgba(255,87,87,0.2); }
+
+.module-body { padding: 36px 36px 30px; }
+
+/* ─── TOPIC ─── */
+.topic {
+  margin-bottom: 44px;
+  padding-bottom: 44px;
+  border-bottom: 1px solid var(--border);
+}
+.topic:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+.topic-title {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 16px;
+}
+.topic-title h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15em; font-weight: 700; color: #fff;
+}
+.topic-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7em; color: var(--gold);
+  background: rgba(240,165,0,0.1);
+  border: 1px solid rgba(240,165,0,0.2);
+  padding: 2px 8px; border-radius: 4px;
+}
+
+.topic-explain {
+  color: var(--light); font-size: 0.94em;
+  margin-bottom: 20px; line-height: 1.8;
+}
+
+.topic-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  margin-bottom: 20px;
+}
+@media(max-width: 700px) { .topic-grid { grid-template-columns: 1fr; } }
+
+/* ─── EXAMPLE BOX ─── */
+.example-box {
+  background: var(--bg3);
+  border: 1px solid rgba(0,201,167,0.2);
+  border-left: 4px solid var(--teal);
+  border-radius: 0 10px 10px 0;
+  padding: 18px 20px;
+}
+.example-box .box-label {
+  font-size: 0.7em; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 1.5px; color: var(--teal); margin-bottom: 10px;
+  display: flex; align-items: center; gap: 6px;
+}
+.example-box p, .example-box li { color: var(--light); font-size: 0.9em; line-height: 1.7; }
+.example-box ul { padding-left: 16px; }
+.example-box code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85em;
+  background: rgba(0,201,167,0.08);
+  color: var(--teal); padding: 1px 5px; border-radius: 3px;
+}
+
+/* ─── TASK BOX ─── */
+.task-box {
+  background: var(--bg3);
+  border: 1px solid rgba(240,165,0,0.2);
+  border-left: 4px solid var(--gold);
+  border-radius: 0 10px 10px 0;
+  padding: 18px 20px;
+}
+.task-box .box-label {
+  font-size: 0.7em; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 1.5px; color: var(--gold); margin-bottom: 10px;
+  display: flex; align-items: center; gap: 6px;
+}
+.task-box ol { padding-left: 18px; }
+.task-box li {
+  color: var(--light); font-size: 0.9em; line-height: 1.8; margin-bottom: 4px;
+}
+.task-box strong { color: var(--gold2); }
+
+/* ─── KEY POINTS LIST ─── */
+.key-points { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+.key-point {
+  display: flex; align-items: flex-start; gap: 10px;
+  color: var(--light); font-size: 0.92em;
+}
+.kp-icon {
+  min-width: 20px; height: 20px;
+  background: rgba(76,154,255,0.15);
+  border: 1px solid rgba(76,154,255,0.25);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.6em; color: var(--blue); margin-top: 3px; font-weight: 700;
+}
+.key-point strong { color: #fff; }
+
+/* ─── TOOL CHIPS ─── */
+.tools-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.tool-chip {
+  font-size: 0.78em; font-weight: 600; font-family: 'JetBrains Mono', monospace;
+  padding: 4px 12px; border-radius: 6px;
+  background: rgba(180,124,255,0.1);
+  border: 1px solid rgba(180,124,255,0.2);
+  color: var(--purple);
+}
+
+/* ─── PROJECTS SECTION ─── */
+.projects-section {
+  margin-bottom: 60px;
+}
+.projects-section > h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2em; font-weight: 900; color: #fff;
+  margin-bottom: 8px;
+}
+.projects-section > p { color: var(--muted); margin-bottom: 36px; font-size: 0.95em; }
+
+.project-card {
+  border: 1px solid var(--border);
+  border-radius: 20px; overflow: hidden;
+  background: var(--card);
+  margin-bottom: 28px;
+  transition: border-color 0.2s;
+}
+.project-card:hover { border-color: var(--gold); }
+
+.project-header {
+  display: flex; align-items: stretch;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg3);
+}
+.project-num {
+  min-width: 70px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5em; font-weight: 900; color: var(--gold);
+  border-right: 1px solid var(--border);
+  padding: 20px;
+}
+.project-title-block { padding: 20px 28px; flex: 1; }
+.project-title-block h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2em; font-weight: 700; color: #fff; margin-bottom: 4px;
+}
+.project-title-block .p-meta {
+  display: flex; gap: 16px; align-items: center; flex-wrap: wrap;
+}
+.p-level {
+  font-size: 0.75em; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 1px; padding: 3px 10px; border-radius: 4px;
+}
+.p-level-hard { background: rgba(255,87,87,0.12); color: var(--red); border: 1px solid rgba(255,87,87,0.2); }
+.p-level-med { background: rgba(240,165,0,0.12); color: var(--gold); border: 1px solid rgba(240,165,0,0.2); }
+.p-duration { font-size: 0.8em; color: var(--muted); }
+
+.project-body { padding: 28px 32px; }
+.project-body > p { color: var(--light); margin-bottom: 20px; font-size: 0.94em; }
+
+.deliverables {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px;
+}
+@media(max-width:700px){ .deliverables { grid-template-columns: 1fr; } }
+.deliverable {
+  display: flex; align-items: flex-start; gap: 10px;
+  background: var(--bg3); border: 1px solid var(--border);
+  border-radius: 10px; padding: 12px 14px;
+  font-size: 0.88em; color: var(--light);
+}
+.del-icon { font-size: 1.2em; }
+
+.steps-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+.step {
+  display: flex; gap: 14px; align-items: flex-start;
+  background: var(--bg3); border-radius: 10px; padding: 14px 16px;
+}
+.step-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75em; font-weight: 700;
+  min-width: 28px; height: 28px; border-radius: 6px;
+  background: rgba(240,165,0,0.12); color: var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid rgba(240,165,0,0.2);
+}
+.step-content { font-size: 0.9em; color: var(--light); line-height: 1.6; }
+.step-content strong { color: #fff; }
+
+.resume-line {
+  display: flex; align-items: flex-start; gap: 10px;
+  background: rgba(0,201,167,0.06);
+  border: 1px solid rgba(0,201,167,0.15);
+  border-left: 3px solid var(--teal);
+  border-radius: 0 10px 10px 0;
+  padding: 14px 18px;
+  font-size: 0.88em; color: var(--light);
+}
+.resume-icon { font-size: 1.2em; flex-shrink: 0; }
+
+/* ─── DIVIDER ─── */
+.section-divider {
+  display: flex; align-items: center; gap: 16px;
+  margin: 60px 0 48px;
+}
+.section-divider::before, .section-divider::after {
+  content: ''; flex: 1; height: 1px;
+  background: linear-gradient(to right, transparent, var(--border), transparent);
+}
+.section-divider span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75em; color: var(--muted); white-space: nowrap;
+  text-transform: uppercase; letter-spacing: 2px;
+}
+
+/* ─── TIMELINE ─── */
+.timeline-section {
+  border: 1px solid var(--border); border-radius: 20px;
+  background: var(--card); padding: 36px; margin-bottom: 60px;
+}
+.timeline-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5em; color: #fff; margin-bottom: 24px;
+}
+.tl-row {
+  display: grid; grid-template-columns: 140px 1fr; gap: 20px;
+  align-items: start; padding: 16px 0; border-bottom: 1px solid var(--border);
+}
+.tl-row:last-child { border-bottom: none; }
+.tl-period {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8em; font-weight: 600; color: var(--gold);
+  padding-top: 2px;
+}
+.tl-content h4 { color: #fff; font-size: 0.95em; margin-bottom: 4px; font-weight: 600; }
+.tl-content p { color: var(--muted); font-size: 0.85em; }
+
+/* ─── FOOTER ─── */
+.site-footer {
+  background: var(--bg2); border-top: 1px solid var(--border);
+  padding: 40px; text-align: center;
+}
+.site-footer p { color: var(--muted); font-size: 0.88em; max-width: 600px; margin: 0 auto; }
+.site-footer strong { color: var(--gold); }
+
+/* ════════════════════════════════════════════════
+   RESPONSIVE — Large tablet / small laptop ≤1024px
+════════════════════════════════════════════════ */
+@media(max-width:1024px){
+  .container { padding: 50px 32px; }
+  .hero { padding: 70px 32px 55px; }
+  .toc { padding: 0 32px; }
+  .site-footer { padding: 36px 32px; }
+}
+
+/* ════════════════════════════════════════════════
+   RESPONSIVE — Tablet ≤768px
+════════════════════════════════════════════════ */
+@media(max-width:768px){
+  html { font-size: 14px; }
+
+  /* Hero */
+  .hero { padding: 60px 24px 44px; }
+  .hero-sub { font-size: 1em; margin-bottom: 32px; }
+  .hero-stats { gap: 24px; }
+  .stat-num { font-size: 1.9em; }
+
+  /* Nav */
+  .toc { padding: 0 20px; }
+  .toc-item { padding: 14px 14px; font-size: 0.78em; }
+
+  /* Layout */
+  .container { padding: 44px 24px; }
+
+  /* Module header: stack num-block above title on tablet */
+  .module-header { flex-direction: column; }
+  .module-num-block {
+    flex-direction: row; justify-content: flex-start; gap: 10px;
+    border-right: none; border-bottom: 1px solid var(--border);
+    padding: 16px 24px; min-width: unset;
+  }
+  .module-num-block .big-num { font-size: 1.8em; }
+  .module-title-block { padding: 20px 24px; }
+  .module-title-block h2 { font-size: 1.35em; }
+  .module-body { padding: 28px 24px; }
+
+  /* Project header: same stacking */
+  .project-header { flex-direction: column; }
+  .project-num {
+    border-right: none; border-bottom: 1px solid var(--border);
+    min-width: unset; justify-content: flex-start;
+    padding: 14px 24px; font-size: 2em;
+  }
+  .project-title-block { padding: 16px 24px; }
+  .project-body { padding: 22px 24px; }
+
+  /* Timeline */
+  .tl-row { grid-template-columns: 110px 1fr; gap: 14px; }
+  .timeline-section { padding: 28px 24px; }
+
+  /* Footer */
+  .site-footer { padding: 32px 24px; }
+
+  /* Section divider */
+  .section-divider { margin: 44px 0 36px; }
+}
+
+/* ════════════════════════════════════════════════
+   RESPONSIVE — Large phone ≤600px
+════════════════════════════════════════════════ */
+@media(max-width:600px){
+  html { font-size: 14px; }
+
+  /* Hero */
+  .hero { padding: 52px 18px 40px; }
+  .hero-stats { gap: 20px; flex-wrap: wrap; }
+  .stat { min-width: calc(50% - 10px); }
+
+  /* Nav — tighter so it scrolls cleanly */
+  .toc { padding: 0 8px; }
+  .toc-item { padding: 13px 10px; font-size: 0.75em; gap: 5px; }
+  .toc-num { width: 18px; height: 18px; font-size: 0.68em; }
+
+  /* Layout */
+  .container { padding: 36px 18px 50px; }
+
+  /* Module */
+  .module { border-radius: 14px; margin-bottom: 50px; }
+  .module-num-block { padding: 14px 18px; }
+  .module-num-block .big-num { font-size: 1.6em; }
+  .module-title-block { padding: 16px 18px; }
+  .module-title-block h2 { font-size: 1.2em; }
+  .module-body { padding: 22px 18px; }
+
+  /* Topic */
+  .topic { margin-bottom: 34px; padding-bottom: 34px; }
+  .topic-title { flex-wrap: wrap; gap: 8px; }
+  .topic-title h3 { font-size: 1.05em; }
+
+  /* Project */
+  .project-card { border-radius: 14px; }
+  .project-num { padding: 12px 18px; font-size: 1.8em; }
+  .project-title-block { padding: 14px 18px; }
+  .project-title-block h3 { font-size: 1.05em; }
+  .project-body { padding: 18px 18px; }
+
+  /* Timeline */
+  .tl-row { grid-template-columns: 90px 1fr; gap: 10px; padding: 14px 0; }
+  .tl-period { font-size: 0.72em; }
+  .timeline-section { padding: 22px 18px; border-radius: 14px; }
+
+  /* Footer */
+  .site-footer { padding: 28px 18px; }
+
+  /* Divider */
+  .section-divider { margin: 36px 0 28px; }
+}
+
+/* ════════════════════════════════════════════════
+   RESPONSIVE — Mobile portrait ≤480px
+════════════════════════════════════════════════ */
+@media(max-width:480px){
+  html { font-size: 13.5px; }
+
+  /* Hero */
+  .hero { padding: 48px 16px 36px; }
+  .hero-label { font-size: 0.68em; padding: 5px 12px; }
+  .hero-sub { font-size: 0.95em; margin-bottom: 28px; }
+  .hero-stats { gap: 16px; }
+  .stat-num { font-size: 1.7em; }
+  .stat-label { font-size: 0.72em; }
+
+  /* Nav */
+  .toc { padding: 0 4px; }
+  .toc-item { padding: 12px 8px; font-size: 0.72em; gap: 4px; }
+  .toc-num { display: none; } /* hide number badges to save space */
+
+  /* Layout */
+  .container { padding: 28px 16px 44px; }
+
+  /* Module */
+  .module { border-radius: 12px; margin-bottom: 40px; }
+  .module-num-block { padding: 12px 16px; gap: 8px; }
+  .module-num-block .big-num { font-size: 1.4em; }
+  .module-num-block .mod-label { font-size: 0.55em; }
+  .module-title-block { padding: 14px 16px; }
+  .module-title-block h2 { font-size: 1.1em; }
+  .module-title-block .module-desc { font-size: 0.87em; }
+  .module-body { padding: 18px 16px; }
+  .module-tags { gap: 6px; }
+  .tag { font-size: 0.65em; padding: 2px 8px; }
+
+  /* Topic */
+  .topic { margin-bottom: 28px; padding-bottom: 28px; }
+  .topic-title h3 { font-size: 1em; }
+  .topic-explain { font-size: 0.9em; }
+  .key-point { font-size: 0.88em; }
+  .example-box, .task-box { padding: 14px 14px; }
+  .example-box p, .example-box li,
+  .task-box li { font-size: 0.87em; }
+
+  /* Project */
+  .project-card { border-radius: 12px; }
+  .project-num { padding: 10px 16px; font-size: 1.6em; }
+  .project-title-block { padding: 12px 16px; }
+  .project-title-block h3 { font-size: 1em; }
+  .project-body { padding: 16px 16px; }
+  .project-body > p { font-size: 0.9em; }
+  .step { padding: 12px 12px; gap: 10px; }
+  .step-content { font-size: 0.87em; }
+  .resume-line { padding: 12px 14px; font-size: 0.85em; }
+
+  /* Timeline */
+  .tl-row { grid-template-columns: 76px 1fr; gap: 8px; padding: 12px 0; }
+  .tl-period { font-size: 0.68em; }
+  .tl-content h4 { font-size: 0.9em; }
+  .tl-content p { font-size: 0.82em; }
+  .timeline-section { padding: 18px 16px; border-radius: 12px; }
+  .timeline-section h2 { font-size: 1.25em; margin-bottom: 18px; }
+
+  /* Footer */
+  .site-footer { padding: 24px 16px; }
+  .site-footer p { font-size: 0.84em; }
+
+  /* Divider */
+  .section-divider { margin: 28px 0 22px; }
+  .section-divider span { font-size: 0.68em; }
+
+  /* Projects section heading */
+  .projects-section > h2 { font-size: 1.8em; }
+}
+
+/* ════════════════════════════════════════════════
+   RESPONSIVE — Small phones ≤380px
+════════════════════════════════════════════════ */
+@media(max-width:380px){
+  html { font-size: 13px; }
+
+  .hero { padding: 40px 14px 30px; }
+  .hero-stats { gap: 12px; }
+  .stat { min-width: calc(50% - 6px); }
+  .stat-num { font-size: 1.5em; }
+
+  .container { padding: 24px 14px 40px; }
+
+  .module-title-block h2 { font-size: 1.05em; }
+  .module-body { padding: 16px 14px; }
+
+  .tl-row { grid-template-columns: 64px 1fr; gap: 6px; }
+  .tl-period { font-size: 0.62em; }
+
+  .project-body { padding: 14px 14px; }
+  .tools-row { gap: 6px; }
+  .tool-chip { font-size: 0.72em; padding: 3px 9px; }
+}
+
+/* ════════════════════════════════════════════════
+   GLOBAL OVERFLOW GUARD
+════════════════════════════════════════════════ */
+body { max-width: 100vw; overflow-x: hidden; }
+img, video, iframe, table { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-label">🔍 Complete Learning Roadmap</div>
+    <h1>Search Engine<br>Optimisation</h1>
+    <p class="hero-sub">A topic-by-topic deep dive with detailed explanations, real-world examples, hands-on tasks, and portfolio-ready projects to land your first SEO client.</p>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num">10</span><span class="stat-label">Core Modules</span></div>
+      <div class="stat"><span class="stat-num">50+</span><span class="stat-label">Detailed Topics</span></div>
+      <div class="stat"><span class="stat-num">60+</span><span class="stat-label">Practical Tasks</span></div>
+      <div class="stat"><span class="stat-num">6</span><span class="stat-label">Resume Projects</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="toc">
+  <div class="toc-inner">
+    <a href="#m1" class="toc-item"><span class="toc-num">01</span>Fundamentals</a>
+    <a href="#m2" class="toc-item"><span class="toc-num">02</span>Keyword Research</a>
+    <a href="#m3" class="toc-item"><span class="toc-num">03</span>On-Page SEO</a>
+    <a href="#m4" class="toc-item"><span class="toc-num">04</span>Technical SEO</a>
+    <a href="#m5" class="toc-item"><span class="toc-num">05</span>Content & SEO</a>
+    <a href="#m6" class="toc-item"><span class="toc-num">06</span>Link Building</a>
+    <a href="#m7" class="toc-item"><span class="toc-num">07</span>Local SEO</a>
+    <a href="#m8" class="toc-item"><span class="toc-num">08</span>E-commerce SEO</a>
+    <a href="#m9" class="toc-item"><span class="toc-num">09</span>Analytics</a>
+    <a href="#m10" class="toc-item"><span class="toc-num">10</span>Advanced SEO</a>
+    <a href="#projects" class="toc-item"><span class="toc-num">★</span>Projects</a>
+  </div>
+</nav>
+
+<div class="container">
+
+<!-- ═══════════════════════════════════════════════ MODULE 1 ═══ -->
+<div class="module" id="m1">
+  <div class="module-header">
+    <div class="module-num-block"><span class="big-num">01</span><span class="mod-label">Module</span></div>
+    <div class="module-title-block">
+      <h2>SEO Fundamentals — How Search Engines Work</h2>
+      <p class="module-desc">Before optimising anything, you must deeply understand what you're optimising for. This module covers the engine under the hood.</p>
+      <div class="module-tags">
+        <span class="tag tag-gold">Beginner</span>
+        <span class="tag tag-teal">Foundation</span>
+      </div>
+    </div>
+  </div>
+  <div class="module-body">
+
+    <!-- TOPIC 1.1 -->
+    <div class="topic">
+      <div class="topic-title"><h3>1.1 What Is SEO & Why It Matters</h3><span class="topic-badge">1.1</span></div>
+      <p class="topic-explain">SEO (Search Engine Optimisation) is the practice of making your website appear higher in organic (unpaid) search results. It works by aligning your content with what search algorithms reward — relevance, authority, and user experience. Unlike paid ads, SEO traffic compounds over time and doesn't stop when you stop paying. A page that ranks #1 on Google for a keyword gets an average of 27.6% of all clicks for that query. Ranking on page 2 is effectively invisible — only ~0.6% of users scroll to page 2.</p>
+      <div class="topic-grid">
+        <div class="example-box">
+          <div class="box-label">📖 Real Example</div>
+          <p>A local bakery in Delhi invests ₹0 in ads but writes blog posts about "best birthday cake ideas" and "eggless cake recipes". Over 12 months, these pages rank on page 1 of Google. They now receive 800 organic visitors/month who search for exactly what they sell — with zero ongoing ad cost. A competitor pays ₹15,000/month for the same traffic volume via Google Ads.</p>
+        </div>
+        <div class="task-box">
+          <div class="box-label">✅ Your Task</div>
+          <ol>
+            <li>Search your own name or a hobby on Google. <strong>Analyse the top 3 results</strong> — what do they have in common?</li>
+            <li>Search a local business in your city. <strong>Note: does it show on Google Maps? Does it have a website ranking?</strong></li>
+            <li>Write a 200-word note answering: <strong>"What problem does SEO solve for businesses?"</strong></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOPIC 1.2 -->
+    <div class="topic">
+      <div class="topic-title"><h3>1.2 Crawling — How Google Discovers Pages</h3><span class="topic-badge">1.2</span></div>
+      <p class="topic-explain">Googlebot is an automated program that travels the internet like a librarian browsing shelves. It starts from known URLs, visits them, reads the content, and follows every link it finds to discover new pages. This process is called crawling. Crawl budget is the number of pages Google will crawl on your site in a given period — large sites must manage this carefully. Pages Google can't find won't rank, period.</p>
+      <div class="key-points">
+        <div class="key-point"><div class="kp-icon">▸</div><div><strong>Crawl budget</strong> — Google doesn't crawl infinite pages. Small sites get crawled fully; large sites must prioritise important pages.</div></div>
+        <div class="key-point"><div class="kp-icon">▸</div><div><strong>Internal links</strong> — The primary way Googlebot discovers new pages on your site. Orphan pages (no inbound links) may never be found.</div></div>
+        <div class="key-point"><div class="kp-icon">▸</div><div><strong>robots.txt</strong> — A text file at yoursite.com/robots.txt that tells crawlers which pages NOT to crawl. Misconfiguring this can accidentally block your entire site.</div></div>
+      </div>
+      <div class="topic-grid">
+        <div class="example-box">
+          <div class="box-label">📖 Real Example</div>
+          <p>A new blog post is published on example.com/blog/new-post. Googlebot discovers it <strong>only</strong> because the blog homepage links to it. If you publish a page with no links pointing to it, it's an "orphan page" — Googlebot may never find it, even if your sitemap lists it.</p>
+          <p style="margin-top:10px;">Check your own site: <code>site:yourdomain.com</code> in Google shows all indexed pages.</p>
+        </div>
+        <div class="task-box">
+          <div class="box-label">✅ Your Task</div>
+          <ol>
+            <li>Visit <strong>google.com/robots.txt</strong> and <strong>nytimes.com/robots.txt</strong> — read what's blocked. Note why.</li>
+            <li>Search <code>site:wikipedia.org</code> in Google. How many pages are indexed? Now try <code>site:yourfavouriteblog.com</code>.</li>
+            <li>Draw a diagram showing how Googlebot would crawl a 5-page website (Home, About, Blog, Post 1, Contact).</li>
+          </ol>
+        </div>
+      </div>
+      <div class="tools-row">
+        <span class="tool-chip">Google Search Console</span>
+        <span class="tool-chip">Screaming Frog</span>
+        <span class="tool-chip">robots.txt tester</span>
+      </div>
+    </div>
+
+    <!-- TOPIC 1.3 -->
+    <div class="topic">
+      <div class="topic-title"><h3>1.3 Indexing — How Google Stores Pages</h3><span class="topic-badge">1.3</span></div>
+      <p class="topic-explain">After crawling, Google processes the page content and stores it in its index — a massive database of trillions of web pages. Indexed pages are candidates to appear in search results. Not every crawled page gets indexed — Google may decide a page has thin content, is a duplicate of another page, or isn't useful enough. The most common indexing issues are: blocked by robots.txt, noindex tag, duplicate content, thin content, and redirect chains.</p>
+      <div class="topic-grid">
+        <div class="example-box">
+          <div class="box-label">📖 Real Example</div>
+          <p>An e-commerce site has 1,000 product pages. After a developer accidentally adds <code>&lt;meta name="robots" content="noindex"&gt;</code> to a template, 800 product pages get deindexed within 2 weeks. Sales drop 60%. This is one of the most common catastrophic SEO mistakes.</p>
+          <p style="margin-top:10px;">Always check: <code>site:yourdomain.com</code> regularly to monitor indexed page count.</p>
+        </div>
+        <div class="task-box">
+          <div class="box-label">✅ Your Task</div>
+          <ol>
+            <li>Go to Google Search Console (free) and add a website (can be your own or a test site). <strong>Check how many pages are indexed vs. not indexed.</strong></li>
+            <li>Search <code>site:medium.com "your topic"</code> to see how Medium's content ranks. Notice Medium gets many pages indexed — why?</li>
+            <li>Create a test HTML file with <code>&lt;meta name="robots" content="noindex"&gt;</code> and understand what it does.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOPIC 1.4 -->
+    <div class="topic">
+      <div class="topic-title"><h3>1.4 Ranking Algorithms & Key Signals</h3><span class="topic-badge">1.4</span></div>
+      <p class="topic-explain">Google's ranking algorithm uses 200+ signals to decide which pages deserve to rank on page 1. The three fundamental pillars are: <strong>Relevance</strong> (does the content match what the user searched for?), <strong>Authority</strong> (do other trusted sites link to this page?), and <strong>Experience</strong> (is the page fast, safe, and easy to use?). Google also uses machine learning systems like RankBrain and BERT to better understand natural language queries.</p>
+      <div class="key-points">
+        <div class="key-point"><div class="kp-icon">▸</div><div><strong>E-E-A-T</strong> — Experience, Expertise, Authoritativeness, Trustworthiness. Especially critical for medical, financial, and legal content (YMYL pages).</div></div>
+        <div class="key-point"><div class="kp-icon">▸</div><div><strong>PageRank</strong> — Google's original algorithm. A page gets authority by receiving links from other authoritative pages. Links = votes of trust.</div></div>
+        <div class="key-point"><div class="kp-icon">▸</div><div><strong>RankBrain</strong> — AI that interprets ambiguous queries. "Python" could mean the language or the snake — RankBrain figures out intent from context.</div></div>
+        <div class="key-point"><div class="kp-icon">▸</div><div><strong>Helpful Content System</strong> — Google's 2022–2024 updates reward content written for humans first, penalising AI-mass-produced or thin content.</div></div>
+      </div>
+      <div class="topic-grid">
+        <div class="example-box">
+          <div class="box-label">📖 Real Example</div>
+          <p>A page about "how to tie a bowline knot" written by a certified sailing instructor with clear step-by-step instructions, diagrams, and 50 inbound links from sailing blogs outranks a generic page with vague text and no links — because it wins on Relevance (complete instructions), Authority (links + author credentials), and Experience (clear, fast, mobile-friendly).</p>
+        </div>
+        <div class="task-box">
+          <div class="box-label">✅ Your Task</div>
+          <ol>
+            <li>Search "best protein powder" and "how to make pasta" — <strong>notice how completely different types of results appear</strong>. Write down why the results differ.</li>
+            <li>Open any top-ranking article and use Moz Bar (free extension) to check its Page Authority and Domain Authority.</li>
+            <li>List 5 signals you think Google uses to rank pages (then look up Google's published ranking factors to compare).</li>
+          </ol>
+        </div>
+      </div>
+      <div class="tools-row"><span class="tool-chip">MozBar</span><span class="tool-chip">Google Search Console</span><span class="tool-chip">Ahrefs free tools</span></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ MODULE 2 ═══ -->
+<div class="module" id="m2">
+  <div class="module-header">
+    <div class="module-num-block"><span class="big-num">02</span><span class="mod-label">Module</span></div>
+    <div class="module-title-block">
+      <h2>Keyword Research — The Foundation of SEO Strategy</h2>
+      <p class="module-desc">Keyword research is the process of finding what your target audience searches for. Every SEO decision flows from it. Get this wrong and you'll spend months ranking for terms nobody searches.</p>
+      <div class="module-tags"><span class="tag tag-gold">Beginner→Intermediate</span><span class="tag tag-blue">Strategy</span></div>
+    </div>
+  </div>
+  <div class="module-body">
+
+    <div class="topic">
+      <div class="topic-title"><h3>2.1 Understanding Search Intent</h3><span class="topic-badge">2.1</span></div>
+      <p class="topic-explain">Search intent (also called user intent) is the underlying goal of a search query. It's the single most important concept in modern SEO. Google's entire ranking system is built around matching results to intent. Even if your page has the exact keyword and thousands of backlinks, it will NOT rank if it doesn't match intent. There are 4 intent types: <strong>Informational</strong> (learning something), <strong>Navigational</strong> (finding a specific site), <strong>Commercial</strong> (comparing options before buying), <strong>Transactional</strong> (ready to take action).</p>
+      <div class="key-points">
+        <div class="key-point"><div class="kp-icon">▸</div><div><strong>Informational:</strong> "how to lose weight fast" → user wants a guide/article, not a product page</div></div>
+        <div class="key-point"><div class="kp-icon">▸</div><div><strong>Navigational:</strong> "facebook login" → user wants the Facebook homepage specifically</div></div>
+        <div class="key-point"><div class="kp-icon">▸</div><div><strong>Commercial:</strong> "best laptops under 50000" → user wants comparisons, reviews, lists</div></div>
+        <div class="key-point"><div class="kp-icon">▸</div><div><strong>Transactional:</strong> "buy iPhone 15 online" → user is ready to purchase; product/category page ranks here</div></div>
+      </div>
+      <div class="topic-grid">
+        <div class="example-box">
+          <div class="box-label">📖 Real Example</div>
+          <p>A gym creates a product page for "protein powder" and stuffs the page with keywords. But the top results for this query are all <strong>blog articles</strong> (best protein powders list, reviews). The gym's product page will never rank because it doesn't match informational/commercial intent. Solution: create a blog post "10 Best Protein Powders for Beginners in 2024" — then link to your product in the article.</p>
+        </div>
+        <div class="task-box">
+          <div class="box-label">✅ Your Task</div>
+          <ol>
+            <li>Search 10 keywords in your niche. <strong>Classify each as Informational / Commercial / Transactional.</strong></li>
+            <li>For each keyword, look at what TYPE of page ranks #1 (article? product page? homepage?). This tells you intent.</li>
+            <li>Write 3 keyword ideas for each intent type for a "yoga studio" business.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-title"><h3>2.2 Keyword Metrics — Volume, Difficulty, CPC</h3><span class="topic-badge">2.2</span></div>
+      <p class="topic-explain">When evaluating a keyword, you must analyse three core metrics. <strong>Search Volume</strong> = how many people search this per month (higher = more potential traffic but also more competition). <strong>Keyword Difficulty (KD)</strong> = how hard it is to rank on page 1 (0–100 scale, 0 = easy, 100 = nearly impossible without massive authority). <strong>CPC (Cost Per Click)</strong> = what advertisers pay per click — high CPC means the keyword has commercial value, meaning real money is made from this traffic.</p>
+      <div class="topic-grid">
+        <div class="example-box">
+          <div class="box-label">📖 Real Example</div>
+          <p>Keyword: "credit card" → Volume: 2.2M/month, KD: 96/100, CPC: $7.50 — impossible for a new site.<br><br>Keyword: "best credit card for students in India" → Volume: 8,100/month, KD: 32/100, CPC: $3.20 — achievable for a new personal finance blog. This is the type of keyword to target when starting out.</p>
+        </div>
+        <div class="task-box">
+          <div class="box-label">✅ Your Task</div>
+          <ol>
+            <li>Use <strong>Ubersuggest (free)</strong> or <strong>Google Keyword Planner</strong> to research 20 keywords in any niche you like.</li>
+            <li>Build a spreadsheet with columns: Keyword | Volume | KD | CPC | Intent | Priority (High/Med/Low).</li>
+            <li>Identify 5 "golden" keywords: <strong>Volume > 500/month, KD &lt; 40, clear intent.</strong></li>
+          </ol>
+        </div>
+      </div>
+      <div class="tools-row"><span class="tool-chip">Ahrefs</span><span class="tool-chip">SEMrush</span><span class="tool-chip">Ubersuggest</span><span class="tool-chip">Google Keyword Planner</span><span class="tool-chip">Keywords Everywhere</span></div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-title"><h3>2.3 Long-Tail vs. Short-Tail Keywords</h3><span class="topic-badge">2.3</span></div>
+      <p class="topic-explain">Short-tail keywords are broad, high-volume terms (1–2 words) like "shoes" or "SEO." They get millions of searches but are dominated by huge brands. Long-tail keywords are specific, multi-word phrases like "best running shoes for flat feet under $100." They have lower volume but dramatically higher conversion rates because the searcher has very specific intent. As a new site or SEO professional, long-tail keywords are your entry point to ranking.</p>
+      <div class="topic-grid">
+        <div class="example-box">
+          <div class="box-label">📖 Real Example</div>
+          <p><strong>Short-tail:</strong> "SEO" → 1.5M searches/month. Top results: Wikipedia, Moz, Google's own guide. A new SEO blog has zero chance.<br><br><strong>Long-tail:</strong> "how to do SEO for a restaurant website" → 1,200 searches/month. KD: 22. A well-written 2,000-word guide from a new blog CAN rank here — and the reader is highly qualified (they run a restaurant).</p>
+        </div>
+        <div class="task-box">
+          <div class="box-label">✅ Your Task</div>
+          <ol>
+            <li>Take any short-tail keyword (e.g., "yoga") and generate <strong>10 long-tail variants</strong> using Google's autocomplete — just start typing and note the suggestions.</li>
+            <li>Check "People Also Ask" for any keyword — these are <strong>gold for long-tail content ideas.</strong></li>
+            <li>Build a "keyword cluster" — group 15 keywords around one main topic (e.g., "home gym setup").</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-title"><h3>2.4 Competitor Keyword Research</h3><span class="topic-badge">2.4</span></div>
+      <p class="topic-explain">One of the fastest keyword research strategies is to analyse what keywords your competitors already rank for. This is reverse-engineering success. Tools like Ahrefs and SEMrush let you enter any competitor's domain and see every keyword they rank for, their traffic, and the pages driving it. You can then identify: (1) keywords they rank for that you don't, (2) keywords they rank on page 2 for (easy to outrank with better content), and (3) gaps where you can rank with content they haven't created.</p>
+      <div class="topic-grid">
+        <div class="example-box">
+          <div class="box-label">📖 Real Example</div>
+          <p>You're building an SEO blog. You enter backlinko.com into Ahrefs Site Explorer. You see they rank for "SEO checklist" with 18,000 monthly visits. You analyse their article, notice it's 3 years old and missing newer techniques. You write a <strong>more complete, updated version</strong> and target the same keyword. Within 6 months you rank #3 and steal significant traffic.</p>
+        </div>
+        <div class="task-box">
+          <div class="box-label">✅ Your Task</div>
+          <ol>
+            <li>Use <strong>Ahrefs Free Webmaster Tools</strong> or <strong>SEMrush's free trial</strong> to analyse 2 competitors in your chosen niche.</li>
+            <li>Find their <strong>top 10 traffic-driving pages</strong> and list the keywords those pages target.</li>
+            <li>Identify 3 keywords where their ranking content is outdated or incomplete — these are your content opportunities.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="tools-row"><span class="tool-chip">Ahrefs Site Explorer</span><span class="tool-chip">SEMrush</span><span class="tool-chip">SimilarWeb</span><span class="tool-chip">SpyFu</span></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ MODULE 3 ═══ -->
+<div class="module" id="m3">
+  <div class="module-header">
+    <div class="module-num-block"><span class="big-num">03</span><span class="mod-label">Module</span></div>
+    <div class="module-title-block">
+      <h2>On-Page SEO — Optimising Every Page</h2>
+      <p class="module-desc">On-page SEO is everything you control directly on a page to help it rank. Mastering this is the single biggest lever for new SEO practitioners.</p>
+      <div class="module-tags"><span class="tag tag-gold">Intermediate</span><span class="tag tag-teal">High Impact</span></div>
+    </div>
+  </div>
+  <div class="module-body">
+
+    <div class="topic">
+      <div class="topic-title"><h3>3.1 Title Tags — Your #1 On-Page Signal</h3><span class="topic-badge">3.1</span></div>
+      <p class="topic-explain">The title tag is the clickable blue headline that appears in search results. It is the single most important on-page SEO element. It tells Google what your page is about AND convinces users to click. Rules: include your primary keyword (ideally in the first 60 characters), make it compelling and human — not just keyword stuffing, keep it under 60 characters to avoid truncation, and make every title tag on your site unique.</p>
+      <div class="topic-grid">
+        <div class="example-box">
+          <div class="box-label">📖 Real Example</div>
+          <p><strong>Bad title tag:</strong><br><code>SEO Tips | Best SEO | SEO Guide 2024 | SEO</code><br>(keyword stuffing, unreadable)</p>
+          <p style="margin-top:10px;"><strong>Good title tag:</strong><br><code>17 Proven SEO Tips to Double Your Traffic in 2024</code><br>(keyword "SEO tips" near start, specific number creates curiosity, year signals freshness — 52 chars)</p>
+        </div>
+        <div class="task-box">
+          <div class="box-label">✅ Your Task</div>
+          <ol>
+            <li>Write 5 title tags for the keyword "how to start a blog" — make each one different (question format, number format, how-to format, benefit-led, curiosity gap).</li>
+            <li>Use <strong>Screaming Frog (free up to 500 URLs)</strong> to crawl a website and find all missing or duplicate title tags.</li>
+            <li>Audit 10 title tags on a real website — rewrite any that are weak.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-title"><h3>3.2 Meta Descriptions — Improve Your CTR</h3><span class="topic-badge">3.2</span></div>
+      <p class="topic-explain">The meta description is the 160-character summary below the title in search results. It is NOT a direct ranking factor, but it dramatically affects Click-Through Rate (CTR) — which IS a ranking signal. A compelling meta description convinces users to choose your result over others. Include the keyword (Google bolds it when it matches the search), add a clear benefit or hook, and end with a soft CTA.</p>
+      <div class="topic-grid">
+        <div class="example-box">
+          <div class="box-label">📖 Real Example</div>
+          <p><strong>Weak meta:</strong> "This article is about SEO tips. Read our guide to learn SEO."<br><br><strong>Strong meta:</strong> "Struggling to get traffic? These 17 SEO tips increased our organic visits by 312% in 6 months — all without paid ads. Start with Tip #4."<br><br>The strong version creates curiosity, provides proof (312%), sets expectations, and has a hook (Tip #4). It gets 2–3x more clicks.</p>
+        </div>
+        <div class="task-box">
+          <div class="box-label">✅ Your Task</div>
+          <ol>
+            <li>Write meta descriptions for 5 different pages: Homepage, Blog post, Product page, About page, Contact page.</li>
+            <li>Install <strong>SEO Meta in 1 Click</strong> (free Chrome extension) and analyse meta descriptions on 10 competitor pages.</li>
+            <li>Find 3 pages in your niche where meta descriptions are weak or missing — these are pages you can outrank with better CTR.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-title"><h3>3.3 Header Tags (H1–H6) & Content Structure</h3><span class="topic-badge">3.3</span></div>
+      <p class="topic-explain">Header tags (H1, H2, H3, etc.) create a logical document outline that helps Google understand content hierarchy and helps users scan the page. The H1 is the page's main headline — use it once, include your primary keyword. H2s are section headings — include secondary keywords naturally. H3–H6 are subsections. Think of headers like a book's table of contents: they should make the structure obvious at a glance. Google uses headers to understand what sub-topics a page covers.</p>
+      <div class="topic-grid">
+        <div class="example-box">
+          <div class="box-label">📖 Real Example</div>
+          <p><strong>Article: "How to Make Sourdough Bread"</strong><br>
+          <code>H1:</code> How to Make Sourdough Bread at Home (Beginner's Guide)<br>
+          <code>H2:</code> What You'll Need (Ingredients & Equipment)<br>
+          <code>H2:</code> How to Make a Sourdough Starter<br>
+          <code>  H3:</code> Day 1: Starting the Fermentation<br>
+          <code>  H3:</code> Day 3–7: Feeding Your Starter<br>
+          <code>H2:</code> Mixing and Shaping Your Dough<br>
+          <code>H2:</code> Baking: Time & Temperature Guide<br>
+          This structure helps Google know the article covers the full topic — starter, mixing, baking — increasing chances of ranking for all related searches.</p>
+        </div>
+        <div class="task-box">
+          <div class="box-label">✅ Your Task</div>
+          <ol>
+            <li>Pick any blog article online. <strong>Map out its header structure</strong> (H1, H2, H3). Does it make logical sense?</li>
+            <li>Plan the full header structure for an article titled <strong>"Complete Guide to Home Workout for Beginners"</strong> — write all H1, H2, H3 headers before writing a single word of content.</li>
+            <li>Use Screaming Frog to check a site for missing H1s or pages with multiple H1s.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-title"><h3>3.4 URL Structure & Slug Optimisation</h3><span class="topic-badge">3.4</span></div>
+      <p class="topic-explain">The URL slug is the part after the domain (e.g., yoursite.com<strong>/seo-tips-for-beginners</strong>). Good URLs are short, descriptive, use hyphens (not underscores), contain the primary keyword, and avoid stop words (a, the, for, of). Bad URLs like yoursite.com/?p=12344 or yoursite.com/page1/category3/post-from-2018-march-12-seo tell Google and users nothing. URL structure also affects internal linking and site architecture.</p>
+      <div class="topic-grid">
+        <div class="example-box">
+          <div class="box-label">📖 Real Example</div>
+          <p><strong>Bad URLs:</strong><br>
+          <code>yoursite.com/2024/03/14/?p=9823</code><br>
+          <code>yoursite.com/category/subcategory/how-to-do-search-engine-optimization-tips-and-tricks-for-beginners-in-2024</code><br><br>
+          <strong>Good URL:</strong><br>
+          <code>yoursite.com/seo-tips</code><br>
+          <code>yoursite.com/blog/keyword-research-guide</code><br><br>
+          Shorter, cleaner URLs get more clicks and are easier to share.</p>
+        </div>
+        <div class="task-box">
+          <div class="box-label">✅ Your Task</div>
+          <ol>
+            <li>Rewrite these bad URLs into good ones: <strong>/blog/post-123</strong>, <strong>/the-complete-and-ultimate-guide-to-seo-for-absolute-beginners-2024</strong>, <strong>/p?id=4421&cat=12</strong>.</li>
+            <li>Audit the URL structure of any website using Screaming Frog — find 5 URLs that need improvement.</li>
+            <li>Set up a WordPress or any CMS blog and configure the permalink structure to <strong>/post-name/</strong>.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-title"><h3>3.5 Image Optimisation</h3><span class="topic-badge">3.5</span></div>
+      <p class="topic-explain">Images affect SEO in three ways: (1) Page speed — unoptimised images are the #1 cause of slow pages, which hurts rankings. (2) Alt text — the text description of an image that Google reads, since it can't "see" images the way humans do. (3) Image search traffic — properly tagged images can rank in Google Images and drive traffic. Best practices: compress images (use WebP format), write descriptive alt text with keywords, use descriptive filenames (seo-tips-checklist.jpg not IMG_4421.jpg), and serve images at correct dimensions.</p>
+      <div class="topic-grid">
+        <div class="example-box">
+          <div class="box-label">📖 Real Example</div>
+          <p><strong>Bad image alt text:</strong> <code>alt=""</code> or <code>alt="image1"</code><br><br>
+          <strong>Good image alt text:</strong> <code>alt="SEO checklist showing 17 on-page optimisation steps"</code><br><br>
+          A recipe blog used descriptive alt text on all food images. 18 months later, 22% of their total traffic came from Google Images alone — a channel they hadn't even intentionally optimised for. Image filename was also changed from <code>IMG_9234.jpg</code> to <code>chocolate-fudge-brownie-recipe.jpg</code>.</p>
+        </div>
+        <div class="task-box">
+          <div class="box-label">✅ Your Task</div>
+          <ol>
+            <li>Take any 10-image webpage and <strong>write proper alt text for every image.</strong></li>
+            <li>Use <strong>TinyPNG or Squoosh.app</strong> to compress 5 images — note the file size reduction (aim for under 150KB per image).</li>
+            <li>Use Screaming Frog to find all images missing alt text on a website.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="tools-row"><span class="tool-chip">TinyPNG</span><span class="tool-chip">Squoosh</span><span class="tool-chip">ShortPixel</span><span class="tool-chip">WebP Converter</span></div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-title"><h3>3.6 Internal Linking Strategy</h3><span class="topic-badge">3.6</span></div>
+      <p class="topic-explain">Internal links are links from one page on your site to another page on your site. They serve two critical purposes: (1) They help Googlebot discover and understand the relationships between your pages. (2) They distribute PageRank (link equity) across your site — linking from a strong page to a weaker page boosts the weaker page. The anchor text (the clickable text of the link) also signals to Google what the destination page is about. A well-structured internal linking strategy can significantly improve rankings without any external link building.</p>
+      <div class="topic-grid">
+        <div class="example-box">
+          <div class="box-label">📖 Real Example</div>
+          <p>A website had a "SEO Tools Comparison" page stuck on page 3 of Google. The SEO team found that their most powerful page (Domain Authority 60, with 200 backlinks) — their "SEO Guide" homepage — had zero internal links to the Tools Comparison page. They added 3 contextual internal links from the guide. Within 8 weeks, the Tools Comparison page moved from position 28 to position 7 — no new backlinks, just internal linking.</p>
+        </div>
+        <div class="task-box">
+          <div class="box-label">✅ Your Task</div>
+          <ol>
+            <li>Take any 5-page website and <strong>draw an internal linking map</strong> — which pages link to which?</li>
+            <li>Identify 3 "orphan pages" (pages with no internal links pointing to them) using Screaming Frog.</li>
+            <li>For a blog with 10 articles, create an <strong>internal linking plan</strong> showing which articles should link to each other and why.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ MODULE 4 ═══ -->
+<div class="module" id="m4">
+  <div class="module-header">
+    <div class="module-num-block"><span class="big-num">04</span><span class="mod-label">Module</span></div>
+    <div class="module-title-block">
+      <h2>Technical SEO — The Foundation Beneath the Surface</h2>
+      <p class="module-desc">Technical SEO ensures that search engines can crawl, index, and understand your site without obstacles. Even perfect content fails to rank if technical issues block it.</p>
+      <div class="module-tags"><span class="tag tag-red">Advanced</span><span class="tag tag-blue">High Impact</span></div>
+    </div>
+  </div>
+  <div class="module-body">
+
+    <div class="topic">
+      <div class="topic-title"><h3>4.1 Site Speed & Core Web Vitals</h3><span class="topic-badge">4.1</span></div>
+      <p class="topic-explain">Core Web Vitals are Google's official page experience metrics — they directly affect rankings. The three main metrics are: <strong>LCP (Largest Contentful Paint)</strong> — how fast the main content loads (target: under 2.5 seconds). <strong>INP (Interaction to Next Paint)</strong> — how fast the page responds to interactions (target: under 200ms). <strong>CLS (Cumulative Layout Shift)</strong> — how much the layout jumps around as it loads (target: under 0.1). These are measured as real user data via Chrome browser reports.</p>
+      <div class="topic-grid">
+        <div class="example-box">
+          <div class="box-label">📖 Real Example</div>
+          <p>An e-commerce site had an LCP of 8.2 seconds (poor) due to an unoptimised hero image (4MB JPEG). After converting the image to WebP and using lazy loading, LCP dropped to 1.8 seconds. Within 3 months, the homepage moved from position 14 to position 4 for their main commercial keyword — generating an additional $12,000/month in revenue from organic traffic alone.</p>
+        </div>
+        <div class="task-box">
+          <div class="box-label">✅ Your Task</div>
+          <ol>
+            <li>Run any website through <strong>PageSpeed Insights (pagespeed.web.dev)</strong> — note the LCP, INP, CLS scores.</li>
+            <li>Run 5 competitor sites and compare their Core Web Vitals scores — does faster = higher ranking in your niche?</li>
+            <li>List 5 specific actions that would improve LCP for a slow website based on the PSI report.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="tools-row"><span class="tool-chip">PageSpeed Insights</span><span class="tool-chip">GTmetrix</span><span class="tool-chip">Chrome DevTools</span><span class="tool-chip">WebPageTest</span></div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-title"><h3>4.2 XML Sitemaps</h3><span class="topic-badge">4.2</span></div>
+      <p class="topic-explain">An XML sitemap is a file (yoursite.com/sitemap.xml) that lists all the important URLs on your website — like a roadmap given directly to search engines. It helps Google discover pages faster, especially new or deep pages that might not have many inbound links. A sitemap should include: all important pages, their last-modified date, and their change frequency. Crucially, it should NOT include pages you don't want indexed (404s, duplicate pages, thin content pages).</p>
+      <div class="topic-grid">
+        <div class="example-box">
+          <div class="box-label">📖 Real Example</div>
+          <p>A news website published 50 articles/day. Without a news sitemap, Google took 2–3 days to discover new articles. After implementing a Google News XML sitemap, new articles appeared in search results within 10–15 minutes — critical for news SEO where freshness determines ranking. Visit <code>nytimes.com/sitemap.xml</code> to see a real-world example.</p>
+        </div>
+        <div class="task-box">
+          <div class="box-label">✅ Your Task</div>
+          <ol>
+            <li>Visit <code>amazon.com/sitemap.xml</code> and any small blog's sitemap. <strong>Compare the structure — what's different?</strong></li>
+            <li>Create a sitemap for a 10-page fictional website using a free tool (XML-sitemaps.com).</li>
+            <li>Submit a sitemap via Google Search Console and check for any reported errors in the Coverage report.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-title"><h3>4.3 HTTPS & Site Security</h3><span class="topic-badge">4.3</span></div>
+      <p class="topic-explain">HTTPS (HyperText Transfer Protocol Secure) encrypts the connection between a user's browser and your server. Google confirmed HTTPS as a ranking signal in 2014. Beyond rankings, sites without HTTPS display a "Not Secure" warning in Chrome — this massively reduces trust and conversion rates. An SSL certificate (what enables HTTPS) is free via Let's Encrypt. All new sites must launch with HTTPS. If migrating from HTTP to HTTPS, every URL must 301 redirect to its HTTPS equivalent.</p>
+      <div class="topic-grid">
+        <div class="example-box">
+          <div class="box-label">📖 Real Example</div>
+          <p>A freelance photographer's portfolio was at <code>http://sarahphotos.com</code>. When Chrome started showing "Not Secure" in the address bar, her contact form submissions dropped 40% — clients were scared off by the warning before filling in their details. After migrating to HTTPS with proper 301 redirects, form conversions returned to normal and her rankings for "wedding photographer Delhi" improved by 6 positions.</p>
+        </div>
+        <div class="task-box">
+          <div class="box-label">✅ Your Task</div>
+          <ol>
+            <li>Check any 10 websites — how many are HTTP vs HTTPS? Note if HTTP sites get the "Not Secure" warning.</li>
+            <li>If you have a website, migrate it to HTTPS using your hosting provider's free SSL (most offer Let's Encrypt).</li>
+            <li>Use <strong>Why No Padlock</strong> (whynopadlock.com) to check if any resources on an HTTPS site are still loading over HTTP (mixed content).</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-title"><h3>4.4 Canonical Tags & Duplicate Content</h3><span class="topic-badge">4.4</span></div>
+      <p class="topic-explain">Duplicate content is when identical or very similar content exists on multiple URLs. This confuses Google about which page to rank — and it may rank none of them well, splitting authority across duplicates. The canonical tag <code>&lt;link rel="canonical" href="preferred-URL"&gt;</code> tells Google which version is the "original" when multiple URLs show similar content. Common duplicate content scenarios: HTTP vs HTTPS, www vs non-www, trailing slash vs no trailing slash, faceted navigation (e.g., /products?color=red&size=M).</p>
+      <div class="topic-grid">
+        <div class="example-box">
+          <div class="box-label">📖 Real Example</div>
+          <p>An e-commerce site had 1 product but it was accessible via 4 URLs:<br>
+          <code>http://site.com/product</code><br>
+          <code>https://site.com/product</code><br>
+          <code>https://www.site.com/product</code><br>
+          <code>https://site.com/product?ref=homepage</code><br>
+          Google was splitting authority across 4 "different" pages. Adding a canonical tag pointing all variants to <code>https://www.site.com/product</code> consolidated the authority, and the product jumped from position 18 to position 5.</p>
+        </div>
+        <div class="task-box">
+          <div class="box-label">✅ Your Task</div>
+          <ol>
+            <li>Check if a website has duplicate content by searching: <code>site:example.com "exact phrase from their homepage"</code> — do multiple pages appear?</li>
+            <li>Use Screaming Frog to crawl a website and check the Canonical tab — are canonicals set correctly?</li>
+            <li>Write the correct canonical tag HTML for a product page that exists at both /product/shoes and /sale/shoes.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-title"><h3>4.5 Structured Data & Schema Markup</h3><span class="topic-badge">4.5</span></div>
+      <p class="topic-explain">Structured data is code added to your pages (in JSON-LD format) that explicitly tells Google what your content is about. It enables rich results — enhanced search listings with stars, prices, images, FAQs, cooking times, etc. — that significantly increase CTR. Common schema types include: Article, Product, Recipe, FAQ, Review, LocalBusiness, Event, HowTo. Implementing schema doesn't guarantee rich results, but it's a strong signal and a major competitive advantage when competitors don't use it.</p>
+      <div class="topic-grid">
+        <div class="example-box">
+          <div class="box-label">📖 Real Example</div>
+          <p>A recipe blog added FAQ schema to their bread recipes. The result: their search listing expanded to show 4 collapsible Q&As directly in search results, taking up 3x the space. Their CTR jumped from 4.2% to 11.8% — nearly tripling their click volume with zero change in ranking position. Schema markup is one of the highest-ROI technical SEO activities available.</p>
+        </div>
+        <div class="task-box">
+          <div class="box-label">✅ Your Task</div>
+          <ol>
+            <li>Use <strong>Google's Rich Results Test</strong> (search.google.com/test/rich-results) to test any page — does it have valid schema?</li>
+            <li>Use <strong>Schema.org's markup generator</strong> or <strong>Google's Structured Data Markup Helper</strong> to create FAQ schema for a 5-question FAQ page.</li>
+            <li>Add Product schema to a mock product page with: name, price, rating, availability, description.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="tools-row"><span class="tool-chip">Google Rich Results Test</span><span class="tool-chip">Schema.org</span><span class="tool-chip">Google Structured Data Helper</span><span class="tool-chip">Merkle Schema Generator</span></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ MODULE 5 ═══ -->
+<div class="module" id="m5">
+  <div class="module-header">
+    <div class="module-num-block"><span class="big-num">05</span><span class="mod-label">Module</span></div>
+    <div class="module-title-block">
+      <h2>Content Strategy & Writing for SEO</h2>
+      <p class="module-desc">Content is the fuel of SEO. But not all content ranks. Learn to create content that satisfies both search algorithms and real human readers.</p>
+      <div class="module-tags"><span class="tag tag-gold">Intermediate</span><span class="tag tag-teal">Core Skill</span></div>
+    </div>
+  </div>
+  <div class="module-body">
+
+    <div class="topic">
+      <div class="topic-title"><h3>5.1 Topic Clusters & Pillar Pages</h3><span class="topic-badge">5.1</span></div>
+      <p class="topic-explain">A topic cluster is a content strategy where one comprehensive "pillar page" covers a broad topic, and multiple "cluster" pages cover sub-topics — all interlinked. This structure signals to Google that your site has deep topical authority on a subject. Instead of having 30 unrelated blog posts, you have 5 clusters of 6 posts each — each cluster establishing your site as the authority on that specific topic. E.g., a fitness site: Pillar = "Complete Guide to Weight Training" + Clusters = "beginner exercises," "workout schedule," "nutrition for muscle gain," "recovery tips."</p>
+      <div class="topic-grid">
+        <div class="example-box">
+          <div class="box-label">📖 Real Example</div>
+          <p>HubSpot pioneered topic clusters in 2017. They reorganised their blog from hundreds of isolated posts into topic clusters around "inbound marketing," "CRM," "social media," etc. Within 8 months, their domain authority increased significantly and organic traffic doubled. Google rewarded their topical depth — their pillar pages now dominate page 1 for major marketing terms.</p>
+        </div>
+        <div class="task-box">
+          <div class="box-label">✅ Your Task</div>
+          <ol>
+            <li>Choose a niche (e.g., "personal finance for students"). Create a <strong>topic cluster map</strong> with 1 pillar page and 8 cluster articles.</li>
+            <li>Identify the primary keyword for the pillar page and secondary keywords for each cluster article.</li>
+            <li>Plan the internal linking structure — which cluster articles link to the pillar, and which link to each other?</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-title"><h3>5.2 Writing SEO Content — The AIDA + SEO Framework</h3><span class="topic-badge">5.2</span></div>
+      <p class="topic-explain">Great SEO content achieves two things simultaneously: it satisfies search intent AND keeps readers engaged. The structure: <strong>A</strong>ttention (hook in first 100 words — tell them what they'll get), <strong>I</strong>nterest (sub-topics that prove depth and breadth), <strong>D</strong>esire (examples, proof, specifics that build trust), <strong>A</strong>ction (CTA at the end). Combine this with SEO: use your primary keyword in first 100 words, use LSI (related) keywords naturally throughout, answer the user's question completely, and use short paragraphs + headers for scannability.</p>
+      <div class="topic-grid">
+        <div class="example-box">
+          <div class="box-label">📖 Real Example</div>
+          <p><strong>Weak opening:</strong> "SEO is important. In this article we will discuss SEO tips."<br><br><strong>Strong SEO opening:</strong> "If your website gets fewer than 100 visitors a month, there's likely one root cause — and it has nothing to do with your design, your niche, or how long you've been publishing. In this guide, I'll show you 12 SEO mistakes most beginners make (and the exact fixes that helped me grow to 50,000 monthly visitors in 14 months)."<br><br>The second version hooks with a specific problem, promises a specific solution, and builds immediate trust.</p>
+        </div>
+        <div class="task-box">
+          <div class="box-label">✅ Your Task</div>
+          <ol>
+            <li>Write the <strong>opening 200 words</strong> for an article titled "How to Learn Python Programming for Beginners" — make it impossible to stop reading.</li>
+            <li>Take any weak article online and <strong>rewrite just the first paragraph</strong> to be more compelling.</li>
+            <li>Write a <strong>full 800-word SEO article</strong> on a topic you know well — optimise for a specific keyword and check keyword density using Yoast or Rank Math.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="tools-row"><span class="tool-chip">Surfer SEO</span><span class="tool-chip">Clearscope</span><span class="tool-chip">Yoast SEO</span><span class="tool-chip">Rank Math</span><span class="tool-chip">Hemingway App</span></div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-title"><h3>5.3 Content Freshness & Updating Old Content</h3><span class="topic-badge">5.3</span></div>
+      <p class="topic-explain">Google's "Query Deserves Freshness" (QDF) algorithm boosts fresh content for queries where recency matters (news, annual updates, evolving topics). But freshness isn't just about new content — regularly updating old content can produce faster ranking gains than creating new content from scratch. When you update a post: refresh statistics to the current year, add new sections covering recent developments, improve existing sections, update the published date, and add new internal links. This signals to Google the page is current and comprehensive.</p>
+      <div class="topic-grid">
+        <div class="example-box">
+          <div class="box-label">📖 Real Example</div>
+          <p>Backlinko's "SEO Techniques" article was written in 2018 and ranked #4. By 2021 it had slipped to #11 as newer content appeared. Brian Dean updated the article: added 3,000 new words covering 2021 tactics, updated all screenshots, refreshed statistics, changed "2018" to "2021" in the title. Within 6 weeks it jumped back to #2. The update took 4 hours — far faster than writing a new post that would take months to gain authority.</p>
+        </div>
+        <div class="task-box">
+          <div class="box-label">✅ Your Task</div>
+          <ol>
+            <li>Find a blog post from 2020 or earlier in any niche that still ranks on page 2. <strong>List 5 specific ways you would update it</strong> to make it rank on page 1.</li>
+            <li>Set up a <strong>content audit spreadsheet</strong> with columns: URL, Publish Date, Traffic (from GSC), Last Updated, Action Needed.</li>
+            <li>Update one of your own blog posts (or a test post) and submit it for re-indexing via Google Search Console.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ MODULE 6 ═══ -->
+<div class="module" id="m6">
+  <div class="module-header">
+    <div class="module-num-block"><span class="big-num">06</span><span class="mod-label">Module</span></div>
+    <div class="module-title-block">
+      <h2>Link Building & Off-Page SEO</h2>
+      <p class="module-desc">Backlinks remain the strongest ranking signal after content. Building high-quality links is an art form that separates good SEOs from great ones.</p>
+      <div class="module-tags"><span class="tag tag-red">Advanced</span><span class="tag tag-gold">High Authority</span></div>
+    </div>
+  </div>
+  <div class="module-body">
+
+    <div class="topic">
+      <div class="topic-title"><h3>6.1 What Makes a Backlink Valuable</h3><span class="topic-badge">6.1</span></div>
+      <p class="topic-explain">Not all backlinks are equal. A single link from The New York Times is worth more than 10,000 links from random low-quality blogs. Backlink value is determined by: <strong>Domain Authority</strong> (the linking site's overall trust level), <strong>Relevance</strong> (is the linking site in your industry?), <strong>Link placement</strong> (editorial links in body text are more valuable than footer/sidebar links), <strong>Anchor text</strong> (keyword-rich anchor is more powerful but must be natural), and <strong>DoFollow vs NoFollow</strong> (DoFollow passes link equity; NoFollow signals no endorsement but still has some value).</p>
+      <div class="topic-grid">
+        <div class="example-box">
+          <div class="box-label">📖 Real Example</div>
+          <p><strong>Weak backlink:</strong> A link from a directory site like "toplinksdirectory.xyz" with Domain Rating 3, no real traffic, no editorial standards — may actually HURT your rankings (Google's Penguin algorithm penalises manipulative links).<br><br><strong>Strong backlink:</strong> A mention in a Forbes article "Best SEO Tools for Small Business" with an editorial link in the body of the article from a site with Domain Rating 94 — this single link can propel a page from position 15 to position 3.</p>
+        </div>
+        <div class="task-box">
+          <div class="box-label">✅ Your Task</div>
+          <ol>
+            <li>Use <strong>Ahrefs Free Backlink Checker</strong> to analyse the backlink profiles of 3 websites in your niche. Note their top linking domains.</li>
+            <li>Evaluate 10 backlinks from a site — classify each as High/Medium/Low quality and explain why.</li>
+            <li>Create a "link prospecting list" — 20 websites in your niche that would make ideal link sources.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-title"><h3>6.2 Guest Posting</h3><span class="topic-badge">6.2</span></div>
+      <p class="topic-explain">Guest posting means writing an article for another website and receiving a link back to yours in return. It remains one of the most effective and Google-approved link building tactics when done legitimately — writing genuinely useful content for reputable sites. The process: find relevant sites that accept guest posts, analyse their content quality and domain authority, pitch a specific article idea (not a generic "I want to guest post" email), write an exceptional article, include 1–2 natural links back to relevant content on your site.</p>
+      <div class="topic-grid">
+        <div class="example-box">
+          <div class="box-label">📖 Real Example</div>
+          <p>An SEO consultant pitched 12 marketing blogs with a specific article: "Why Your SEO Strategy Is Missing This One Step (With Data from 47 Campaigns)." 4 said yes — including Search Engine Journal (DR 89) and Search Engine Land (DR 92). The 4 guest posts generated 6 backlinks, drove 3,400 referral visitors, and contributed to their domain authority jumping from 34 to 47 over 6 months. They also got 2 direct client inquiries from readers.</p>
+        </div>
+        <div class="task-box">
+          <div class="box-label">✅ Your Task</div>
+          <ol>
+            <li>Find 10 websites in your niche that accept guest posts. Use: <code>your niche + "write for us"</code> in Google.</li>
+            <li>Write a <strong>guest post pitch email</strong> for one of those sites — include a specific article idea, why it's relevant to their audience, and your credentials.</li>
+            <li>Write a full 1,000-word sample guest post on any topic — this becomes part of your SEO portfolio.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-title"><h3>6.3 Broken Link Building</h3><span class="topic-badge">6.3</span></div>
+      <p class="topic-explain">Broken link building is a link building tactic where you find pages that have links pointing to dead/404 pages, create content that replaces the dead resource, and notify the linking site so they can update their link to point to your working content instead. It's effective because you're helping the website owner fix a real problem (a broken link damages their user experience). They have every incentive to update the link — and you get a valuable backlink.</p>
+      <div class="topic-grid">
+        <div class="example-box">
+          <div class="box-label">📖 Real Example</div>
+          <p>An SEO agency found a popular "Resources for Small Business Owners" page on a Chamber of Commerce website (DR 71) that linked to a government small business PDF that had been moved and was now a 404. They created a comprehensive "Small Business SEO Starter Kit" PDF, emailed the Chamber: "Hey, your resources page has a broken link to [URL]. We've created an updated version at [our URL] — might be useful as a replacement." The Chamber updated the link within 48 hours. One email = one high-quality government-adjacent backlink.</p>
+        </div>
+        <div class="task-box">
+          <div class="box-label">✅ Your Task</div>
+          <ol>
+            <li>Use <strong>Check My Links</strong> (Chrome extension) to scan any resource page in your niche for broken links.</li>
+            <li>Find 5 broken link opportunities and write the replacement content idea for each.</li>
+            <li>Write a broken link building outreach email template — personable, helpful, not pushy.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="tools-row"><span class="tool-chip">Check My Links</span><span class="tool-chip">Ahrefs</span><span class="tool-chip">Hunter.io</span><span class="tool-chip">BuzzStream</span></div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-title"><h3>6.4 Digital PR & Linkable Assets</h3><span class="topic-badge">6.4</span></div>
+      <p class="topic-explain">Digital PR is earning backlinks by creating content so valuable, original, or newsworthy that other sites naturally link to it. Linkable assets include: original research/surveys with unique data, comprehensive guides that become industry references, free tools and calculators, infographics with compelling statistics, and controversial opinion pieces that generate debate. When done well, one linkable asset can earn 50–500 backlinks passively over years — making it one of the most scalable link building strategies.</p>
+      <div class="topic-grid">
+        <div class="example-box">
+          <div class="box-label">📖 Real Example</div>
+          <p>Backlinko published "We Analyzed 11.8 Million Google Search Results" — an original research study on ranking factors. This single piece earned 5,600+ backlinks from sites like Forbes, TechCrunch, and Search Engine Land. The cost? 2 weeks of data analysis. But it continues to earn links 5 years later. This is the power of linkable assets — create once, earn links indefinitely.</p>
+        </div>
+        <div class="task-box">
+          <div class="box-label">✅ Your Task</div>
+          <ol>
+            <li>Brainstorm 5 "linkable asset" ideas for a niche you're interested in — what original research or resource doesn't yet exist?</li>
+            <li>Create a simple <strong>free tool or calculator</strong> for your niche (even a Google Sheet works) — this alone can attract links.</li>
+            <li>Write a <strong>data-driven article</strong> using publicly available data (government stats, surveys) to create an original insight.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ MODULE 7 ═══ -->
+<div class="module" id="m7">
+  <div class="module-header">
+    <div class="module-num-block"><span class="big-num">07</span><span class="mod-label">Module</span></div>
+    <div class="module-title-block">
+      <h2>Local SEO — Dominating Google Maps & Local Search</h2>
+      <p class="module-desc">Local SEO is the most immediately profitable SEO skill to offer clients. Any business with a physical location needs it, and most are doing it poorly.</p>
+      <div class="module-tags"><span class="tag tag-gold">Intermediate</span><span class="tag tag-teal">High Client Value</span></div>
+    </div>
+  </div>
+  <div class="module-body">
+
+    <div class="topic">
+      <div class="topic-title"><h3>7.1 Google Business Profile Optimisation</h3><span class="topic-badge">7.1</span></div>
+      <p class="topic-explain">Google Business Profile (formerly Google My Business) is the single most important asset for local SEO. It's what powers the Google Maps 3-pack — the 3 local business results shown above organic results for local searches. A fully optimised GBP includes: accurate name/address/phone (NAP), correct business category, complete business description with keywords, all opening hours, photos (regularly updated), services/products listed, Q&A section answered, regular Google Posts, and active review management.</p>
+      <div class="topic-grid">
+        <div class="example-box">
+          <div class="box-label">📖 Real Example</div>
+          <p>A plumber in Noida had a GBP with just a name and phone number — no photos, no description, no reviews. A competitor had 180 photos, 94 reviews (4.8 stars), a complete description mentioning "emergency plumber Noida," "same-day plumbing repair," and regular weekly posts. The optimised competitor appeared in the Maps 3-pack for "plumber near me" — receiving 400+ monthly calls. The unoptimised plumber was invisible. Fixing a GBP takes 2 hours and can transform a local business overnight.</p>
+        </div>
+        <div class="task-box">
+          <div class="box-label">✅ Your Task</div>
+          <ol>
+            <li>Create or claim a <strong>Google Business Profile</strong> for a real or fictional local business. Complete every field.</li>
+            <li>Audit 5 local business GBPs in your city — score them on a 10-point scale and identify what's missing from each.</li>
+            <li>Write a <strong>GBP optimisation checklist</strong> you would use for every new local SEO client — minimum 20 points.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-title"><h3>7.2 Local Citations & NAP Consistency</h3><span class="topic-badge">7.2</span></div>
+      <p class="topic-explain">A citation is any online mention of a business's Name, Address, and Phone number (NAP). Citations appear on directories like Justdial, Sulekha, IndiaMart, Yelp, Yellow Pages, TripAdvisor, and hundreds of industry-specific directories. Google cross-references citations to verify a business is real and trustworthy. NAP inconsistency (e.g., "123 Main St." on one site and "123 Main Street" on another) confuses Google and weakens local rankings. Building 50–100 consistent citations is a foundational local SEO task.</p>
+      <div class="topic-grid">
+        <div class="example-box">
+          <div class="box-label">📖 Real Example</div>
+          <p>A restaurant in Bengaluru was listed as "Spice Garden Restaurant" on their website, "Spice Garden" on Zomato, "Spice Garden Res." on JustDial, and "The Spice Garden" on Google Maps. This inconsistency meant Google couldn't confidently verify the business's details. After standardising NAP across 70 directories to exactly "Spice Garden Restaurant" and ensuring address format matched perfectly, local rankings for "Indian restaurant Koramangala" improved from position 11 to position 3 in Maps within 90 days.</p>
+        </div>
+        <div class="task-box">
+          <div class="box-label">✅ Your Task</div>
+          <ol>
+            <li>Search any local business on 10 different directories and <strong>check NAP consistency</strong>. How many inconsistencies do you find?</li>
+            <li>Build a list of the <strong>top 30 citation sources</strong> relevant to your country/city (Google Maps, JustDial, Sulekha, Yellow Pages India, etc.).</li>
+            <li>Submit a fictional business to 5 citation sources — practice the process end-to-end.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="tools-row"><span class="tool-chip">BrightLocal</span><span class="tool-chip">Moz Local</span><span class="tool-chip">Whitespark</span><span class="tool-chip">Yext</span></div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-title"><h3>7.3 Review Management & Reputation SEO</h3><span class="topic-badge">7.3</span></div>
+      <p class="topic-explain">Reviews are one of the top 3 local ranking factors in Google Maps. More importantly, they directly influence whether people choose your client's business. Strategy: (1) Systemise review generation — ask every customer via text/email with a direct review link. (2) Respond to every review (positive and negative) — response rate is a local ranking signal. (3) Never fake reviews — Google's algorithms detect them and can suspend the GBP entirely. (4) Address negative reviews professionally — 45% of consumers say a business responding to negative reviews makes them more likely to visit.</p>
+      <div class="topic-grid">
+        <div class="example-box">
+          <div class="box-label">📖 Real Example</div>
+          <p>A dental clinic had 12 Google reviews (3.9 stars). A competitor had 340 reviews (4.7 stars). The SEO consultant implemented a review system: after each appointment, an automated SMS was sent with a direct link to leave a Google review. In 6 months, reviews went from 12 to 287 (4.8 stars). Maps ranking jumped from position 8 to position 2 for "dentist [city name]" — an estimated 180 new patient inquiries per month from Google alone.</p>
+        </div>
+        <div class="task-box">
+          <div class="box-label">✅ Your Task</div>
+          <ol>
+            <li>Write 3 <strong>review request message templates</strong> — one SMS, one email, one in-person script.</li>
+            <li>Find a business with a negative review and write a <strong>professional response</strong> that addresses the complaint and shows accountability.</li>
+            <li>Design a simple <strong>"review funnel"</strong> — what steps does a customer take from receiving a request to leaving a review?</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ MODULE 8 ═══ -->
+<div class="module" id="m8">
+  <div class="module-header">
+    <div class="module-num-block"><span class="big-num">08</span><span class="mod-label">Module</span></div>
+    <div class="module-title-block">
+      <h2>E-commerce SEO</h2>
+      <p class="module-desc">E-commerce SEO has unique challenges — thousands of product pages, faceted navigation, duplicate content, and purchase-intent keywords requiring different tactics.</p>
+      <div class="module-tags"><span class="tag tag-red">Advanced</span><span class="tag tag-blue">High Revenue Impact</span></div>
+    </div>
+  </div>
+  <div class="module-body">
+
+    <div class="topic">
+      <div class="topic-title"><h3>8.1 Category Page Optimisation</h3><span class="topic-badge">8.1</span></div>
+      <p class="topic-explain">Category pages are the highest-value pages on most e-commerce sites — they rank for high-volume commercial keywords ("running shoes," "laptop bags") and funnel users to products. Yet most e-commerce sites treat category pages as mere product lists. Optimised category pages include: an SEO-friendly H1 with the main keyword, a 200–300 word editorial introduction above or below products (describing the category, materials, use cases), breadcrumb navigation, internally linked sub-categories, user-generated content (reviews), and proper canonical tags for filtered versions.</p>
+      <div class="topic-grid">
+        <div class="example-box">
+          <div class="box-label">📖 Real Example</div>
+          <p>Zappos.com's "Women's Running Shoes" category page ranks #2 for that keyword (720,000 monthly searches) because it has: a keyword-rich H1, a 300-word introduction explaining what to look for in running shoes, structured filters with proper canonical handling, 1,200+ product listings, 45,000+ customer reviews, and breadcrumb schema. It's not just a product grid — it's a content-rich, authoritative page that answers "which running shoes should I buy?"</p>
+        </div>
+        <div class="task-box">
+          <div class="box-label">✅ Your Task</div>
+          <ol>
+            <li>Analyse 3 e-commerce category pages — list every SEO element present and missing from each.</li>
+            <li>Write a <strong>300-word optimised category description</strong> for "Wireless Headphones" — include target keyword naturally 3–4 times.</li>
+            <li>Create a category page SEO checklist with 15 items.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-title"><h3>8.2 Product Page SEO</h3><span class="topic-badge">8.2</span></div>
+      <p class="topic-explain">Product pages must rank for specific product-intent keywords AND convert visitors. Key optimisation points: unique product descriptions (never copy manufacturer descriptions — Google treats them as thin/duplicate content), keyword-optimised title tags (Brand + Model + Key Feature + Product Type), product schema markup for rich results (price, rating, availability), multiple high-quality images with keyword-optimised alt text, user-generated reviews (both for trust and keyword diversity), clear CTA buttons, and breadcrumb navigation.</p>
+      <div class="topic-grid">
+        <div class="example-box">
+          <div class="box-label">📖 Real Example</div>
+          <p><strong>Bad product title tag:</strong> "Sony WH-1000XM5"<br><strong>Good product title tag:</strong> "Sony WH-1000XM5 Wireless Noise Cancelling Headphones — 30Hr Battery | Sony India"<br><br>The good title includes the model name (navigational), product category keywords (wireless headphones, noise cancelling), a key feature (30hr battery), and brand/regional identifier. It targets multiple search queries simultaneously while remaining under 70 characters.</p>
+        </div>
+        <div class="task-box">
+          <div class="box-label">✅ Your Task</div>
+          <ol>
+            <li>Take any e-commerce product and <strong>rewrite its title tag, meta description, H1, and 200-word description</strong> following SEO best practices.</li>
+            <li>Write JSON-LD Product schema markup for a ₹2,499 smartphone case with 4.3 stars and 120 reviews.</li>
+            <li>Find 5 products on any e-commerce site using manufacturer descriptions — identify how you'd make each unique.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ MODULE 9 ═══ -->
+<div class="module" id="m9">
+  <div class="module-header">
+    <div class="module-num-block"><span class="big-num">09</span><span class="mod-label">Module</span></div>
+    <div class="module-title-block">
+      <h2>SEO Analytics & Reporting</h2>
+      <p class="module-desc">Measuring SEO is what separates you from amateurs. Learn to use data to prove ROI, identify opportunities, and make decisions that are impossible to argue with.</p>
+      <div class="module-tags"><span class="tag tag-gold">Intermediate</span><span class="tag tag-blue">Client Skills</span></div>
+    </div>
+  </div>
+  <div class="module-body">
+
+    <div class="topic">
+      <div class="topic-title"><h3>9.1 Google Search Console — Your Most Important Free Tool</h3><span class="topic-badge">9.1</span></div>
+      <p class="topic-explain">Google Search Console (GSC) shows you exactly how Google sees your site. Key reports: <strong>Performance</strong> (which queries bring traffic, impressions, clicks, CTR, average position), <strong>URL Inspection</strong> (check any URL's index status), <strong>Coverage</strong> (which pages are indexed, which have errors, which are excluded), <strong>Core Web Vitals</strong> (CWV field data from real users), <strong>Links</strong> (top linking sites and internal links). GSC is free, accurate, and directly from Google — use it weekly minimum.</p>
+      <div class="topic-grid">
+        <div class="example-box">
+          <div class="box-label">📖 Real Example</div>
+          <p>An SEO analyst opened the GSC Performance report filtered by "Position: 8–15" (page 1 bottom and page 2 top). This showed 47 keywords where the site almost ranked on page 1 but wasn't quite there. These "low-hanging fruit" keywords needed just small optimisations. After updating those 47 pages with better title tags, added FAQ sections, and 2–3 extra internal links each — 23 of them moved to positions 1–7 within 8 weeks. Total additional traffic: +12,000 visits/month from existing pages.</p>
+        </div>
+        <div class="task-box">
+          <div class="box-label">✅ Your Task</div>
+          <ol>
+            <li>Set up Google Search Console for any website. Navigate every report section and write a 1-paragraph summary of what each report tells you.</li>
+            <li>Filter the Performance report to show <strong>queries with position 8–20</strong> — these are your quick-win opportunities. List the top 10.</li>
+            <li>Find pages in the Coverage report with "Excluded" status — investigate why and document how you'd fix each.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="tools-row"><span class="tool-chip">Google Search Console</span><span class="tool-chip">Google Analytics 4</span><span class="tool-chip">Looker Studio</span></div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-title"><h3>9.2 Building SEO Reports for Clients</h3><span class="topic-badge">9.2</span></div>
+      <p class="topic-explain">A monthly SEO report must communicate value clearly to non-technical clients. It should include: (1) Executive Summary — what happened this month in plain English, (2) Traffic Overview — organic sessions vs. last month and last year, (3) Keyword Rankings — positions of target keywords vs. last month, (4) New Rankings — keywords that entered top 10 for first time, (5) Technical Issues Fixed — shows your work, (6) Backlinks Earned, (7) Next Month's Plan. Use Google Looker Studio to build automated, visual dashboards that update in real-time.</p>
+      <div class="topic-grid">
+        <div class="example-box">
+          <div class="box-label">📖 Real Example</div>
+          <p><strong>Weak client report:</strong> "We created 4 blog posts and fixed 12 technical errors this month."<br><br><strong>Strong client report:</strong> "Organic traffic grew 23% vs. last month (from 4,200 to 5,160 sessions). Revenue from organic grew from ₹1.2L to ₹1.8L. The keyword 'wedding photographer Delhi' moved from position 11 to position 4 — generating an estimated 180 additional monthly visitors. We fixed the site speed issue causing LCP over 4 seconds — page now loads in 1.9 seconds."<br><br>Numbers, business impact, and specific outcomes. Never just report activities.</p>
+        </div>
+        <div class="task-box">
+          <div class="box-label">✅ Your Task</div>
+          <ol>
+            <li>Build a <strong>Google Looker Studio SEO dashboard</strong> connected to Google Search Console — include impressions, clicks, CTR, average position.</li>
+            <li>Write a <strong>mock monthly SEO report</strong> for a fictional restaurant client — include all 7 sections listed above using made-up but realistic numbers.</li>
+            <li>Practice presenting a 5-minute SEO report walkthrough as if speaking to a client — record yourself and critique it.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ MODULE 10 ═══ -->
+<div class="module" id="m10">
+  <div class="module-header">
+    <div class="module-num-block"><span class="big-num">10</span><span class="mod-label">Module</span></div>
+    <div class="module-title-block">
+      <h2>Advanced SEO — Featured Snippets, AI & Future-Proofing</h2>
+      <p class="module-desc">Advanced techniques that most SEOs don't fully understand — these separate good SEOs from elite practitioners.</p>
+      <div class="module-tags"><span class="tag tag-red">Expert Level</span><span class="tag tag-purple">Future Proof</span></div>
+    </div>
+  </div>
+  <div class="module-body">
+
+    <div class="topic">
+      <div class="topic-title"><h3>10.1 Featured Snippets — Position Zero</h3><span class="topic-badge">10.1</span></div>
+      <p class="topic-explain">Featured snippets are the answer boxes that appear above all organic results (Position 0). They get ~8% of clicks on average but appear for 12% of all searches. To win a featured snippet: your page must already rank in the top 10, the query must be a question or comparison, your content must have a clear, direct answer. Format the answer in the format Google tends to use for that query type: paragraph (questions), numbered list (how-to steps), table (comparisons), bulleted list (features/items). Put the direct answer in a clear paragraph immediately after the question as a subheading.</p>
+      <div class="topic-grid">
+        <div class="example-box">
+          <div class="box-label">📖 Real Example</div>
+          <p>A page targeting "how long does it take to learn SEO" was ranking #4. To capture the featured snippet, the SEO rewrote the opening section:<br><br><code>H2: How Long Does It Take to Learn SEO?</code><br>"Learning basic SEO takes 2–4 weeks. Becoming proficient enough to drive real results takes 3–6 months of practice. Reaching expert level — where you can lead SEO strategy for large sites — takes 1–3 years of hands-on experience."<br><br>This direct, concise, structured answer captured the featured snippet within 3 weeks, increasing CTR from 4.2% to 12.1%.</p>
+        </div>
+        <div class="task-box">
+          <div class="box-label">✅ Your Task</div>
+          <ol>
+            <li>Find 10 "question" keywords in your niche. Search each and note which ones have featured snippets and what format they use.</li>
+            <li>Take a page ranking #4–10 for a question keyword and <strong>rewrite a section to target the featured snippet</strong>.</li>
+            <li>Identify 5 featured snippet opportunities where you could rank if you published the right content.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-title"><h3>10.2 SEO for AI Overviews (GEO)</h3><span class="topic-badge">10.2</span></div>
+      <p class="topic-explain">Google's AI Overviews (formerly SGE) now appear for many queries, summarising answers from multiple sources. This has changed SEO: AI Overviews can reduce clicks even when you rank #1. The new goal is to be cited IN the AI Overview — this is called Generative Engine Optimisation (GEO). To get cited: produce content with original data, cite reputable sources, use clear structured writing that's easy to extract, build strong E-E-A-T signals, use FAQ sections, and target informational queries with direct answers. Sites with strong E-E-A-T and structured content are cited most frequently.</p>
+      <div class="topic-grid">
+        <div class="example-box">
+          <div class="box-label">📖 Real Example</div>
+          <p>A health website noticed organic traffic dropped 18% after Google started showing AI Overviews for their main keywords. But they also noticed their brand appeared as a cited source in 34 different AI Overviews, driving "brand search" traffic up 41%. The shift: instead of competing for clicks, they optimised to be THE authoritative source cited — every article ends with a clear summary box, all statistics are sourced, and each article has an author bio with credentials. This is the new frontier of SEO.</p>
+        </div>
+        <div class="task-box">
+          <div class="box-label">✅ Your Task</div>
+          <ol>
+            <li>Search 20 queries in your niche — note which ones trigger AI Overviews. Which sources are cited?</li>
+            <li>Rewrite one blog article to include: a <strong>clear summary box</strong>, <strong>numbered key takeaways</strong>, and <strong>cited statistics</strong> — optimising for AI citation.</li>
+            <li>Research and write a report on <strong>how AI Overviews are changing SEO strategy</strong> — what should SEOs focus on in 2025?</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="topic">
+      <div class="topic-title"><h3>10.3 Full SEO Audit — Putting It All Together</h3><span class="topic-badge">10.3</span></div>
+      <p class="topic-explain">A full SEO audit is a comprehensive analysis of a website's SEO health across all dimensions: technical health, on-page optimisation, content quality, backlink profile, and competitive positioning. A professional audit typically produces a 20–50 page document with prioritised recommendations. Audit process: (1) Technical crawl with Screaming Frog, (2) Google Search Console analysis, (3) GA4 traffic analysis, (4) Backlink profile analysis, (5) Keyword ranking analysis, (6) Competitor gap analysis, (7) Content quality review, (8) Prioritised action list by impact and effort.</p>
+      <div class="topic-grid">
+        <div class="example-box">
+          <div class="box-label">📖 Real Example</div>
+          <p>An SEO agency charged a client ₹85,000 for a comprehensive audit. The audit found: 340 pages with duplicate title tags, a sitemap listing 200 pages blocked by robots.txt, 12 redirect chains of 3+ hops, zero structured data across 800 product pages, and a competitor ranking for 280 keywords the client had zero presence for. The audit roadmap estimated 65% organic traffic increase over 12 months if all recommendations were implemented. It was completely correct — traffic grew 71% in 11 months.</p>
+        </div>
+        <div class="task-box">
+          <div class="box-label">✅ Your Task</div>
+          <ol>
+            <li>Perform a <strong>mini SEO audit</strong> of any website — analyse: 5 technical issues, 5 on-page issues, backlink profile summary, 5 content opportunities.</li>
+            <li>Create an <strong>SEO audit template</strong> with all sections a professional audit should cover — this becomes a reusable client tool.</li>
+            <li>Present your audit findings in a <strong>5-slide deck</strong> as if presenting to the business owner: problem, evidence, recommendation, expected outcome, priority level.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="tools-row"><span class="tool-chip">Screaming Frog</span><span class="tool-chip">Ahrefs</span><span class="tool-chip">SEMrush</span><span class="tool-chip">Google Search Console</span><span class="tool-chip">PageSpeed Insights</span><span class="tool-chip">Looker Studio</span></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ PROJECTS ═══ -->
+<div class="section-divider"><span>★ Portfolio Projects</span></div>
+
+<div class="projects-section" id="projects">
+  <h2>Resume-Ready Projects</h2>
+  <p>These 6 projects are designed to demonstrate real SEO skills to clients and employers. Each produces tangible deliverables you can present, share, and reference in client proposals.</p>
+
+  <!-- PROJECT 1 -->
+  <div class="project-card">
+    <div class="project-header">
+      <div class="project-num">1</div>
+      <div class="project-title-block">
+        <h3>Complete SEO Audit of a Real Website</h3>
+        <div class="p-meta">
+          <span class="p-level p-level-med">Intermediate</span>
+          <span class="p-duration">⏱ 2–3 weeks</span>
+          <span class="p-duration">📄 Primary Portfolio Piece</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-body">
+      <p>Perform a comprehensive SEO audit of a real business website (get permission, or use a publicly available site). Document every issue found, prioritise them, and present a full action plan. This project alone can land your first paying client — show it to local businesses and offer to fix the issues you identified.</p>
+
+      <div class="steps-list">
+        <div class="step"><div class="step-num">01</div><div class="step-content"><strong>Crawl the site</strong> with Screaming Frog (free up to 500 URLs). Export all data: broken links, missing titles, duplicate content, redirect chains, missing alt text.</div></div>
+        <div class="step"><div class="step-num">02</div><div class="step-content"><strong>Analyse Google Search Console</strong> data: coverage errors, Core Web Vitals issues, keyword performance gaps, pages with high impressions but low CTR.</div></div>
+        <div class="step"><div class="step-num">03</div><div class="step-content"><strong>Backlink audit</strong> with Ahrefs or Moz: domain authority, top backlinks, toxic links, anchor text distribution.</div></div>
+        <div class="step"><div class="step-num">04</div><div class="step-content"><strong>Keyword gap analysis</strong>: what keywords do competitors rank for that this site doesn't? Identify top 20 opportunities.</div></div>
+        <div class="step"><div class="step-num">05</div><div class="step-content"><strong>Write the audit report</strong>: Executive summary, 3 sections (Technical, On-Page, Off-Page), prioritised action list (High/Medium/Low), and a 12-month projection.</div></div>
+        <div class="step"><div class="step-num">06</div><div class="step-content"><strong>Create a Looker Studio dashboard</strong> showing the site's baseline metrics — organic traffic, keywords, rankings — so progress can be tracked over time.</div></div>
+      </div>
+
+      <div class="deliverables">
+        <div class="deliverable"><span class="del-icon">📄</span>20–30 page audit PDF report</div>
+        <div class="deliverable"><span class="del-icon">📊</span>Screaming Frog export spreadsheet</div>
+        <div class="deliverable"><span class="del-icon">📈</span>Looker Studio live dashboard</div>
+        <div class="deliverable"><span class="del-icon">🎯</span>Prioritised action plan with timelines</div>
+      </div>
+
+      <div class="resume-line">
+        <span class="resume-icon">💼</span>
+        <div><strong>Resume Line:</strong> "Conducted a comprehensive SEO audit for [Business Name] identifying 47 technical issues, 12 on-page optimisation opportunities, and a keyword gap of 200+ terms. Delivered prioritised 12-month action roadmap projecting 60–80% organic traffic growth."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT 2 -->
+  <div class="project-card">
+    <div class="project-header">
+      <div class="project-num">2</div>
+      <div class="project-title-block">
+        <h3>Build & Rank a Niche Blog from Scratch (0 to Page 1)</h3>
+        <div class="p-meta">
+          <span class="p-level p-level-hard">Advanced</span>
+          <span class="p-duration">⏱ 3–6 months</span>
+          <span class="p-duration">⭐ Most Impressive Project</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-body">
+      <p>Create a blog in a specific niche, build it with SEO-first principles, publish 15–20 optimised articles targeting long-tail keywords, and achieve measurable rankings. This is the most powerful portfolio piece because it shows you can produce real results, not just talk about theory. Use Ahrefs free tools or Google Search Console to document keyword position improvements over time.</p>
+
+      <div class="steps-list">
+        <div class="step"><div class="step-num">01</div><div class="step-content"><strong>Niche selection:</strong> Choose a specific niche (not "health" — instead "intermittent fasting for women over 40"). Low competition, clear audience, monetisation potential.</div></div>
+        <div class="step"><div class="step-num">02</div><div class="step-content"><strong>Keyword research:</strong> Find 50 long-tail keywords with KD &lt; 30 and volume 100–5,000/month. Group into topic clusters. Build editorial calendar.</div></div>
+        <div class="step"><div class="step-num">03</div><div class="step-content"><strong>Technical setup:</strong> WordPress + Rank Math SEO plugin. Set up GA4 + GSC. Configure site speed for Core Web Vitals (aim for LCP &lt; 2.5s from day one). Enable HTTPS. Set up XML sitemap.</div></div>
+        <div class="step"><div class="step-num">04</div><div class="step-content"><strong>Publish 15+ articles:</strong> Each 1,500–3,000 words, targeting one primary keyword, fully optimised on-page. Track word count, keyword density, internal links. Update 3 older articles as new ones publish.</div></div>
+        <div class="step"><div class="step-num">05</div><div class="step-content"><strong>Basic link building:</strong> 5 guest posts, 10 forum/community contributions with link, submit to 20 niche directories. Document every backlink earned.</div></div>
+        <div class="step"><div class="step-num">06</div><div class="step-content"><strong>Document everything:</strong> Monthly screenshots of GSC rankings. Track all keyword positions in a spreadsheet. Create a case study PDF showing journey from 0 to your results.</div></div>
+      </div>
+
+      <div class="deliverables">
+        <div class="deliverable"><span class="del-icon">🌐</span>Live, public blog with 15+ articles</div>
+        <div class="deliverable"><span class="del-icon">📊</span>GSC screenshots showing ranking improvements</div>
+        <div class="deliverable"><span class="del-icon">📑</span>Full keyword research document (50 keywords)</div>
+        <div class="deliverable"><span class="del-icon">📝</span>Case study PDF: "How I Grew [Site] to [X] Monthly Organic Visitors"</div>
+      </div>
+
+      <div class="resume-line">
+        <span class="resume-icon">💼</span>
+        <div><strong>Resume Line:</strong> "Built a niche blog from scratch to 4,200 monthly organic visitors in 5 months using SEO-first content strategy. Achieved page 1 rankings for 18 target keywords. Domain Rating grew from 0 to 22."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT 3 -->
+  <div class="project-card">
+    <div class="project-header">
+      <div class="project-num">3</div>
+      <div class="project-title-block">
+        <h3>Local SEO Campaign for a Real Local Business</h3>
+        <div class="p-meta">
+          <span class="p-level p-level-med">Intermediate</span>
+          <span class="p-duration">⏱ 6–8 weeks</span>
+          <span class="p-duration">🤝 Great for freelancing</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-body">
+      <p>Approach a local business — restaurant, salon, gym, dentist, plumber — and offer to improve their Google presence for free or at a low rate in exchange for a testimonial and case study rights. Local SEO results come faster than traditional SEO (weeks, not months), making it perfect for building your portfolio quickly.</p>
+
+      <div class="steps-list">
+        <div class="step"><div class="step-num">01</div><div class="step-content"><strong>GBP audit & optimisation:</strong> Claim/verify profile. Complete all fields. Add 20+ photos. Write keyword-optimised business description. Set up all service categories.</div></div>
+        <div class="step"><div class="step-num">02</div><div class="step-content"><strong>Citation building:</strong> Submit business to top 30 local directories with perfectly consistent NAP. Document every submission. Fix inconsistencies on existing listings.</div></div>
+        <div class="step"><div class="step-num">03</div><div class="step-content"><strong>On-page local SEO:</strong> Optimise website title tags, meta descriptions, H1s with city + service keywords. Create/optimise local landing pages. Embed Google Map. Add LocalBusiness schema markup.</div></div>
+        <div class="step"><div class="step-num">04</div><div class="step-content"><strong>Review generation system:</strong> Set up automated review request via SMS after each customer visit. Respond to all existing reviews. Target: 30+ new reviews in 8 weeks.</div></div>
+        <div class="step"><div class="step-num">05</div><div class="step-content"><strong>Track results:</strong> GBP Insights (calls, direction requests, website visits). Local keyword rankings before and after. Document every metric with screenshots.</div></div>
+      </div>
+
+      <div class="deliverables">
+        <div class="deliverable"><span class="del-icon">📍</span>Optimised Google Business Profile</div>
+        <div class="deliverable"><span class="del-icon">📋</span>30+ citation submissions documented</div>
+        <div class="deliverable"><span class="del-icon">📈</span>Before/after: Maps rankings, calls, reviews</div>
+        <div class="deliverable"><span class="del-icon">🏆</span>Client testimonial + case study PDF</div>
+      </div>
+
+      <div class="resume-line">
+        <span class="resume-icon">💼</span>
+        <div><strong>Resume Line:</strong> "Managed local SEO campaign for [Business Name], achieving top-3 Google Maps ranking for '[service] [city]' within 8 weeks. Monthly phone calls from Google increased from 12 to 94. Reviews grew from 8 to 67 (4.6 stars)."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT 4 -->
+  <div class="project-card">
+    <div class="project-header">
+      <div class="project-num">4</div>
+      <div class="project-title-block">
+        <h3>Keyword Research & Content Strategy Document</h3>
+        <div class="p-meta">
+          <span class="p-level p-level-med">Intermediate</span>
+          <span class="p-duration">⏱ 1–2 weeks</span>
+          <span class="p-duration">📋 Sellable Deliverable</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-body">
+      <p>Create a professional keyword research and content strategy document for a specific business. This is a standalone deliverable you can sell to clients for ₹15,000–₹50,000 and is one of the easiest entry points into paid SEO work. The key is depth, organisation, and clear business relevance.</p>
+
+      <div class="steps-list">
+        <div class="step"><div class="step-num">01</div><div class="step-content"><strong>Business & competitor analysis:</strong> Understand the business's offerings, target customers, geography, and 3 main competitors. Analyse competitor keyword profiles.</div></div>
+        <div class="step"><div class="step-num">02</div><div class="step-content"><strong>Seed keyword generation:</strong> Brainstorm 50 seed keywords. Expand using keyword tools to 300+ variations. Filter to 80–100 relevant, achievable keywords.</div></div>
+        <div class="step"><div class="step-num">03</div><div class="step-content"><strong>Keyword mapping:</strong> Assign each keyword to a specific page or planned article. Group by topic cluster. Tag intent (Info/Commercial/Trans). Score priority 1–3.</div></div>
+        <div class="step"><div class="step-num">04</div><div class="step-content"><strong>Content calendar:</strong> Create a 12-month publishing calendar: which articles to publish each month, in what order (foundational first, cluster last), and who should write each.</div></div>
+        <div class="step"><div class="step-num">05</div><div class="step-content"><strong>Format as a professional document:</strong> Executive summary, methodology, the full keyword research spreadsheet, content calendar, estimated traffic projections, recommendations.</div></div>
+      </div>
+
+      <div class="deliverables">
+        <div class="deliverable"><span class="del-icon">📊</span>Keyword research spreadsheet (80–100 keywords)</div>
+        <div class="deliverable"><span class="del-icon">🗺️</span>Topic cluster map / content architecture diagram</div>
+        <div class="deliverable"><span class="del-icon">📅</span>12-month content calendar</div>
+        <div class="deliverable"><span class="del-icon">📄</span>Professional PDF strategy document</div>
+      </div>
+
+      <div class="resume-line">
+        <span class="resume-icon">💼</span>
+        <div><strong>Resume Line:</strong> "Developed a 12-month SEO content strategy for [Business], including 85-keyword research document, topic cluster architecture, and content calendar. Strategy projected 280% organic traffic increase in 12 months."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT 5 -->
+  <div class="project-card">
+    <div class="project-header">
+      <div class="project-num">5</div>
+      <div class="project-title-block">
+        <h3>Technical SEO Fix & Speed Optimisation</h3>
+        <div class="p-meta">
+          <span class="p-level p-level-hard">Advanced</span>
+          <span class="p-duration">⏱ 2–4 weeks</span>
+          <span class="p-duration">🔧 High-Value Skill</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-body">
+      <p>Take a slow or technically broken website and fix it. Document before-and-after Core Web Vitals scores and any ranking changes. Technical SEO fixes are among the highest-value work you can do for a client because the results are measurable, fast, and directly tied to Google's ranking systems.</p>
+
+      <div class="steps-list">
+        <div class="step"><div class="step-num">01</div><div class="step-content"><strong>Baseline audit:</strong> Run PageSpeed Insights, GTmetrix, and Screaming Frog. Document every issue. Screenshot all Core Web Vitals scores.</div></div>
+        <div class="step"><div class="step-num">02</div><div class="step-content"><strong>Speed optimisation:</strong> Compress and convert images to WebP, implement lazy loading, enable browser caching, minify CSS/JS, upgrade to faster hosting if needed, implement CDN.</div></div>
+        <div class="step"><div class="step-num">03</div><div class="step-content"><strong>Fix crawl errors:</strong> Resolve 404s with 301 redirects, fix redirect chains, update broken internal links, correct robots.txt errors, resubmit sitemap.</div></div>
+        <div class="step"><div class="step-num">04</div><div class="step-content"><strong>Implement schema:</strong> Add structured data to all key page types — homepage (Organization), articles (Article), products (Product), FAQ sections (FAQPage).</div></div>
+        <div class="step"><div class="step-num">05</div><div class="step-content"><strong>Document results:</strong> New PageSpeed scores, new Core Web Vitals field data (check after 28 days), ranking changes for affected pages, estimated traffic improvement.</div></div>
+      </div>
+
+      <div class="deliverables">
+        <div class="deliverable"><span class="del-icon">⚡</span>Before/after PageSpeed scores (aim 90+ on mobile)</div>
+        <div class="deliverable"><span class="del-icon">🔍</span>Screaming Frog before/after crawl reports</div>
+        <div class="deliverable"><span class="del-icon">📊</span>GSC Core Web Vitals improvement screenshots</div>
+        <div class="deliverable"><span class="del-icon">📋</span>Technical fixes documentation (what was done, why, result)</div>
+      </div>
+
+      <div class="resume-line">
+        <span class="resume-icon">💼</span>
+        <div><strong>Resume Line:</strong> "Resolved 34 technical SEO issues for [Website], improving mobile PageSpeed from 31 to 89. LCP reduced from 6.2s to 1.8s. Organic traffic grew 38% in the 3 months following the technical overhaul."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT 6 -->
+  <div class="project-card">
+    <div class="project-header">
+      <div class="project-num">6</div>
+      <div class="project-title-block">
+        <h3>Link Building Campaign — 20 Quality Backlinks in 60 Days</h3>
+        <div class="p-meta">
+          <span class="p-level p-level-hard">Advanced</span>
+          <span class="p-duration">⏱ 60 days</span>
+          <span class="p-duration">🔗 Authority Builder</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-body">
+      <p>Execute a multi-tactic link building campaign targeting 20 quality backlinks (Domain Rating 30+) in 60 days. Use a combination of guest posting, broken link building, and digital PR to demonstrate you can build links through multiple methods. Document every outreach email sent, reply rate, and link earned.</p>
+
+      <div class="steps-list">
+        <div class="step"><div class="step-num">01</div><div class="step-content"><strong>Link prospecting:</strong> Build a list of 100 target websites using Ahrefs (competitors' backlinks), Google searches ("niche + write for us"), and broken link searches.</div></div>
+        <div class="step"><div class="step-num">02</div><div class="step-content"><strong>Guest post outreach (10 links target):</strong> Pitch 30 websites with personalised, value-first emails. Write 5–10 guest posts. Track open rates, reply rates, acceptance rates.</div></div>
+        <div class="step"><div class="step-num">03</div><div class="step-content"><strong>Broken link building (5 links target):</strong> Use Ahrefs or Check My Links to find broken links on resource pages. Create replacement content. Reach out to page owners.</div></div>
+        <div class="step"><div class="step-num">04</div><div class="step-content"><strong>Digital PR (5 links target):</strong> Create one data-driven piece of content (original research, survey results, or comprehensive statistics roundup) and pitch to journalists and bloggers.</div></div>
+        <div class="step"><div class="step-num">05</div><div class="step-content"><strong>Document the campaign:</strong> Outreach tracker spreadsheet (prospect, email sent, reply, outcome), all earned links with DR, anchor text, and page URL, and 60-day domain authority change.</div></div>
+      </div>
+
+      <div class="deliverables">
+        <div class="deliverable"><span class="del-icon">🔗</span>20+ live backlinks from DR30+ sites</div>
+        <div class="deliverable"><span class="del-icon">📧</span>Outreach tracker (100 prospects documented)</div>
+        <div class="deliverable"><span class="del-icon">✍️</span>5+ published guest posts (live URLs)</div>
+        <div class="deliverable"><span class="del-icon">📈</span>Domain authority before/after Ahrefs screenshot</div>
+      </div>
+
+      <div class="resume-line">
+        <span class="resume-icon">💼</span>
+        <div><strong>Resume Line:</strong> "Executed 60-day link building campaign earning 23 backlinks (avg. DR 48) through guest posting, broken link building, and digital PR. Domain Rating improved from 18 to 31. Target keywords moved from page 3 to page 1 average."</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- TIMELINE -->
+<div class="timeline-section">
+  <h2>📅 Recommended Learning Timeline</h2>
+  <div class="tl-row"><div class="tl-period">Week 1–2</div><div class="tl-content"><h4>Modules 1 & 2 — Fundamentals + Keyword Research</h4><p>Set up GSC, GA4. Do keyword research for 3 different niches. Complete all tasks in both modules.</p></div></div>
+  <div class="tl-row"><div class="tl-period">Week 3–4</div><div class="tl-content"><h4>Module 3 — On-Page SEO</h4><p>Start your niche blog (Project 2). Apply every on-page technique to your first 3 articles.</p></div></div>
+  <div class="tl-row"><div class="tl-period">Week 5–6</div><div class="tl-content"><h4>Module 4 — Technical SEO</h4><p>Audit your own blog technically. Fix every issue. Achieve 85+ PageSpeed score. Begin Project 5.</p></div></div>
+  <div class="tl-row"><div class="tl-period">Week 7–10</div><div class="tl-content"><h4>Modules 5 & 6 — Content + Link Building</h4><p>Publish 10 articles on your blog. Start outreach for Project 6 link building campaign.</p></div></div>
+  <div class="tl-row"><div class="tl-period">Week 11–14</div><div class="tl-content"><h4>Module 7 — Local SEO</h4><p>Find a local business to help. Begin Project 3. Deliver results and get testimonial.</p></div></div>
+  <div class="tl-row"><div class="tl-period">Week 15–18</div><div class="tl-content"><h4>Modules 8, 9, 10 — E-commerce, Analytics, Advanced</h4><p>Complete Project 1 (SEO Audit). Create your first paid client proposal using Project 4 template.</p></div></div>
+  <div class="tl-row"><div class="tl-period">Month 5–6</div><div class="tl-content"><h4>First Client + Ongoing Refinement</h4><p>Use all 6 projects as portfolio. Begin outreach for paid clients. Your niche blog should now show measurable rankings — the ultimate proof of skill.</p></div></div>
+</div>
+
+</div><!-- /container -->
+
+<div class="site-footer">
+  <p>Built for aspiring SEO professionals. <strong>Remember:</strong> Every task in this roadmap done consistently will compound. The SEOs who win are those who learn by doing, not just reading. Start today. Start small. Stay consistent. The results will follow.</p>
+</div>
+
+</body>
+</html>

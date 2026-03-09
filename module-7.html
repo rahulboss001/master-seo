@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 7 — Local SEO | SEO Mastery 2025</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,700;0,900;1,300&family=Syne:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+[data-theme="dark"]{--bg:#091413;--bg1:#0c1918;--bg2:#101f1e;--bg3:#152726;--card:#0a1716;--border:#163030;--border2:#1f4444;--A:#14b8a6;--A2:#2dd4bf;--A3:#99f6e4;--B:#0d9488;--C:#0f766e;--D:#06b6d4;--D2:#67e8f9;--text:#d4f0ed;--text2:#86b8b3;--muted:#3a7570;--white:#e8fffd;--shadow:rgba(0,0,0,.6);--note-bg:rgba(20,184,166,.05);--sbg:#0c1918;--hbg:#091413}
+[data-theme="light"]{--bg:#f0fdfb;--bg1:#ccfbf1;--bg2:#b2f5e8;--bg3:#99f0de;--card:#ffffff;--border:#a7f3d0;--border2:#6ee7d0;--A:#0d9488;--A2:#0f766e;--A3:#115e59;--B:#14b8a6;--C:#2dd4bf;--D:#0891b2;--D2:#0e7490;--text:#052e2a;--text2:#065f56;--muted:#0f7069;--white:#021a18;--shadow:rgba(0,0,0,.1);--note-bg:rgba(13,148,136,.06);--sbg:#ccfbf1;--hbg:#f0fdfb}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;font-size:15px}body{font-family:'Syne',sans-serif;background:var(--bg);color:var(--text);line-height:1.75;overflow-x:hidden;transition:background .3s,color .3s}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--A);border-radius:10px}
+.shell{display:flex;min-height:100vh}
+.sidebar{width:272px;min-width:272px;background:var(--sbg);border-right:1px solid var(--border);position:fixed;top:0;left:0;bottom:0;overflow-y:auto;z-index:200;display:flex;flex-direction:column;transition:transform .3s}
+.sidebar::-webkit-scrollbar{width:3px}.sidebar::-webkit-scrollbar-thumb{background:var(--border2)}
+.sb-brand{padding:24px 20px 18px;border-bottom:1px solid var(--border)}.sb-back{display:inline-flex;align-items:center;gap:7px;font-size:.75em;font-weight:700;color:var(--muted);text-decoration:none;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;transition:color .15s}.sb-back:hover{color:var(--A2)}
+.sb-mod-badge{display:inline-block;font-family:'Fira Code',monospace;font-size:.65em;font-weight:700;background:var(--A);color:#fff;padding:3px 9px;border-radius:6px;margin-bottom:10px}
+.sb-brand h2{font-family:'Fraunces',serif;font-size:1.02em;font-weight:700;color:var(--white);line-height:1.35}.sb-brand p{font-size:.72em;color:var(--muted);margin-top:4px}
+.sb-progress{padding:14px 20px;border-bottom:1px solid var(--border)}.prog-label{display:flex;justify-content:space-between;font-size:.68em;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:7px}.prog-label span:last-child{color:var(--A2);font-family:'Fira Code',monospace}
+.prog-bg{height:4px;background:var(--border);border-radius:2px;overflow:hidden}.prog-fill{height:100%;background:linear-gradient(90deg,var(--A),var(--D2));width:0%;transition:width .4s ease}
+.sb-nav{padding:10px 0;flex:1}.sb-sl{padding:10px 20px 4px;font-size:.63em;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted)}
+.nav-link{display:flex;align-items:center;gap:10px;padding:9px 20px;text-decoration:none;color:var(--muted);font-size:.8em;font-weight:500;transition:all .15s;border-left:2px solid transparent}
+.nav-link:hover{color:var(--text);background:var(--bg2)}.nav-link.active{color:var(--A2);border-left-color:var(--A);background:rgba(20,184,166,.07)}
+.nav-num{font-family:'Fira Code',monospace;font-size:.72em;color:var(--border2);min-width:28px}.nav-link.active .nav-num{color:var(--A2)}
+.nav-done{margin-left:auto;font-size:.8em;color:#4ade80;opacity:0;transition:opacity .2s}.nav-link.completed .nav-done{opacity:1}
+.sb-footer{padding:14px 20px;border-top:1px solid var(--border)}.sb-footer p{font-size:.7em;color:var(--muted);line-height:1.5}
+.main{margin-left:272px;flex:1;min-width:0}
+.topbar{position:sticky;top:0;z-index:100;background:var(--hbg);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;padding:12px 40px}
+.topbar-bc{font-size:.78em;color:var(--muted);display:flex;align-items:center;gap:6px;flex:1}.topbar-bc a{color:var(--muted);text-decoration:none}.topbar-bc a:hover{color:var(--A2)}.topbar-bc span{color:var(--text2);font-weight:600}
+.theme-btn{background:var(--card);border:1px solid var(--border2);border-radius:50px;padding:7px 14px;cursor:pointer;font-size:.76em;font-weight:600;color:var(--text2);transition:all .2s;font-family:'Syne',sans-serif;white-space:nowrap}.theme-btn:hover{border-color:var(--A2);color:var(--A2)}
+.hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:4px;background:none;border:none}.hamburger span{display:block;width:20px;height:2px;background:var(--text2);border-radius:2px}
+.mod-hero{background:var(--bg1);border-bottom:1px solid var(--border);padding:56px 56px 44px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 700px 500px at 80% -15%,rgba(20,184,166,.1) 0%,transparent 60%),radial-gradient(ellipse 500px 400px at -5% 100%,rgba(6,182,212,.06) 0%,transparent 60%)}
+.hero-grid{position:absolute;inset:0;pointer-events:none;opacity:.02;background-image:linear-gradient(var(--border2) 1px,transparent 1px),linear-gradient(90deg,var(--border2) 1px,transparent 1px);background-size:44px 44px}
+.hero-inner{max-width:820px;position:relative}
+.num-tag{font-family:'Fira Code',monospace;font-size:.68em;font-weight:700;color:#fff;background:var(--A);padding:4px 12px;border-radius:6px;display:inline-block;margin-bottom:16px}
+.mod-hero h1{font-family:'Fraunces',serif;font-size:clamp(1.9em,4vw,3.1em);font-weight:900;color:var(--white);line-height:1.08;margin-bottom:10px}
+.mod-hero h1 em{font-style:italic;background:linear-gradient(135deg,var(--A2) 0%,var(--D2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.mod-hero p{color:var(--text2);font-size:.96em;max-width:700px;margin-bottom:22px;line-height:1.8}
+.mod-tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:28px}
+.mtag{font-size:.67em;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding:3px 10px;border-radius:4px}
+.mt1{background:rgba(20,184,166,.1);color:var(--A2);border:1px solid rgba(20,184,166,.25)}.mt2{background:rgba(6,182,212,.1);color:var(--D2);border:1px solid rgba(6,182,212,.25)}.mt3{background:rgba(245,158,11,.1);color:#f59e0b;border:1px solid rgba(245,158,11,.25)}.mt4{background:rgba(74,222,128,.1);color:#4ade80;border:1px solid rgba(74,222,128,.25)}
+.hero-stats{display:grid;grid-template-columns:repeat(4,auto);width:fit-content;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.stat-box{background:var(--bg2);padding:16px 20px;text-align:center}.stat-n{font-family:'Fraunces',serif;font-size:1.7em;font-weight:700;color:var(--A2);line-height:1;margin-bottom:3px}.stat-l{font-size:.65em;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.8px}
+.content-area{max-width:840px;margin:0 auto;padding:44px 56px 100px}
+.topic-item{border:1px solid var(--border);border-radius:14px;margin-bottom:14px;overflow:hidden;background:var(--card);transition:border-color .2s,box-shadow .2s}
+.topic-item:hover{border-color:var(--border2);box-shadow:0 4px 28px var(--shadow)}.topic-item.open{border-color:rgba(20,184,166,.4)}
+.topic-header{display:flex;align-items:center;gap:12px;padding:17px 20px;cursor:pointer;transition:background .15s}.topic-header:hover{background:var(--bg2)}
+.topic-num{font-family:'Fira Code',monospace;font-size:.7em;font-weight:700;color:var(--A2);background:rgba(20,184,166,.08);border:1px solid rgba(20,184,166,.2);padding:3px 8px;border-radius:5px;white-space:nowrap}
+.topic-header h3{font-size:.95em;font-weight:700;color:var(--white);flex:1;line-height:1.35}
+.d-b{font-size:.63em;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:2px 7px;border-radius:4px;background:rgba(74,222,128,.1);color:#4ade80}
+.d-i{font-size:.63em;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:2px 7px;border-radius:4px;background:rgba(20,184,166,.1);color:var(--A2)}
+.d-a{font-size:.63em;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:2px 7px;border-radius:4px;background:rgba(251,146,60,.1);color:#fb923c}
+.chevron{color:var(--muted);font-size:.75em;transition:transform .25s}.topic-item.open .chevron{transform:rotate(180deg);color:var(--A2)}
+.topic-body{display:none;padding:0 20px 24px;border-top:1px solid var(--border)}.topic-item.open .topic-body{display:block}
+.topic-intro{padding:18px 0 14px;color:var(--text2);font-size:.92em;line-height:1.85}.topic-intro strong{color:var(--white)}
+.keypoints{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+.kp{display:flex;align-items:flex-start;gap:10px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-size:.89em;color:var(--text2)}
+.kp-dot{width:6px;height:6px;border-radius:50%;background:var(--A);flex-shrink:0;margin-top:7px}.kp strong{color:var(--white)}
+.bg{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}
+.ib{border-radius:10px;padding:16px;font-size:.87em}.ib .bl{display:flex;align-items:center;gap:6px;font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px}
+.bex{background:rgba(20,184,166,.05);border:1px solid rgba(20,184,166,.18);border-left:3px solid var(--A)}.bex .bl{color:var(--A2)}
+.btask{background:rgba(245,158,11,.05);border:1px solid rgba(245,158,11,.18);border-left:3px solid #f59e0b}.btask .bl{color:#f59e0b}
+.bins{background:rgba(6,182,212,.05);border:1px solid rgba(6,182,212,.18);border-left:3px solid var(--D)}.bins .bl{color:var(--D2)}
+.bwarn{background:rgba(251,146,60,.05);border:1px solid rgba(251,146,60,.18);border-left:3px solid #f97316}.bwarn .bl{color:#fb923c}
+.ib p,.ib ul,.ib ol{color:var(--text2);line-height:1.7;margin-bottom:8px}.ib li{margin-bottom:5px}.ib strong{color:var(--white)}.ib ul,.ib ol{padding-left:16px}
+.task-list{display:flex;flex-direction:column;gap:7px}
+.task-check-item{display:flex;align-items:flex-start;gap:10px;cursor:pointer}.task-check-item input{display:none}
+.cb{width:18px;height:18px;border-radius:4px;flex-shrink:0;border:1.5px solid rgba(20,184,166,.4);display:flex;align-items:center;justify-content:center;margin-top:2px;transition:all .15s;font-size:.6em;color:transparent}
+.task-check-item.checked .cb{background:var(--A);border-color:var(--A);color:#fff;font-size:.65em}
+.task-text{font-size:.86em;color:var(--text2);line-height:1.6}.task-check-item.checked .task-text{color:var(--muted);text-decoration:line-through}
+code{font-family:'Fira Code',monospace;font-size:.83em;background:rgba(255,255,255,.06);color:var(--A2);padding:2px 6px;border-radius:4px}[data-theme="light"] code{background:rgba(0,0,0,.06);color:var(--A)}
+.resources-block{margin-top:18px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.res-title{padding:11px 16px;background:var(--bg3);border-bottom:1px solid var(--border);font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--A2)}
+.res-links{display:flex;flex-direction:column}
+.res-link{display:flex;align-items:flex-start;gap:12px;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;transition:background .15s}.res-link:last-child{border-bottom:none}.res-link:hover{background:rgba(20,184,166,.04)}
+.res-icon{font-size:1.1em;flex-shrink:0;margin-top:1px}.res-text{flex:1}.res-text strong{display:block;font-size:.85em;font-weight:600;color:var(--A2);margin-bottom:2px}.res-link:hover .res-text strong{color:var(--D2)}.res-text span{font-size:.77em;color:var(--muted);line-height:1.4}
+.rb{font-size:.62em;font-weight:700;text-transform:uppercase;padding:2px 7px;border-radius:3px;flex-shrink:0;margin-top:2px}
+.rb-f{background:rgba(74,222,128,.1);color:#4ade80;border:1px solid rgba(74,222,128,.2)}.rb-b{background:rgba(96,165,250,.1);color:#60a5fa;border:1px solid rgba(96,165,250,.2)}.rb-t{background:rgba(20,184,166,.1);color:var(--A2);border:1px solid rgba(20,184,166,.2)}.rb-o{background:rgba(245,158,11,.1);color:#f59e0b;border:1px solid rgba(245,158,11,.2)}
+.topic-note{margin-top:18px;border-radius:12px;overflow:hidden;border:1px solid rgba(20,184,166,.25);background:var(--note-bg)}
+.note-header{display:flex;align-items:center;gap:8px;padding:10px 16px;background:rgba(20,184,166,.1);border-bottom:1px solid rgba(20,184,166,.18);font-size:.7em;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--A2)}
+.note-grid{display:grid;grid-template-columns:1fr 1fr}
+.nc{padding:13px 16px;border-right:1px solid rgba(20,184,166,.12);border-bottom:1px solid rgba(20,184,166,.12)}.nc:nth-child(2n){border-right:none}.nc:nth-child(3),.nc:nth-child(4){border-bottom:none}
+.nc-l{font-size:.64em;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;color:var(--A2);margin-bottom:5px}.nc p{font-size:.82em;color:var(--text2);line-height:1.6}.nc strong{color:var(--white)}
+/* 3-PACK VISUAL */
+.pack-visual{display:grid;grid-template-columns:1fr;gap:6px;margin:14px 0}
+.pack-item{display:flex;align-items:flex-start;gap:12px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px}
+.pack-rank{font-family:'Fira Code',monospace;font-size:.72em;font-weight:700;background:var(--A);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.pack-content h4{font-size:.88em;font-weight:700;color:var(--white);margin-bottom:3px}.pack-content p{font-size:.83em;color:var(--text2);line-height:1.55}
+.pack-stars{color:#f59e0b;font-size:.85em}
+/* CHECKLIST */
+.audit-checklist{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:16px 0}
+.ac-header{padding:12px 16px;background:var(--bg3);border-bottom:1px solid var(--border);font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--A2)}
+.ac-group{padding:12px 16px;border-bottom:1px solid var(--border)}.ac-group:last-child{border-bottom:none}
+.ac-group-label{font-size:.7em;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:8px}
+.ac-item{display:flex;align-items:flex-start;gap:10px;cursor:pointer;padding:5px 0}
+.ac-item input{display:none}.ac-box{width:16px;height:16px;border-radius:3px;flex-shrink:0;border:1.5px solid rgba(20,184,166,.4);display:flex;align-items:center;justify-content:center;margin-top:2px;transition:all .15s;font-size:.55em;color:transparent}
+.ac-item.checked .ac-box{background:var(--A);border-color:var(--A);color:#fff;font-size:.6em}
+.ac-text{font-size:.84em;color:var(--text2);line-height:1.55}.ac-item.checked .ac-text{color:var(--muted);text-decoration:line-through}
+/* QUIZ */
+.quiz-block{margin-top:20px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.quiz-header{padding:12px 16px;background:var(--bg3);border-bottom:1px solid var(--border);font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--D2)}
+.quiz-q{padding:14px 16px;border-bottom:1px solid var(--border)}.quiz-q:last-child{border-bottom:none}
+.quiz-q p{font-size:.88em;color:var(--white);font-weight:600;margin-bottom:10px}
+.quiz-options{display:flex;flex-direction:column;gap:7px}
+.qo{display:flex;align-items:center;gap:10px;padding:9px 13px;border-radius:8px;border:1px solid var(--border);background:var(--card);cursor:pointer;font-size:.84em;color:var(--text2);transition:all .15s}.qo:hover{border-color:var(--border2);background:var(--bg3)}.qo.correct{border-color:#22c55e;background:rgba(34,197,94,.1);color:#4ade80}.qo.wrong{border-color:var(--A);background:rgba(20,184,166,.1);color:var(--A2)}
+.qol{width:22px;height:22px;border-radius:50%;flex-shrink:0;background:var(--bg3);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-family:'Fira Code',monospace;font-size:.72em;font-weight:700;color:var(--muted)}
+.qo.correct .qol{background:#22c55e;border-color:#22c55e;color:#000}.qo.wrong .qol{background:var(--A);border-color:var(--A);color:#fff}
+.qfb{font-size:.79em;margin-top:8px;padding:8px 12px;border-radius:6px;display:none}.qfb.show{display:block}.qfb.ok{background:rgba(34,197,94,.1);color:#4ade80;border:1px solid rgba(34,197,94,.2)}.qfb.no{background:rgba(20,184,166,.1);color:var(--A2);border:1px solid rgba(20,184,166,.2)}
+/* FLASHCARD */
+.fc-block{margin-top:20px;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:var(--card)}
+.fc-header{padding:11px 16px;background:var(--bg3);border-bottom:1px solid var(--border);font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--D2)}
+.fc-inner{padding:20px;display:flex;flex-direction:column;align-items:center;gap:14px}
+.flashcard{width:100%;min-height:110px;border-radius:10px;cursor:pointer;position:relative;perspective:800px}
+.fcface{width:100%;min-height:110px;border-radius:10px;display:flex;align-items:center;justify-content:center;padding:20px;text-align:center;backface-visibility:hidden;transition:transform .5s;position:absolute;top:0;left:0}
+.fcf{background:var(--bg2);border:1px solid var(--border);color:var(--white);font-weight:700;font-size:.95em;transform:rotateY(0deg)}
+.fcb{background:rgba(20,184,166,.08);border:1px solid rgba(20,184,166,.3);color:var(--text2);font-size:.87em;line-height:1.6;transform:rotateY(180deg)}
+.flashcard.flipped .fcf{transform:rotateY(-180deg)}.flashcard.flipped .fcb{transform:rotateY(0deg)}
+.fc-nav{display:flex;align-items:center;gap:12px}
+.fc-btn{background:var(--bg2);border:1px solid var(--border);color:var(--text2);border-radius:8px;padding:7px 16px;cursor:pointer;font-size:.78em;font-weight:600;font-family:'Syne',sans-serif;transition:all .15s}.fc-btn:hover{border-color:var(--A2);color:var(--A2)}
+.fc-ctr{font-size:.75em;color:var(--muted);font-family:'Fira Code',monospace}
+/* BLOG */
+.blog-section{margin-top:20px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:30px}
+.blog-header{padding:11px 16px;background:var(--bg3);border-bottom:1px solid var(--border);font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--D2)}
+.blog-item{display:flex;align-items:flex-start;gap:12px;padding:13px 16px;border-bottom:1px solid var(--border);text-decoration:none;transition:background .15s}.blog-item:last-child{border-bottom:none}.blog-item:hover{background:rgba(20,184,166,.04)}
+.blog-icon{font-size:1.1em;flex-shrink:0;margin-top:1px}.blog-text{flex:1}.blog-text strong{display:block;font-size:.85em;font-weight:600;color:#60a5fa;margin-bottom:2px}.blog-item:hover .blog-text strong{color:var(--A2)}.blog-text span{font-size:.77em;color:var(--muted);line-height:1.4}
+.tools-chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+.tool-chip{font-family:'Fira Code',monospace;font-size:.74em;font-weight:500;padding:4px 11px;border-radius:6px;background:rgba(20,184,166,.08);border:1px solid rgba(20,184,166,.2);color:var(--A2);text-decoration:none;transition:all .15s}.tool-chip:hover{background:rgba(20,184,166,.18);border-color:var(--A2)}
+.sd{display:flex;align-items:center;gap:14px;margin:44px 0 32px}.sd::before,.sd::after{content:'';flex:1;height:1px;background:linear-gradient(to right,transparent,var(--border),transparent)}.sd span{font-family:'Fira Code',monospace;font-size:.68em;color:var(--muted);white-space:nowrap;text-transform:uppercase;letter-spacing:2px}
+.mod-nav{display:flex;justify-content:space-between;gap:14px;margin-top:50px}
+.mnb{display:flex;align-items:center;gap:10px;padding:14px 20px;border:1px solid var(--border);border-radius:10px;text-decoration:none;transition:all .2s;flex:1}.mnb:hover{border-color:var(--A);background:rgba(20,184,166,.05)}
+.mnb.prev{flex-direction:row}.mnb.next{flex-direction:row-reverse;text-align:right}
+.mn-label{font-size:.68em;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted)}.mn-title{font-size:.88em;font-weight:700;color:var(--text2)}.mnb:hover .mn-title{color:var(--A2)}.mn-arr{font-size:1.2em;color:var(--muted)}
+.sb-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:150;opacity:0;transition:opacity .3s}.sb-overlay.show{display:block;opacity:1}
+@media(max-width:900px){.sidebar{transform:translateX(-100%)}.sidebar.open{transform:translateX(0)}.main{margin-left:0}.hamburger{display:flex}.topbar{padding:10px 20px}.mod-hero{padding:36px 24px 28px}.content-area{padding:28px 20px 80px}.bg{grid-template-columns:1fr}.note-grid{grid-template-columns:1fr}.nc{border-right:none !important}.nc:nth-child(3){border-bottom:1px solid rgba(20,184,166,.12) !important}.hero-stats{grid-template-columns:repeat(2,1fr);width:100%}}
+@media(max-width:500px){.topbar-bc{display:none}.mod-hero h1{font-size:1.65em}}
+</style>
+</head>
+<body>
+<div class="shell">
+<nav class="sidebar" id="sidebar">
+  <div class="sb-brand">
+    <a class="sb-back" href="seo_complete_roadmap_v3.html">← All Modules</a>
+    <div class="sb-mod-badge">MODULE 07</div>
+    <h2>Local SEO</h2>
+    <p>Dominating Google Maps & Local Search</p>
+  </div>
+  <div class="sb-progress">
+    <div class="prog-label"><span>Progress</span><span id="pp">0%</span></div>
+    <div class="prog-bg"><div class="prog-fill" id="pb"></div></div>
+  </div>
+  <div class="sb-nav">
+    <div class="sb-sl">Topics</div>
+    <a class="nav-link" href="#t7-1" data-target="t7-1"><span class="nav-num">7.1</span>Google Business Profile<span class="nav-done">✓</span></a>
+    <a class="nav-link" href="#t7-2" data-target="t7-2"><span class="nav-num">7.2</span>Local Citations & NAP Consistency<span class="nav-done">✓</span></a>
+    <a class="nav-link" href="#t7-3" data-target="t7-3"><span class="nav-num">7.3</span>Review Generation & Management<span class="nav-done">✓</span></a>
+    <a class="nav-link" href="#t7-4" data-target="t7-4"><span class="nav-num">7.4</span>Local Landing Pages & On-Page Local<span class="nav-done">✓</span></a>
+    <a class="nav-link" href="#t7-5" data-target="t7-5"><span class="nav-num">7.5</span>Local Link Building<span class="nav-done">✓</span></a>
+    <a class="nav-link" href="#t7-6" data-target="t7-6"><span class="nav-num">7.6</span>Tracking Local Rankings & Reporting<span class="nav-done">✓</span></a>
+    <div class="sb-sl" style="margin-top:8px">Study Aids</div>
+    <a class="nav-link" href="#checklist-section" data-target="checklist-section"><span class="nav-num">✅</span>GBP Audit Checklist<span class="nav-done">✓</span></a>
+    <a class="nav-link" href="#quiz-section" data-target="quiz-section"><span class="nav-num">🎯</span>Module Quiz<span class="nav-done">✓</span></a>
+    <a class="nav-link" href="#flashcard-section" data-target="flashcard-section"><span class="nav-num">🃏</span>Flashcards<span class="nav-done">✓</span></a>
+  </div>
+  <div class="sb-footer"><p>SEO Mastery Roadmap 2025 Module 7 of 12</p></div>
+</nav>
+<div class="sb-overlay" id="sb-overlay" onclick="closeSidebar()"></div>
+<div class="main">
+<div class="topbar">
+  <button class="hamburger" onclick="toggleSidebar()"><span></span><span></span><span></span></button>
+  <div class="topbar-bc"><a href="seo_complete_roadmap_v3.html">SEO Mastery 2025</a><span style="color:var(--muted)">›</span><span>Module 7 — Local SEO</span></div>
+  <button class="theme-btn" onclick="toggleTheme()" id="theme-btn">☀️ Light Mode</button>
+</div>
+
+<div class="mod-hero">
+  <div class="hero-bg"></div><div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="num-tag">MODULE 07 / 10</div>
+    <h1>Local SEO —<br><em>Dominate Google Maps</em> & Local Search</h1>
+    <p>Local SEO is the fastest path to real, measurable results for real businesses. Any physical business needs it, most do it poorly, and results appear in weeks — not months. This module gives you the complete local visibility playbook that gets businesses into the Maps 3-Pack.</p>
+    <div class="mod-tags">
+      <span class="mtag mt1">Intermediate</span><span class="mtag mt2">Fast Results</span>
+      <span class="mtag mt3">High Client Value</span><span class="mtag mt4">Beginner Friendly</span>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-box"><div class="stat-n">6</div><div class="stat-l">Topics</div></div>
+      <div class="stat-box"><div class="stat-n">24</div><div class="stat-l">Tasks</div></div>
+      <div class="stat-box"><div class="stat-n">16</div><div class="stat-l">Resources</div></div>
+      <div class="stat-box"><div class="stat-n">2–3h</div><div class="stat-l">Est. Time</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="content-area">
+
+<!-- T7.1 -->
+<div class="topic-item open" id="t7-1">
+  <div class="topic-header" onclick="toggleTopic(this)">
+    <span class="topic-num">7.1</span><h3>Google Business Profile Optimisation — Your Local SEO Foundation</h3>
+    <span class="d-b">Beginner</span><span class="chevron">▼</span>
+  </div>
+  <div class="topic-body">
+    <div class="topic-intro"><strong>Google Business Profile (GBP)</strong> controls whether a business appears in the Google Maps 3-Pack — the three local listings shown above organic results for queries like "plumber near me" or "dentist Delhi." The 3-Pack appears for 93% of local searches. Businesses in the 3-Pack receive <strong>5× more website clicks</strong> and <strong>7× more phone calls</strong> than results below it. GBP optimisation is the single most impactful action in all of local SEO and can be completed in 3 hours.</div>
+    <div class="keypoints">
+      <div class="kp"><div class="kp-dot"></div><div><strong>Business Category — The #1 GBP ranking factor:</strong> Your primary category determines which searches you appear for. Choose the most specific relevant category available: "Cosmetic Dentist" not "Dentist," "Italian Restaurant" not "Restaurant." Add up to 9 secondary categories to capture all relevant search types. Changing your primary category is the fastest way to shift your Map Pack visibility.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Business Description — 750 characters of keyword opportunity:</strong> Write a natural description that includes your primary service keyword, city, and differentiators in the first 250 characters (only 250 show before "Read more"). Avoid keyword stuffing — write for customers first. Include: what you do, who you serve, how long you've been operating, and your key differentiator.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Photos — 1,065% more website clicks:</strong> Google's own data shows businesses with 100+ photos receive 1,065% more website clicks and 520% more direction requests than businesses with zero photos. Upload: exterior (all angles), interior, team/staff, products/work samples, and before/after photos. Upload new photos weekly — freshness signals active management.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Google Posts — Weekly content on your GBP listing:</strong> Short updates (up to 1,500 chars) that appear on your listing in the search results panel. Post weekly about: special offers, new services, events, business updates, or seasonal content. Posts with photos get significantly more engagement. Posts expire after 7 days — consistency matters.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Services & Products — Keyword-rich structured content:</strong> Add every service you offer with descriptions (200+ words per service). Include natural keywords: "emergency dental extraction," "teeth whitening consultation," "Invisalign assessment." Service pages on your GBP create additional keyword-indexed content tied to your listing.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Q&A Section — Own the questions before customers ask:</strong> Pre-populate your GBP Q&A with the questions your customers ask most. Write keyword-rich questions and comprehensive answers: "Do you offer emergency plumbing services in South Delhi?" → detailed answer including keywords. Up-vote your own answers to push them to the top.</div></div>
+    </div>
+
+    <!-- 3-Pack Visual -->
+    <p style="font-size:.84em;font-weight:700;color:var(--text2);margin-bottom:10px">📍 What a Fully Optimised vs Bare GBP Looks Like</p>
+    <div class="pack-visual">
+      <div class="pack-item">
+        <div class="pack-rank">1</div>
+        <div class="pack-content">
+          <h4>Sharma Dental Clinic — Fully Optimised ✅</h4>
+          <div class="pack-stars">★★★★★</div>
+          <p>DR: 180+ photos · 94 Google reviews (4.8★) · Weekly posts · Full services list with pricing · Q&As answered · All hours complete · Booking link active. <strong>Result: #1 in Maps for "dentist Delhi" — 400+ monthly calls.</strong></p>
+        </div>
+      </div>
+      <div class="pack-item" style="border-color:rgba(251,146,60,.3)">
+        <div class="pack-rank" style="background:#f97316">✗</div>
+        <div class="pack-content">
+          <h4>Unoptimised Competitor — Bare Listing ❌</h4>
+          <p style="color:var(--muted)">2 photos · 6 reviews (3.9★) · No posts · No service list · No Q&As · Missing hours · No booking link. <strong>Result: Position 9+ in Maps — nearly invisible. Total setup time missed: 3 hours.</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg">
+      <div class="ib bex">
+        <div class="bl">📖 Real Case Study</div>
+        <p>A hair salon in Pune had a bare GBP (2 photos, 6 reviews). A competitor had 180 photos, 94 reviews (4.8★), weekly posts, and complete service listings with pricing.</p>
+        <p style="margin-top:8px">The optimised salon: <strong>#1 in Maps for "hair salon Pune"</strong> — 400+ monthly calls. The unoptimised salon: position 9. Total time to fully optimise the bare listing: <strong>3 hours</strong>. Ongoing maintenance: 20 minutes/week. This is the ROI case for every local SEO engagement.</p>
+      </div>
+      <div class="ib btask">
+        <div class="bl">✅ Your Tasks</div>
+        <div class="task-list">
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="cb">✓</span><span class="task-text">Create or claim a GBP for a real or practice business. Complete every single field — leave nothing blank.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="cb">✓</span><span class="task-text">Audit 5 local business GBPs in your city using a 20-point checklist. Score each and write a 1-page improvement plan for the weakest one.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="cb">✓</span><span class="task-text">Write 3 keyword-optimised GBP business descriptions: one for a dentist, one for a restaurant, one for a plumber. Each 250 words, city-specific, natural keyword placement.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="cb">✓</span><span class="task-text">Create a 4-week Google Posts content calendar for any local business: one post per week with caption, photo guidance, and call-to-action.</span></label>
+        </div>
+      </div>
+    </div>
+    <div class="resources-block">
+      <div class="res-title">📚 Resources</div>
+      <div class="res-links">
+        <a class="res-link" href="https://business.google.com" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>Google Business Profile Manager</strong><span>Create and manage your GBP. The central hub for all local SEO work — start here.</span></div><span class="rb rb-f">FREE</span></a>
+        <a class="res-link" href="https://whitespark.ca/local-search-ranking-factors/" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Whitespark — Local Search Ranking Factors Survey</strong><span>Annual expert survey rating the importance of each local ranking factor. The most-cited local SEO research document.</span></div><span class="rb rb-b">RESEARCH</span></a>
+        <a class="res-link" href="https://moz.com/learn/seo/local" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Moz — Local SEO Learning Center</strong><span>Comprehensive free local SEO resource covering GBP, citations, reviews, and local ranking factors.</span></div><span class="rb rb-b">GUIDE</span></a>
+        <a class="res-link" href="https://brightlocal.com/learn/" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>BrightLocal Learning Hub</strong><span>The best collection of free local SEO guides, research reports, and step-by-step tutorials on the internet.</span></div><span class="rb rb-b">GUIDE</span></a>
+      </div>
+    </div>
+    <div class="topic-note">
+      <div class="note-header">📌 Quick Reference — Google Business Profile</div>
+      <div class="note-grid">
+        <div class="nc"><div class="nc-l">✅ Why</div><p>GBP is the #1 factor for Maps 3-Pack rankings. Fully optimised GBPs receive 7× more calls and 5× more clicks than bare listings. Most businesses never fully optimise — giving you a massive competitive advantage from just <strong>3 hours of work</strong>.</p></div>
+        <div class="nc"><div class="nc-l">📍 Where</div><p>Every local business with a physical address or service area. Works for: restaurants, clinics, salons, gyms, plumbers, electricians, retailers, law firms, accountants — any business that serves customers in a geographic area.</p></div>
+        <div class="nc"><div class="nc-l">⚙️ How</div><p>Claim → verify ownership → fill every field → upload 30+ photos day one → complete all services with descriptions → add Q&As → publish first Google Post → set up weekly posting schedule → start review request system.</p></div>
+        <div class="nc"><div class="nc-l">⏱ When</div><p><strong>Before anything else in local SEO</strong> — GBP is the foundation. Optimise it first, then build citations, then generate reviews. Maintain it weekly: new post every 7 days, respond to every review within 24 hours, upload 2–5 new photos per week.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- T7.2 -->
+<div class="topic-item" id="t7-2">
+  <div class="topic-header" onclick="toggleTopic(this)">
+    <span class="topic-num">7.2</span><h3>Local Citations, NAP Consistency & Directory Strategy</h3>
+    <span class="d-i">Intermediate</span><span class="chevron">▼</span>
+  </div>
+  <div class="topic-body">
+    <div class="topic-intro"><strong>Citations</strong> are any online mention of a business's Name, Address, and Phone number (NAP). Google cross-references citations from across the internet to verify that a business is real, active, and trustworthy. Inconsistent NAP data — even small differences like "Street" vs "St." — confuses Google's verification process and suppresses local rankings. Citation building is the infrastructure layer of local SEO: tedious but foundational.</div>
+    <div class="keypoints">
+      <div class="kp"><div class="kp-dot"></div><div><strong>NAP Consistency — Exact character match required:</strong> Your Name, Address, and Phone must be identical everywhere online. "Sharma Dental, 45 Park Road, New Delhi, 011-1234567" must appear exactly this way across Google, Bing, Apple Maps, Facebook, Justdial, Sulekha, and every directory. "45 Park Rd" vs "45 Park Road" counts as inconsistent and dilutes citation authority.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Tier 1 Priority Citations — India-specific:</strong> Google Business Profile (essential), Bing Places, Apple Maps, Facebook Business Page, Justdial, Sulekha, IndiaMart, TripAdvisor (if restaurant/hotel), Practo (if healthcare), MagicBricks (if real estate), Zomato (if restaurant). These are the high-authority directories Google trusts most for Indian businesses.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Tier 2 — General Directories:</strong> Yellow Pages India, IndiaBusinessDirectory, Foursquare, Hotfrog India, GoYellow, TradeIndia, BizHwy. Add these after Tier 1 is complete. Volume matters less than accuracy — 30 accurate citations beats 200 inconsistent ones.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Citation Audit — Fix before building:</strong> Before creating new citations, audit existing ones. Use BrightLocal's free Citation Burst scanner or manually search your business name + city and check every result. Inconsistencies in existing citations are more damaging than having fewer overall — fix first, then build.</div></div>
+    </div>
+    <div class="bg">
+      <div class="ib bex">
+        <div class="bl">📖 NAP Inconsistency Impact</div>
+        <p>A plumbing business appeared on 60 directories but had 5 different phone numbers, 3 different address formats, and 2 different business names across them (had rebranded). Google couldn't confidently verify the business as a single entity.</p>
+        <p style="margin-top:8px">After a 4-hour NAP audit and correction campaign: position in Maps for "plumber [city]" improved from position 8 to position 2 within 6 weeks — with zero new reviews or content. <strong>Pure citation accuracy improvement drove the ranking change.</strong></p>
+      </div>
+      <div class="ib btask">
+        <div class="bl">✅ Your Tasks</div>
+        <div class="task-list">
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="cb">✓</span><span class="task-text">Search any local business name across 10 directories. Document every NAP inconsistency — note exact differences between each listing.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="cb">✓</span><span class="task-text">Build a list of the <strong>top 30 citation sources</strong> for India — include URL, category, DR, whether free or paid, and submission method.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="cb">✓</span><span class="task-text">Submit a practice business to the top 10 Tier 1 directories with perfectly consistent NAP. Screenshot every submission confirmation.</span></label>
+        </div>
+      </div>
+    </div>
+    <div class="resources-block">
+      <div class="res-title">📚 Resources</div>
+      <div class="res-links">
+        <a class="res-link" href="https://brightlocal.com/free-local-seo-tools/citation-burst/" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>BrightLocal Citation Builder</strong><span>Build and audit local citations at scale. Free trial available — most efficient tool for citation work.</span></div><span class="rb rb-t">TOOL</span></a>
+        <a class="res-link" href="https://moz.com/local" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>Moz Local</strong><span>Sync and manage business listings across major directories from one dashboard. Free profile scan available.</span></div><span class="rb rb-t">TOOL</span></a>
+        <a class="res-link" href="https://whitespark.ca/blog/" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Whitespark Blog</strong><span>The best local SEO blog — covers citations, GBP updates, review strategies, and local ranking factor research.</span></div><span class="rb rb-b">BLOG</span></a>
+      </div>
+    </div>
+    <div class="topic-note">
+      <div class="note-header">📌 Quick Reference — Citations & NAP</div>
+      <div class="note-grid">
+        <div class="nc"><div class="nc-l">✅ Why</div><p>Citations are Google's verification mechanism for local business legitimacy. Consistent citations across trusted directories signal to Google that the business is real and operating — directly improving Maps rankings.</p></div>
+        <div class="nc"><div class="nc-l">📍 Where</div><p>All businesses with physical locations or service areas. Priority: Tier 1 directories first (Google, Bing, Apple, Facebook, industry-specific). Build Tier 2 only after all Tier 1 listings are accurate and verified.</p></div>
+        <div class="nc"><div class="nc-l">⚙️ How</div><p>Audit existing citations first (fix inconsistencies) → submit to Tier 1 directories with exact NAP → add Tier 2 monthly → track with BrightLocal or Moz Local → re-audit quarterly for new inconsistencies.</p></div>
+        <div class="nc"><div class="nc-l">⏱ When</div><p>After GBP is fully optimised. Citations take 4–8 weeks to be indexed and influence rankings. Initial citation build: 4–6 hours. Ongoing maintenance: 30 minutes monthly. Set a quarterly audit to fix any listings that drift.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- T7.3 -->
+<div class="topic-item" id="t7-3">
+  <div class="topic-header" onclick="toggleTopic(this)">
+    <span class="topic-num">7.3</span><h3>Review Generation, Response Strategy & Reputation Management</h3>
+    <span class="d-i">Intermediate</span><span class="chevron">▼</span>
+  </div>
+  <div class="topic-body">
+    <div class="topic-intro">Reviews are a top-3 local ranking factor AND a direct conversion factor — 93% of consumers read reviews before visiting a local business. Yet most businesses generate reviews sporadically and by accident. A systematic review generation system transforms this from luck into a predictable operation: more reviews, better star ratings, faster ranking improvements, and measurably higher conversion rates.</div>
+    <div class="keypoints">
+      <div class="kp"><div class="kp-dot"></div><div><strong>Review velocity matters as much as total count:</strong> A business that gets 3 reviews per week consistently outranks a competitor with twice as many reviews but none in the last 6 months. Google's algorithm rewards recency — steady, ongoing review acquisition signals an active, well-regarded business.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>The Review Request System — Automate it:</strong> Send a review request via SMS immediately after a successful service delivery. Template: "Hi [Name], thank you for visiting [Business]! If you had a great experience, we'd love a Google review: [direct Google review link]. It takes just 60 seconds and helps us enormously 🙏" SMS response rate is 3× higher than email or in-person requests alone. Use tools like Birdeye or WhatsApp Business for scale.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>The Direct Review Link — Remove all friction:</strong> Go to your GBP → Get more reviews → copy your short review link. Share this link directly — never send customers to search for your business on Google. Every additional step reduces completion rate by ~40%. Short link + one-tap review form = maximum conversion.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Review Response — Respond to every single one:</strong> Response rate is a local ranking signal. More importantly, 45% of users say a business responding to negative reviews makes them more likely to visit. For positives: thank personally + reinforce a service keyword ("We're so glad you loved our teeth whitening service!"). For negatives: acknowledge + apologise + offer to resolve offline. Never argue, never be defensive — the response is read by future potential customers, not just the reviewer.</div></div>
+    </div>
+    <div class="bg">
+      <div class="ib bex">
+        <div class="bl">📖 Review System — 8-Week Results</div>
+        <p>A dentist had 8 reviews (3.9★), invisible in Maps. Action: (1) SMS review request after every appointment, (2) responded to all 8 existing reviews, (3) fixed NAP across directories.</p>
+        <p style="margin-top:8px"><strong>8 weeks later:</strong> 143 reviews (4.7★). Maps position: 12 → 2 for "dentist [city]." Monthly new patient inquiries from Google: 11 → 78. <strong>Campaign cost: ₹0 in tools.</strong> Just 8 hours of setup + 30 mins/week maintenance.</p>
+      </div>
+      <div class="ib btask">
+        <div class="bl">✅ Your Tasks</div>
+        <div class="task-list">
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="cb">✓</span><span class="task-text">Get your GBP direct review link. Test it on your own phone — verify it opens the Google review form with zero friction.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="cb">✓</span><span class="task-text">Write 3 review request templates: SMS (under 160 chars), WhatsApp message, and email version. Each should feel natural and personal, not corporate.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="cb">✓</span><span class="task-text">Find a local business with a negative review. Write a professional, empathetic response that acknowledges the issue without being defensive — keep it under 80 words.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="cb">✓</span><span class="task-text">Design a complete review generation workflow for a restaurant: trigger point, message template, follow-up timing, and response protocol for both positive and negative reviews.</span></label>
+        </div>
+      </div>
+    </div>
+    <div class="resources-block">
+      <div class="res-title">📚 Resources</div>
+      <div class="res-links">
+        <a class="res-link" href="https://brightlocal.com/learn/online-reviews/" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>BrightLocal — Local Consumer Review Survey</strong><span>Annual research on how consumers use reviews — essential data for client presentations on review importance.</span></div><span class="rb rb-b">RESEARCH</span></a>
+        <a class="res-link" href="https://whitespark.ca/blog/how-to-get-more-google-reviews/" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Whitespark — How to Get More Google Reviews</strong><span>Proven tactics for systematic review generation, including templates and automation strategies.</span></div><span class="rb rb-b">GUIDE</span></a>
+      </div>
+    </div>
+    <div class="topic-note">
+      <div class="note-header">📌 Quick Reference — Reviews & Reputation</div>
+      <div class="note-grid">
+        <div class="nc"><div class="nc-l">✅ Why</div><p>Reviews are a top-3 local ranking factor. They also directly drive conversions — 93% of users read reviews before visiting a local business. An active review system is often the single fastest way to improve both rankings and revenue simultaneously.</p></div>
+        <div class="nc"><div class="nc-l">📍 Where</div><p>Google Reviews are most important. Also build on: platform-specific sites (Zomato for restaurants, Practo for doctors, Justdial for services). Facebook reviews are secondary but still indexed by Google.</p></div>
+        <div class="nc"><div class="nc-l">⚙️ How</div><p>Build a direct review link → set up SMS/WhatsApp auto-request post-service → respond to every review within 24 hours → track review velocity weekly → aim for minimum 3 new reviews/week to maintain competitive momentum.</p></div>
+        <div class="nc"><div class="nc-l">⏱ When</div><p>Start your review system the same day you optimise GBP. Reviews are the longest-lead factor in local SEO — even with a perfect system, meaningful volume takes 4–8 weeks. Start immediately and never stop — review velocity is ongoing.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- T7.4 -->
+<div class="topic-item" id="t7-4">
+  <div class="topic-header" onclick="toggleTopic(this)">
+    <span class="topic-num">7.4</span><h3>Local Landing Pages, On-Page Local SEO & Schema Markup</h3>
+    <span class="d-i">Intermediate</span><span class="chevron">▼</span>
+  </div>
+  <div class="topic-body">
+    <div class="topic-intro">While GBP controls Maps visibility, your website's on-page optimisation controls local organic rankings — the results below the Maps pack. Both are necessary for complete local dominance. Local landing pages are also critical for businesses serving multiple cities: each city needs a dedicated, unique page targeting "[service] + [city]" keywords. A business covering 5 cities with 5 optimised landing pages can dominate Maps AND organic results across all 5 simultaneously.</div>
+    <div class="keypoints">
+      <div class="kp"><div class="kp-dot"></div><div><strong>Title Tags & H1 for Local Pages:</strong> Format: "[Primary Service] in [City] | [Business Name]" — Example: "Emergency Plumber in South Delhi | RajPlumbers." Include the city name in the H1 as well. For multi-city businesses, create separate pages for each city rather than trying to rank one page for multiple cities.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>LocalBusiness Schema Markup:</strong> Add JSON-LD LocalBusiness schema to every local landing page. Include: name, address (with streetAddress, addressLocality, addressRegion, postalCode, addressCountry), phone (with telephone), opening hours (openingHoursSpecification), geo coordinates (latitude/longitude), priceRange, and aggregateRating. This creates a structured data connection between your website and your GBP.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Embedded Google Map:</strong> Embed your Google Business Profile map directly on your contact page and local landing pages. This creates a technical signal connecting your website to your GBP listing and reinforces the location data Google uses for Maps rankings.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Local Content Signals:</strong> Reference local landmarks, neighbourhoods, and community events naturally in your content. "Serving Hauz Khas, Greater Kailash, and Saket since 2008" signals geographic relevance far more clearly than just having the city name in your title tag. Include neighbourhood-level keywords where relevant.</div></div>
+    </div>
+    <div class="bg">
+      <div class="ib bins">
+        <div class="bl">💡 LocalBusiness Schema Template</div>
+        <p><code style="font-size:.78em;display:block;white-space:pre-wrap;line-height:1.6">{
+  "@context": "https://schema.org",
+  "@type": "Dentist",
+  "name": "Sharma Dental Clinic",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "45 Park Road",
+    "addressLocality": "New Delhi",
+    "postalCode": "110001",
+    "addressCountry": "IN"
+  },
+  "telephone": "+91-11-1234567",
+  "openingHours": "Mo-Sa 09:00-18:00",
+  "priceRange": "₹₹",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "143"
+  }
+}</code></p>
+      </div>
+      <div class="ib btask">
+        <div class="bl">✅ Your Tasks</div>
+        <div class="task-list">
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="cb">✓</span><span class="task-text">Write a fully optimised local landing page (H1, title tag, meta desc, 400-word body copy, FAQs) for any local business — target "[service] + [city]" keyword.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="cb">✓</span><span class="task-text">Generate correct <strong>LocalBusiness JSON-LD schema</strong> for 3 different business types (restaurant, dentist, plumber) using Google's Structured Data Markup Helper.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="cb">✓</span><span class="task-text">Validate your schema using <strong>Google's Rich Results Test</strong>. Ensure zero errors. Fix any warnings that appear.</span></label>
+        </div>
+      </div>
+    </div>
+    <div class="resources-block">
+      <div class="res-title">📚 Resources</div>
+      <div class="res-links">
+        <a class="res-link" href="https://www.google.com/webmasters/markup-helper/u/0/" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>Google Structured Data Markup Helper</strong><span>Generate LocalBusiness schema markup visually by tagging content on your actual page. Output JSON-LD with one click.</span></div><span class="rb rb-f">FREE</span></a>
+        <a class="res-link" href="https://search.google.com/test/rich-results" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>Google Rich Results Test</strong><span>Validate any schema markup. Shows which rich results your schema qualifies for and flags errors or warnings.</span></div><span class="rb rb-f">FREE</span></a>
+        <a class="res-link" href="https://ahrefs.com/blog/local-seo/" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Ahrefs — Local SEO: The Complete Guide</strong><span>End-to-end local SEO guide covering GBP, citations, on-page, and tracking — with real examples and case studies.</span></div><span class="rb rb-b">GUIDE</span></a>
+      </div>
+    </div>
+    <div class="topic-note">
+      <div class="note-header">📌 Quick Reference — Local On-Page & Schema</div>
+      <div class="note-grid">
+        <div class="nc"><div class="nc-l">✅ Why</div><p>On-page local SEO controls your organic rankings below the Maps pack — and LocalBusiness schema creates a structured data bridge between your website and GBP that reinforces local relevance signals for both.</p></div>
+        <div class="nc"><div class="nc-l">📍 Where</div><p>Homepage (primary city), dedicated local landing pages (each service + city combination), contact page (embedded map + full NAP), and blog posts referencing local areas.</p></div>
+        <div class="nc"><div class="nc-l">⚙️ How</div><p>Title tags with "[service] + [city]" → LocalBusiness JSON-LD on every local page → embedded Google Map on contact page → local area references in body content → FAQ sections targeting "[service] near me" queries with direct answers.</p></div>
+        <div class="nc"><div class="nc-l">⏱ When</div><p>During initial site setup or client onboarding. Multi-city businesses: create landing pages for highest-priority cities first (where you get most business). Add one new city page per month until all served areas are covered.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- T7.5 -->
+<div class="topic-item" id="t7-5">
+  <div class="topic-header" onclick="toggleTopic(this)">
+    <span class="topic-num">7.5</span><h3>Local Link Building — Authority for the Maps 3-Pack</h3>
+    <span class="d-i">Intermediate</span><span class="chevron">▼</span>
+  </div>
+  <div class="topic-body">
+    <div class="topic-intro">Links from local, geographically relevant websites are disproportionately powerful for local SEO compared to general link building. A link from the local chamber of commerce website, a regional newspaper, or a city-specific business directory tells Google that your business is genuinely embedded in that community — which is exactly the signal local ranking algorithms reward.</div>
+    <div class="keypoints">
+      <div class="kp"><div class="kp-dot"></div><div><strong>Local Chamber of Commerce:</strong> Join your local chamber of commerce. Membership usually includes a directory listing with a backlink from a locally authoritative domain. Chambers often have DR 30–50 and are highly relevant geographic authority signals. Cost: typically ₹2,000–₹10,000/year — the SEO value alone often justifies it.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Local News & Blogs:</strong> Get covered in local news sites (DR 40–70). Angles that get coverage: business milestones ("Celebrates 10 Years"), community involvement, hiring announcements, charitable work, or expert commentary on local issues. A single article in a city newspaper's website can be worth more for local rankings than 20 generic directory links.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Sponsor Local Events:</strong> Sponsor local events, school functions, sports teams, or community initiatives. Sponsors typically receive a website mention with a backlink from the event site or organization's page. These links are genuinely earned through community participation — exactly what Google's local algorithm rewards.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Partner with Complementary Local Businesses:</strong> Cross-referral links from complementary local businesses. A wedding venue links to a local florist; a dental clinic links to a local orthodontist; a gym links to a local nutrition store. These links are natural, relevant, and trusted — and usually free to arrange through genuine business relationships.</div></div>
+    </div>
+    <div class="bg">
+      <div class="ib bex">
+        <div class="bl">📖 Local Links Impact</div>
+        <p>A law firm spent 3 months building only local links: joined the local Bar Association (backlink), sponsored a charity 5K (backlink from charity site), wrote a guest column for a city business journal (backlink), and partnered with 5 complementary local businesses for cross-referrals.</p>
+        <p style="margin-top:8px"><strong>Result:</strong> 12 local backlinks (avg DR 38). Maps position for "family lawyer [city]": position 5 → position 1. Monthly consultation inquiries from Google: 8 → 47. No national links were built during this period — purely local.</p>
+      </div>
+      <div class="ib btask">
+        <div class="bl">✅ Your Tasks</div>
+        <div class="task-list">
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="cb">✓</span><span class="task-text">Research local link opportunities for any city: find the chamber of commerce, top 5 local news sites, and 5 local business associations. Note their DR and how businesses get mentioned.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="cb">✓</span><span class="task-text">Write a <strong>local press release</strong> for any fictional business announcing a milestone. Structure it so a local journalist would actually want to publish it — include a strong local angle.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="cb">✓</span><span class="task-text">Identify 10 complementary local businesses that a dentist could partner with for cross-referral links. For each, write one sentence explaining the natural linking rationale.</span></label>
+        </div>
+      </div>
+    </div>
+    <div class="topic-note">
+      <div class="note-header">📌 Quick Reference — Local Link Building</div>
+      <div class="note-grid">
+        <div class="nc"><div class="nc-l">✅ Why</div><p>Local links carry geographic relevance signals that general links don't. A link from a city newspaper signals that your business is a genuine local entity — a signal that directly improves Maps pack rankings.</p></div>
+        <div class="nc"><div class="nc-l">📍 Where</div><p>Chambers of commerce, local news sites, city blogs, neighbourhood associations, local event organisations, complementary local businesses, regional industry associations, and university/school websites if relevant.</p></div>
+        <div class="nc"><div class="nc-l">⚙️ How</div><p>Chamber membership → local event sponsorship → expert commentary for local journalists → cross-referral partnerships with complementary businesses → press releases for milestones → guest articles in local publications.</p></div>
+        <div class="nc"><div class="nc-l">⏱ When</div><p>After GBP, citations, and reviews are established. Target 3–5 quality local links per month. Local link building is relationship-driven — start building those relationships now, even before you have a specific link request to make.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- T7.6 -->
+<div class="topic-item" id="t7-6">
+  <div class="topic-header" onclick="toggleTopic(this)">
+    <span class="topic-num">7.6</span><h3>Tracking Local Rankings, GBP Insights & Client Reporting</h3>
+    <span class="d-b">Beginner</span><span class="chevron">▼</span>
+  </div>
+  <div class="topic-body">
+    <div class="topic-intro">Local SEO results are meaningless if you can't measure them and communicate them to clients. The metrics that matter in local SEO are fundamentally different from standard SEO — Maps position, phone calls, direction requests, and photo views are the KPIs that prove value to a local business owner. Tracking these correctly and presenting them in business-language reports (not SEO jargon) is what gets you retained as a long-term local SEO partner.</div>
+    <div class="keypoints">
+      <div class="kp"><div class="kp-dot"></div><div><strong>GBP Performance Insights — Monthly baseline metrics:</strong> GBP → Performance shows: Searches (how often your listing appeared), Views (impressions in Maps and Search), Customer Actions (website clicks, phone calls, direction requests, message clicks). Track these month-over-month. Phone calls and direction requests are the most business-relevant metrics — these directly represent revenue opportunities.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Local Rank Tracking — Grid-based tracking:</strong> Local rankings vary by the searcher's exact location within the city. Tools like BrightLocal, Local Falcon, or GeoRanker show your Maps ranking at multiple geographic points across the city simultaneously (a grid). This reveals where you're dominating and where you're weak — guiding hyper-local optimisation efforts.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Review Tracking — Velocity and sentiment:</strong> Track total review count, average star rating, and weekly new review velocity month-over-month. Also monitor review sentiment — track recurring positive and negative themes. Positive themes become marketing copy; negative themes become service improvement priorities.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Client Reporting — Business language, not SEO jargon:</strong> Your client doesn't care about "citation volume" or "GBP completion score" — they care about phone calls and customer inquiries. Structure monthly reports: (1) Phone calls from Google this month vs last month, (2) Website visits from Google Maps, (3) Direction requests, (4) Review count and rating, (5) Maps ranking for top 3 keywords. All in plain language with clear before/after comparisons.</div></div>
+    </div>
+    <div class="bg">
+      <div class="ib bex">
+        <div class="bl">📖 Client Report Example</div>
+        <p><strong>Month 1 Baseline → Month 3 Results:</strong></p>
+        <ul style="margin-top:8px">
+          <li>Phone calls from Google: <strong>14 → 97</strong> (+593%)</li>
+          <li>Direction requests: <strong>22 → 148</strong></li>
+          <li>Maps position "plumber Delhi": <strong>#8 → #2</strong></li>
+          <li>Google Reviews: <strong>9 → 71</strong> (3.8★ → 4.7★)</li>
+          <li>Website visits from Maps: <strong>180 → 1,240</strong></li>
+        </ul>
+        <p style="margin-top:8px"><em>This is the report that gets retainer renewals — every number is business-impact language a business owner immediately understands.</em></p>
+      </div>
+      <div class="ib btask">
+        <div class="bl">✅ Your Tasks</div>
+        <div class="task-list">
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="cb">✓</span><span class="task-text">Set up <strong>GBP Performance</strong> tracking for any verified GBP — screenshot current baseline metrics for phone calls, website clicks, and direction requests.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="cb">✓</span><span class="task-text">Create a <strong>1-page monthly Local SEO report template</strong> for a client — use business-language metrics only (calls, clicks, ranking, reviews). No SEO jargon anywhere in the report.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="cb">✓</span><span class="task-text">Use <strong>Local Falcon</strong> or <strong>BrightLocal</strong> to run a free grid ranking check for any local keyword in any city. Screenshot and analyse where the business is strong and weak geographically.</span></label>
+        </div>
+      </div>
+    </div>
+    <div class="resources-block">
+      <div class="res-title">📚 Resources</div>
+      <div class="res-links">
+        <a class="res-link" href="https://www.localfalcon.com" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>Local Falcon — Grid Rank Tracker</strong><span>Visualise your Google Maps ranking across a geographic grid. See exactly where you rank at every point across your city.</span></div><span class="rb rb-t">TOOL</span></a>
+        <a class="res-link" href="https://brightlocal.com/" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>BrightLocal</strong><span>All-in-one local SEO platform: rank tracking, citation building, review monitoring, and client reporting. Free trial available.</span></div><span class="rb rb-t">TOOL</span></a>
+      </div>
+    </div>
+    <div class="topic-note">
+      <div class="note-header">📌 Quick Reference — Local Tracking & Reporting</div>
+      <div class="note-grid">
+        <div class="nc"><div class="nc-l">✅ Why</div><p>Tracking proves ROI and retains clients. Business owners need to see phone calls and inquiries — not SEO metrics. The clients who cancel local SEO retainers almost always do so because they couldn't see the value in the reports they received.</p></div>
+        <div class="nc"><div class="nc-l">📍 Where</div><p>GBP Insights for free call/click tracking. BrightLocal or Local Falcon for grid rank tracking. Google Analytics 4 for website traffic from Maps. Screenshot all baselines on day one — before/after data is your proof of value.</p></div>
+        <div class="nc"><div class="nc-l">⚙️ How</div><p>Screenshot GBP metrics on day 1 → check monthly → present as 1-page business report → include 3-month trend charts → always compare to baseline, not just previous month → include next month's planned actions.</p></div>
+        <div class="nc"><div class="nc-l">⏱ When</div><p>Establish baseline metrics on day 1 of any client engagement. Report monthly — never less frequently. After 3 months, build a trend chart showing the trajectory. This cumulative evidence is what justifies ongoing retainers.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- GBP CHECKLIST -->
+<div class="sd" id="checklist-section"><span>◈ Interactive GBP Audit Checklist</span></div>
+<div class="audit-checklist">
+  <div class="ac-header">✅ Complete GBP Optimisation Checklist — 24 Points</div>
+  <div class="ac-group">
+    <div class="ac-group-label">🏢 Profile Basics</div>
+    <label class="ac-item" onclick="toggleAC(this)"><input type="checkbox"><span class="ac-box">✓</span><span class="ac-text">Business name matches exact real-world name (no keyword stuffing)</span></label>
+    <label class="ac-item" onclick="toggleAC(this)"><input type="checkbox"><span class="ac-box">✓</span><span class="ac-text">Primary category is the most specific and relevant option available</span></label>
+    <label class="ac-item" onclick="toggleAC(this)"><input type="checkbox"><span class="ac-box">✓</span><span class="ac-text">All relevant secondary categories added (up to 9)</span></label>
+    <label class="ac-item" onclick="toggleAC(this)"><input type="checkbox"><span class="ac-box">✓</span><span class="ac-text">Business description: 750 chars, keyword-rich first 250, compelling</span></label>
+    <label class="ac-item" onclick="toggleAC(this)"><input type="checkbox"><span class="ac-box">✓</span><span class="ac-text">Opening hours correct for all days including holidays</span></label>
+    <label class="ac-item" onclick="toggleAC(this)"><input type="checkbox"><span class="ac-box">✓</span><span class="ac-text">Phone number verified and matches website NAP exactly</span></label>
+    <label class="ac-item" onclick="toggleAC(this)"><input type="checkbox"><span class="ac-box">✓</span><span class="ac-text">Website URL linked to the correct landing page</span></label>
+  </div>
+  <div class="ac-group">
+    <div class="ac-group-label">📸 Photos & Visual Content</div>
+    <label class="ac-item" onclick="toggleAC(this)"><input type="checkbox"><span class="ac-box">✓</span><span class="ac-text">Logo image uploaded (high resolution, correct dimensions)</span></label>
+    <label class="ac-item" onclick="toggleAC(this)"><input type="checkbox"><span class="ac-box">✓</span><span class="ac-text">Cover photo uploaded and looks professional</span></label>
+    <label class="ac-item" onclick="toggleAC(this)"><input type="checkbox"><span class="ac-box">✓</span><span class="ac-text">Minimum 20 photos uploaded across all categories</span></label>
+    <label class="ac-item" onclick="toggleAC(this)"><input type="checkbox"><span class="ac-box">✓</span><span class="ac-text">Exterior, interior, team, and product/service photos all present</span></label>
+    <label class="ac-item" onclick="toggleAC(this)"><input type="checkbox"><span class="ac-box">✓</span><span class="ac-text">New photos uploaded in last 7 days (freshness signal)</span></label>
+  </div>
+  <div class="ac-group">
+    <div class="ac-group-label">📝 Content & Engagement</div>
+    <label class="ac-item" onclick="toggleAC(this)"><input type="checkbox"><span class="ac-box">✓</span><span class="ac-text">Google Post published in last 7 days</span></label>
+    <label class="ac-item" onclick="toggleAC(this)"><input type="checkbox"><span class="ac-box">✓</span><span class="ac-text">All services listed with descriptions (200+ chars each)</span></label>
+    <label class="ac-item" onclick="toggleAC(this)"><input type="checkbox"><span class="ac-box">✓</span><span class="ac-text">Products listed with photos and pricing (if applicable)</span></label>
+    <label class="ac-item" onclick="toggleAC(this)"><input type="checkbox"><span class="ac-box">✓</span><span class="ac-text">Q&A section has minimum 5 pre-populated questions with answers</span></label>
+    <label class="ac-item" onclick="toggleAC(this)"><input type="checkbox"><span class="ac-box">✓</span><span class="ac-text">Booking/appointment link active (if applicable)</span></label>
+  </div>
+  <div class="ac-group">
+    <div class="ac-group-label">⭐ Reviews</div>
+    <label class="ac-item" onclick="toggleAC(this)"><input type="checkbox"><span class="ac-box">✓</span><span class="ac-text">Direct review link created and shared with team</span></label>
+    <label class="ac-item" onclick="toggleAC(this)"><input type="checkbox"><span class="ac-box">✓</span><span class="ac-text">Review request system active (SMS/WhatsApp post-service)</span></label>
+    <label class="ac-item" onclick="toggleAC(this)"><input type="checkbox"><span class="ac-box">✓</span><span class="ac-text">All existing reviews have been responded to</span></label>
+    <label class="ac-item" onclick="toggleAC(this)"><input type="checkbox"><span class="ac-box">✓</span><span class="ac-text">New reviews in last 30 days (velocity is current)</span></label>
+  </div>
+  <div class="ac-group">
+    <div class="ac-group-label">📊 Tracking & Verification</div>
+    <label class="ac-item" onclick="toggleAC(this)"><input type="checkbox"><span class="ac-box">✓</span><span class="ac-text">GBP verified with Google (green checkmark showing)</span></label>
+    <label class="ac-item" onclick="toggleAC(this)"><input type="checkbox"><span class="ac-box">✓</span><span class="ac-text">GBP Performance baseline metrics screenshot taken</span></label>
+    <label class="ac-item" onclick="toggleAC(this)"><input type="checkbox"><span class="ac-box">✓</span><span class="ac-text">Monthly reporting schedule established with client</span></label>
+  </div>
+</div>
+
+<!-- TOOLS -->
+<div class="sd"><span>◈ Local SEO Tool Stack</span></div>
+<div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:24px">
+  <h3 style="font-family:'Fraunces',serif;font-size:1.25em;color:var(--white);margin-bottom:6px">🔧 Module 7 Tools</h3>
+  <div class="tools-chips">
+    <a class="tool-chip" href="https://business.google.com" target="_blank" rel="noopener">Google Business Profile</a>
+    <a class="tool-chip" href="https://brightlocal.com" target="_blank" rel="noopener">BrightLocal</a>
+    <a class="tool-chip" href="https://www.localfalcon.com" target="_blank" rel="noopener">Local Falcon</a>
+    <a class="tool-chip" href="https://whitespark.ca" target="_blank" rel="noopener">Whitespark</a>
+    <a class="tool-chip" href="https://moz.com/local" target="_blank" rel="noopener">Moz Local</a>
+    <a class="tool-chip" href="https://search.google.com/test/rich-results" target="_blank" rel="noopener">Rich Results Test</a>
+    <a class="tool-chip" href="https://www.google.com/webmasters/markup-helper" target="_blank" rel="noopener">Markup Helper</a>
+    <a class="tool-chip" href="https://www.birdeye.com" target="_blank" rel="noopener">Birdeye Reviews</a>
+    <a class="tool-chip" href="https://analytics.google.com" target="_blank" rel="noopener">Google Analytics 4</a>
+    <a class="tool-chip" href="https://search.google.com/search-console" target="_blank" rel="noopener">Search Console</a>
+    <a class="tool-chip" href="https://www.georanker.com" target="_blank" rel="noopener">GeoRanker</a>
+    <a class="tool-chip" href="https://justdial.com" target="_blank" rel="noopener">Justdial</a>
+  </div>
+</div>
+
+<!-- BLOG -->
+<div class="blog-section">
+  <div class="blog-header">✍️ Must-Read — Local SEO</div>
+  <a class="blog-item" href="https://moz.com/learn/seo/local" target="_blank" rel="noopener"><span class="blog-icon">📝</span><div class="blog-text"><strong>Moz — Local SEO Learning Center</strong><span>The most comprehensive free local SEO resource — covers GBP, citations, reviews, and local ranking factors end-to-end.</span></div><span class="rb rb-b">GUIDE</span></a>
+  <a class="blog-item" href="https://whitespark.ca/local-search-ranking-factors/" target="_blank" rel="noopener"><span class="blog-icon">📝</span><div class="blog-text"><strong>Whitespark — Local Search Ranking Factors</strong><span>Annual survey of top local SEO experts on what factors actually drive Maps rankings. The most trusted local SEO research.</span></div><span class="rb rb-b">RESEARCH</span></a>
+  <a class="blog-item" href="https://brightlocal.com/learn/google-business-profile-guide/" target="_blank" rel="noopener"><span class="blog-icon">📝</span><div class="blog-text"><strong>BrightLocal — The Complete Google Business Profile Guide</strong><span>Step-by-step GBP optimisation guide with screenshots and actionable checklists for every section of the profile.</span></div><span class="rb rb-b">GUIDE</span></a>
+  <a class="blog-item" href="https://ahrefs.com/blog/local-seo/" target="_blank" rel="noopener"><span class="blog-icon">📝</span><div class="blog-text"><strong>Ahrefs — Local SEO: The Complete Guide</strong><span>Comprehensive local SEO walkthrough covering all signals — GBP, citations, on-page, links, and tracking.</span></div><span class="rb rb-b">GUIDE</span></a>
+  <a class="blog-item" href="https://www.youtube.com/c/BrightLocalTV" target="_blank" rel="noopener"><span class="blog-icon">▶️</span><div class="blog-text"><strong>BrightLocal YouTube — Local SEO Tutorials</strong><span>Free video tutorials on every aspect of local SEO — GBP optimisation, review strategies, reporting, and more.</span></div><span class="rb" style="background:rgba(244,63,94,.15);color:#ff8080;border:1px solid rgba(244,63,94,.3)">VIDEO</span></a>
+</div>
+
+<!-- QUIZ -->
+<div class="sd" id="quiz-section"><span>◈ Test Your Knowledge</span></div>
+<div class="quiz-block">
+  <div class="quiz-header">🎯 Module 7 Quiz — Local SEO</div>
+  <div class="quiz-q" id="q1"><p>1. What is the single most important factor on a Google Business Profile for Maps rankings?</p>
+    <div class="quiz-options">
+      <div class="qo" onclick="ansQ('q1','a','b')"><span class="qol">A</span>Number of photos uploaded</div>
+      <div class="qo" onclick="ansQ('q1','b','b')"><span class="qol">B</span>Primary business category selection</div>
+      <div class="qo" onclick="ansQ('q1','c','b')"><span class="qol">C</span>Number of Google Posts published</div>
+      <div class="qo" onclick="ansQ('q1','d','b')"><span class="qol">D</span>Business description keyword density</div>
+    </div>
+    <div class="qfb ok" id="q1-ok">✅ Correct! Your primary GBP category is the #1 ranking factor on the profile. It determines which queries your listing is eligible to rank for in Maps. Choosing the most specific relevant category (e.g. "Cosmetic Dentist" not "Dentist") can single-handedly change your Maps visibility more than any other GBP change.</div>
+    <div class="qfb no" id="q1-no">❌ The answer is B — primary business category. This single field determines which searches your listing is eligible to rank for in Maps. Whitespark's Local Ranking Factors survey consistently shows GBP category as the top individual profile signal.</div>
+  </div>
+  <div class="quiz-q" id="q2"><p>2. What does NAP stand for in local SEO, and why does consistency matter?</p>
+    <div class="quiz-options">
+      <div class="qo" onclick="ansQ('q2','a','d')"><span class="qol">A</span>Name, Analytics, Page — ensures tracking is consistent</div>
+      <div class="qo" onclick="ansQ('q2','b','d')"><span class="qol">B</span>Navigation, Authority, Position — for ranking tracking</div>
+      <div class="qo" onclick="ansQ('q2','c','d')"><span class="qol">C</span>Network, Ads, Performance — for local advertising</div>
+      <div class="qo" onclick="ansQ('q2','d','d')"><span class="qol">D</span>Name, Address, Phone — Google cross-references citations to verify business legitimacy</div>
+    </div>
+    <div class="qfb ok" id="q2-ok">✅ Correct! NAP = Name, Address, Phone. Google cross-references these three data points across hundreds of online citations to verify that a business is real and operating. Any inconsistency (even "Street" vs "St.") sends conflicting signals and suppresses local rankings.</div>
+    <div class="qfb no" id="q2-no">❌ NAP = Name, Address, Phone. These three data points must be identical everywhere online. Google uses citations across the internet to verify business legitimacy — inconsistencies signal unreliability and directly suppress Maps rankings.</div>
+  </div>
+  <div class="quiz-q" id="q3"><p>3. A business has 200 citations but 5 different phone numbers across them. What is the priority action?</p>
+    <div class="quiz-options">
+      <div class="qo" onclick="ansQ('q3','a','b')"><span class="qol">A</span>Build 200 more citations to dilute the inconsistencies</div>
+      <div class="qo" onclick="ansQ('q3','b','b')"><span class="qol">B</span>Audit and fix all inconsistencies before building any new citations</div>
+      <div class="qo" onclick="ansQ('q3','c','b')"><span class="qol">C</span>Delete all existing citations and start fresh</div>
+      <div class="qo" onclick="ansQ('q3','d','b')"><span class="qol">D</span>Submit a sitemap to Google to correct the information</div>
+    </div>
+    <div class="qfb ok" id="q3-ok">✅ Correct! Fix before building. Inconsistent citations actively harm rankings because they send conflicting signals to Google's verification system. Building more citations on top of inconsistent ones amplifies the problem. Audit first, fix all inconsistencies, then build new citations.</div>
+    <div class="qfb no" id="q3-no">❌ The answer is B — fix inconsistencies first. Adding more citations on top of existing inconsistencies amplifies the conflicting signals Google receives. Run a full citation audit using BrightLocal, correct every inconsistency, then expand your citation footprint.</div>
+  </div>
+  <div class="quiz-q" id="q4"><p>4. What is the recommended format for local business on-page title tags?</p>
+    <div class="quiz-options">
+      <div class="qo" onclick="ansQ('q4','a','c')"><span class="qol">A</span>[Business Name] — Best in the City</div>
+      <div class="qo" onclick="ansQ('q4','b','c')"><span class="qol">B</span>Welcome to Our Services Page</div>
+      <div class="qo" onclick="ansQ('q4','c','c')"><span class="qol">C</span>[Primary Service] in [City] | [Business Name]</div>
+      <div class="qo" onclick="ansQ('q4','d','c')"><span class="qol">D</span>[City] [City] [City] [Service] [Service]</div>
+    </div>
+    <div class="qfb ok" id="q4-ok">✅ Correct! "[Primary Service] in [City] | [Business Name]" is the gold standard local title tag format. It places the most important keyword first, includes the geographic modifier, and brand-stamps the result. Example: "Emergency Plumber in South Delhi | RajPlumbers."</div>
+    <div class="qfb no" id="q4-no">❌ The correct format is "[Primary Service] in [City] | [Business Name]." This places the primary keyword first (maximum weight), includes the geographic modifier, and identifies the brand — all essential elements for local organic rankings.</div>
+  </div>
+</div>
+
+<!-- FLASHCARDS -->
+<div class="sd" id="flashcard-section"><span>◈ Flashcards</span></div>
+<div class="fc-block">
+  <div class="fc-header">🃏 Module 7 Flashcards — Click to Flip</div>
+  <div class="fc-inner">
+    <div class="flashcard" id="fc" onclick="flipCard()">
+      <div class="fcface fcf" id="fc-front">Loading...</div>
+      <div class="fcface fcb" id="fc-back">Loading...</div>
+    </div>
+    <div class="fc-nav">
+      <button class="fc-btn" onclick="prevCard()">← Prev</button>
+      <span class="fc-ctr" id="fc-ctr">1 / 10</span>
+      <button class="fc-btn" onclick="nextCard()">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- MOD NAV -->
+<div class="mod-nav">
+  <a href="module-6.html" class="mnb prev"><span class="mn-arr">←</span><div><div class="mn-label">Previous Module</div><div class="mn-title">Module 6 — Link Building</div></div></a>
+  <a href="module-8.html" class="mnb next"><span class="mn-arr">→</span><div><div class="mn-label">Next Module</div><div class="mn-title">Module 8 — E-commerce SEO</div></div></a>
+</div>
+</div>
+
+</div>
+
+<script>
+const cards=[{q:'What is the #1 GBP ranking factor?',a:'Primary business category. It determines which queries your listing is eligible to appear for in Maps. Choosing the most specific relevant category (e.g. "Cosmetic Dentist" not "Dentist") can shift Maps visibility more than any other single GBP change.'},{q:'What does NAP stand for and why does consistency matter?',a:'Name, Address, Phone. Google cross-references these three data points across hundreds of online citations to verify business legitimacy. Any inconsistency — even "Street" vs "St." — sends conflicting signals and suppresses local rankings.'},{q:'How many photos should a fully optimised GBP have?',a:'100+ photos. Google\'s own data shows businesses with 100+ photos receive 1,065% more website clicks and 520% more direction requests than businesses with zero photos. Upload new photos weekly for freshness signals.'},{q:'What is citation velocity and why does it matter?',a:'The rate at which new citations are created. Google rewards consistent, ongoing citation growth as a signal of business activity and legitimacy. Sudden citation spikes followed by zero growth look unnatural and can trigger algorithmic scrutiny.'},{q:'What is the recommended local title tag format?',a:'"[Primary Service] in [City] | [Business Name]" — Example: "Emergency Plumber in South Delhi | RajPlumbers." Places keyword first, includes geographic modifier, and brand-stamps the result for maximum local organic ranking signal.'},{q:'Why should you fix citation inconsistencies before building new ones?',a:'Inconsistent NAP data sends conflicting location signals to Google\'s verification system. Adding more citations on top of inconsistencies amplifies the problem rather than solving it. Always audit and fix existing citations first, then expand.'},{q:'What is the Google Maps 3-Pack?',a:'The three local business listings shown above organic results for local queries like "dentist near me." Appearing in the 3-Pack generates 5× more clicks and 7× more calls than results below it. It appears for 93% of local searches.'},{q:'What is LocalBusiness schema and what does it do?',a:'JSON-LD structured data markup that provides Google with machine-readable information about your business (name, address, phone, hours, ratings). Creates a technical bridge between your website and GBP, reinforcing location data for Maps rankings.'},{q:'What is grid rank tracking in local SEO?',a:'A method (using tools like BrightLocal or Local Falcon) that shows your Maps ranking at multiple geographic points across a city simultaneously — revealing where you rank well and where you\'re weak within your target area.'},{q:'What review velocity is needed to maintain competitive Maps rankings?',a:'Minimum 3 new reviews per week consistently. Review recency matters as much as total count — a competitor with fewer total reviews but recent ones often outranks a business with more reviews that are months old.'}];
+let cur=0,fl=false;
+function showCard(i){const fc=document.getElementById('fc');fc.classList.remove('flipped');fl=false;document.getElementById('fc-front').textContent=cards[i].q;document.getElementById('fc-back').textContent=cards[i].a;document.getElementById('fc-ctr').textContent=(i+1)+' / '+cards.length;setTimeout(()=>{const f=document.getElementById('fc-front'),b=document.getElementById('fc-back');const h=Math.max(f.scrollHeight,b.scrollHeight,110);fc.style.height=h+'px';f.style.minHeight=h+'px';b.style.minHeight=h+'px'},10)}
+function flipCard(){fl=!fl;document.getElementById('fc').classList.toggle('flipped',fl)}
+function nextCard(){cur=(cur+1)%cards.length;showCard(cur)}
+function prevCard(){cur=(cur-1+cards.length)%cards.length;showCard(cur)}
+function ansQ(qId,ch,cor){const el=document.getElementById(qId);if(el.dataset.answered)return;el.dataset.answered='1';const opts=el.querySelectorAll('.qo');['a','b','c','d'].forEach((l,i)=>{if(l===cor)opts[i].classList.add('correct');else if(l===ch&&ch!==cor)opts[i].classList.add('wrong');opts[i].style.pointerEvents='none'});document.getElementById(qId+'-ok').classList.toggle('show',ch===cor);document.getElementById(qId+'-no').classList.toggle('show',ch!==cor)}
+function toggleTopic(h){const i=h.parentElement;const o=i.classList.contains('open');document.querySelectorAll('.topic-item.open').forEach(e=>e.classList.remove('open'));if(!o)i.classList.add('open')}
+function toggleTask(el){el.classList.toggle('checked');updateProg();save()}
+function toggleAC(el){el.classList.toggle('checked');updateProg();save()}
+function updateProg(){const t=document.querySelectorAll('.task-check-item').length,d=document.querySelectorAll('.task-check-item.checked').length,p=t>0?Math.round(d/t*100):0;document.getElementById('pp').textContent=p+'%';document.getElementById('pb').style.width=p+'%'}
+function save(){const s={};document.querySelectorAll('.task-check-item').forEach((el,i)=>{s['t'+i]=el.classList.contains('checked')});document.querySelectorAll('.ac-item').forEach((el,i)=>{s['a'+i]=el.classList.contains('checked')});try{localStorage.setItem('seo-m7',JSON.stringify(s))}catch(e){}}
+function load(){try{const s=JSON.parse(localStorage.getItem('seo-m7')||'{}');document.querySelectorAll('.task-check-item').forEach((el,i)=>{if(s['t'+i])el.classList.add('checked')});document.querySelectorAll('.ac-item').forEach((el,i)=>{if(s['a'+i])el.classList.add('checked')});updateProg()}catch(e){}}
+function toggleTheme(){const h=document.documentElement;const d=h.dataset.theme==='dark';h.dataset.theme=d?'light':'dark';document.getElementById('theme-btn').textContent=d?'🌙 Dark Mode':'☀️ Light Mode';localStorage.setItem('seo-theme',h.dataset.theme)}
+function toggleSidebar(){document.getElementById('sidebar').classList.toggle('open');document.getElementById('sb-overlay').classList.toggle('show')}
+function closeSidebar(){document.getElementById('sidebar').classList.remove('open');document.getElementById('sb-overlay').classList.remove('show')}
+const navLinks=document.querySelectorAll('.nav-link[data-target]');const obs=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting){const id=en.target.id;navLinks.forEach(l=>l.classList.toggle('active',l.dataset.target===id))}})},{threshold:.15,rootMargin:'-80px 0px -80px 0px'});document.querySelectorAll('[id]').forEach(el=>obs.observe(el));navLinks.forEach(l=>l.addEventListener('click',()=>{if(window.innerWidth<=900)closeSidebar()}));
+(function(){const s=localStorage.getItem('seo-theme');if(s){document.documentElement.dataset.theme=s;document.getElementById('theme-btn').textContent=s==='light'?'🌙 Dark Mode':'☀️ Light Mode'}})();
+document.addEventListener('DOMContentLoaded',()=>{load();showCard(0)});
+</script>
+</body></html>

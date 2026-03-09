@@ -1,0 +1,742 @@
+
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO Mastery Roadmap 2025 — Complete Learning Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,700;0,900;1,300;1,700&family=Syne:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ══ THEME VARIABLES ══ */
+:root {
+  --amber:#f59e0b; --amber2:#fbbf24; --amber3:#fde68a;
+  --teal:#14b8a6; --teal2:#2dd4bf;
+  --rose:#f43f5e; --rose2:#fb7185;
+  --blue:#3b82f6; --blue2:#60a5fa;
+  --green:#22c55e; --green2:#4ade80;
+  --violet:#8b5cf6; --violet2:#a78bfa;
+}
+[data-theme="dark"] {
+  --bg:#0d0f14; --bg1:#121520; --bg2:#171b26; --bg3:#1e2334;
+  --card:#161a25; --card2:#1c2130;
+  --border:#262d40; --border2:#2e3750;
+  --text:#e2e8f4; --text2:#b8c2d8; --muted:#6b7a9c; --white:#f8faff;
+  --shadow:rgba(0,0,0,0.5);
+}
+[data-theme="light"] {
+  --bg:#f5f7ff; --bg1:#ffffff; --bg2:#eef1fa; --bg3:#e5e9f5;
+  --card:#ffffff; --card2:#f0f3ff;
+  --border:#d0d8ef; --border2:#b8c4e0;
+  --text:#1a1f35; --text2:#3d4a6b; --muted:#6b7a9c; --white:#0d1020;
+  --shadow:rgba(0,0,0,0.1);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;font-size:15px;}
+body{font-family:'Syne',sans-serif;background:var(--bg);color:var(--text);line-height:1.75;overflow-x:hidden;transition:background 0.3s,color 0.3s;}
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--amber);border-radius:10px;}
+
+/* ══ DARK/LIGHT TOGGLE ══ */
+.theme-toggle {
+  position:fixed;top:20px;right:20px;z-index:1000;
+  width:48px;height:48px;border-radius:50%;
+  background:var(--card);border:1px solid var(--border);
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  font-size:1.2em;box-shadow:0 4px 20px var(--shadow);
+  transition:all 0.3s;
+}
+.theme-toggle:hover{border-color:var(--amber);transform:scale(1.1);}
+
+/* ══ HERO ══ */
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:80px 24px 60px;text-align:center;
+  position:relative;overflow:hidden;background:var(--bg1);
+}
+.hero-mesh{position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 900px 700px at 50% 0%,rgba(245,158,11,0.08) 0%,transparent 60%),
+  radial-gradient(ellipse 600px 500px at 0% 100%,rgba(20,184,166,0.05) 0%,transparent 60%),
+  radial-gradient(ellipse 500px 400px at 100% 80%,rgba(139,92,246,0.04) 0%,transparent 60%);}
+.hero-grid{position:absolute;inset:0;pointer-events:none;opacity:0.025;
+  background-image:linear-gradient(var(--border2) 1px,transparent 1px),linear-gradient(90deg,var(--border2) 1px,transparent 1px);
+  background-size:50px 50px;}
+.hero-inner{position:relative;max-width:900px;}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:0.72em;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  color:var(--amber);border:1px solid rgba(245,158,11,0.3);
+  background:rgba(245,158,11,0.08);padding:5px 16px;border-radius:50px;
+  margin-bottom:28px;
+  animation:fadeUp 0.6s 0.1s both;
+}
+.hero h1{
+  font-family:'Fraunces',serif;font-size:clamp(3em,7vw,6em);
+  font-weight:900;line-height:1.0;color:var(--white);margin-bottom:10px;
+  animation:fadeUp 0.6s 0.2s both;
+}
+.hero h1 em{
+  font-style:italic;
+  background:linear-gradient(135deg,var(--amber),var(--amber3));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero-sub{
+  font-size:1.1em;color:var(--text2);max-width:640px;margin:20px auto 44px;
+  font-weight:400;line-height:1.8;
+  animation:fadeUp 0.6s 0.3s both;
+}
+.hero-stats{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+  background:var(--border);border:1px solid var(--border);
+  border-radius:16px;overflow:hidden;max-width:640px;margin:0 auto 50px;
+  animation:fadeUp 0.6s 0.4s both;
+}
+.stat-box{background:var(--bg2);padding:22px 18px;text-align:center;}
+.stat-n{font-family:'Fraunces',serif;font-size:2.2em;font-weight:700;color:var(--amber);line-height:1;margin-bottom:4px;}
+.stat-l{font-size:0.68em;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:0.8px;}
+
+/* ══ MODULE GRID ══ */
+.modules-section{padding:80px 24px;max-width:1200px;margin:0 auto;}
+.section-header{text-align:center;margin-bottom:50px;}
+.section-header h2{font-family:'Fraunces',serif;font-size:clamp(2em,4vw,3em);font-weight:900;color:var(--white);margin-bottom:12px;}
+.section-header p{color:var(--text2);font-size:0.97em;max-width:600px;margin:0 auto;}
+
+.modules-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px;}
+
+.module-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:18px;overflow:hidden;
+  text-decoration:none;display:block;
+  transition:all 0.25s;
+  position:relative;
+}
+.module-card::before{
+  content:'';position:absolute;inset:0;border-radius:18px;
+  background:linear-gradient(135deg,var(--accent-color,var(--amber)) 0%,transparent 60%);
+  opacity:0;transition:opacity 0.3s;pointer-events:none;
+}
+.module-card:hover{transform:translateY(-5px);border-color:var(--accent-color,var(--amber));box-shadow:0 20px 50px var(--shadow);}
+.module-card:hover::before{opacity:0.04;}
+
+.card-header{padding:24px 24px 16px;display:flex;align-items:flex-start;gap:14px;border-bottom:1px solid var(--border);}
+.card-num{
+  font-family:'Fraunces',serif;font-size:2.2em;font-weight:900;
+  color:var(--accent-color,var(--amber));line-height:1;
+  min-width:50px;
+}
+.card-title-wrap h3{font-family:'Fraunces',serif;font-size:1.05em;font-weight:700;color:var(--white);margin-bottom:5px;line-height:1.3;}
+.card-tags{display:flex;gap:5px;flex-wrap:wrap;}
+.ctag{font-size:0.63em;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;padding:2px 7px;border-radius:4px;}
+
+.card-body{padding:18px 24px 20px;}
+.card-body p{font-size:0.87em;color:var(--text2);line-height:1.7;margin-bottom:14px;}
+.card-meta{display:flex;gap:12px;align-items:center;flex-wrap:wrap;}
+.meta-item{display:flex;align-items:center;gap:5px;font-size:0.75em;color:var(--muted);}
+.card-cta{
+  margin-top:16px;display:inline-flex;align-items:center;gap:6px;
+  font-size:0.82em;font-weight:700;color:var(--accent-color,var(--amber));
+  text-transform:uppercase;letter-spacing:1px;
+}
+.card-cta .arrow{transition:transform 0.2s;}
+.module-card:hover .card-cta .arrow{transform:translateX(5px);}
+
+/* ══ ACCENT COLORS PER MODULE ══ */
+.mod-1{--accent-color:#f59e0b;}
+.mod-2{--accent-color:#14b8a6;}
+.mod-3{--accent-color:#3b82f6;}
+.mod-4{--accent-color:#8b5cf6;}
+.mod-5{--accent-color:#f43f5e;}
+.mod-6{--accent-color:#22c55e;}
+.mod-7{--accent-color:#f59e0b;}
+.mod-8{--accent-color:#ec4899;}
+.mod-9{--accent-color:#14b8a6;}
+.mod-10{--accent-color:#a78bfa;}
+
+/* ══ FEATURE STRIP ══ */
+.features-strip{
+  background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  padding:40px 24px;
+}
+.features-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;}
+.feature-item{display:flex;align-items:flex-start;gap:12px;}
+.feat-icon{font-size:1.5em;flex-shrink:0;}
+.feat-text strong{display:block;font-size:0.88em;color:var(--white);margin-bottom:3px;}
+.feat-text span{font-size:0.78em;color:var(--muted);}
+
+/* ══ TIMELINE PREVIEW ══ */
+.timeline-section{padding:80px 24px;background:var(--bg1);border-top:1px solid var(--border);}
+.timeline-inner{max-width:900px;margin:0 auto;}
+.tl-path{display:flex;flex-direction:column;gap:0;}
+.tl-row{display:grid;grid-template-columns:120px 40px 1fr;gap:0 16px;align-items:flex-start;}
+.tl-period{font-family:'Fira Code',monospace;font-size:0.78em;font-weight:600;color:var(--amber);padding-top:4px;text-align:right;}
+.tl-center{display:flex;flex-direction:column;align-items:center;}
+.tl-dot{width:14px;height:14px;border-radius:50%;background:var(--amber);border:3px solid var(--bg1);flex-shrink:0;margin-top:4px;}
+.tl-line{width:2px;flex:1;background:var(--border);min-height:40px;}
+.tl-row:last-child .tl-line{display:none;}
+.tl-content{padding:0 0 32px;}
+.tl-content h4{color:var(--white);font-size:0.95em;margin-bottom:5px;}
+.tl-content p{color:var(--muted);font-size:0.83em;line-height:1.6;}
+
+/* ══ QUICK REFERENCE ══ */
+.quick-ref-section{padding:80px 24px;max-width:1100px;margin:0 auto;}
+.ref-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-top:36px;}
+.ref-item{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;font-size:0.86em;}
+.ref-key{font-family:'Fira Code',monospace;font-size:0.82em;color:var(--amber2);font-weight:600;margin-bottom:6px;}
+.ref-item p{color:var(--text2);line-height:1.55;}
+
+/* ══ PROJECTS PREVIEW ══ */
+.projects-section{padding:80px 24px;background:var(--bg2);border-top:1px solid var(--border);}
+.projects-inner{max-width:1100px;margin:0 auto;}
+.proj-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-top:36px;}
+.proj-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;transition:all 0.2s;}
+.proj-card:hover{border-color:rgba(245,158,11,0.4);transform:translateY(-3px);}
+.proj-card-num{font-family:'Fraunces',serif;font-size:2em;font-weight:900;color:var(--amber);margin-bottom:8px;}
+.proj-card h3{font-family:'Fraunces',serif;font-size:0.97em;color:var(--white);margin-bottom:10px;}
+.proj-card p{font-size:0.83em;color:var(--text2);line-height:1.6;}
+
+/* ══ FOOTER ══ */
+.footer{background:var(--bg1);border-top:1px solid var(--border);padding:50px 24px;text-align:center;}
+.footer p{color:var(--muted);font-size:0.86em;max-width:540px;margin:0 auto;line-height:1.7;}
+.footer strong{color:var(--amber);}
+
+/* ══ ANIMATIONS ══ */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+.module-card{animation:fadeUp 0.5s both;}
+.modules-grid .module-card:nth-child(1){animation-delay:0.05s;}
+.modules-grid .module-card:nth-child(2){animation-delay:0.1s;}
+.modules-grid .module-card:nth-child(3){animation-delay:0.15s;}
+.modules-grid .module-card:nth-child(4){animation-delay:0.2s;}
+.modules-grid .module-card:nth-child(5){animation-delay:0.25s;}
+.modules-grid .module-card:nth-child(6){animation-delay:0.3s;}
+.modules-grid .module-card:nth-child(7){animation-delay:0.35s;}
+.modules-grid .module-card:nth-child(8){animation-delay:0.4s;}
+.modules-grid .module-card:nth-child(9){animation-delay:0.45s;}
+.modules-grid .module-card:nth-child(10){animation-delay:0.5s;}
+
+/* ══ RESPONSIVE ══ */
+
+/* ─── Large tablet / small laptop (max 1024px) ─── */
+@media(max-width:1024px){
+  .modules-grid{grid-template-columns:repeat(auto-fill,minmax(280px,1fr));}
+  .proj-cards{grid-template-columns:repeat(auto-fill,minmax(260px,1fr));}
+  .ref-grid{grid-template-columns:repeat(auto-fill,minmax(200px,1fr));}
+}
+
+/* ─── Tablet (max 900px) ─── */
+@media(max-width:900px){
+  html{font-size:14px;}
+  .hero{padding:70px 20px 50px;min-height:auto;}
+  .modules-section{padding:60px 20px;}
+  .timeline-section{padding:60px 20px;}
+  .projects-section{padding:60px 20px;}
+  .quick-ref-section{padding:60px 20px;}
+  .footer{padding:40px 20px;}
+  .features-inner{gap:18px;}
+  .modules-grid{grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;}
+  .proj-cards{grid-template-columns:repeat(2,1fr);gap:14px;}
+}
+
+/* ─── Tablet portrait (max 768px) ─── */
+@media(max-width:768px){
+  html{font-size:14px;}
+  .hero{padding:64px 20px 44px;}
+  .hero h1{font-size:clamp(2.4em,7vw,3.2em);}
+  .hero-sub{font-size:1em;margin:16px auto 36px;}
+  .hero-stats{grid-template-columns:repeat(2,1fr);max-width:400px;}
+  .stat-box{padding:18px 14px;}
+  .stat-n{font-size:1.9em;}
+
+  .features-inner{grid-template-columns:repeat(2,1fr);gap:18px;}
+
+  .modules-section{padding:50px 18px;}
+  .section-header{margin-bottom:36px;}
+  .modules-grid{grid-template-columns:1fr 1fr;gap:14px;}
+  .card-header{padding:18px 18px 12px;gap:10px;}
+  .card-num{font-size:1.8em;min-width:40px;}
+  .card-body{padding:14px 18px 16px;}
+
+  .tl-row{grid-template-columns:80px 28px 1fr;gap:0 12px;}
+  .tl-period{font-size:0.68em;}
+  .tl-dot{width:12px;height:12px;}
+  .tl-line{min-height:32px;}
+
+  .proj-cards{grid-template-columns:1fr 1fr;gap:12px;}
+  .proj-card{padding:18px;}
+
+  .ref-grid{grid-template-columns:repeat(2,1fr);gap:10px;}
+
+  .theme-toggle{top:14px;right:14px;width:42px;height:42px;font-size:1.05em;}
+}
+
+/* ─── Mobile landscape / large phone (max 600px) ─── */
+@media(max-width:600px){
+  .modules-grid{grid-template-columns:1fr;}
+  .proj-cards{grid-template-columns:1fr;}
+  .features-inner{grid-template-columns:1fr 1fr;}
+  .ref-grid{grid-template-columns:1fr 1fr;}
+}
+
+/* ─── Mobile portrait (max 480px) ─── */
+@media(max-width:480px){
+  html{font-size:13.5px;}
+  .hero{padding:56px 16px 40px;}
+  .hero h1{font-size:clamp(2em,9vw,2.8em);line-height:1.05;}
+  .hero-sub{font-size:0.95em;margin:14px auto 30px;}
+  .hero-eyebrow{font-size:0.65em;margin-bottom:22px;}
+  .hero-stats{
+    grid-template-columns:1fr 1fr;
+    max-width:100%;
+    border-radius:12px;
+  }
+  .stat-box{padding:16px 10px;}
+  .stat-n{font-size:1.7em;}
+  .stat-l{font-size:0.62em;}
+
+  .features-strip{padding:28px 16px;}
+  .features-inner{grid-template-columns:1fr;gap:16px;}
+  .feat-icon{font-size:1.3em;}
+
+  .modules-section{padding:40px 16px 50px;}
+  .section-header h2{font-size:clamp(1.7em,6vw,2.2em);}
+  .section-header p{font-size:0.9em;}
+  .modules-grid{grid-template-columns:1fr;gap:12px;}
+  .card-header{padding:16px 16px 12px;gap:10px;}
+  .card-num{font-size:1.7em;min-width:38px;}
+  .card-title-wrap h3{font-size:0.97em;}
+  .card-body{padding:12px 16px 16px;}
+  .card-body p{font-size:0.85em;margin-bottom:12px;}
+  .card-meta{gap:8px;}
+  .meta-item{font-size:0.72em;}
+
+  .timeline-section{padding:40px 16px 50px;}
+  .tl-row{
+    display:grid;
+    grid-template-columns:60px 22px 1fr;
+    gap:0 10px;
+  }
+  .tl-period{font-size:0.64em;padding-top:3px;}
+  .tl-dot{width:10px;height:10px;margin-top:3px;}
+  .tl-line{min-height:28px;}
+  .tl-content{padding-bottom:24px;}
+  .tl-content h4{font-size:0.9em;}
+  .tl-content p{font-size:0.8em;}
+
+  .projects-section{padding:40px 16px 50px;}
+  .proj-cards{grid-template-columns:1fr;gap:12px;}
+  .proj-card{padding:16px;}
+  .proj-card-num{font-size:1.7em;margin-bottom:6px;}
+  .proj-card h3{font-size:0.93em;}
+  .proj-card p{font-size:0.82em;}
+
+  .quick-ref-section{padding:40px 16px 50px;}
+  .ref-grid{grid-template-columns:1fr;gap:10px;}
+  .ref-item{padding:14px;}
+
+  .footer{padding:32px 16px;}
+  .footer p{font-size:0.84em;}
+
+  .theme-toggle{top:12px;right:12px;width:38px;height:38px;font-size:1em;}
+}
+
+/* ─── Small phones (max 380px) ─── */
+@media(max-width:380px){
+  html{font-size:13px;}
+  .hero{padding:48px 14px 36px;}
+  .hero h1{font-size:clamp(1.8em,10vw,2.4em);}
+  .hero-stats{grid-template-columns:1fr 1fr;}
+  .stat-n{font-size:1.5em;}
+  .tl-row{grid-template-columns:52px 18px 1fr;gap:0 8px;}
+  .tl-period{font-size:0.6em;}
+  .card-tags{gap:3px;}
+  .ctag{font-size:0.58em;padding:2px 5px;}
+}
+
+/* ─── Ensure no horizontal scroll on any screen ─── */
+body{max-width:100vw;}
+img,video,iframe,table{max-width:100%;}
+</style>
+</head>
+<body>
+
+<button class="theme-toggle" id="themeToggle" title="Toggle Light/Dark Mode">🌙</button>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-mesh"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">🔍 Complete 2025 Roadmap</div>
+    <h1>Master <em>Search Engine<br>Optimisation</em></h1>
+    <p class="hero-sub">A structured, topic-by-topic deep dive with detailed summaries, real-world examples, hands-on tasks, curated resources, blog posts, and 6 portfolio projects. Every module opens in a dedicated page.</p>
+    <div class="hero-stats">
+      <div class="stat-box"><div class="stat-n">12</div><div class="stat-l">Modules</div></div>
+      <div class="stat-box"><div class="stat-n">60+</div><div class="stat-l">Topics</div></div>
+      <div class="stat-box"><div class="stat-n">100+</div><div class="stat-l">Tasks</div></div>
+      <div class="stat-box"><div class="stat-n">80+</div><div class="stat-l">Resources</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES STRIP -->
+<div class="features-strip">
+  <div class="features-inner">
+    <div class="feature-item"><div class="feat-icon">🗂️</div><div class="feat-text"><strong>12 Dedicated Module Pages</strong><span>Each module opens in its own full-page view</span></div></div>
+    <div class="feature-item"><div class="feat-icon">✅</div><div class="feat-text"><strong>Task Progress Tracking</strong><span>Check off tasks with persistent storage</span></div></div>
+    <div class="feature-item"><div class="feat-icon">📚</div><div class="feat-text"><strong>Clickable Resources</strong><span>Blog posts, guides, tools all linked</span></div></div>
+    <div class="feature-item"><div class="feat-icon">🧭</div><div class="feat-text"><strong>Why / Where / How / When</strong><span>Every topic ends with a practical framework note</span></div></div>
+  </div>
+</div>
+
+<!-- MODULES GRID -->
+<section class="modules-section">
+  <div class="section-header">
+    <h2>Choose Your Module</h2>
+    <p>Each module is a complete, self-contained lesson. Start from Module 1 or jump to any topic you need most.</p>
+  </div>
+  <div class="modules-grid">
+
+    <a href="module-1.html" class="module-card mod-1">
+      <div class="card-header">
+        <div class="card-num">01</div>
+        <div class="card-title-wrap">
+          <h3>SEO Fundamentals — How Search Engines Work</h3>
+          <div class="card-tags">
+            <span class="ctag" style="background:rgba(34,197,94,0.1);color:#4ade80;border:1px solid rgba(34,197,94,0.25);">Beginner</span>
+            <span class="ctag" style="background:rgba(245,158,11,0.1);color:#fbbf24;border:1px solid rgba(245,158,11,0.25);">Foundation</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p>Understand how search engines crawl, index, and rank websites. Covers crawling mechanics, Google's E-E-A-T framework, algorithm updates, and why 93% of online journeys start with a search engine.</p>
+        <div class="card-meta">
+          <span class="meta-item">🎯 5 Topics</span>
+          <span class="meta-item">⏱ 2 Weeks</span>
+          <span class="meta-item">📝 15+ Tasks</span>
+        </div>
+        <div class="card-cta">Open Module <span class="arrow">→</span></div>
+      </div>
+    </a>
+
+    <a href="module-2.html" class="module-card mod-2">
+      <div class="card-header">
+        <div class="card-num">02</div>
+        <div class="card-title-wrap">
+          <h3>Keyword Research — The Foundation of All SEO Strategy</h3>
+          <div class="card-tags">
+            <span class="ctag" style="background:rgba(245,158,11,0.1);color:#fbbf24;border:1px solid rgba(245,158,11,0.25);">Intermediate</span>
+            <span class="ctag" style="background:rgba(59,130,246,0.1);color:#60a5fa;border:1px solid rgba(59,130,246,0.25);">Strategy</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p>Discover what your audience searches for. Master search intent, keyword metrics (volume, KD, CPC), long-tail strategy, competitor keyword gap analysis, and topic cluster planning.</p>
+        <div class="card-meta">
+          <span class="meta-item">🎯 4 Topics</span>
+          <span class="meta-item">⏱ 2 Weeks</span>
+          <span class="meta-item">📝 14+ Tasks</span>
+        </div>
+        <div class="card-cta">Open Module <span class="arrow">→</span></div>
+      </div>
+    </a>
+
+    <a href="module-3.html" class="module-card mod-3">
+      <div class="card-header">
+        <div class="card-num">03</div>
+        <div class="card-title-wrap">
+          <h3>On-Page SEO — Optimise Every Page for Maximum Rankings</h3>
+          <div class="card-tags">
+            <span class="ctag" style="background:rgba(245,158,11,0.1);color:#fbbf24;border:1px solid rgba(245,158,11,0.25);">Intermediate</span>
+            <span class="ctag" style="background:rgba(20,184,166,0.1);color:#2dd4bf;border:1px solid rgba(20,184,166,0.25);">High Impact</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p>Master title tags, meta descriptions, heading structure, URL optimisation, image SEO, internal linking, and content optimisation. The highest-leverage beginner skill in SEO.</p>
+        <div class="card-meta">
+          <span class="meta-item">🎯 6 Topics</span>
+          <span class="meta-item">⏱ 2 Weeks</span>
+          <span class="meta-item">📝 18+ Tasks</span>
+        </div>
+        <div class="card-cta">Open Module <span class="arrow">→</span></div>
+      </div>
+    </a>
+
+    <a href="module-4.html" class="module-card mod-4">
+      <div class="card-header">
+        <div class="card-num">04</div>
+        <div class="card-title-wrap">
+          <h3>Technical SEO — The Infrastructure Behind Rankings</h3>
+          <div class="card-tags">
+            <span class="ctag" style="background:rgba(244,63,94,0.1);color:#fb7185;border:1px solid rgba(244,63,94,0.25);">Advanced</span>
+            <span class="ctag" style="background:rgba(139,92,246,0.1);color:#a78bfa;border:1px solid rgba(139,92,246,0.25);">Technical</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p>Core Web Vitals, site speed, mobile-first indexing, crawlability, XML sitemaps, robots.txt, schema markup, and structured data. Fix technical issues that silently kill rankings.</p>
+        <div class="card-meta">
+          <span class="meta-item">🎯 5 Topics</span>
+          <span class="meta-item">⏱ 2 Weeks</span>
+          <span class="meta-item">📝 16+ Tasks</span>
+        </div>
+        <div class="card-cta">Open Module <span class="arrow">→</span></div>
+      </div>
+    </a>
+
+    <a href="module-5.html" class="module-card mod-5">
+      <div class="card-header">
+        <div class="card-num">05</div>
+        <div class="card-title-wrap">
+          <h3>Content Strategy — Creating Content That Ranks & Converts</h3>
+          <div class="card-tags">
+            <span class="ctag" style="background:rgba(244,63,94,0.1);color:#fb7185;border:1px solid rgba(244,63,94,0.25);">Intermediate</span>
+            <span class="ctag" style="background:rgba(20,184,166,0.1);color:#2dd4bf;border:1px solid rgba(20,184,166,0.25);">Creative</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p>Topic clusters, pillar pages, content calendars, E-E-A-T writing, content refreshes, and conversion optimisation. Build a content machine that compounds organic traffic month over month.</p>
+        <div class="card-meta">
+          <span class="meta-item">🎯 4 Topics</span>
+          <span class="meta-item">⏱ 3 Weeks</span>
+          <span class="meta-item">📝 14+ Tasks</span>
+        </div>
+        <div class="card-cta">Open Module <span class="arrow">→</span></div>
+      </div>
+    </a>
+
+    <a href="module-6.html" class="module-card mod-6">
+      <div class="card-header">
+        <div class="card-num">06</div>
+        <div class="card-title-wrap">
+          <h3>Link Building — Earning Authority Through Backlinks</h3>
+          <div class="card-tags">
+            <span class="ctag" style="background:rgba(244,63,94,0.1);color:#fb7185;border:1px solid rgba(244,63,94,0.25);">Advanced</span>
+            <span class="ctag" style="background:rgba(34,197,94,0.1);color:#4ade80;border:1px solid rgba(34,197,94,0.25);">Authority</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p>Guest posting, broken link building, HARO/Digital PR, skyscraper technique, and outreach systems. Backlinks are still the #1 ranking factor — learn to earn them ethically at scale.</p>
+        <div class="card-meta">
+          <span class="meta-item">🎯 4 Topics</span>
+          <span class="meta-item">⏱ 3 Weeks</span>
+          <span class="meta-item">📝 14+ Tasks</span>
+        </div>
+        <div class="card-cta">Open Module <span class="arrow">→</span></div>
+      </div>
+    </a>
+
+    <a href="module-7.html" class="module-card mod-7">
+      <div class="card-header">
+        <div class="card-num">07</div>
+        <div class="card-title-wrap">
+          <h3>Local SEO — Dominating Google Maps & Local Search</h3>
+          <div class="card-tags">
+            <span class="ctag" style="background:rgba(245,158,11,0.1);color:#fbbf24;border:1px solid rgba(245,158,11,0.25);">Intermediate</span>
+            <span class="ctag" style="background:rgba(20,184,166,0.1);color:#2dd4bf;border:1px solid rgba(20,184,166,0.25);">Fast Results</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p>Google Business Profile optimisation, local citations, NAP consistency, review management, and local link building. The most immediately profitable SEO skill for freelancers and agencies.</p>
+        <div class="card-meta">
+          <span class="meta-item">🎯 2 Topics</span>
+          <span class="meta-item">⏱ 4 Weeks</span>
+          <span class="meta-item">📝 10+ Tasks</span>
+        </div>
+        <div class="card-cta">Open Module <span class="arrow">→</span></div>
+      </div>
+    </a>
+
+    <a href="module-8.html" class="module-card mod-8">
+      <div class="card-header">
+        <div class="card-num">08</div>
+        <div class="card-title-wrap">
+          <h3>E-Commerce SEO — Ranking Product & Category Pages</h3>
+          <div class="card-tags">
+            <span class="ctag" style="background:rgba(244,63,94,0.1);color:#fb7185;border:1px solid rgba(244,63,94,0.25);">Advanced</span>
+            <span class="ctag" style="background:rgba(59,130,246,0.1);color:#60a5fa;border:1px solid rgba(59,130,246,0.25);">E-Commerce</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p>Product page optimisation, category page architecture, faceted navigation issues, product schema markup, and Amazon vs Google SEO. Essential for any online store or retail client.</p>
+        <div class="card-meta">
+          <span class="meta-item">🎯 2 Topics</span>
+          <span class="meta-item">⏱ 2 Weeks</span>
+          <span class="meta-item">📝 10+ Tasks</span>
+        </div>
+        <div class="card-cta">Open Module <span class="arrow">→</span></div>
+      </div>
+    </a>
+
+    <a href="module-9.html" class="module-card mod-9">
+      <div class="card-header">
+        <div class="card-num">09</div>
+        <div class="card-title-wrap">
+          <h3>Analytics & Reporting — Measure What Matters</h3>
+          <div class="card-tags">
+            <span class="ctag" style="background:rgba(20,184,166,0.1);color:#2dd4bf;border:1px solid rgba(20,184,166,0.25);">Intermediate</span>
+            <span class="ctag" style="background:rgba(245,158,11,0.1);color:#fbbf24;border:1px solid rgba(245,158,11,0.25);">Data</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p>Google Search Console mastery, GA4 setup, rank tracking, SEO reporting dashboards, and KPI frameworks. Learn to prove ROI and make data-driven decisions that justify every action.</p>
+        <div class="card-meta">
+          <span class="meta-item">🎯 2 Topics</span>
+          <span class="meta-item">⏱ 2 Weeks</span>
+          <span class="meta-item">📝 10+ Tasks</span>
+        </div>
+        <div class="card-cta">Open Module <span class="arrow">→</span></div>
+      </div>
+    </a>
+
+    <a href="module-10.html" class="module-card mod-10">
+      <div class="card-header">
+        <div class="card-num">10</div>
+        <div class="card-title-wrap">
+          <h3>Advanced SEO — AI, Featured Snippets & Future-Proofing</h3>
+          <div class="card-tags">
+            <span class="ctag" style="background:rgba(244,63,94,0.1);color:#fb7185;border:1px solid rgba(244,63,94,0.25);">Expert</span>
+            <span class="ctag" style="background:rgba(139,92,246,0.1);color:#a78bfa;border:1px solid rgba(139,92,246,0.25);">Future</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p>Featured snippets optimisation, Generative Engine Optimisation (GEO), AI Overviews, zero-click search strategies, and international SEO. Stay ahead of the algorithm's evolution.</p>
+        <div class="card-meta">
+          <span class="meta-item">🎯 2 Topics</span>
+          <span class="meta-item">⏱ 2 Weeks</span>
+          <span class="meta-item">📝 8+ Tasks</span>
+        </div>
+        <div class="card-cta">Open Module <span class="arrow">→</span></div>
+      </div>
+    </a>
+
+    <a href="module-11.html" class="module-card mod-2">
+      <div class="card-header">
+        <div class="card-num">11</div>
+        <div class="card-title-wrap">
+          <h3>Interview Questions — Beginner to Advanced Level</h3>
+          <div class="card-tags">
+            <span class="ctag" style="background:rgba(245,158,11,0.1);color:#fbbf24;border:1px solid rgba(245,158,11,0.25);">Intermediate</span>
+            <span class="ctag" style="background:rgba(59,130,246,0.1);color:#60a5fa;border:1px solid rgba(59,130,246,0.25);">Strategy</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p>A comprehensive collection of 50 real-world SEO interview questions with expert-level answers, tips, and scenario-based challenges used by top companies in their interview.</p>
+        <div class="card-meta">
+          <span class="meta-item">🎯 10 Topics</span>
+          <span class="meta-item">⏱ 2 Days</span>
+          <span class="meta-item">📝 50 Questions</span>
+        </div>
+        <div class="card-cta">Open Module <span class="arrow">→</span></div>
+      </div>
+    </a>
+
+    <a href="module-12.html" class="module-card mod-3">
+      <div class="card-header">
+        <div class="card-num">12</div>
+        <div class="card-title-wrap">
+          <h3>All Projects — Ready Portfolio Projects</h3>
+          <div class="card-tags">
+            <span class="ctag" style="background:rgba(245,158,11,0.1);color:#fbbf24;border:1px solid rgba(245,158,11,0.25);">Intermediate</span>
+            <span class="ctag" style="background:rgba(20,184,166,0.1);color:#2dd4bf;border:1px solid rgba(20,184,166,0.25);">High Impact</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p>Master title tags, meta descriptions, heading structure, URL optimisation, image SEO, internal linking, and content optimisation. The highest-leverage beginner skill in SEO.</p>
+        <div class="card-meta">
+          <span class="meta-item">🎯 6 Topics</span>
+          <span class="meta-item">⏱ 2 Weeks</span>
+          <span class="meta-item">📝 18+ Tasks</span>
+        </div>
+        <div class="card-cta">Open Module <span class="arrow">→</span></div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- TIMELINE PREVIEW -->
+<section class="timeline-section">
+  <div class="timeline-inner">
+    <div class="section-header" style="text-align:left;margin-bottom:40px;">
+      <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.8em,3vw,2.5em);font-weight:900;color:var(--white);margin-bottom:12px;">📅 9-Month Learning Timeline</h2>
+      <p style="color:var(--text2);font-size:0.95em;">A realistic schedule from complete beginner to first paying client.</p>
+    </div>
+    <div class="tl-path">
+      <div class="tl-row"><div class="tl-period">Weeks 1–2</div><div class="tl-center"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-content"><h4>Module 1 — SEO Fundamentals</h4><p>Set up GSC + GA4. Read Google's SEO Starter Guide. Complete all tasks. Understanding how search engines work changes how you think about everything.</p></div></div>
+      <div class="tl-row"><div class="tl-period">Weeks 3–4</div><div class="tl-center"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-content"><h4>Module 2 — Keyword Research</h4><p>Research 3 niches with multiple tools. Build your first keyword research spreadsheet. Choose your niche blog topic. Start blog setup.</p></div></div>
+      <div class="tl-row"><div class="tl-period">Weeks 5–6</div><div class="tl-center"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-content"><h4>Module 3 — On-Page SEO</h4><p>Apply every on-page technique to your first 3 blog articles. Aim for 80+ score on every piece published. Use Rank Math or Yoast.</p></div></div>
+      <div class="tl-row"><div class="tl-period">Weeks 7–8</div><div class="tl-center"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-content"><h4>Module 4 — Technical SEO</h4><p>Perform a technical audit of your blog. Achieve 85+ PageSpeed score. Begin Project 5 with a real site.</p></div></div>
+      <div class="tl-row"><div class="tl-period">Weeks 9–12</div><div class="tl-center"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-content"><h4>Modules 5 & 6 — Content + Links</h4><p>Publish 10 articles using topic cluster strategy. Begin outreach for Project 6. Submit first 3 guest post pitches.</p></div></div>
+      <div class="tl-row"><div class="tl-period">Weeks 13–16</div><div class="tl-center"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-content"><h4>Module 7 — Local SEO</h4><p>Find a local business to help. Execute Project 3 end-to-end. Get a testimonial. Your first real SEO result.</p></div></div>
+      <div class="tl-row"><div class="tl-period">Weeks 17–24</div><div class="tl-center"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-content"><h4>Modules 8–10 + Analytics</h4><p>Complete Projects 1 and 4. Blog showing early rankings — screenshot everything for case study.</p></div></div>
+      <div class="tl-row"><div class="tl-period">Month 6+</div><div class="tl-center"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-content"><h4>🎉 First Paying Client</h4><p>Use all 6 projects as portfolio. Start outreach for paid local SEO or content strategy clients. Price first retainer at ₹8,000–₹20,000/month.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS PREVIEW -->
+<section class="projects-section">
+  <div class="projects-inner">
+    <div class="section-header" style="text-align:left;">
+      <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.8em,3vw,2.5em);font-weight:900;color:var(--white);margin-bottom:12px;">★ 6 Resume-Ready Portfolio Projects</h2>
+      <p style="color:var(--text2);font-size:0.95em;">Each project produces real deliverables. Complete all 6 and you'll have a stronger portfolio than most with 2 years of agency experience.</p>
+    </div>
+    <div class="proj-cards">
+      <div class="proj-card"><div class="proj-card-num">1</div><h3>Complete 25-Page SEO Audit</h3><p>Audit a real website. Document every technical, on-page, and off-page issue with an actionable priority matrix.</p></div>
+      <div class="proj-card"><div class="proj-card-num">2</div><h3>Build & Rank a Niche Blog</h3><p>Create a blog from zero, target low-KD keywords, publish 10 articles, and get a page-1 ranking.</p></div>
+      <div class="proj-card"><div class="proj-card-num">3</div><h3>Local SEO Campaign</h3><p>Optimize a real local business. Get them into the Google Maps 3-Pack with full documentation.</p></div>
+      <div class="proj-card"><div class="proj-card-num">4</div><h3>Keyword Strategy Document</h3><p>Deliver a 30-page keyword strategy + content roadmap for a real business with 6-month projections.</p></div>
+      <div class="proj-card"><div class="proj-card-num">5</div><h3>Technical SEO Fix (0→85 PageSpeed)</h3><p>Take a real slow website and document the full journey from broken to 85+ PageSpeed score.</p></div>
+      <div class="proj-card"><div class="proj-card-num">6</div><h3>Link Building Campaign (20 Links)</h3><p>Execute a 60-day multi-tactic campaign to earn 20 quality backlinks with complete outreach tracking.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- QUICK REFERENCE -->
+<section class="quick-ref-section">
+  <div class="section-header" style="text-align:left;">
+    <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.8em,3vw,2.5em);font-weight:900;color:var(--white);margin-bottom:12px;">⚡ Quick Reference — Essential SEO Metrics</h2>
+  </div>
+  <div class="ref-grid">
+    <div class="ref-item"><div class="ref-key">Title Tag</div><p>50–60 characters. Primary keyword near start. Unique per page. Compelling for clicks.</p></div>
+    <div class="ref-item"><div class="ref-key">Meta Description</div><p>150–160 characters. Include keyword. Add soft CTA. Improves CTR, not a direct ranking factor.</p></div>
+    <div class="ref-item"><div class="ref-key">Page Speed (LCP)</div><p>Under 2.5s = Good. 2.5–4s = Needs Improvement. Over 4s = Poor (ranking penalty).</p></div>
+    <div class="ref-item"><div class="ref-key">Target KD (New Site)</div><p>Under 30 for new domains. Under 50 for DR30+. Under 70 for DR60+.</p></div>
+    <div class="ref-item"><div class="ref-key">Content Length</div><p>How-to guides: 1,500–3,000 words. Pillar pages: 3,000–8,000. Product pages: 200–500 unique words.</p></div>
+    <div class="ref-item"><div class="ref-key">Internal Links</div><p>Every page should have at least 2–3 internal links from relevant pages. No orphan pages.</p></div>
+    <div class="ref-item"><div class="ref-key">Image Size</div><p>Under 100KB per image ideally. Use WebP format. Always include descriptive alt text.</p></div>
+    <div class="ref-item"><div class="ref-key">Backlink Quality</div><p>DR 60+ = excellent. DR 40–59 = good. DR 20–39 = acceptable for new sites.</p></div>
+    <div class="ref-item"><div class="ref-key">Good Keyword Volume</div><p>500–5,000/month for new sites. Anything over 100 is worth targeting if KD is low enough.</p></div>
+    <div class="ref-item"><div class="ref-key">Local Review Target</div><p>Minimum 50 reviews to compete. 4.5+ star average. Respond to every single review.</p></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p><strong>Remember:</strong> SEO is learned by doing. Read → Apply immediately → Measure → Iterate. Every task in this roadmap, done consistently, compounds. Start today. Start small. Stay consistent.</p>
+</footer>
+
+<script>
+const toggle = document.getElementById('themeToggle');
+const html = document.documentElement;
+const saved = localStorage.getItem('seo-theme') || 'dark';
+html.setAttribute('data-theme', saved);
+toggle.textContent = saved === 'dark' ? '🌙' : '☀️';
+toggle.addEventListener('click', () => {
+  const current = html.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  toggle.textContent = next === 'dark' ? '🌙' : '☀️';
+  localStorage.setItem('seo-theme', next);
+});
+</script>
+</body>
+</html>

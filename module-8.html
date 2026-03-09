@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 8 — E-commerce SEO | SEO Mastery 2025</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,700;0,900;1,300&family=Syne:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+[data-theme="dark"]{--bg:#130e05;--bg1:#1a1208;--bg2:#22180a;--bg3:#2c1f0d;--card:#161009;--border:#2e1f09;--border2:#4a3210;--A:#f97316;--A2:#fb923c;--A3:#fed7aa;--B:#ea580c;--C:#c2410c;--D:#f59e0b;--D2:#fbbf24;--text:#fef0d6;--text2:#c8a870;--muted:#7a5a2a;--white:#fff8ed;--shadow:rgba(0,0,0,.6);--note-bg:rgba(249,115,22,.05);--sbg:#1a1208;--hbg:#130e05}
+[data-theme="light"]{--bg:#fffbf5;--bg1:#fef3e2;--bg2:#fde8c4;--bg3:#fbd9a0;--card:#ffffff;--border:#f5d5a0;--border2:#ebb870;--A:#ea580c;--A2:#c2410c;--A3:#9a3412;--B:#f97316;--C:#fb923c;--D:#d97706;--D2:#b45309;--text:#1c0f00;--text2:#5c3a0a;--muted:#9a6820;--white:#0f0800;--shadow:rgba(0,0,0,.1);--note-bg:rgba(234,88,12,.06);--sbg:#fef3e2;--hbg:#fffbf5}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;font-size:15px}body{font-family:'Syne',sans-serif;background:var(--bg);color:var(--text);line-height:1.75;overflow-x:hidden;transition:background .3s,color .3s}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--A);border-radius:10px}
+.shell{display:flex;min-height:100vh}
+.sidebar{width:272px;min-width:272px;background:var(--sbg);border-right:1px solid var(--border);position:fixed;top:0;left:0;bottom:0;overflow-y:auto;z-index:200;display:flex;flex-direction:column;transition:transform .3s}
+.sidebar::-webkit-scrollbar{width:3px}.sidebar::-webkit-scrollbar-thumb{background:var(--border2)}
+.sb-brand{padding:24px 20px 18px;border-bottom:1px solid var(--border)}.sb-back{display:inline-flex;align-items:center;gap:7px;font-size:.75em;font-weight:700;color:var(--muted);text-decoration:none;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;transition:color .15s}.sb-back:hover{color:var(--A2)}
+.sb-mod-badge{display:inline-block;font-family:'Fira Code',monospace;font-size:.65em;font-weight:700;background:var(--A);color:#fff;padding:3px 9px;border-radius:6px;margin-bottom:10px}
+.sb-brand h2{font-family:'Fraunces',serif;font-size:1.02em;font-weight:700;color:var(--white);line-height:1.35}.sb-brand p{font-size:.72em;color:var(--muted);margin-top:4px}
+.sb-progress{padding:14px 20px;border-bottom:1px solid var(--border)}.prog-label{display:flex;justify-content:space-between;font-size:.68em;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:7px}.prog-label span:last-child{color:var(--A2);font-family:'Fira Code',monospace}
+.prog-bg{height:4px;background:var(--border);border-radius:2px;overflow:hidden}.prog-fill{height:100%;background:linear-gradient(90deg,var(--A),var(--D2));width:0%;transition:width .4s ease}
+.sb-nav{padding:10px 0;flex:1}.sb-sl{padding:10px 20px 4px;font-size:.63em;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted)}
+.nav-link{display:flex;align-items:center;gap:10px;padding:9px 20px;text-decoration:none;color:var(--muted);font-size:.8em;font-weight:500;transition:all .15s;border-left:2px solid transparent}
+.nav-link:hover{color:var(--text);background:var(--bg2)}.nav-link.active{color:var(--A2);border-left-color:var(--A);background:rgba(249,115,22,.07)}
+.nav-num{font-family:'Fira Code',monospace;font-size:.72em;color:var(--border2);min-width:28px}.nav-link.active .nav-num{color:var(--A2)}
+.nav-done{margin-left:auto;font-size:.8em;color:#4ade80;opacity:0;transition:opacity .2s}.nav-link.completed .nav-done{opacity:1}
+.sb-footer{padding:14px 20px;border-top:1px solid var(--border)}.sb-footer p{font-size:.7em;color:var(--muted);line-height:1.5}
+.main{margin-left:272px;flex:1;min-width:0}
+.topbar{position:sticky;top:0;z-index:100;background:var(--hbg);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;padding:12px 40px}
+.topbar-bc{font-size:.78em;color:var(--muted);display:flex;align-items:center;gap:6px;flex:1}.topbar-bc a{color:var(--muted);text-decoration:none}.topbar-bc a:hover{color:var(--A2)}.topbar-bc span{color:var(--text2);font-weight:600}
+.theme-btn{background:var(--card);border:1px solid var(--border2);border-radius:50px;padding:7px 14px;cursor:pointer;font-size:.76em;font-weight:600;color:var(--text2);transition:all .2s;font-family:'Syne',sans-serif;white-space:nowrap}.theme-btn:hover{border-color:var(--A2);color:var(--A2)}
+.hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:4px;background:none;border:none}.hamburger span{display:block;width:20px;height:2px;background:var(--text2);border-radius:2px}
+.mod-hero{background:var(--bg1);border-bottom:1px solid var(--border);padding:56px 56px 44px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 700px 500px at 80% -15%,rgba(249,115,22,.1) 0%,transparent 60%),radial-gradient(ellipse 500px 400px at -5% 100%,rgba(245,158,11,.07) 0%,transparent 60%)}
+.hero-grid{position:absolute;inset:0;pointer-events:none;opacity:.02;background-image:linear-gradient(var(--border2) 1px,transparent 1px),linear-gradient(90deg,var(--border2) 1px,transparent 1px);background-size:44px 44px}
+.hero-inner{max-width:820px;position:relative}
+.num-tag{font-family:'Fira Code',monospace;font-size:.68em;font-weight:700;color:#fff;background:var(--A);padding:4px 12px;border-radius:6px;display:inline-block;margin-bottom:16px}
+.mod-hero h1{font-family:'Fraunces',serif;font-size:clamp(1.9em,4vw,3.1em);font-weight:900;color:var(--white);line-height:1.08;margin-bottom:10px}
+.mod-hero h1 em{font-style:italic;background:linear-gradient(135deg,var(--A2) 0%,var(--D2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.mod-hero p{color:var(--text2);font-size:.96em;max-width:700px;margin-bottom:22px;line-height:1.8}
+.mod-tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:28px}
+.mtag{font-size:.67em;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding:3px 10px;border-radius:4px}
+.mt1{background:rgba(249,115,22,.1);color:var(--A2);border:1px solid rgba(249,115,22,.25)}.mt2{background:rgba(245,158,11,.1);color:var(--D2);border:1px solid rgba(245,158,11,.25)}.mt3{background:rgba(244,63,94,.1);color:#fb7185;border:1px solid rgba(244,63,94,.25)}.mt4{background:rgba(139,92,246,.1);color:#a78bfa;border:1px solid rgba(139,92,246,.25)}
+.hero-stats{display:grid;grid-template-columns:repeat(4,auto);width:fit-content;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.stat-box{background:var(--bg2);padding:16px 20px;text-align:center}.stat-n{font-family:'Fraunces',serif;font-size:1.7em;font-weight:700;color:var(--A2);line-height:1;margin-bottom:3px}.stat-l{font-size:.65em;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.8px}
+.content-area{max-width:840px;margin:0 auto;padding:44px 56px 100px}
+.topic-item{border:1px solid var(--border);border-radius:14px;margin-bottom:14px;overflow:hidden;background:var(--card);transition:border-color .2s,box-shadow .2s}
+.topic-item:hover{border-color:var(--border2);box-shadow:0 4px 28px var(--shadow)}.topic-item.open{border-color:rgba(249,115,22,.4)}
+.topic-header{display:flex;align-items:center;gap:12px;padding:17px 20px;cursor:pointer;transition:background .15s}.topic-header:hover{background:var(--bg2)}
+.topic-num{font-family:'Fira Code',monospace;font-size:.7em;font-weight:700;color:var(--A2);background:rgba(249,115,22,.08);border:1px solid rgba(249,115,22,.2);padding:3px 8px;border-radius:5px;white-space:nowrap}
+.topic-header h3{font-size:.95em;font-weight:700;color:var(--white);flex:1;line-height:1.35}
+.d-b{font-size:.63em;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:2px 7px;border-radius:4px;background:rgba(74,222,128,.1);color:#4ade80}
+.d-i{font-size:.63em;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:2px 7px;border-radius:4px;background:rgba(249,115,22,.1);color:var(--A2)}
+.d-a{font-size:.63em;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:2px 7px;border-radius:4px;background:rgba(244,63,94,.1);color:#fb7185}
+.chevron{color:var(--muted);font-size:.75em;transition:transform .25s}.topic-item.open .chevron{transform:rotate(180deg);color:var(--A2)}
+.topic-body{display:none;padding:0 20px 24px;border-top:1px solid var(--border)}.topic-item.open .topic-body{display:block}
+.topic-intro{padding:18px 0 14px;color:var(--text2);font-size:.92em;line-height:1.85}.topic-intro strong{color:var(--white)}
+.keypoints{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+.kp{display:flex;align-items:flex-start;gap:10px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-size:.89em;color:var(--text2)}
+.kp-dot{width:6px;height:6px;border-radius:50%;background:var(--A);flex-shrink:0;margin-top:7px}.kp strong{color:var(--white)}
+.bg{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}
+.ib{border-radius:10px;padding:16px;font-size:.87em}.ib .bl{display:flex;align-items:center;gap:6px;font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px}
+.bex{background:rgba(249,115,22,.05);border:1px solid rgba(249,115,22,.18);border-left:3px solid var(--A)}.bex .bl{color:var(--A2)}
+.btask{background:rgba(245,158,11,.05);border:1px solid rgba(245,158,11,.18);border-left:3px solid var(--D)}.btask .bl{color:var(--D2)}
+.bins{background:rgba(139,92,246,.05);border:1px solid rgba(139,92,246,.18);border-left:3px solid #8b5cf6}.bins .bl{color:#a78bfa}
+.bwarn{background:rgba(244,63,94,.05);border:1px solid rgba(244,63,94,.18);border-left:3px solid #f43f5e}.bwarn .bl{color:#fb7185}
+.ib p,.ib ul,.ib ol{color:var(--text2);line-height:1.7;margin-bottom:8px}.ib li{margin-bottom:5px}.ib strong{color:var(--white)}.ib ul,.ib ol{padding-left:16px}
+.task-list{display:flex;flex-direction:column;gap:7px}
+.task-check-item{display:flex;align-items:flex-start;gap:10px;cursor:pointer}.task-check-item input{display:none}
+.cb{width:18px;height:18px;border-radius:4px;flex-shrink:0;border:1.5px solid rgba(249,115,22,.4);display:flex;align-items:center;justify-content:center;margin-top:2px;transition:all .15s;font-size:.6em;color:transparent}
+.task-check-item.checked .cb{background:var(--A);border-color:var(--A);color:#fff;font-size:.65em}
+.task-text{font-size:.86em;color:var(--text2);line-height:1.6}.task-check-item.checked .task-text{color:var(--muted);text-decoration:line-through}
+code{font-family:'Fira Code',monospace;font-size:.83em;background:rgba(255,255,255,.06);color:var(--A2);padding:2px 6px;border-radius:4px}[data-theme="light"] code{background:rgba(0,0,0,.06);color:var(--A)}
+.resources-block{margin-top:18px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.res-title{padding:11px 16px;background:var(--bg3);border-bottom:1px solid var(--border);font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--A2)}
+.res-links{display:flex;flex-direction:column}
+.res-link{display:flex;align-items:flex-start;gap:12px;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;transition:background .15s}.res-link:last-child{border-bottom:none}.res-link:hover{background:rgba(249,115,22,.04)}
+.res-icon{font-size:1.1em;flex-shrink:0;margin-top:1px}.res-text{flex:1}.res-text strong{display:block;font-size:.85em;font-weight:600;color:var(--A2);margin-bottom:2px}.res-link:hover .res-text strong{color:var(--D2)}.res-text span{font-size:.77em;color:var(--muted);line-height:1.4}
+.rb{font-size:.62em;font-weight:700;text-transform:uppercase;padding:2px 7px;border-radius:3px;flex-shrink:0;margin-top:2px}
+.rb-f{background:rgba(74,222,128,.1);color:#4ade80;border:1px solid rgba(74,222,128,.2)}.rb-b{background:rgba(96,165,250,.1);color:#60a5fa;border:1px solid rgba(96,165,250,.2)}.rb-t{background:rgba(249,115,22,.1);color:var(--A2);border:1px solid rgba(249,115,22,.2)}.rb-o{background:rgba(245,158,11,.1);color:var(--D2);border:1px solid rgba(245,158,11,.2)}
+.topic-note{margin-top:18px;border-radius:12px;overflow:hidden;border:1px solid rgba(249,115,22,.25);background:var(--note-bg)}
+.note-header{display:flex;align-items:center;gap:8px;padding:10px 16px;background:rgba(249,115,22,.1);border-bottom:1px solid rgba(249,115,22,.18);font-size:.7em;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--A2)}
+.note-grid{display:grid;grid-template-columns:1fr 1fr}
+.nc{padding:13px 16px;border-right:1px solid rgba(249,115,22,.12);border-bottom:1px solid rgba(249,115,22,.12)}.nc:nth-child(2n){border-right:none}.nc:nth-child(3),.nc:nth-child(4){border-bottom:none}
+.nc-l{font-size:.64em;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;color:var(--A2);margin-bottom:5px}.nc p{font-size:.82em;color:var(--text2);line-height:1.6}.nc strong{color:var(--white)}
+/* E-COMM SPECIFIC */
+.schema-box{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:16px;margin:14px 0;font-family:'Fira Code',monospace;font-size:.8em;color:var(--A2);overflow-x:auto;white-space:pre}
+.comp-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.84em}
+.comp-table th{background:var(--bg3);color:var(--A2);padding:10px 14px;text-align:left;font-weight:700;font-size:.78em;text-transform:uppercase;letter-spacing:.8px;border-bottom:1px solid var(--border2)}
+.comp-table td{padding:10px 14px;color:var(--text2);border-bottom:1px solid var(--border)}.comp-table tr:last-child td{border-bottom:none}.comp-table tr:hover td{background:rgba(249,115,22,.03)}.comp-table td:first-child{color:var(--white);font-weight:600}
+.tag-ok{background:rgba(74,222,128,.1);color:#4ade80;border:1px solid rgba(74,222,128,.2);padding:2px 6px;border-radius:4px;font-size:.72em;font-weight:700}.tag-no{background:rgba(244,63,94,.1);color:#fb7185;border:1px solid rgba(244,63,94,.2);padding:2px 6px;border-radius:4px;font-size:.72em;font-weight:700}
+/* QUIZ */
+.quiz-block{margin-top:20px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.quiz-header{padding:12px 16px;background:var(--bg3);border-bottom:1px solid var(--border);font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--D2)}
+.quiz-q{padding:14px 16px;border-bottom:1px solid var(--border)}.quiz-q:last-child{border-bottom:none}
+.quiz-q p{font-size:.88em;color:var(--white);font-weight:600;margin-bottom:10px}
+.quiz-options{display:flex;flex-direction:column;gap:7px}
+.qo{display:flex;align-items:center;gap:10px;padding:9px 13px;border-radius:8px;border:1px solid var(--border);background:var(--card);cursor:pointer;font-size:.84em;color:var(--text2);transition:all .15s}.qo:hover{border-color:var(--border2);background:var(--bg3)}.qo.correct{border-color:#22c55e;background:rgba(34,197,94,.1);color:#4ade80}.qo.wrong{border-color:var(--A);background:rgba(249,115,22,.1);color:var(--A2)}
+.qol{width:22px;height:22px;border-radius:50%;flex-shrink:0;background:var(--bg3);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-family:'Fira Code',monospace;font-size:.72em;font-weight:700;color:var(--muted)}.qo.correct .qol{background:#22c55e;border-color:#22c55e;color:#000}.qo.wrong .qol{background:var(--A);border-color:var(--A);color:#fff}
+.qfb{font-size:.79em;margin-top:8px;padding:8px 12px;border-radius:6px;display:none}.qfb.show{display:block}.qfb.ok{background:rgba(34,197,94,.1);color:#4ade80;border:1px solid rgba(34,197,94,.2)}.qfb.no{background:rgba(249,115,22,.1);color:var(--A2);border:1px solid rgba(249,115,22,.2)}
+/* FLASHCARD */
+.fc-block{margin-top:20px;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:var(--card)}
+.fc-header{padding:11px 16px;background:var(--bg3);border-bottom:1px solid var(--border);font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--D2)}
+.fc-inner{padding:20px;display:flex;flex-direction:column;align-items:center;gap:14px}
+.flashcard{width:100%;min-height:110px;border-radius:10px;cursor:pointer;position:relative;perspective:800px}
+.fcface{width:100%;min-height:110px;border-radius:10px;display:flex;align-items:center;justify-content:center;padding:20px;text-align:center;backface-visibility:hidden;transition:transform .5s;position:absolute;top:0;left:0}
+.fcf{background:var(--bg2);border:1px solid var(--border);color:var(--white);font-weight:700;font-size:.95em;transform:rotateY(0deg)}
+.fcb{background:rgba(249,115,22,.08);border:1px solid rgba(249,115,22,.3);color:var(--text2);font-size:.87em;line-height:1.6;transform:rotateY(180deg)}
+.flashcard.flipped .fcf{transform:rotateY(-180deg)}.flashcard.flipped .fcb{transform:rotateY(0deg)}
+.fc-nav{display:flex;align-items:center;gap:12px}
+.fc-btn{background:var(--bg2);border:1px solid var(--border);color:var(--text2);border-radius:8px;padding:7px 16px;cursor:pointer;font-size:.78em;font-weight:600;font-family:'Syne',sans-serif;transition:all .15s}.fc-btn:hover{border-color:var(--A2);color:var(--A2)}
+.fc-ctr{font-size:.75em;color:var(--muted);font-family:'Fira Code',monospace}
+.blog-section{margin-top:20px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:30px}
+.blog-header{padding:11px 16px;background:var(--bg3);border-bottom:1px solid var(--border);font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--D2)}
+.blog-item{display:flex;align-items:flex-start;gap:12px;padding:13px 16px;border-bottom:1px solid var(--border);text-decoration:none;transition:background .15s}.blog-item:last-child{border-bottom:none}.blog-item:hover{background:rgba(249,115,22,.04)}
+.blog-icon{font-size:1.1em;flex-shrink:0;margin-top:1px}.blog-text{flex:1}.blog-text strong{display:block;font-size:.85em;font-weight:600;color:#60a5fa;margin-bottom:2px}.blog-item:hover .blog-text strong{color:var(--A2)}.blog-text span{font-size:.77em;color:var(--muted);line-height:1.4}
+.tools-chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+.tool-chip{font-family:'Fira Code',monospace;font-size:.74em;font-weight:500;padding:4px 11px;border-radius:6px;background:rgba(249,115,22,.08);border:1px solid rgba(249,115,22,.2);color:var(--A2);text-decoration:none;transition:all .15s}.tool-chip:hover{background:rgba(249,115,22,.18);border-color:var(--A2)}
+.sd{display:flex;align-items:center;gap:14px;margin:44px 0 32px}.sd::before,.sd::after{content:'';flex:1;height:1px;background:linear-gradient(to right,transparent,var(--border),transparent)}.sd span{font-family:'Fira Code',monospace;font-size:.68em;color:var(--muted);white-space:nowrap;text-transform:uppercase;letter-spacing:2px}
+.mod-nav{display:flex;justify-content:space-between;gap:14px;margin-top:50px}
+.mnb{display:flex;align-items:center;gap:10px;padding:14px 20px;border:1px solid var(--border);border-radius:10px;text-decoration:none;transition:all .2s;flex:1}.mnb:hover{border-color:var(--A);background:rgba(249,115,22,.05)}
+.mnb.prev{flex-direction:row}.mnb.next{flex-direction:row-reverse;text-align:right}
+.mn-label{font-size:.68em;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted)}.mn-title{font-size:.88em;font-weight:700;color:var(--text2)}.mnb:hover .mn-title{color:var(--A2)}.mn-arr{font-size:1.2em;color:var(--muted)}
+.sb-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:150;opacity:0;transition:opacity .3s}.sb-overlay.show{display:block;opacity:1}
+@media(max-width:900px){.sidebar{transform:translateX(-100%)}.sidebar.open{transform:translateX(0)}.main{margin-left:0}.hamburger{display:flex}.topbar{padding:10px 20px}.mod-hero{padding:36px 24px 28px}.content-area{padding:28px 20px 80px}.bg{grid-template-columns:1fr}.note-grid{grid-template-columns:1fr}.nc{border-right:none !important}.nc:nth-child(3){border-bottom:1px solid rgba(249,115,22,.12) !important}.hero-stats{grid-template-columns:repeat(2,1fr);width:100%}}
+@media(max-width:500px){.topbar-bc{display:none}.mod-hero h1{font-size:1.65em}}
+</style>
+</head>
+<body>
+<div class="shell">
+<nav class="sidebar" id="sidebar">
+  <div class="sb-brand">
+    <a class="sb-back" href="seo_complete_roadmap_v3.html">← All Modules</a>
+    <div class="sb-mod-badge">MODULE 08</div>
+    <h2>E-commerce SEO</h2>
+    <p>Category Pages, Products & Structure</p>
+  </div>
+  <div class="sb-progress">
+    <div class="prog-label"><span>Progress</span><span id="pp">0%</span></div>
+    <div class="prog-bg"><div class="prog-fill" id="pb"></div></div>
+  </div>
+  <div class="sb-nav">
+    <div class="sb-sl">Topics</div>
+    <a class="nav-link" href="#t8-1" data-target="t8-1"><span class="nav-num">8.1</span>Category & Product Page SEO<span class="nav-done">✓</span></a>
+    <a class="nav-link" href="#t8-2" data-target="t8-2"><span class="nav-num">8.2</span>Site Architecture & Navigation<span class="nav-done">✓</span></a>
+    <a class="nav-link" href="#t8-3" data-target="t8-3"><span class="nav-num">8.3</span>Faceted Navigation & Duplicate Content<span class="nav-done">✓</span></a>
+    <a class="nav-link" href="#t8-4" data-target="t8-4"><span class="nav-num">8.4</span>Product Schema & Rich Results<span class="nav-done">✓</span></a>
+    <a class="nav-link" href="#t8-5" data-target="t8-5"><span class="nav-num">8.5</span>E-commerce Link Building<span class="nav-done">✓</span></a>
+    <a class="nav-link" href="#t8-6" data-target="t8-6"><span class="nav-num">8.6</span>E-comm Technical Checklist<span class="nav-done">✓</span></a>
+    <div class="sb-sl" style="margin-top:8px">Study Aids</div>
+    <a class="nav-link" href="#quiz-section" data-target="quiz-section"><span class="nav-num">🎯</span>Module Quiz<span class="nav-done">✓</span></a>
+    <a class="nav-link" href="#flashcard-section" data-target="flashcard-section"><span class="nav-num">🃏</span>Flashcards<span class="nav-done">✓</span></a>
+  </div>
+  <div class="sb-footer"><p>SEO Mastery Roadmap 2025 Module 8 of 12</p></div>
+</nav>
+<div class="sb-overlay" id="sb-overlay" onclick="closeSidebar()"></div>
+<div class="main">
+<div class="topbar">
+  <button class="hamburger" onclick="toggleSidebar()"><span></span><span></span><span></span></button>
+  <div class="topbar-bc"><a href="seo_complete_roadmap_v3.html">SEO Mastery 2025</a><span style="color:var(--muted)">›</span><span>Module 8 — E-commerce SEO</span></div>
+  <button class="theme-btn" onclick="toggleTheme()" id="theme-btn">☀️ Light Mode</button>
+</div>
+
+<div class="mod-hero">
+  <div class="hero-bg"></div><div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="num-tag">MODULE 08 / 10</div>
+    <h1>E-commerce SEO —<br><em>Category Pages, Products</em> & Scale</h1>
+    <p>E-commerce SEO has unique challenges at every level: thousands of product pages, duplicate content risks from faceted navigation, and the need to balance informational blog content with high-converting transactional pages. These skills command premium rates because the revenue impact is immediate and measurable.</p>
+    <div class="mod-tags">
+      <span class="mtag mt1">Advanced</span><span class="mtag mt2">High Revenue Impact</span>
+      <span class="mtag mt3">Complex</span><span class="mtag mt4">Premium Rates</span>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-box"><div class="stat-n">6</div><div class="stat-l">Topics</div></div>
+      <div class="stat-box"><div class="stat-n">22</div><div class="stat-l">Tasks</div></div>
+      <div class="stat-box"><div class="stat-n">14</div><div class="stat-l">Resources</div></div>
+      <div class="stat-box"><div class="stat-n">3–4h</div><div class="stat-l">Est. Time</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="content-area">
+
+<!-- T8.1 -->
+<div class="topic-item open" id="t8-1">
+  <div class="topic-header" onclick="toggleTopic(this)">
+    <span class="topic-num">8.1</span><h3>Category Page & Product Page Optimisation</h3>
+    <span class="d-a">Advanced</span><span class="chevron">▼</span>
+  </div>
+  <div class="topic-body">
+    <div class="topic-intro"><strong>Category pages</strong> are the highest-value pages on most e-commerce sites — they rank for high-volume commercial keywords like "women's running shoes" or "wireless headphones under 5000" and funnel hundreds of daily users into the purchasing funnel. Yet most retailers treat them as pure product grids with zero editorial content — missing the primary ranking opportunity. <strong>Product pages</strong> face the opposite problem: manufacturer descriptions create mass duplicate content across thousands of retailers. Both require specific, systematic optimisation strategies.</div>
+    <div class="keypoints">
+      <div class="kp"><div class="kp-dot"></div><div><strong>Category Page Editorial Content — The ranking unlock:</strong> Add 200–400 words of editorial content to every major category. Either above the product grid (helps users choose) or below it (keeps shopping flow clean). The content must include: primary keyword naturally in H1 and first paragraph, secondary keywords in H2s, answers to top buyer questions, and internal links to sub-categories. This is the single fastest way to move category pages from page 3 to page 1.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Product Page Uniqueness — Never use manufacturer descriptions:</strong> Manufacturer product descriptions appear on thousands of retailer websites simultaneously — Google sees them as duplicate content and deprioritises all copies. Write unique 200–300 word descriptions for every product that: lead with the primary buyer benefit (not spec), address common buyer concerns, include natural keyword usage, and explain specific use cases that differentiate the product from alternatives.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Category H1 Optimisation:</strong> The H1 must match the commercial keyword exactly — "Women's Running Shoes" not "Our Collection of Women's Footwear for Running Activities." Add breadcrumb navigation structured as text links above the H1 (also include BreadcrumbList schema). Breadcrumbs improve crawlability, reduce bounce rate, and add keyword-rich internal links to every page simultaneously.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Internal Linking from Category to Sub-Category:</strong> Category → Sub-category → Product is the ideal link flow. From the "Running Shoes" category page, link to: "Men's Running Shoes," "Trail Running Shoes," "Road Running Shoes," "Running Shoes Under ₹3000." These contextual links guide crawlers through your site architecture and distribute PageRank down to product pages that need it most.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>FAQ Sections for Category Pages:</strong> Add 4–6 FAQ items to each major category page targeting "People Also Ask" queries. "What should I look for in running shoes?" "What's the difference between road and trail running shoes?" "Are running shoes true to size?" These FAQs capture featured snippets AND provide keyword-rich content that helps non-optimised product pages rank via category association.</div></div>
+    </div>
+    <div class="bg">
+      <div class="ib bex">
+        <div class="bl">📖 Category Content Case Study</div>
+        <p>A running shoe retailer's "Women's Running Shoes" category had only a product grid — zero editorial content. A competitor had: 300-word buyer's guide above the grid + 5 sub-category links + FAQ section with 6 questions + Product schema on every product listed.</p>
+        <p style="margin-top:8px">Competitor ranked #2 for "women's running shoes" (720K monthly searches). After the client added identical editorial content + FAQ schema: <strong>position 31 → position 7 in 11 weeks</strong>. Estimated additional monthly traffic: 14,000 visitors from one category page update.</p>
+      </div>
+      <div class="ib btask">
+        <div class="bl">✅ Your Tasks</div>
+        <div class="task-list">
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="cb">✓</span><span class="task-text">Analyse 3 e-commerce category pages (Amazon, Flipkart, niche retailer). List every SEO element present and missing — score each out of 10.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="cb">✓</span><span class="task-text">Write a fully optimised 300-word category description for "Wireless Noise-Cancelling Headphones" — include H2 structure, natural keyword use, buyer guidance, and 4 FAQ items.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="cb">✓</span><span class="task-text">Take any product and completely rewrite: title tag, meta description, H1, and 250-word unique product description — benefits-first, unique to your site.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="cb">✓</span><span class="task-text">Map the internal linking structure for an e-commerce site in any niche: Homepage → 5 Categories → 3 Sub-categories each → 10 Products per sub-category. Draw the hierarchy.</span></label>
+        </div>
+      </div>
+    </div>
+    <div class="resources-block">
+      <div class="res-title">📚 Resources</div>
+      <div class="res-links">
+        <a class="res-link" href="https://ahrefs.com/blog/ecommerce-seo/" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Ahrefs — E-commerce SEO: The Beginner's Guide</strong><span>Complete guide covering site structure, category pages, product pages, technical issues, and link building for e-commerce.</span></div><span class="rb rb-b">GUIDE</span></a>
+        <a class="res-link" href="https://backlinko.com/ecommerce-seo" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Backlinko — E-commerce SEO: Drive Traffic at Scale</strong><span>Advanced e-commerce SEO strategies with real case studies — particularly strong on category page optimisation.</span></div><span class="rb rb-b">BLOG</span></a>
+        <a class="res-link" href="https://moz.com/blog/category-page-seo" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Moz — Category Page SEO Best Practices</strong><span>Detailed breakdown of what makes e-commerce category pages rank — content requirements, internal linking, and schema.</span></div><span class="rb rb-b">GUIDE</span></a>
+      </div>
+    </div>
+    <div class="topic-note">
+      <div class="note-header">📌 Quick Reference — Category & Product Pages</div>
+      <div class="note-grid">
+        <div class="nc"><div class="nc-l">✅ Why</div><p>Category pages rank for the highest-volume commercial keywords. One well-optimised category page can drive more traffic than 50 product pages combined. Product page uniqueness prevents duplicate content penalties that silently suppress entire site rankings.</p></div>
+        <div class="nc"><div class="nc-l">📍 Where</div><p>Start with your top 10 highest-traffic category pages — these have the most to gain. Then work through product pages by sales volume (high sellers deserve more content investment than slow movers).</p></div>
+        <div class="nc"><div class="nc-l">⚙️ How</div><p>Category: audit existing content → add 200–400 word editorial section → H1 with exact keyword → sub-category internal links → FAQ section with schema. Product: rewrite all manufacturer descriptions → benefit-first copy → spec table → review schema.</p></div>
+        <div class="nc"><div class="nc-l">⏱ When</div><p>Prioritise category pages first — they drive the most traffic. Product pages: focus on your top 20% sellers first (these drive 80% of revenue). Build a 6-month schedule to systematically rewrite all manufacturer-copied descriptions across the catalogue.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- T8.2 -->
+<div class="topic-item" id="t8-2">
+  <div class="topic-header" onclick="toggleTopic(this)">
+    <span class="topic-num">8.2</span><h3>E-commerce Site Architecture — Structure That Scales</h3>
+    <span class="d-i">Intermediate</span><span class="chevron">▼</span>
+  </div>
+  <div class="topic-body">
+    <div class="topic-intro">E-commerce site architecture is a performance multiplier — a good structure amplifies the impact of every other SEO effort, while a poor structure creates drag that limits rankings regardless of content quality. The fundamental principle: <strong>every product page must be reachable from the homepage in 3 clicks or fewer</strong>. Anything deeper gets crawled less frequently, indexed less reliably, and passes less link equity from the homepage.</div>
+    <div class="keypoints">
+      <div class="kp"><div class="kp-dot"></div><div><strong>The 3-Click Rule:</strong> Homepage → Category → Sub-category → Product = 3 clicks. This is the maximum depth for product pages. Sites with products buried 5–7 clicks deep consistently show those pages ranking poorly or not at all — Google's crawl budget allocation and PageRank flow both decay with depth.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>URL Structure — Clean, keyword-rich, hierarchical:</strong> Recommended: <code>/category/sub-category/product-name/</code> — Example: <code>/shoes/running-shoes/nike-air-zoom-pegasus/</code>. Avoid: session IDs in URLs (<code>?session=abc123</code>), excessive parameters, or flat structures that don't reflect your hierarchy. URL structure communicates site architecture to both crawlers and users.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Pagination — Handle it correctly:</strong> Paginated category pages (/page/2, /page/3) should use <code>rel="next"</code> and <code>rel="prev"</code> attributes. Alternatively, implement infinite scroll with proper URL updates. The main category URL should always show the canonical version of the category page — Google should understand which page to rank for category keywords.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Site Search Results — Block them:</strong> Your site's internal search result pages (/search?q=shoes) are dynamic, thin-content pages that create thousands of crawlable URLs with no ranking value. Disallow these in robots.txt: <code>Disallow: /search/</code>. This preserves crawl budget for pages that actually drive rankings and revenue.</div></div>
+    </div>
+    <div class="bg">
+      <div class="ib bins">
+        <div class="bl">💡 Ideal vs Poor URL Structure</div>
+        <table class="comp-table" style="margin:0">
+          <tr><th>Type</th><th>Example</th><th>Rating</th></tr>
+          <tr><td>Ideal</td><td>/shoes/running/nike-pegasus/</td><td><span class="tag-ok">✓ GOOD</span></td></tr>
+          <tr><td>Category flat</td><td>/product.php?id=12345&cat=shoes</td><td><span class="tag-no">✗ BAD</span></td></tr>
+          <tr><td>Session ID</td><td>/shoes/?sessionid=abc123xyz</td><td><span class="tag-no">✗ BAD</span></td></tr>
+          <tr><td>Too deep</td><td>/dept/cat/sub/sub2/sub3/product</td><td><span class="tag-no">✗ BAD</span></td></tr>
+          <tr><td>Short + clean</td><td>/running-shoes/nike-pegasus-40/</td><td><span class="tag-ok">✓ GOOD</span></td></tr>
+        </table>
+      </div>
+      <div class="ib btask">
+        <div class="bl">✅ Your Tasks</div>
+        <div class="task-list">
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="cb">✓</span><span class="task-text">Crawl any e-commerce site with <strong>Screaming Frog</strong> (free up to 500 URLs). Identify pages more than 3 clicks from the homepage — flag each as an architecture issue.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="cb">✓</span><span class="task-text">Design a complete URL structure for a hypothetical shoe e-commerce site: map out 5 categories, 3 sub-categories each, with example product URL format for each.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="cb">✓</span><span class="task-text">Check any e-commerce robots.txt: are site search pages blocked? Are internal filter pages blocked? Write a corrected robots.txt if you find issues.</span></label>
+        </div>
+      </div>
+    </div>
+    <div class="topic-note">
+      <div class="note-header">📌 Quick Reference — Site Architecture</div>
+      <div class="note-grid">
+        <div class="nc"><div class="nc-l">✅ Why</div><p>Architecture determines how PageRank flows through your site and how efficiently Google crawls it. A flat, shallow architecture means every product page benefits from homepage authority. Deep architecture means most products are starved of link equity.</p></div>
+        <div class="nc"><div class="nc-l">📍 Where</div><p>Established during site setup — but can be restructured for existing sites with a careful 301-redirect migration. Never restructure without a complete redirect map — URL changes without redirects destroy all accumulated ranking history.</p></div>
+        <div class="nc"><div class="nc-l">⚙️ How</div><p>Crawl site → identify depth issues → design optimal structure → implement URL changes with 301 redirects → update sitemap → submit to GSC → update all internal links to use new URLs → monitor GSC for crawl errors for 30 days.</p></div>
+        <div class="nc"><div class="nc-l">⏱ When</div><p>Establish correct architecture before launching. For existing sites: major restructure should happen before scaling content efforts — no point in building 500 pages on a broken architecture. Plan restructure during low-traffic periods (avoid pre-holiday seasons).</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- T8.3 -->
+<div class="topic-item" id="t8-3">
+  <div class="topic-header" onclick="toggleTopic(this)">
+    <span class="topic-num">8.3</span><h3>Faceted Navigation, Duplicate Content & Crawl Budget Control</h3>
+    <span class="d-a">Advanced</span><span class="chevron">▼</span>
+  </div>
+  <div class="topic-body">
+    <div class="topic-intro">Faceted navigation — the filter systems on e-commerce sites that let users filter by size, colour, brand, price, and rating — is the single largest source of duplicate content and crawl budget waste on e-commerce sites. A category with 200 products and 10 filter combinations can mathematically generate millions of unique URLs. Without proper management, Google wastes its entire crawl budget on these thin filter pages while your most important category and product pages go under-crawled.</div>
+    <div class="keypoints">
+      <div class="kp"><div class="kp-dot"></div><div><strong>The Scale of the Problem:</strong> A modest fashion e-commerce site with 50 categories × 8 filter types (size, colour, brand, material, occasion, price, rating, availability) = 50 × 2⁸ = 12,800 possible filter combinations = 12,800 near-duplicate crawlable URLs. A large site can generate millions. Most of these pages have no search demand and dilute crawl budget from pages that do.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Solution 1 — Canonical Tags (Recommended for valuable filter combos):</strong> For filter URLs that have some keyword value ("red running shoes", "Nike running shoes"), allow indexing but add canonical tags pointing to the main category URL. This preserves any ranking benefit while signalling the preferred URL to Google.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Solution 2 — Robots.txt Disallow (For pure user-only filters):</strong> For filter combinations that have no keyword demand (price range, rating, availability), disallow the URL pattern in robots.txt: <code>Disallow: /*?sort=</code>, <code>Disallow: /*?rating=</code>. This prevents crawling entirely — the strongest crawl budget protection available.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Solution 3 — noindex Meta Tag:</strong> For filter pages you want users to access but not have ranked: add <code>&lt;meta name="robots" content="noindex, follow"&gt;</code>. Google won't index the page but will still follow links from it — preserving internal link flow while preventing indexation of thin content.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Crawl Budget — GSC Crawl Stats Report:</strong> Monitor Google Search Console → Settings → Crawl Stats. It shows: total crawl requests, crawl response times, file types crawled, and crawl response codes. If you see Google spending crawl budget on filter pages or search result pages instead of product pages, your architecture has a crawl budget problem requiring immediate attention.</div></div>
+    </div>
+    <div class="bg">
+      <div class="ib bex">
+        <div class="bl">📖 Faceted Navigation Fix — Before/After</div>
+        <p>A fashion retailer had 2.4 million pages indexed — most were faceted navigation filter combinations. Their top product pages were crawled only once per week. Core product and category pages barely received crawl budget.</p>
+        <p style="margin-top:8px">After implementing: robots.txt disallowing filter-only parameters + noindex on remaining filter pages + canonical tags on brand-filtered pages.</p>
+        <p style="margin-top:8px"><strong>Result:</strong> Indexed pages: 2.4M → 28,000. Core product page crawl frequency: weekly → daily. Organic traffic: +67% in 14 weeks — purely from crawl budget reallocation. Zero new content was created.</p>
+      </div>
+      <div class="ib btask">
+        <div class="bl">✅ Your Tasks</div>
+        <div class="task-list">
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="cb">✓</span><span class="task-text">Find any e-commerce site. Count how many filter combinations exist on one category. Calculate the mathematical maximum of crawlable URLs this creates.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="cb">✓</span><span class="task-text">Write a <strong>robots.txt file</strong> that correctly handles faceted navigation for a shoe site with filters: size, colour, brand, material, price, and sort order. Disallow the pure UX-only filters.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="cb">✓</span><span class="task-text">Use <strong>GSC Crawl Stats</strong> on any site you have access to. Screenshot the crawl budget report and identify whether crawl budget is being wasted on non-valuable pages.</span></label>
+        </div>
+      </div>
+    </div>
+    <div class="resources-block">
+      <div class="res-title">📚 Resources</div>
+      <div class="res-links">
+        <a class="res-link" href="https://ahrefs.com/blog/faceted-navigation/" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Ahrefs — Faceted Navigation: SEO Best Practices</strong><span>The definitive guide to handling faceted navigation — when to canonicalise, block, or noindex filter pages.</span></div><span class="rb rb-b">GUIDE</span></a>
+        <a class="res-link" href="https://developers.google.com/search/docs/crawling-indexing/large-site-managing-crawl-budget" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Google — Managing Crawl Budget for Large Sites</strong><span>Official Google documentation on crawl budget — essential reading for e-commerce SEO practitioners.</span></div><span class="rb rb-o">OFFICIAL</span></a>
+      </div>
+    </div>
+    <div class="topic-note">
+      <div class="note-header">📌 Quick Reference — Faceted Navigation & Crawl Budget</div>
+      <div class="note-grid">
+        <div class="nc"><div class="nc-l">✅ Why</div><p>Unmanaged faceted navigation is the most common cause of crawl budget waste on e-commerce sites. It can result in millions of thin duplicate URLs consuming Google's crawl budget while your most valuable pages sit under-crawled and under-ranked.</p></div>
+        <div class="nc"><div class="nc-l">📍 Where</div><p>Any e-commerce site with filter systems. Urgency increases with site size — a 1,000-product site might generate 50,000 filter URLs; a 100,000-product site can generate millions. Always audit faceted navigation before adding new content.</p></div>
+        <div class="nc"><div class="nc-l">⚙️ How</div><p>Audit filter URLs in Screaming Frog → check GSC crawl stats → classify filters as: valuable (allow + canonical), UX-only (robots.txt disallow), partial (noindex, follow) → implement → monitor crawl budget improvement in GSC Crawl Stats over 60 days.</p></div>
+        <div class="nc"><div class="nc-l">⏱ When</div><p>First technical audit on any e-commerce site. Before any major content or product addition campaign — crawl budget problems amplify with scale. Re-audit when site product count doubles or when new filter types are added to the navigation.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- T8.4 -->
+<div class="topic-item" id="t8-4">
+  <div class="topic-header" onclick="toggleTopic(this)">
+    <span class="topic-num">8.4</span><h3>Product Schema & Rich Results — Stars, Prices & Availability in Search</h3>
+    <span class="d-i">Intermediate</span><span class="chevron">▼</span>
+  </div>
+  <div class="topic-body">
+    <div class="topic-intro">Product schema markup enables Google to display rich results for your product pages — including star ratings, price, availability (In Stock / Out of Stock), and sale pricing directly in the search results. Rich results get significantly higher click-through rates than plain blue links: product listings with star ratings see 15–30% higher CTR than equivalent listings without them. On a category ranking position 3 with 100,000 monthly impressions, a 20% CTR lift means 20,000 additional monthly visits — from a one-time schema implementation.</div>
+    <div class="keypoints">
+      <div class="kp"><div class="kp-dot"></div><div><strong>Required Product Schema Properties:</strong> <code>name</code> (product name), <code>description</code> (unique product description), <code>image</code> (high-resolution product image URL), <code>offers</code> (contains: <code>price</code>, <code>priceCurrency</code>, <code>availability</code> — use schema.org/InStock or schema.org/OutOfStock). These four properties are the minimum for Google to show price information in search results.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>AggregateRating — For star ratings in search results:</strong> Requires: <code>ratingValue</code> (numerical average), <code>reviewCount</code> (minimum ~5 reviews for Google to display stars). Must be based on genuine user reviews — Google manually verifies aggregate ratings. Fake or self-generated review counts violate guidelines and can result in rich result removal.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Review Schema on Product Pages:</strong> Individual reviews can also be marked up using Review schema with: <code>author</code>, <code>datePublished</code>, <code>reviewBody</code>, <code>reviewRating</code>. Displaying genuine customer reviews with schema reinforces your AggregateRating and provides fresh, unique content on each product page — solving the thin content problem simultaneously.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Merchant Center Integration:</strong> Connect Google Merchant Center to your website for enhanced product listings. Merchant Center enables free product listings in Google Shopping (separate from organic results) and enhances the Knowledge Panel for your products with direct price comparison data.</div></div>
+    </div>
+
+    <!-- Schema example -->
+    <p style="font-size:.84em;font-weight:700;color:var(--text2);margin-bottom:8px">📋 Complete Product Schema Template</p>
+    <div class="schema-box">{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "Nike Air Zoom Pegasus 40",
+  "description": "Lightweight daily trainer with React foam cushioning...",
+  "image": "https://example.com/images/nike-pegasus-40.jpg",
+  "brand": { "@type": "Brand", "name": "Nike" },
+  "sku": "NK-PEG40-BLK-10",
+  "offers": {
+    "@type": "Offer",
+    "url": "https://example.com/shoes/nike-pegasus-40/",
+    "priceCurrency": "INR",
+    "price": "9999",
+    "availability": "https://schema.org/InStock",
+    "itemCondition": "https://schema.org/NewCondition"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.7",
+    "reviewCount": "284"
+  }
+}</div>
+
+    <div class="bg">
+      <div class="ib bex">
+        <div class="bl">📖 Rich Result CTR Impact</div>
+        <p>An electronics retailer implemented Product schema with AggregateRating across 2,400 product pages. All pages already had genuine user reviews — the schema simply structured the existing data for Google.</p>
+        <p style="margin-top:8px"><strong>Before:</strong> Average CTR for position 3 product pages: 4.2%. <strong>After schema (8 weeks):</strong> Average CTR: 6.8% — a 62% improvement. Combined with existing traffic, this added <strong>38,000 monthly visits</strong> with zero ranking improvement — pure CTR gain from richer search listings.</p>
+      </div>
+      <div class="ib btask">
+        <div class="bl">✅ Your Tasks</div>
+        <div class="task-list">
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="cb">✓</span><span class="task-text">Generate complete Product JSON-LD schema for 3 different product types using the template above. Include all required + recommended properties for each.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="cb">✓</span><span class="task-text">Validate all 3 schemas using <strong>Google's Rich Results Test</strong>. Ensure zero errors and confirm which rich result types each qualifies for.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="cb">✓</span><span class="task-text">Check 5 competitor product pages in any niche using Chrome DevTools (view-source). Are they using Product schema? What properties do they include? What are they missing?</span></label>
+        </div>
+      </div>
+    </div>
+    <div class="resources-block">
+      <div class="res-title">📚 Resources</div>
+      <div class="res-links">
+        <a class="res-link" href="https://developers.google.com/search/docs/appearance/structured-data/product" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Google — Product Structured Data Documentation</strong><span>Official Google documentation for Product schema — required properties, recommended properties, and validation requirements.</span></div><span class="rb rb-o">OFFICIAL</span></a>
+        <a class="res-link" href="https://search.google.com/test/rich-results" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>Google Rich Results Test</strong><span>Validate any schema markup and confirm which rich result types your schema qualifies for. Fix errors before deploying.</span></div><span class="rb rb-f">FREE</span></a>
+        <a class="res-link" href="https://www.google.com/retail/solutions/merchant-center/" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>Google Merchant Center</strong><span>Connect your e-commerce store for free product listings in Google Shopping and enhanced product knowledge panels.</span></div><span class="rb rb-f">FREE</span></a>
+      </div>
+    </div>
+    <div class="topic-note">
+      <div class="note-header">📌 Quick Reference — Product Schema & Rich Results</div>
+      <div class="note-grid">
+        <div class="nc"><div class="nc-l">✅ Why</div><p>Product schema enables rich results (stars, price, availability) that increase CTR by 15–62% for the same ranking position. This is pure traffic gain with no ranking improvement required — one of the highest-ROI technical SEO implementations on e-commerce sites.</p></div>
+        <div class="nc"><div class="nc-l">📍 Where</div><p>Every individual product page. Also implement: BreadcrumbList schema (all pages), FAQPage schema (category pages with FAQ sections), and Organization schema (homepage). Together these create a comprehensive rich result presence.</p></div>
+        <div class="nc"><div class="nc-l">⚙️ How</div><p>Template JSON-LD → dynamically populate from your product database → inject via CMS (Shopify/WooCommerce have schema plugins) → validate in Rich Results Test → deploy → monitor GSC → Rich Results report for impressions and CTR improvements (takes 2–4 weeks to appear).</p></div>
+        <div class="nc"><div class="nc-l">⏱ When</div><p>Implement immediately on launch or as first technical priority on existing sites. Schema implementation is low-risk, high-reward — even if Google doesn't immediately show rich results for every product, the structured data helps Google understand your content better regardless.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- T8.5 -->
+<div class="topic-item" id="t8-5">
+  <div class="topic-header" onclick="toggleTopic(this)">
+    <span class="topic-num">8.5</span><h3>E-commerce Link Building — Authority for Competitive Commercial Keywords</h3>
+    <span class="d-a">Advanced</span><span class="chevron">▼</span>
+  </div>
+  <div class="topic-body">
+    <div class="topic-intro">E-commerce link building is harder than content site link building — people rarely link to product pages naturally. The strategies that work require either creating link-worthy content assets attached to the store, leveraging manufacturer relationships, or building category-page authority through editorial coverage. The goal: build links to your domain (to raise overall DR) and to specific category pages (to directly boost category keyword rankings).</div>
+    <div class="keypoints">
+      <div class="kp"><div class="kp-dot"></div><div><strong>Informational Blog Content + Link Building:</strong> Attach a blog to your e-commerce store and build links to blog content first. Links to informational content are much easier to acquire than links to product pages. Internal links then pass authority from blog posts to category and product pages. Example: a running shoe store publishes "The Complete Guide to Running Form" → earns 40 links → passes authority to the "Running Shoes" category via contextual internal links.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Manufacturer/Brand Partnerships:</strong> Contact the brands whose products you sell. Request inclusion in their "Where to Buy" pages or authorized retailer directories. These manufacturer links are highly relevant, often high-authority, and are uniquely available to legitimate retailers — a competitive advantage over non-retailers in your niche.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Unlinked Brand Mentions:</strong> Use tools like Ahrefs Content Explorer or Google Alerts to find mentions of your brand or store name online that don't include a link. Contact those sites and request they add a link. Conversion rate is high (they already mentioned you) and these are guaranteed-relevant links.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Product Reviews and Unboxings:</strong> Send products to niche bloggers, YouTubers, and Instagram creators in exchange for honest reviews. A review article typically includes a dofollow backlink to the product page. YouTube reviews embed links in descriptions. Focus on micro-influencers (10K–100K followers) — higher editorial standards and more contextually valuable than mass-scale influencer platforms.</div></div>
+    </div>
+    <div class="bg">
+      <div class="ib bex">
+        <div class="bl">📖 Blog-to-Category Internal Linking Flow</div>
+        <p>A fitness equipment store published 30 informational articles — "best exercises for home gym", "how to set up a home gym", "barbell vs dumbbells" — over 6 months. Each article earned links naturally (5–20 per article).</p>
+        <p style="margin-top:8px">Every article contained 2–3 internal links to category pages: "Home Gym Equipment," "Barbells & Weights," "Resistance Bands." <strong>Category page DR lifted from 18 to 34</strong> without any direct category page link building. The informational content strategy indirectly powered the commercial category rankings.</p>
+      </div>
+      <div class="ib btask">
+        <div class="bl">✅ Your Tasks</div>
+        <div class="task-list">
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="cb">✓</span><span class="task-text">Set up <strong>Google Alerts</strong> for any e-commerce brand name + "review" and "mentioned" alerts. Monitor for unlinked mentions — practice writing a link request email for each.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="cb">✓</span><span class="task-text">Find 5 brands/manufacturers in any e-commerce niche. Check their websites for "Where to Buy" or "Authorized Retailer" pages. Draft an outreach email requesting inclusion.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="cb">✓</span><span class="task-text">Plan an informational blog content strategy for any e-commerce store: 10 blog post ideas that would naturally earn links + map each to 2 category pages via internal links.</span></label>
+        </div>
+      </div>
+    </div>
+    <div class="topic-note">
+      <div class="note-header">📌 Quick Reference — E-commerce Link Building</div>
+      <div class="note-grid">
+        <div class="nc"><div class="nc-l">✅ Why</div><p>E-commerce sites compete for high-value commercial keywords where competitors have years of accumulated authority. Link building raises overall domain DR, which lifts all pages — but strategic category page links provide the most direct ranking impact for target commercial keywords.</p></div>
+        <div class="nc"><div class="nc-l">📍 Where</div><p>Build domain-level links first (to the homepage and blog content). Then build category-level links for your 5–10 highest-priority commercial keywords. Product page links are the hardest to earn — focus category link budget first.</p></div>
+        <div class="nc"><div class="nc-l">⚙️ How</div><p>Blog content → earn links → internal link to categories. + Manufacturer "where to buy" pages. + Product review outreach. + Unlinked mention monitoring. Run all four tracks simultaneously for compound monthly link growth.</p></div>
+        <div class="nc"><div class="nc-l">⏱ When</div><p>Link building for e-commerce is a continuous, long-term programme. Start immediately, set monthly targets (5–10 links minimum), and expect meaningful ranking impact after 3–6 months of consistent effort. Never pause — momentum is hard to rebuild.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- T8.6 -->
+<div class="topic-item" id="t8-6">
+  <div class="topic-header" onclick="toggleTopic(this)">
+    <span class="topic-num">8.6</span><h3>E-commerce Technical SEO Checklist & Shopify/WooCommerce Tips</h3>
+    <span class="d-i">Intermediate</span><span class="chevron">▼</span>
+  </div>
+  <div class="topic-body">
+    <div class="topic-intro">E-commerce platforms (Shopify, WooCommerce, Magento) each have specific technical SEO challenges and opportunities. Understanding platform-specific best practices saves hours of debugging and prevents common configuration mistakes that silently suppress rankings across entire product catalogues. This topic provides the complete technical checklist for e-commerce sites and platform-specific implementation notes.</div>
+    <div class="keypoints">
+      <div class="kp"><div class="kp-dot"></div><div><strong>Shopify — Common SEO Issues:</strong> Default Shopify URLs include /collections/ and /products/ prefixes that can't be removed — design your store names knowing these appear in URLs. Shopify auto-generates a duplicate sitemap — ensure your canonical tags point to the /products/ version not /collections/products/ URLs. Shopify also auto-creates duplicate pages for products that appear in multiple collections — add canonical tags.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>WooCommerce — Key Configurations:</strong> Set Products Base URL to /product/ (not /shop/product/ — adds unnecessary depth). Install Rank Math or Yoast SEO for on-page optimisation controls. Use WooCommerce's built-in schema support for Product schema. Ensure image compression is enabled (use WPSmush or ShortPixel). Add WP Rocket or LiteSpeed Cache for page speed — critical for Core Web Vitals on product-heavy sites.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Out-of-Stock Products — Handle correctly:</strong> Never delete out-of-stock product pages — they may have backlinks and ranking history. Instead: add a "Currently Unavailable" message, show alternatives, and keep the page live. If product is permanently discontinued: 301-redirect to the most relevant category page or closest alternative product. Deleting creates 404 errors that waste crawl budget and lose link equity.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Image SEO at Scale:</strong> E-commerce sites have thousands of product images — each needs: descriptive filename (nike-air-zoom-pegasus-40-black.jpg not image_001.jpg), alt text with product name and key attribute, WebP format for size reduction, lazy loading enabled for below-fold images. A site with 10,000 products images all named generically is leaving significant indexing and image search traffic on the table.</div></div>
+    </div>
+    <div class="bg">
+      <div class="ib bins">
+        <div class="bl">💡 Quick Platform Comparison</div>
+        <table class="comp-table" style="margin:0;font-size:.82em">
+          <tr><th>Feature</th><th>Shopify</th><th>WooCommerce</th></tr>
+          <tr><td>Schema built-in</td><td><span class="tag-ok">Partial</span></td><td><span class="tag-ok">Plugin needed</span></td></tr>
+          <tr><td>URL control</td><td><span class="tag-no">Limited</span></td><td><span class="tag-ok">Full</span></td></tr>
+          <tr><td>Speed (default)</td><td><span class="tag-ok">Good</span></td><td><span class="tag-no">Needs config</span></td></tr>
+          <tr><td>Image alt auto</td><td><span class="tag-ok">Yes</span></td><td><span class="tag-no">Manual</span></td></tr>
+          <tr><td>Canonical control</td><td><span class="tag-no">Complex</span></td><td><span class="tag-ok">Plugin easy</span></td></tr>
+        </table>
+      </div>
+      <div class="ib btask">
+        <div class="bl">✅ Your Tasks</div>
+        <div class="task-list">
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="cb">✓</span><span class="task-text">Audit any Shopify or WooCommerce store using <strong>Screaming Frog</strong>. Identify: duplicate content issues, missing alt text, slow page load, and canonical tag problems.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="cb">✓</span><span class="task-text">Check 5 out-of-stock product pages on any retailer. How do they handle them? Are they deleted (404), redirected (301), or left live? Write a policy for the best approach.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="cb">✓</span><span class="task-text">Run a product image audit: check 10 images on any e-commerce site. Score each on: filename descriptiveness, alt text quality, file format, and loading method (lazy vs eager).</span></label>
+        </div>
+      </div>
+    </div>
+    <div class="resources-block">
+      <div class="res-title">📚 Resources</div>
+      <div class="res-links">
+        <a class="res-link" href="https://www.shopify.com/blog/seo" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Shopify — SEO Guide for Online Stores</strong><span>Official Shopify SEO guide covering all platform-specific optimisations and best practices for Shopify stores.</span></div><span class="rb rb-o">OFFICIAL</span></a>
+        <a class="res-link" href="https://ahrefs.com/blog/woocommerce-seo/" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Ahrefs — WooCommerce SEO: The Complete Guide</strong><span>Comprehensive WooCommerce SEO setup guide — configurations, plugins, schema, and site speed optimisation.</span></div><span class="rb rb-b">GUIDE</span></a>
+        <a class="res-link" href="https://www.screamingfrog.co.uk/seo-spider/" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>Screaming Frog SEO Spider</strong><span>Crawl e-commerce sites and identify all technical issues. Free for up to 500 URLs — essential for any SEO audit.</span></div><span class="rb rb-f">FREE/PAID</span></a>
+      </div>
+    </div>
+    <div class="topic-note">
+      <div class="note-header">📌 Quick Reference — E-commerce Technical SEO</div>
+      <div class="note-grid">
+        <div class="nc"><div class="nc-l">✅ Why</div><p>Platform-specific technical issues create site-wide ranking suppression that no amount of content or link building can overcome. Duplicate content from Shopify collection URLs, unconfigured WooCommerce URLs, and out-of-stock 404 errors are the most common culprits.</p></div>
+        <div class="nc"><div class="nc-l">📍 Where</div><p>Technical audit every new e-commerce client — platform-specific issues should be resolved before any content or link building work begins. Re-audit whenever the platform is upgraded, themes are changed, or new app/plugin integrations are added.</p></div>
+        <div class="nc"><div class="nc-l">⚙️ How</div><p>Screaming Frog crawl → identify duplicate URLs → set canonicals → configure robots.txt → compress images → enable lazy loading → run PageSpeed → configure platform-specific SEO plugin → test schema in Rich Results Test → submit sitemap.</p></div>
+        <div class="nc"><div class="nc-l">⏱ When</div><p>Technical configuration is day-one work on any e-commerce project. Set a quarterly technical re-audit schedule — platforms auto-update features that can introduce new technical issues without warning. Document every configuration decision so future audits start from a known baseline.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOOLS -->
+<div class="sd"><span>◈ E-commerce SEO Tool Stack</span></div>
+<div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:24px">
+  <h3 style="font-family:'Fraunces',serif;font-size:1.25em;color:var(--white);margin-bottom:6px">🔧 Module 8 Tools</h3>
+  <div class="tools-chips">
+    <a class="tool-chip" href="https://www.screamingfrog.co.uk/seo-spider/" target="_blank" rel="noopener">Screaming Frog</a>
+    <a class="tool-chip" href="https://search.google.com/test/rich-results" target="_blank" rel="noopener">Rich Results Test</a>
+    <a class="tool-chip" href="https://pagespeed.web.dev" target="_blank" rel="noopener">PageSpeed Insights</a>
+    <a class="tool-chip" href="https://www.google.com/retail/solutions/merchant-center/" target="_blank" rel="noopener">Google Merchant Center</a>
+    <a class="tool-chip" href="https://schema.org/Product" target="_blank" rel="noopener">Schema.org/Product</a>
+    <a class="tool-chip" href="https://ahrefs.com" target="_blank" rel="noopener">Ahrefs</a>
+    <a class="tool-chip" href="https://rankmath.com" target="_blank" rel="noopener">Rank Math</a>
+    <a class="tool-chip" href="https://yoast.com/wordpress/plugins/seo/" target="_blank" rel="noopener">Yoast SEO (WooCommerce)</a>
+    <a class="tool-chip" href="https://gtmetrix.com" target="_blank" rel="noopener">GTmetrix</a>
+    <a class="tool-chip" href="https://www.shopify.com" target="_blank" rel="noopener">Shopify</a>
+    <a class="tool-chip" href="https://woocommerce.com" target="_blank" rel="noopener">WooCommerce</a>
+    <a class="tool-chip" href="https://search.google.com/search-console" target="_blank" rel="noopener">GSC Crawl Stats</a>
+  </div>
+</div>
+
+<!-- BLOG -->
+<div class="blog-section">
+  <div class="blog-header">✍️ Must-Read — E-commerce SEO</div>
+  <a class="blog-item" href="https://ahrefs.com/blog/ecommerce-seo/" target="_blank" rel="noopener"><span class="blog-icon">📝</span><div class="blog-text"><strong>Ahrefs — E-commerce SEO: The Beginner's Guide</strong><span>Complete guide covering every aspect of e-commerce SEO from site structure to link building — with real examples.</span></div><span class="rb rb-b">GUIDE</span></a>
+  <a class="blog-item" href="https://backlinko.com/ecommerce-seo" target="_blank" rel="noopener"><span class="blog-icon">📝</span><div class="blog-text"><strong>Backlinko — E-commerce SEO: Drive Insane Traffic</strong><span>Advanced e-commerce SEO strategies with real case studies and data — particularly strong on category optimisation.</span></div><span class="rb rb-b">BLOG</span></a>
+  <a class="blog-item" href="https://ahrefs.com/blog/faceted-navigation/" target="_blank" rel="noopener"><span class="blog-icon">📝</span><div class="blog-text"><strong>Ahrefs — Faceted Navigation SEO Best Practices</strong><span>The definitive resource on handling filter navigation — when to canonical, noindex, or block filter combinations.</span></div><span class="rb rb-b">GUIDE</span></a>
+  <a class="blog-item" href="https://developers.google.com/search/docs/appearance/structured-data/product" target="_blank" rel="noopener"><span class="blog-icon">📄</span><div class="blog-text"><strong>Google — Product Structured Data Documentation</strong><span>Official requirements for Product schema markup — essential reading before implementing any e-commerce schema.</span></div><span class="rb rb-o">OFFICIAL</span></a>
+</div>
+
+<!-- QUIZ -->
+<div class="sd" id="quiz-section"><span>◈ Test Your Knowledge</span></div>
+<div class="quiz-block">
+  <div class="quiz-header">🎯 Module 8 Quiz — E-commerce SEO</div>
+  <div class="quiz-q" id="q1"><p>1. What is the maximum recommended click depth for product pages on an e-commerce site?</p>
+    <div class="quiz-options">
+      <div class="qo" onclick="ansQ('q1','a','c')"><span class="qol">A</span>1 click (all products accessible from homepage)</div>
+      <div class="qo" onclick="ansQ('q1','b','c')"><span class="qol">B</span>5 clicks (deeper hierarchy = better organization)</div>
+      <div class="qo" onclick="ansQ('q1','c','c')"><span class="qol">C</span>3 clicks (Homepage → Category → Sub-category → Product)</div>
+      <div class="qo" onclick="ansQ('q1','d','c')"><span class="qol">D</span>Depth doesn't matter — only URL structure matters</div>
+    </div>
+    <div class="qfb ok" id="q1-ok">✅ Correct! The 3-click rule: Homepage → Category → Sub-category → Product. Products deeper than 3 clicks receive proportionally less crawl budget and PageRank from the homepage — meaning they get crawled less frequently and rank poorly regardless of their content quality.</div>
+    <div class="qfb no" id="q1-no">❌ The answer is C — 3 clicks maximum. Every additional click depth reduces the PageRank that flows to that page and the frequency at which Google crawls it. Products at 5–7 clicks deep are often practically invisible to Google's crawlers on large sites.</div>
+  </div>
+  <div class="quiz-q" id="q2"><p>2. What is the best approach for permanently discontinued product pages that have backlinks?</p>
+    <div class="quiz-options">
+      <div class="qo" onclick="ansQ('q2','a','b')"><span class="qol">A</span>Delete the page immediately to keep the site clean</div>
+      <div class="qo" onclick="ansQ('q2','b','b')"><span class="qol">B</span>301-redirect to the most relevant category page or closest alternative product</div>
+      <div class="qo" onclick="ansQ('q2','c','b')"><span class="qol">C</span>Add a noindex tag and leave the page as-is</div>
+      <div class="qo" onclick="ansQ('q2','d','b')"><span class="qol">D</span>Change the page to a 410 Gone status</div>
+    </div>
+    <div class="qfb ok" id="q2-ok">✅ Correct! 301-redirect discontinued pages to the closest relevant alternative. Deleting creates 404 errors that waste crawl budget and permanently lose all accumulated link equity. A 301 preserves the link equity and ensures users don't hit dead ends — both critical for established product pages with backlinks.</div>
+    <div class="qfb no" id="q2-no">❌ The answer is B — 301-redirect to the closest relevant page. Deleting creates 404 errors that lose link equity, waste crawl budget, and create bad user experiences. The 301 redirect passes accumulated link authority to the destination page, preserving the SEO value.</div>
+  </div>
+  <div class="quiz-q" id="q3"><p>3. Why does faceted navigation create crawl budget problems?</p>
+    <div class="quiz-options">
+      <div class="qo" onclick="ansQ('q3','a','d')"><span class="qol">A</span>It makes the site load slower for users on mobile</div>
+      <div class="qo" onclick="ansQ('q3','b','d')"><span class="qol">B</span>It creates broken links throughout the site</div>
+      <div class="qo" onclick="ansQ('q3','c','d')"><span class="qol">C</span>It requires JavaScript which Google can't crawl</div>
+      <div class="qo" onclick="ansQ('q3','d','d')"><span class="qol">D</span>It generates millions of near-duplicate URL combinations that Google wastes crawl budget crawling</div>
+    </div>
+    <div class="qfb ok" id="q3-ok">✅ Correct! Every filter combination creates a unique URL. A category with 8 filter types can mathematically generate 2⁸ = 256 combinations per category — on 50 categories, that's 12,800 near-duplicate URLs. Google wastes crawl budget on these thin pages instead of crawling your valuable category and product pages.</div>
+    <div class="qfb no" id="q3-no">❌ The answer is D. Filter combinations create exponential numbers of URL variations — all near-duplicate. Google spends crawl budget on millions of thin filter pages instead of valuable category and product pages. Solution: robots.txt disallow for UX-only filters, canonical tags for valuable filter combinations.</div>
+  </div>
+  <div class="quiz-q" id="q4"><p>4. What is required for Product schema to display star ratings in Google search results?</p>
+    <div class="quiz-options">
+      <div class="qo" onclick="ansQ('q4','a','c')"><span class="qol">A</span>A Google Merchant Center account with paid Shopping ads</div>
+      <div class="qo" onclick="ansQ('q4','b','c')"><span class="qol">B</span>At least 100 reviews and a 4-star minimum rating</div>
+      <div class="qo" onclick="ansQ('q4','c','c')"><span class="qol">C</span>AggregateRating schema with genuine user reviews and a reviewCount of at least ~5</div>
+      <div class="qo" onclick="ansQ('q4','d','c')"><span class="qol">D</span>A paid Trustpilot subscription that integrates with Google</div>
+    </div>
+    <div class="qfb ok" id="q4-ok">✅ Correct! AggregateRating schema with genuine user reviews and a minimum reviewCount (Google typically requires ~5+ reviews to display stars). The reviews must be authentic — Google manually verifies aggregate ratings. Self-generated or fake review counts violate guidelines and can result in rich result penalties.</div>
+    <div class="qfb no" id="q4-no">❌ The answer is C. AggregateRating schema populated with genuine user reviews and at least ~5 reviews in your reviewCount. No paid subscription is required — this is a free structured data implementation. Google verifies that ratings come from real customers, not self-generated data.</div>
+  </div>
+</div>
+
+<!-- FLASHCARDS -->
+<div class="sd" id="flashcard-section"><span>◈ Flashcards</span></div>
+<div class="fc-block">
+  <div class="fc-header">🃏 Module 8 Flashcards — Click to Flip</div>
+  <div class="fc-inner">
+    <div class="flashcard" id="fc" onclick="flipCard()">
+      <div class="fcface fcf" id="fc-front">Loading...</div>
+      <div class="fcface fcb" id="fc-back">Loading...</div>
+    </div>
+    <div class="fc-nav">
+      <button class="fc-btn" onclick="prevCard()">← Prev</button>
+      <span class="fc-ctr" id="fc-ctr">1 / 10</span>
+      <button class="fc-btn" onclick="nextCard()">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- MOD NAV -->
+<div class="mod-nav">
+  <a href="module-7.html" class="mnb prev"><span class="mn-arr">←</span><div><div class="mn-label">Previous Module</div><div class="mn-title">Module 7 — Local SEO</div></div></a>
+  <a href="module-9.html" class="mnb next"><span class="mn-arr">→</span><div><div class="mn-label">Next Module</div><div class="mn-title">Module 9 — Analytics & Reporting</div></div></a>
+</div>
+</div>
+</div>
+
+<script>
+const cards=[{q:'What is the 3-click rule for e-commerce architecture?',a:'Every product page must be reachable from the homepage in 3 clicks or fewer: Homepage → Category → Sub-category → Product. Pages deeper than 3 clicks receive less crawl budget and PageRank flow, resulting in weaker rankings regardless of their content quality.'},{q:'What is faceted navigation and why is it an SEO problem?',a:'Faceted navigation is the filter system on e-commerce sites (filter by size, colour, brand, price). Each filter combination creates a unique URL — a site with 50 categories × 8 filter types can generate 12,800+ near-duplicate pages, wasting Google\'s entire crawl budget on thin, low-value pages.'},{q:'What are the three solutions for managing faceted navigation?',a:'1) Canonical tags pointing all filter URLs to the main category URL (best for valuable filter combos). 2) Robots.txt Disallow for pure UX-only filters (price ranges, ratings, availability). 3) Noindex meta tag for pages users need but shouldn\'t be indexed by Google.'},{q:'Why should you never use manufacturer product descriptions?',a:'Manufacturer descriptions appear on thousands of retailer sites simultaneously — Google sees them as duplicate content and deprioritises all copies. Unique, benefit-first product descriptions (200–300 words) differentiate your pages and directly improve product page rankings.'},{q:'What required properties make Product schema eligible for rich results?',a:'name, image, description, and an Offers block containing: price, priceCurrency, and availability. AggregateRating (with genuine reviewCount ~5+) is required to display star ratings. All must be accurate — Google manually verifies Product schema data.'},{q:'What happens to a discontinued product page that has backlinks if you delete it?',a:'Deleting creates a 404 error that: (1) loses all accumulated link equity from backlinks, (2) wastes crawl budget as Google repeatedly attempts to crawl the dead URL, (3) creates bad user experiences. Solution: 301-redirect to the closest relevant category or alternative product page.'},{q:'What is Product schema\'s CTR impact?',a:'Product pages with AggregateRating schema (star ratings visible in search results) see 15–62% higher click-through rates than equivalent plain-text listings. This traffic increase requires zero ranking improvement — it\'s pure CTR gain from richer search result presentation.'},{q:'What is the ideal e-commerce URL structure?',a:'/category/sub-category/product-name/ — Example: /shoes/running-shoes/nike-pegasus-40/. Hierarchical, keyword-rich, no session IDs or dynamic parameters. This structure communicates your site architecture to crawlers and passes URL-level keyword relevance signals.'},{q:'How should you handle e-commerce site search result pages for SEO?',a:'Disallow them in robots.txt: Disallow: /search/ — Site search result pages (/search?q=shoes) are dynamic, thin-content pages with no ranking value. Without blocking, they consume crawl budget that should be spent on valuable category and product pages.'},{q:'What is the Shopify-specific duplicate content problem?',a:'Shopify creates duplicate product URLs when products appear in multiple collections: /collections/shoes/products/nike and /products/nike are both accessible. Add canonical tags on all product pages pointing to the /products/ URL to tell Google which version to rank.'}];
+let cur=0,fl=false;
+function showCard(i){const fc=document.getElementById('fc');fc.classList.remove('flipped');fl=false;document.getElementById('fc-front').textContent=cards[i].q;document.getElementById('fc-back').textContent=cards[i].a;document.getElementById('fc-ctr').textContent=(i+1)+' / '+cards.length;setTimeout(()=>{const f=document.getElementById('fc-front'),b=document.getElementById('fc-back');const h=Math.max(f.scrollHeight,b.scrollHeight,110);fc.style.height=h+'px';f.style.minHeight=h+'px';b.style.minHeight=h+'px'},10)}
+function flipCard(){fl=!fl;document.getElementById('fc').classList.toggle('flipped',fl)}
+function nextCard(){cur=(cur+1)%cards.length;showCard(cur)}
+function prevCard(){cur=(cur-1+cards.length)%cards.length;showCard(cur)}
+function ansQ(qId,ch,cor){const el=document.getElementById(qId);if(el.dataset.answered)return;el.dataset.answered='1';const opts=el.querySelectorAll('.qo');['a','b','c','d'].forEach((l,i)=>{if(l===cor)opts[i].classList.add('correct');else if(l===ch&&ch!==cor)opts[i].classList.add('wrong');opts[i].style.pointerEvents='none'});document.getElementById(qId+'-ok').classList.toggle('show',ch===cor);document.getElementById(qId+'-no').classList.toggle('show',ch!==cor)}
+function toggleTopic(h){const i=h.parentElement;const o=i.classList.contains('open');document.querySelectorAll('.topic-item.open').forEach(e=>e.classList.remove('open'));if(!o)i.classList.add('open')}
+function toggleTask(el){el.classList.toggle('checked');updateProg();save()}
+function updateProg(){const t=document.querySelectorAll('.task-check-item').length,d=document.querySelectorAll('.task-check-item.checked').length,p=t>0?Math.round(d/t*100):0;document.getElementById('pp').textContent=p+'%';document.getElementById('pb').style.width=p+'%'}
+function save(){const s={};document.querySelectorAll('.task-check-item').forEach((el,i)=>{s[i]=el.classList.contains('checked')});try{localStorage.setItem('seo-m8',JSON.stringify(s))}catch(e){}}
+function load(){try{const s=JSON.parse(localStorage.getItem('seo-m8')||'{}');document.querySelectorAll('.task-check-item').forEach((el,i)=>{if(s[i])el.classList.add('checked')});updateProg()}catch(e){}}
+function toggleTheme(){const h=document.documentElement;const d=h.dataset.theme==='dark';h.dataset.theme=d?'light':'dark';document.getElementById('theme-btn').textContent=d?'🌙 Dark Mode':'☀️ Light Mode';localStorage.setItem('seo-theme',h.dataset.theme)}
+function toggleSidebar(){document.getElementById('sidebar').classList.toggle('open');document.getElementById('sb-overlay').classList.toggle('show')}
+function closeSidebar(){document.getElementById('sidebar').classList.remove('open');document.getElementById('sb-overlay').classList.remove('show')}
+const navLinks=document.querySelectorAll('.nav-link[data-target]');const obs=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting){const id=en.target.id;navLinks.forEach(l=>l.classList.toggle('active',l.dataset.target===id))}})},{threshold:.15,rootMargin:'-80px 0px -80px 0px'});document.querySelectorAll('[id]').forEach(el=>obs.observe(el));navLinks.forEach(l=>l.addEventListener('click',()=>{if(window.innerWidth<=900)closeSidebar()}));
+(function(){const s=localStorage.getItem('seo-theme');if(s){document.documentElement.dataset.theme=s;document.getElementById('theme-btn').textContent=s==='light'?'🌙 Dark Mode':'☀️ Light Mode'}})();
+document.addEventListener('DOMContentLoaded',()=>{load();showCard(0)});
+</script>
+</body></html>

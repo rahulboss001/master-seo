@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 2 — Keyword Research | SEO Mastery Roadmap 2025</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,700;0,900;1,300;1,700&family=Syne:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--amber:#f59e0b;--amber2:#fbbf24;--amber3:#fde68a;--teal:#14b8a6;--teal2:#2dd4bf;--rose:#f43f5e;--rose2:#fb7185;--blue:#3b82f6;--blue2:#60a5fa;--green:#22c55e;--green2:#4ade80;--violet:#8b5cf6;--violet2:#a78bfa;--accent:#14b8a6;}
+[data-theme="dark"]{--bg:#0d0f14;--bg1:#121520;--bg2:#171b26;--bg3:#1e2334;--card:#161a25;--card2:#1c2130;--border:#262d40;--border2:#2e3750;--text:#e2e8f4;--text2:#b8c2d8;--muted:#6b7a9c;--white:#f8faff;--shadow:rgba(0,0,0,0.5);}
+[data-theme="light"]{--bg:#f5f7ff;--bg1:#ffffff;--bg2:#eef1fa;--bg3:#e5e9f5;--card:#ffffff;--card2:#f0f3ff;--border:#d0d8ef;--border2:#b8c4e0;--text:#1a1f35;--text2:#3d4a6b;--muted:#6b7a9c;--white:#0d1020;--shadow:rgba(0,0,0,0.1);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;font-size:15px;}
+body{font-family:'Syne',sans-serif;background:var(--bg);color:var(--text);line-height:1.75;overflow-x:hidden;transition:background 0.3s,color 0.3s;}
+::-webkit-scrollbar{width:5px;}::-webkit-scrollbar-track{background:var(--bg);}::-webkit-scrollbar-thumb{background:var(--accent);border-radius:10px;}
+code{font-family:'Fira Code',monospace;background:var(--bg3);padding:2px 6px;border-radius:4px;font-size:0.88em;color:var(--teal2);}
+.topbar{position:sticky;top:0;z-index:200;background:var(--bg1);border-bottom:1px solid var(--border);padding:0 24px;height:56px;display:flex;align-items:center;gap:16px;}
+.back-btn{display:flex;align-items:center;gap:6px;text-decoration:none;color:var(--muted);font-size:0.82em;font-weight:600;transition:color 0.15s;}.back-btn:hover{color:var(--accent);}
+.topbar-title{flex:1;font-family:'Fira Code',monospace;font-size:0.78em;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.theme-toggle{width:36px;height:36px;border-radius:50%;background:var(--bg2);border:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1em;transition:all 0.2s;}.theme-toggle:hover{border-color:var(--accent);}
+.progress-strip{height:3px;background:var(--border)}.progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--teal2));border-radius:2px;width:0;transition:width 0.4s;}
+.shell{display:flex;min-height:calc(100vh - 56px);}
+.sidebar{width:260px;min-width:260px;background:var(--bg1);border-right:1px solid var(--border);position:sticky;top:56px;height:calc(100vh - 56px);overflow-y:auto;display:flex;flex-direction:column;}
+.sidebar::-webkit-scrollbar{width:3px;}.sidebar::-webkit-scrollbar-thumb{background:var(--border2);}
+.sidebar-head{padding:20px 20px 14px;border-bottom:1px solid var(--border);}
+.sidebar-head .mod-badge{font-family:'Fira Code',monospace;font-size:0.68em;font-weight:600;color:var(--bg);background:var(--accent);padding:3px 9px;border-radius:5px;display:inline-block;margin-bottom:8px;}
+.sidebar-head h2{font-family:'Fraunces',serif;font-size:0.97em;font-weight:700;color:var(--white);line-height:1.3;}
+.sidebar-prog{padding:12px 20px;border-bottom:1px solid var(--border);}
+.prog-label{display:flex;justify-content:space-between;font-size:0.68em;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;}
+.prog-label span:last-child{color:var(--accent);font-family:'Fira Code',monospace;}
+.prog-bg{height:4px;background:var(--border);border-radius:2px;overflow:hidden;}
+.prog-bar{height:100%;background:linear-gradient(90deg,var(--accent),var(--teal2));border-radius:2px;width:0;transition:width 0.4s;}
+.nav-links{padding:10px 0;flex:1;}
+.nav-item{display:flex;align-items:center;gap:8px;padding:8px 20px;text-decoration:none;color:var(--muted);font-size:0.8em;font-weight:500;transition:all 0.15s;border-left:2px solid transparent;cursor:pointer;}
+.nav-item:hover{color:var(--text);background:var(--bg2);}
+.nav-item.active{color:var(--accent);border-left-color:var(--accent);background:rgba(20,184,166,0.07);}
+.nav-item .nav-num{font-family:'Fira Code',monospace;font-size:0.72em;color:var(--border2);min-width:28px;}
+.nav-item.active .nav-num{color:var(--teal2);}
+.nav-check{margin-left:auto;font-size:0.8em;color:var(--green);opacity:0;transition:opacity 0.2s;}.nav-item.done .nav-check{opacity:1;}
+.main{flex:1;min-width:0;}
+.mod-hero{background:var(--bg1);border-bottom:1px solid var(--border);padding:50px 50px 40px;position:relative;overflow:hidden;}
+.mod-hero-mesh{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 700px 500px at 100% 0%,rgba(20,184,166,0.08) 0%,transparent 60%);}
+.mod-hero-inner{max-width:780px;position:relative;}
+.mod-hero .badge{display:inline-flex;align-items:center;gap:6px;font-size:0.7em;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);border:1px solid rgba(20,184,166,0.3);background:rgba(20,184,166,0.08);padding:4px 12px;border-radius:50px;margin-bottom:18px;}
+.mod-hero h1{font-family:'Fraunces',serif;font-size:clamp(1.8em,4vw,3em);font-weight:900;color:var(--white);line-height:1.1;margin-bottom:14px;}
+.mod-hero p{color:var(--text2);font-size:0.97em;line-height:1.8;max-width:640px;}
+.mod-tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:16px;}
+.mtag{font-size:0.67em;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;padding:3px 9px;border-radius:4px;}
+.mod-stats{display:flex;gap:24px;margin-top:28px;flex-wrap:wrap;}
+.mod-stat{display:flex;align-items:center;gap:8px;font-size:0.83em;color:var(--muted);}
+.mod-stat strong{color:var(--accent);font-family:'Fira Code',monospace;}
+.content{max-width:820px;margin:0 auto;padding:44px 50px 100px;}
+.topic-item{border:1px solid var(--border);border-radius:14px;margin-bottom:14px;overflow:hidden;background:var(--card);transition:border-color 0.2s;}
+.topic-item:hover{border-color:var(--border2);}
+.topic-item.open{border-color:rgba(20,184,166,0.35);}
+.topic-header{display:flex;align-items:center;gap:12px;padding:16px 18px;cursor:pointer;transition:background 0.15s;}
+.topic-header:hover{background:var(--bg2);}
+.topic-num{font-family:'Fira Code',monospace;font-size:0.72em;font-weight:600;color:var(--teal2);background:rgba(20,184,166,0.08);border:1px solid rgba(20,184,166,0.2);padding:3px 8px;border-radius:5px;white-space:nowrap;}
+.topic-header h3{font-size:0.96em;font-weight:700;color:var(--white);flex:1;line-height:1.3;}
+.topic-diff{font-size:0.63em;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:2px 7px;border-radius:4px;flex-shrink:0;}
+.diff-b{background:rgba(34,197,94,0.1);color:var(--green2);}
+.diff-i{background:rgba(245,158,11,0.1);color:var(--amber2);}
+.diff-a{background:rgba(244,63,94,0.1);color:var(--rose2);}
+.topic-chevron{color:var(--muted);font-size:0.75em;transition:transform 0.25s;flex-shrink:0;}
+.topic-item.open .topic-chevron{transform:rotate(180deg);color:var(--accent);}
+.topic-body{display:none;padding:0 18px 22px;border-top:1px solid var(--border);}
+.topic-item.open .topic-body{display:block;}
+.topic-intro{padding:16px 0 14px;color:var(--text2);font-size:0.92em;line-height:1.85;}
+.topic-intro strong{color:var(--white);}
+.keypoints{display:flex;flex-direction:column;gap:8px;margin-bottom:16px;}
+.kp{display:flex;align-items:flex-start;gap:10px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:11px 14px;font-size:0.89em;color:var(--text2);}
+.kp-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:7px;}
+.kp strong{color:var(--white);}
+.block-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px;}
+@media(max-width:700px){.block-grid{grid-template-columns:1fr;}}
+.info-block{border-radius:10px;padding:16px;font-size:0.87em;}
+.info-block .block-label{display:flex;align-items:center;gap:6px;font-size:0.72em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;}
+.block-example{background:rgba(20,184,166,0.05);border:1px solid rgba(20,184,166,0.18);border-left:3px solid var(--teal);}
+.block-example .block-label{color:var(--teal2);}
+.block-task{background:rgba(20,184,166,0.05);border:1px solid rgba(20,184,166,0.2);border-left:3px solid var(--accent);}
+.block-task .block-label{color:var(--teal2);}
+.task-list{display:flex;flex-direction:column;gap:6px;}
+.task-check-item{display:flex;align-items:flex-start;gap:8px;cursor:pointer;padding:5px 0;}
+.task-check-item input{display:none;}
+.check-box{width:18px;height:18px;border-radius:4px;border:2px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:0.7em;color:transparent;flex-shrink:0;margin-top:2px;transition:all 0.15s;}
+.task-check-item.checked .check-box{background:var(--green);border-color:var(--green);color:white;}
+.task-text{font-size:0.87em;color:var(--text2);line-height:1.6;}
+.task-check-item.checked .task-text{color:var(--muted);text-decoration:line-through;}
+.comp-table{width:100%;border-collapse:collapse;margin-bottom:16px;font-size:0.85em;}
+.comp-table th{background:var(--bg3);color:var(--accent);padding:10px 14px;text-align:left;font-weight:700;font-size:0.8em;text-transform:uppercase;letter-spacing:0.8px;border-bottom:1px solid var(--border2);}
+.comp-table td{padding:10px 14px;color:var(--text2);border-bottom:1px solid var(--border);vertical-align:top;}
+.comp-table tr:last-child td{border-bottom:none;}
+.comp-table tr:nth-child(even) td{background:rgba(255,255,255,0.015);}
+.comp-table td:first-child{color:var(--white);font-weight:600;}
+.tools-chips{display:flex;flex-wrap:wrap;gap:7px;margin:14px 0;}
+.tool-chip{font-family:'Fira Code',monospace;font-size:0.76em;font-weight:500;padding:4px 11px;border-radius:6px;background:rgba(20,184,166,0.08);border:1px solid rgba(20,184,166,0.2);color:var(--teal2);}
+.resources-block{margin-top:18px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+.res-title{padding:11px 15px;background:var(--bg3);border-bottom:1px solid var(--border);font-size:0.72em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--accent);display:flex;align-items:center;gap:6px;}
+.res-links{display:flex;flex-direction:column;}
+.res-link{display:flex;align-items:flex-start;gap:12px;padding:11px 15px;border-bottom:1px solid var(--border);text-decoration:none;transition:background 0.15s;}
+.res-link:last-child{border-bottom:none;}
+.res-link:hover{background:rgba(20,184,166,0.04);}
+.res-icon{font-size:1.1em;flex-shrink:0;margin-top:1px;}
+.res-text{flex:1;}.res-text strong{display:block;font-size:0.86em;font-weight:600;color:var(--blue2);margin-bottom:2px;}
+.res-link:hover .res-text strong{color:var(--teal2);}
+.res-text span{font-size:0.77em;color:var(--muted);line-height:1.4;}
+.res-badge{font-size:0.63em;font-weight:700;text-transform:uppercase;padding:2px 6px;border-radius:3px;flex-shrink:0;margin-top:2px;letter-spacing:0.5px;}
+.res-free{background:rgba(34,197,94,0.1);color:var(--green2);border:1px solid rgba(34,197,94,0.2);}
+.res-blog{background:rgba(59,130,246,0.1);color:var(--blue2);border:1px solid rgba(59,130,246,0.2);}
+.res-video{background:rgba(244,63,94,0.15);color:#ff7a7a;border:1px solid rgba(244,63,94,0.3);}
+.res-tool{background:rgba(20,184,166,0.1);color:var(--teal2);border:1px solid rgba(20,184,166,0.2);}
+.wwwh-note{margin-top:20px;background:linear-gradient(135deg,rgba(20,184,166,0.06),rgba(59,130,246,0.04));border:1px solid rgba(20,184,166,0.2);border-radius:12px;overflow:hidden;}
+.wwwh-title{padding:10px 16px;background:rgba(20,184,166,0.08);border-bottom:1px solid rgba(20,184,166,0.15);font-size:0.72em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--teal2);}
+.wwwh-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+@media(max-width:600px){.wwwh-grid{grid-template-columns:1fr;}}
+.wwwh-item{padding:14px 16px;border-right:1px solid rgba(20,184,166,0.1);border-bottom:1px solid rgba(20,184,166,0.1);}
+.wwwh-item:nth-child(2n){border-right:none;}
+.wwwh-item:nth-child(3),.wwwh-item:nth-child(4){border-bottom:none;}
+.wwwh-item h4{font-size:0.72em;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:5px;}
+.wwwh-item:nth-child(1) h4{color:var(--amber2);}
+.wwwh-item:nth-child(2) h4{color:var(--teal2);}
+.wwwh-item:nth-child(3) h4{color:var(--blue2);}
+.wwwh-item:nth-child(4) h4{color:var(--violet2);}
+.wwwh-item p{font-size:0.83em;color:var(--text2);line-height:1.6;}
+.mod-nav{display:flex;justify-content:space-between;align-items:center;padding:30px 50px;border-top:1px solid var(--border);background:var(--bg1);gap:16px;}
+.mod-nav a{display:flex;align-items:center;gap:8px;text-decoration:none;font-size:0.85em;font-weight:600;color:var(--muted);transition:color 0.15s;}
+.mod-nav a:hover{color:var(--accent);}
+.mod-nav .home-btn{background:var(--card);border:1px solid var(--border);padding:8px 18px;border-radius:8px;color:var(--text2);}
+.mob-sidebar-toggle{display:none;position:fixed;bottom:24px;left:24px;width:48px;height:48px;background:var(--accent);border-radius:50%;border:none;cursor:pointer;font-size:1.1em;z-index:999;box-shadow:0 4px 20px rgba(20,184,166,0.4);align-items:center;justify-content:center;color:#000;}
+.sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:299;}
+@media(max-width:900px){
+  .sidebar{position:fixed;top:0;left:0;bottom:0;z-index:300;transform:translateX(-100%);transition:transform 0.3s;height:100vh;}
+  .sidebar.open{transform:translateX(0);box-shadow:10px 0 40px rgba(0,0,0,0.5);}
+  .sidebar-overlay.show{display:block;}
+  .mob-sidebar-toggle{display:flex;}
+  .mod-hero{padding:36px 24px 28px;}
+  .content{padding:30px 24px 80px;}
+  .mod-nav{padding:24px;flex-wrap:wrap;}
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+.topic-item{animation:fadeUp 0.4s both;}
+.topic-item:nth-child(1){animation-delay:0.05s;}.topic-item:nth-child(2){animation-delay:0.1s;}.topic-item:nth-child(3){animation-delay:0.15s;}.topic-item:nth-child(4){animation-delay:0.2s;}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a href="seo_complete_roadmap_v3.html" class="back-btn">← Back</a>
+  <span class="topbar-title">MODULE 02 — Keyword Research: The Foundation of All SEO Strategy</span>
+  <button class="theme-toggle" id="themeToggle">🌙</button>
+</div>
+<div class="progress-strip"><div class="progress-fill" id="topProgress"></div></div>
+<div class="shell">
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-head">
+    <div class="mod-badge">MODULE 02</div>
+    <h2>Keyword Research</h2>
+  </div>
+  <div class="sidebar-prog">
+    <div class="prog-label"><span>Progress</span><span id="prog-pct">0%</span></div>
+    <div class="prog-bg"><div class="prog-bar" id="prog-bar"></div></div>
+  </div>
+  <div class="nav-links" id="navLinks">
+    <a class="nav-item" href="#t2-1"><span class="nav-num">2.1</span>Understanding Search Intent<span class="nav-check">✓</span></a>
+    <a class="nav-item" href="#t2-2"><span class="nav-num">2.2</span>Keyword Metrics Explained<span class="nav-check">✓</span></a>
+    <a class="nav-item" href="#t2-3"><span class="nav-num">2.3</span>Long-Tail Keywords<span class="nav-check">✓</span></a>
+    <a class="nav-item" href="#t2-4"><span class="nav-num">2.4</span>Competitor Keyword Analysis<span class="nav-check">✓</span></a>
+  </div>
+</nav>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<main class="main">
+<div class="mod-hero">
+  <div class="mod-hero-mesh"></div>
+  <div class="mod-hero-inner">
+    <div class="badge">🔍 Module 02 · Beginner→Intermediate · Strategy</div>
+    <h1>Keyword Research — The Foundation of All SEO Strategy</h1>
+    <p>Keyword research is discovering what your target audience types into search engines. Every page you create, every optimisation you make, and every link you build should flow from keyword research. Get this wrong and you'll spend months ranking for terms nobody searches.</p>
+    <div class="mod-tags">
+      <span class="mtag" style="background:rgba(245,158,11,0.1);color:#fbbf24;border:1px solid rgba(245,158,11,0.25);">Beginner→Intermediate</span>
+      <span class="mtag" style="background:rgba(59,130,246,0.1);color:#60a5fa;border:1px solid rgba(59,130,246,0.25);">Strategy</span>
+      <span class="mtag" style="background:rgba(20,184,166,0.1);color:#2dd4bf;border:1px solid rgba(20,184,166,0.25);">High Impact</span>
+    </div>
+    <div class="mod-stats">
+      <div class="mod-stat"><strong>4</strong> Topics</div>
+      <div class="mod-stat"><strong>14+</strong> Tasks</div>
+      <div class="mod-stat"><strong>2 Weeks</strong> Estimated Time</div>
+    </div>
+  </div>
+</div>
+<div class="content">
+
+<!-- TOPIC 2.1 -->
+<div class="topic-item open" id="t2-1">
+  <div class="topic-header" onclick="toggleTopic(this)">
+    <span class="topic-num">2.1</span>
+    <h3>Understanding Search Intent — The Most Critical SEO Concept</h3>
+    <span class="topic-diff diff-b">Beginner</span>
+    <span class="topic-chevron">▼</span>
+  </div>
+  <div class="topic-body">
+    <div class="topic-intro">Search intent is the underlying reason behind a search query. Google's entire ranking system is built to match results to intent. Even if your page has perfect keyword density and thousands of backlinks, it <strong>will not rank</strong> if it doesn't match what the user actually wants. Understanding intent means understanding the full context behind a search — not just the words, but the goal. Google uses machine learning to classify intent from billions of search patterns. When you examine what actually ranks for any query, you see Google's interpretation of intent made visible.</div>
+    <table class="comp-table">
+      <tr><th>Intent Type</th><th>User Goal</th><th>What Ranks</th><th>Example Query</th></tr>
+      <tr><td>Informational</td><td>Learn something</td><td>Blog posts, guides, explainers</td><td>"how to lose weight fast"</td></tr>
+      <tr><td>Navigational</td><td>Find a specific site</td><td>That specific site's homepage</td><td>"facebook login", "amazon India"</td></tr>
+      <tr><td>Commercial Investigation</td><td>Research before buying</td><td>Listicles, reviews, comparisons</td><td>"best laptops under 60000"</td></tr>
+      <tr><td>Transactional</td><td>Take action now</td><td>Product pages, landing pages</td><td>"buy Sony WH-1000XM5 India"</td></tr>
+    </table>
+    <div class="keypoints">
+      <div class="kp"><div class="kp-dot"></div><div><strong>The 3 Cs of Intent:</strong> Content Type (what format ranks — blog post, product page, video), Content Format (how-to, listicle, tutorial, review, landing page), and Content Angle (what unique angle the top-ranking pages take — "for beginners", "quick", "free", "comprehensive"). All three must match.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Intent Mismatch = Wasted Effort:</strong> Creating a product page for an informational keyword, or writing a blog post for a transactional keyword, means Google will never rank you — no matter how good your on-page SEO is. Always check what actually ranks before writing a single word.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Intent Shifts by Keyword Modifier:</strong> "running shoes" (commercial investigation) vs "buy running shoes online" (transactional) vs "how to choose running shoes" (informational). The same core topic has completely different intents depending on modifiers — and needs different content types.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Intent as Strategy:</strong> Map every page you create to one specific intent. A single page trying to satisfy both informational and transactional intent usually fails at both. Your informational articles feed awareness → comparison articles drive consideration → product pages close the transaction.</div></div>
+    </div>
+    <div class="block-grid">
+      <div class="info-block block-example">
+        <div class="block-label">📖 Real Example</div>
+        <p>A gym created a <em>product page</em> for "protein powder" stuffed with keywords. Despite 200 backlinks, it never cracked page 3. Why? The top 10 results for "protein powder" are ALL blog articles — comparisons, reviews, "best of" lists. The intent is <strong>commercial investigation</strong>, not transactional.<br><br><strong>Fix:</strong> Create "Best Protein Powders for Gym Beginners in India (2025)" — rank that, then link to the product page from within. The article ranked #3 within 4 months and drove 2,800 monthly referrals to the product page.</p>
+      </div>
+      <div class="info-block block-task">
+        <div class="block-label">✅ Your Tasks</div>
+        <div class="task-list">
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Search 15 keywords in any niche. Classify each as Informational/Navigational/Commercial/Transactional based on what actually ranks on page 1.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">For "digital marketing course" — study the top 10 results. Identify content type, content format, and common angle. Document your findings.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Write 3 keyword ideas for each intent type for a "yoga studio in Delhi" — 12 keywords total. Justify each classification.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Find one real example where a page is clearly mismatched to intent. Screenshot the SERP and write a 100-word analysis of the mismatch.</span></label>
+        </div>
+      </div>
+    </div>
+    <div class="resources-block">
+      <div class="res-title">📚 Learning Resources</div>
+      <div class="res-links">
+        <a class="res-link" href="https://ahrefs.com/blog/search-intent/" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Ahrefs — Search Intent: The Complete Guide</strong><span>The most comprehensive guide to search intent with examples for every intent type and how to match content to each.</span></div><span class="res-badge res-blog">GUIDE</span></a>
+        <a class="res-link" href="https://backlinko.com/search-intent" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Backlinko — Search Intent: The Definitive Guide</strong><span>Brian Dean's practical take on intent with step-by-step process for identifying and matching intent to content format.</span></div><span class="res-badge res-blog">BLOG</span></a>
+        <a class="res-link" href="https://moz.com/blog/search-intent-seo" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Moz — How to Use Search Intent in Your SEO Strategy</strong><span>Practical blog post on aligning content with search intent using real industry examples and keyword analysis.</span></div><span class="res-badge res-blog">BLOG</span></a>
+      </div>
+    </div>
+    <div class="wwwh-note">
+      <div class="wwwh-title">🧭 Practical Framework — Why / Where / How / When</div>
+      <div class="wwwh-grid">
+        <div class="wwwh-item"><h4>🟡 Why Intent First</h4><p>Creating content without understanding intent is the #1 reason well-optimised pages never rank. Intent determines content type before a single word is written.</p></div>
+        <div class="wwwh-item"><h4>🟢 Where to Check</h4><p>Always examine the actual Google SERP for your target keyword. What type of content ranks? What format? The SERP is Google's answer to "what does this intent require?"</p></div>
+        <div class="wwwh-item"><h4>🔵 How to Analyse</h4><p>Search your keyword → Study top 5 results → Identify content type (blog/product/landing) → Note format (listicle/how-to/comparison) → Note angle (beginner/expert/free) → Match all three.</p></div>
+        <div class="wwwh-item"><h4>🟣 When to Check</h4><p>Before writing any content, before creating any new page, when updating existing content that isn't ranking, and whenever Google shifts what it ranks for a keyword you target.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOPIC 2.2 -->
+<div class="topic-item" id="t2-2">
+  <div class="topic-header" onclick="toggleTopic(this)">
+    <span class="topic-num">2.2</span>
+    <h3>Keyword Metrics — Volume, Difficulty, CPC & Opportunity Score</h3>
+    <span class="topic-diff diff-b">Beginner</span>
+    <span class="topic-chevron">▼</span>
+  </div>
+  <div class="topic-body">
+    <div class="topic-intro">Every keyword has measurable characteristics that determine whether it's worth targeting. Picking keywords without analysing these metrics is like investing money without looking at financial data — you might get lucky, but you'll likely waste months of effort ranking for terms that don't generate business results. Understanding how to read and combine these metrics helps you find the "golden keywords" that sit at the intersection of achievable difficulty, meaningful volume, and genuine commercial value. No single metric tells the full story — smart SEOs use them in combination.</div>
+    <div class="keypoints">
+      <div class="kp"><div class="kp-dot"></div><div><strong>Search Volume:</strong> Monthly searches for a keyword. High volume = more potential traffic. But volume alone is meaningless — a 500-volume keyword that converts to leads is more valuable than a 50,000-volume keyword with zero commercial relevance. Always pair volume with intent and commercial value (CPC).</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Keyword Difficulty (KD):</strong> 0–100 score estimating how hard page-1 ranking is. Under 30 = achievable for new sites. 30–60 = requires established authority. Over 60 = dominated by major brands. Every tool calculates KD differently — Ahrefs, SEMrush, and Moz all use different formulas. Always check the actual SERPs for the KD number's context.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>CPC (Cost Per Click):</strong> What advertisers pay per click via Google Ads. High CPC = commercial value. A keyword with ₹0.50 CPC has little commercial value. A keyword with ₹180 CPC means businesses make real money from that traffic — worth targeting for organic too. CPC is the clearest signal of a keyword's business value.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Traffic Potential vs Search Volume:</strong> More important than raw volume. If the #1 ranking page for a keyword gets 8,000 organic visits/month, that's the real traffic opportunity — even if the keyword itself shows 800 monthly searches. The top page ranks for hundreds of related keyword variations, and Ahrefs' "Traffic Potential" metric estimates this.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Golden Keyword Formula:</strong> Volume 500–5,000/month + KD under 35 + CPC above ₹50 + Clear informational or commercial intent + Relevant to your business = ideal target for a new or mid-sized site. New sites should target the lower end of this range and expand as authority grows.</div></div>
+    </div>
+    <div class="block-grid">
+      <div class="info-block block-example">
+        <div class="block-label">📖 Real Example</div>
+        <p><strong>"credit card"</strong> → 2.2M volume, KD 96, CPC ₹480 — impossible for any new site.<br><br><strong>"best credit card for students in India"</strong> → 8,100 volume, KD 28, CPC ₹180 — a new personal finance blog CAN rank for this. The reader is highly qualified (student who wants a credit card). Content needed: a 2,500-word comparison article. This keyword drove ₹240,000/month in affiliate commissions for one personal finance blogger who ranked #1 for 8 months.</p>
+      </div>
+      <div class="info-block block-task">
+        <div class="block-label">✅ Your Tasks</div>
+        <div class="task-list">
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Open Ubersuggest (free) or Google Keyword Planner. Research 20 keywords for any niche. Build a spreadsheet: Keyword | Volume | KD | CPC | Intent | Priority.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Identify your 5 "golden keywords" from the list: Volume >500, KD &lt;35, clear intent, relevant to a real business. Justify each choice.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Compare the same keyword across 3 tools (Ahrefs, SEMrush, Ubersuggest). Note how differently each estimates volume and difficulty.</span></label>
+        </div>
+      </div>
+    </div>
+    <div class="tools-chips">
+      <span class="tool-chip">Ahrefs</span><span class="tool-chip">SEMrush</span><span class="tool-chip">Ubersuggest</span><span class="tool-chip">Google Keyword Planner</span><span class="tool-chip">Keywords Everywhere</span><span class="tool-chip">Mangools KWFinder</span>
+    </div>
+    <div class="resources-block">
+      <div class="res-title">📚 Learning Resources</div>
+      <div class="res-links">
+        <a class="res-link" href="https://ads.google.com/home/tools/keyword-planner/" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>Google Keyword Planner</strong><span>Free tool from Google. Requires a Google Ads account (no spending needed). Best for volume estimates as data comes directly from Google.</span></div><span class="res-badge res-free">FREE TOOL</span></a>
+        <a class="res-link" href="https://neilpatel.com/ubersuggest/" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>Ubersuggest</strong><span>Freemium keyword research tool. Good for beginners — shows volume, difficulty, CPC and content ideas for free with limited daily searches.</span></div><span class="res-badge res-free">FREE</span></a>
+        <a class="res-link" href="https://ahrefs.com/blog/keyword-research/" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Ahrefs — Keyword Research: The Beginner's Guide</strong><span>The most thorough keyword research guide available. Covers every aspect of finding and evaluating keywords with actionable frameworks.</span></div><span class="res-badge res-blog">GUIDE</span></a>
+        <a class="res-link" href="https://kwfinder.com" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>Mangools KWFinder</strong><span>Most beginner-friendly paid keyword tool. Clear UI, accurate difficulty scores, 10 free searches per day without an account.</span></div><span class="res-badge res-tool">TOOL</span></a>
+      </div>
+    </div>
+    <div class="wwwh-note">
+      <div class="wwwh-title">🧭 Practical Framework — Why / Where / How / When</div>
+      <div class="wwwh-grid">
+        <div class="wwwh-item"><h4>🟡 Why Metrics Matter</h4><p>Guessing at keyword viability wastes months. Metrics give you the probability of ranking success before investing content creation time. KD + volume + CPC together predict ROI.</p></div>
+        <div class="wwwh-item"><h4>🟢 Where to Find Data</h4><p>Free: Google Keyword Planner, Ubersuggest (10/day), Ahrefs Free (limited). Paid: Ahrefs, SEMrush, Moz, Mangools. Always cross-reference at least 2 tools for accuracy.</p></div>
+        <div class="wwwh-item"><h4>🔵 How to Prioritise</h4><p>Sort by KD (ascending) then filter by minimum volume (200+). Prioritise keywords where CPC is high (commercial value) and SERP has weak competition (low DR sites in top 10).</p></div>
+        <div class="wwwh-item"><h4>🟣 When to Research</h4><p>Before any content creation. Quarterly review of your keyword list. Before launching new pages or site sections. After any major Google update that shifts ranking patterns in your niche.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOPIC 2.3 -->
+<div class="topic-item" id="t2-3">
+  <div class="topic-header" onclick="toggleTopic(this)">
+    <span class="topic-num">2.3</span>
+    <h3>Long-Tail Keywords — Your Real Opportunity as a New Site</h3>
+    <span class="topic-diff diff-b">Beginner</span>
+    <span class="topic-chevron">▼</span>
+  </div>
+  <div class="topic-body">
+    <div class="topic-intro">Long-tail keywords are specific, multi-word phrases (typically 4+ words) with lower search volumes but significantly higher conversion rates and lower competition. They represent <strong>70% of all Google searches</strong>. Short-tail keywords ("shoes", "SEO") are dominated by enormous brands with years of authority and millions in marketing budgets. Long-tail keywords are where new websites win — the searcher is more specific, more qualified, and more ready to act. A blog with 100 long-tail articles averaging 200 visits each generates 20,000 monthly visits. Those 100 articles become your authority foundation for eventually ranking short-tail terms.</div>
+    <div class="keypoints">
+      <div class="kp"><div class="kp-dot"></div><div><strong>The Long-Tail Paradox:</strong> "running shoes" gets 2M searches but you'll never rank for it as a new site. "best lightweight running shoes for flat feet under 5000 rupees" gets 200 searches but you CAN rank — and those 200 people are far more likely to buy than the 2M general searchers. Lower volume, higher relevance = better ROI.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Google Autocomplete as Free Research:</strong> Start typing any keyword in Google's search bar. The autocomplete suggestions are real searches people are making. These are free, real-volume, long-tail keyword ideas instantly available without any paid tools. Autocomplete represents Google's prediction of what people actually want to search.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>People Also Ask (PAA):</strong> The expandable questions appearing in search results. Every PAA box is a keyword opportunity — usually informational intent, typically long-tail, with clear content format requirements (usually concise answers under 100 words). Target 3–5 PAA questions within each long-form article.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Related Searches:</strong> The 8 suggestions at the bottom of every Google results page. These are long-tail variations of the main keyword — each is a potential content idea or sub-section of a larger article. They represent actual search patterns from millions of real users.</div></div>
+    </div>
+    <div class="block-grid">
+      <div class="info-block block-example">
+        <div class="block-label">📖 Real Example</div>
+        <p>A new SEO blog targeting "SEO" (1.5M/month, KD 98) would never rank. Instead they targeted long-tail variations: "how to do SEO for a new blog", "why is my website not showing on Google", "how long does SEO take to work" — all 200–2,000 monthly searches, KD 15–30. Within 8 months they had 24 page-1 rankings across these long-tails, collectively driving 8,400 organic visits/month. Each of those 24 articles was impossible for an established authority to outrank because of the specificity and depth.</p>
+      </div>
+      <div class="info-block block-task">
+        <div class="block-label">✅ Your Tasks</div>
+        <div class="task-list">
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Pick any broad keyword. Use Google Autocomplete to generate 15 long-tail variations. Note all suggestions that appear at every search depth.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Search any topic and collect all People Also Ask questions that appear. These are ready-made long-tail content ideas with guaranteed search demand.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Use AnswerThePublic.com (free) to generate all question-based long-tail keywords for any seed term. Screenshot the wheel visualisation.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Build a "keyword cluster" — group 20 long-tail keywords around one pillar topic (e.g., "home workout for beginners"). Identify 1 pillar and 5+ cluster page opportunities.</span></label>
+        </div>
+      </div>
+    </div>
+    <div class="resources-block">
+      <div class="res-title">📚 Learning Resources</div>
+      <div class="res-links">
+        <a class="res-link" href="https://answerthepublic.com" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>AnswerThePublic</strong><span>Generates hundreds of question, comparison, and preposition-based long-tail keywords from any seed term. Free tier available with 3 searches/day.</span></div><span class="res-badge res-free">FREE</span></a>
+        <a class="res-link" href="https://alsoasked.com" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>AlsoAsked</strong><span>Visualises People Also Asked data in a tree format — perfect for finding content clusters and identifying the hierarchy of user questions.</span></div><span class="res-badge res-free">FREE</span></a>
+        <a class="res-link" href="https://backlinko.com/long-tail-keywords" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Backlinko — Long Tail Keywords: The Complete Guide</strong><span>Data-backed guide on why long-tail keywords convert better and a complete system for finding them at scale.</span></div><span class="res-badge res-blog">BLOG</span></a>
+        <a class="res-link" href="https://www.keywordseverywhere.com" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>Keywords Everywhere (Chrome Extension)</strong><span>Shows search volume, CPC, and competition data directly on Google search results pages. Saves switching between tools constantly.</span></div><span class="res-badge res-tool">TOOL</span></a>
+      </div>
+    </div>
+    <div class="wwwh-note">
+      <div class="wwwh-title">🧭 Practical Framework — Why / Where / How / When</div>
+      <div class="wwwh-grid">
+        <div class="wwwh-item"><h4>🟡 Why Long-Tail First</h4><p>New sites have zero domain authority. Long-tail keywords are the only realistic path to page-1 rankings in the first 6–12 months. They build the traffic foundation that makes short-tail rankings achievable later.</p></div>
+        <div class="wwwh-item"><h4>🟢 Where to Find Them</h4><p>Google Autocomplete, People Also Ask, Related Searches, AnswerThePublic, Reddit/Quora (real questions), product reviews, AlsoAsked, Ahrefs/SEMrush keyword explorer filtered by low KD.</p></div>
+        <div class="wwwh-item"><h4>🔵 How to Use Them</h4><p>Each long-tail = 1 dedicated article or FAQ section. Group related long-tails into clusters → one pillar page + multiple supporting cluster pages that interlink → builds topical authority faster.</p></div>
+        <div class="wwwh-item"><h4>🟣 When to Shift Strategy</h4><p>Target long-tail exclusively for first 6–12 months. As domain authority grows (DR 20+), begin targeting medium-tail keywords (2–3 words, KD 30–50). Short-tail comes after consistent rankings across 50+ articles.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOPIC 2.4 -->
+<div class="topic-item" id="t2-4">
+  <div class="topic-header" onclick="toggleTopic(this)">
+    <span class="topic-num">2.4</span>
+    <h3>Competitor Keyword Analysis — Reverse Engineering Success</h3>
+    <span class="topic-diff diff-i">Intermediate</span>
+    <span class="topic-chevron">▼</span>
+  </div>
+  <div class="topic-body">
+    <div class="topic-intro">The fastest path to finding profitable keywords is analysing what's already working for your competitors. They've spent years and resources testing which content drives traffic. Tools like Ahrefs and SEMrush let you enter any competitor's domain and see every keyword they rank for, the traffic those keywords drive, and the exact pages ranking for them. This reverse-engineering approach is faster than starting from scratch because you're learning from proven demand — someone is already getting traffic from these terms, and all you need to do is create better, more comprehensive, or more up-to-date content to outrank them.</div>
+    <div class="keypoints">
+      <div class="kp"><div class="kp-dot"></div><div><strong>Content Gap Analysis:</strong> Find keywords your competitors rank for that you don't. In Ahrefs, the "Content Gap" feature shows these automatically. These are proven opportunities — someone is already getting traffic, you just need better content. Run this against 3–5 competitors to find the most consistent opportunities.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Position 2–10 Gold Mine:</strong> Look for competitor pages ranking positions 2–10 for high-volume keywords. These are keywords where the current content is beatable. Create a more comprehensive, better-structured, more current version and target the same keyword. Pages in positions 4–10 are typically most vulnerable.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Top Pages Report:</strong> In Ahrefs' Site Explorer, the "Top Pages" report shows which pages drive the most organic traffic to a competitor. These are their most valuable assets — analyse them thoroughly. Why do they rank? What format? What angle? How long? What makes them better than alternatives?</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Keyword Overlap Mapping:</strong> Build a spreadsheet of keywords where 2+ competitors rank but you don't. Keywords where 3+ competitors rank represent especially proven demand — multiple sites found this keyword worth targeting. These should be your highest-priority content gaps to close.</div></div>
+    </div>
+    <div class="block-grid">
+      <div class="info-block block-example">
+        <div class="block-label">📖 Real Example</div>
+        <p>An Indian travel blog (DR 28) ran a content gap analysis against HolidayIQ (DR 52). The gap report showed 340 keywords where HolidayIQ ranked positions 5–15 but the client had zero presence. They identified 15 "quick wins" — keywords with good volume where HolidayIQ's content was 3+ years old and lacked depth. Creating updated, comprehensive articles for those 15 keywords drove 18,000 new organic monthly visits within 5 months — all from a single competitive analysis exercise.</p>
+      </div>
+      <div class="info-block block-task">
+        <div class="block-label">✅ Your Tasks</div>
+        <div class="task-list">
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Use Ahrefs Webmaster Tools (free for your own sites) or SEMrush free trial to analyse 2 competitors. Find their top 10 traffic-driving pages.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Run a content gap analysis between a site you're working on and 3 competitors. List the top 10 keyword opportunities identified.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Find 3 competitor pages ranking positions 3–8 for valuable keywords with outdated content. Document how you'd create a superior version (format, depth, angle).</span></label>
+        </div>
+      </div>
+    </div>
+    <div class="tools-chips">
+      <span class="tool-chip">Ahrefs Webmaster Tools</span><span class="tool-chip">SEMrush Keyword Gap</span><span class="tool-chip">Moz Link Explorer</span><span class="tool-chip">Ubersuggest</span>
+    </div>
+    <div class="resources-block">
+      <div class="res-title">📚 Learning Resources</div>
+      <div class="res-links">
+        <a class="res-link" href="https://ahrefs.com/webmaster-tools" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>Ahrefs Webmaster Tools</strong><span>Free for site owners. Shows your site's backlinks, organic keywords, and lets you run content gap analysis against competitors.</span></div><span class="res-badge res-free">FREE</span></a>
+        <a class="res-link" href="https://www.semrush.com/features/keyword-gap/" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>SEMrush Keyword Gap Tool</strong><span>Compare your site's keyword profile against up to 5 competitors simultaneously. Find shared and missing keywords.</span></div><span class="res-badge res-tool">TOOL</span></a>
+        <a class="res-link" href="https://ahrefs.com/blog/find-competitor-keywords/" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Ahrefs — How to Find Competitor Keywords</strong><span>Step-by-step guide with screenshots showing exactly how to steal competitor keyword ideas using Ahrefs free and paid features.</span></div><span class="res-badge res-blog">BLOG</span></a>
+        <a class="res-link" href="https://www.semrush.com/blog/competitor-keyword-analysis/" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>SEMrush Blog — Competitor Keyword Analysis</strong><span>How to systematically reverse-engineer competitor keyword strategies to build a content calendar from proven traffic data.</span></div><span class="res-badge res-blog">BLOG</span></a>
+      </div>
+    </div>
+    <div class="wwwh-note">
+      <div class="wwwh-title">🧭 Practical Framework — Why / Where / How / When</div>
+      <div class="wwwh-grid">
+        <div class="wwwh-item"><h4>🟡 Why Competitor Analysis</h4><p>Your competitors have already validated keyword opportunities with real traffic data. Reverse-engineering their success is 10x faster than discovering profitable keywords from scratch.</p></div>
+        <div class="wwwh-item"><h4>🟢 Where to Analyse</h4><p>Ahrefs Site Explorer (most comprehensive), SEMrush Organic Research, Moz Keyword Explorer, or SimilarWeb for traffic estimation without full keyword data.</p></div>
+        <div class="wwwh-item"><h4>🔵 How to Prioritise</h4><p>Export competitor keywords → Filter by KD under your target → Filter by estimated traffic above 100/month → Sort by position (4–20 most actionable) → Cross-reference against content gap report.</p></div>
+        <div class="wwwh-item"><h4>🟣 When to Repeat</h4><p>At project start (baseline), quarterly (ongoing monitoring), after any major competitor publishes new content, and when building a new content calendar. Competitors' strategies evolve — yours should respond.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+<div class="mod-nav">
+  <a href="module-1.html">← Module 1: SEO Fundamentals</a>
+  <a href="seo_complete_roadmap_v3.html" class="home-btn">🏠 Home</a>
+  <a href="module-3.html">Module 3: On-Page SEO →</a>
+</div>
+</main>
+</div>
+<button class="mob-sidebar-toggle" onclick="toggleSidebar()">☰</button>
+<script>
+const toggle=document.getElementById('themeToggle'),html=document.documentElement,saved=localStorage.getItem('seo-theme')||'dark';html.setAttribute('data-theme',saved);toggle.textContent=saved==='dark'?'🌙':'☀️';
+toggle.addEventListener('click',()=>{const next=html.getAttribute('data-theme')==='dark'?'light':'dark';html.setAttribute('data-theme',next);toggle.textContent=next==='dark'?'🌙':'☀️';localStorage.setItem('seo-theme',next);});
+function toggleTopic(h){const item=h.parentElement,isOpen=item.classList.contains('open');document.querySelectorAll('.topic-item.open').forEach(el=>el.classList.remove('open'));if(!isOpen)item.classList.add('open');}
+function toggleTask(el){el.classList.toggle('checked');saveAndUpdate();}
+function saveAndUpdate(){const state={};document.querySelectorAll('.task-check-item').forEach((el,i)=>{state[i]=el.classList.contains('checked');});try{localStorage.setItem('seo-m2-tasks',JSON.stringify(state));}catch(e){}updateProgress();}
+function updateProgress(){const total=document.querySelectorAll('.task-check-item').length,done=document.querySelectorAll('.task-check-item.checked').length,pct=total>0?Math.round((done/total)*100):0;document.getElementById('prog-pct').textContent=pct+'%';document.getElementById('prog-bar').style.width=pct+'%';document.getElementById('topProgress').style.width=pct+'%';const topics=['t2-1','t2-2','t2-3','t2-4'];topics.forEach((id,idx)=>{const el=document.getElementById(id);if(!el)return;const tasks=el.querySelectorAll('.task-check-item'),checked=el.querySelectorAll('.task-check-item.checked'),nav=document.querySelectorAll('.nav-item')[idx];if(nav&&tasks.length>0&&checked.length===tasks.length)nav.classList.add('done');else if(nav)nav.classList.remove('done');});}
+function loadTasks(){try{const state=JSON.parse(localStorage.getItem('seo-m2-tasks')||'{}');document.querySelectorAll('.task-check-item').forEach((el,i)=>{if(state[i])el.classList.add('checked');});updateProgress();}catch(e){}}
+function toggleSidebar(){const s=document.getElementById('sidebar'),o=document.getElementById('sidebarOverlay');s.classList.toggle('open');o.classList.toggle('show');}
+document.getElementById('sidebarOverlay').addEventListener('click',()=>{document.getElementById('sidebar').classList.remove('open');document.getElementById('sidebarOverlay').classList.remove('show');});
+const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){document.querySelectorAll('.nav-item').forEach(link=>{link.classList.toggle('active',link.getAttribute('href')==='#'+entry.target.id);});}});},{threshold:0.2,rootMargin:'-50px 0px -50px 0px'});
+document.querySelectorAll('.topic-item').forEach(el=>observer.observe(el));
+document.addEventListener('DOMContentLoaded',loadTasks);
+</script>
+</body>
+</html>

@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 5 — Content Strategy | SEO Mastery Roadmap 2025</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,700;0,900;1,300&family=Syne:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+[data-theme="dark"] {
+  --bg:#0c0f0e; --bg1:#101512; --bg2:#151a17; --bg3:#1b2120;
+  --card:#121714; --card2:#18201c; --border:#1e2924; --border2:#2a3a32;
+  --amber:#f59e0b; --amber2:#fbbf24; --amber3:#fde68a;
+  --teal:#14b8a6; --teal2:#2dd4bf;
+  --rose:#f43f5e; --rose2:#fb7185;
+  --blue:#3b82f6; --blue2:#60a5fa;
+  --green:#22c55e; --green2:#4ade80;
+  --violet:#8b5cf6; --violet2:#a78bfa;
+  --emerald:#10b981; --emerald2:#34d399;
+  --lime:#84cc16; --lime2:#a3e635;
+  --orange:#f97316; --orange2:#fb923c;
+  --text:#e2ece8; --text2:#a8bfb4; --muted:#5a7568; --white:#f0faf5;
+  --shadow:rgba(0,0,0,.55); --glow:rgba(16,185,129,.12);
+  --sidebar-bg:#101512; --header-bg:#0c0f0e;
+  --note-bg:rgba(16,185,129,.05);
+  --accent:var(--emerald); --accent2:var(--emerald2);
+}
+[data-theme="light"] {
+  --bg:#f0faf5; --bg1:#e4f4eb; --bg2:#d8ede1; --bg3:#cce6d8;
+  --card:#ffffff; --card2:#f4fdf8; --border:#bdd9ca; --border2:#9fc4b0;
+  --amber:#d97706; --amber2:#b45309; --amber3:#92400e;
+  --teal:#0d9488; --teal2:#0f766e;
+  --rose:#e11d48; --rose2:#be123c;
+  --blue:#2563eb; --blue2:#1d4ed8;
+  --green:#16a34a; --green2:#15803d;
+  --violet:#7c3aed; --violet2:#6d28d9;
+  --emerald:#059669; --emerald2:#047857;
+  --lime:#65a30d; --lime2:#4d7c0f;
+  --orange:#ea580c; --orange2:#c2410c;
+  --text:#1a2e24; --text2:#2d4a3a; --muted:#5a7568; --white:#0f2218;
+  --shadow:rgba(0,0,0,.1); --glow:rgba(5,150,105,.08);
+  --sidebar-bg:#e4f4eb; --header-bg:#f0faf5;
+  --note-bg:rgba(5,150,105,.06);
+  --accent:var(--emerald); --accent2:var(--emerald2);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:15px}
+body{font-family:'Syne',sans-serif;background:var(--bg);color:var(--text);line-height:1.75;overflow-x:hidden;transition:background .3s,color .3s}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--emerald);border-radius:10px}
+
+/* ── LAYOUT ── */
+.shell{display:flex;min-height:100vh}
+
+/* ── SIDEBAR ── */
+.sidebar{width:272px;min-width:272px;background:var(--sidebar-bg);border-right:1px solid var(--border);position:fixed;top:0;left:0;bottom:0;overflow-y:auto;z-index:200;display:flex;flex-direction:column;transition:transform .3s,background .3s}
+.sidebar::-webkit-scrollbar{width:3px}
+.sidebar::-webkit-scrollbar-thumb{background:var(--border2)}
+.sb-brand{padding:24px 20px 18px;border-bottom:1px solid var(--border)}
+.sb-back{display:inline-flex;align-items:center;gap:7px;font-size:.75em;font-weight:700;color:var(--muted);text-decoration:none;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;transition:color .15s}
+.sb-back:hover{color:var(--emerald2)}
+.sb-mod-badge{display:inline-block;font-family:'Fira Code',monospace;font-size:.65em;font-weight:700;background:var(--emerald);color:#fff;padding:3px 9px;border-radius:6px;margin-bottom:10px}
+.sb-brand h2{font-family:'Fraunces',serif;font-size:1.02em;font-weight:700;color:var(--white);line-height:1.35}
+.sb-brand p{font-size:.72em;color:var(--muted);margin-top:4px}
+.sb-progress{padding:14px 20px;border-bottom:1px solid var(--border)}
+.prog-label{display:flex;justify-content:space-between;align-items:center;font-size:.68em;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:7px}
+.prog-label span:last-child{color:var(--emerald2);font-family:'Fira Code',monospace}
+.prog-bg{height:4px;background:var(--border);border-radius:2px;overflow:hidden}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--emerald),var(--lime2));width:0%;transition:width .4s ease}
+.sb-nav{padding:10px 0;flex:1}
+.sb-section-label{padding:10px 20px 4px;font-size:.63em;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted)}
+.nav-link{display:flex;align-items:center;gap:10px;padding:9px 20px;text-decoration:none;color:var(--muted);font-size:.8em;font-weight:500;transition:all .15s;border-left:2px solid transparent;cursor:pointer}
+.nav-link:hover{color:var(--text);background:var(--bg2)}
+.nav-link.active{color:var(--emerald2);border-left-color:var(--emerald);background:rgba(16,185,129,.07)}
+.nav-num{font-family:'Fira Code',monospace;font-size:.72em;color:var(--border2);min-width:28px}
+.nav-link.active .nav-num{color:var(--emerald2)}
+.nav-done{margin-left:auto;font-size:.8em;color:var(--green);opacity:0;transition:opacity .2s}
+.nav-link.completed .nav-done{opacity:1}
+.sb-footer{padding:14px 20px;border-top:1px solid var(--border)}
+.sb-footer p{font-size:.7em;color:var(--muted);line-height:1.5}
+
+/* ── MAIN ── */
+.main{margin-left:272px;flex:1;min-width:0}
+.topbar{position:sticky;top:0;z-index:100;background:var(--header-bg);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;padding:12px 40px;transition:background .3s}
+.topbar-breadcrumb{font-size:.78em;color:var(--muted);display:flex;align-items:center;gap:6px;flex:1}
+.topbar-breadcrumb a{color:var(--muted);text-decoration:none;transition:color .15s}
+.topbar-breadcrumb a:hover{color:var(--emerald2)}
+.topbar-breadcrumb span{color:var(--text2);font-weight:600}
+.theme-btn{display:flex;align-items:center;gap:7px;background:var(--card);border:1px solid var(--border2);border-radius:50px;padding:7px 14px;cursor:pointer;font-size:.76em;font-weight:600;color:var(--text2);transition:all .2s;font-family:'Syne',sans-serif;white-space:nowrap}
+.theme-btn:hover{border-color:var(--emerald2);color:var(--emerald2)}
+.hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:4px;background:none;border:none}
+.hamburger span{display:block;width:20px;height:2px;background:var(--text2);border-radius:2px;transition:.3s}
+
+/* ── HERO ── */
+.mod-hero{background:var(--bg1);border-bottom:1px solid var(--border);padding:56px 56px 44px;position:relative;overflow:hidden}
+.mod-hero-bg{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 700px 500px at 80% -15%,rgba(16,185,129,.09) 0%,transparent 60%),radial-gradient(ellipse 500px 400px at -5% 100%,rgba(132,204,22,.06) 0%,transparent 60%),radial-gradient(ellipse 400px 300px at 50% 110%,rgba(245,158,11,.04) 0%,transparent 60%)}
+.mod-hero-grid{position:absolute;inset:0;pointer-events:none;opacity:.022;background-image:linear-gradient(var(--border2) 1px,transparent 1px),linear-gradient(90deg,var(--border2) 1px,transparent 1px);background-size:44px 44px}
+.mod-hero-inner{max-width:820px;position:relative}
+.mod-number-tag{font-family:'Fira Code',monospace;font-size:.68em;font-weight:700;color:#fff;background:var(--emerald);padding:4px 12px;border-radius:6px;display:inline-block;margin-bottom:16px}
+.mod-hero h1{font-family:'Fraunces',serif;font-size:clamp(1.9em,4vw,3.1em);font-weight:900;color:var(--white);line-height:1.08;margin-bottom:10px}
+.mod-hero h1 em{font-style:italic;background:linear-gradient(135deg,var(--emerald2) 0%,var(--lime2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.mod-hero p{color:var(--text2);font-size:.96em;max-width:700px;margin-bottom:22px;line-height:1.8}
+.mod-tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:28px}
+.mtag{font-size:.67em;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding:3px 10px;border-radius:4px}
+.mtag-amber{background:rgba(245,158,11,.1);color:var(--amber);border:1px solid rgba(245,158,11,.25)}
+.mtag-teal{background:rgba(20,184,166,.1);color:var(--teal2);border:1px solid rgba(20,184,166,.25)}
+.mtag-green{background:rgba(34,197,94,.1);color:var(--green2);border:1px solid rgba(34,197,94,.25)}
+.mtag-emerald{background:rgba(16,185,129,.1);color:var(--emerald2);border:1px solid rgba(16,185,129,.25)}
+.mtag-lime{background:rgba(132,204,22,.1);color:var(--lime2);border:1px solid rgba(132,204,22,.25)}
+.mtag-violet{background:rgba(139,92,246,.1);color:var(--violet2);border:1px solid rgba(139,92,246,.25)}
+.hero-stats{display:grid;grid-template-columns:repeat(4,auto);width:fit-content;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.stat-box{background:var(--bg2);padding:16px 20px;text-align:center}
+.stat-n{font-family:'Fraunces',serif;font-size:1.7em;font-weight:700;color:var(--emerald2);line-height:1;margin-bottom:3px}
+.stat-l{font-size:.65em;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.8px}
+
+/* ── CONTENT AREA ── */
+.content-area{max-width:840px;margin:0 auto;padding:44px 56px 100px}
+
+/* ── TOPIC ITEM ── */
+.topic-item{border:1px solid var(--border);border-radius:14px;margin-bottom:14px;overflow:hidden;background:var(--card);transition:border-color .2s,box-shadow .2s}
+.topic-item:hover{border-color:var(--border2);box-shadow:0 4px 28px var(--shadow)}
+.topic-item.open{border-color:rgba(16,185,129,.4);box-shadow:0 0 0 1px rgba(16,185,129,.1)}
+.topic-header{display:flex;align-items:center;gap:12px;padding:17px 20px;cursor:pointer;transition:background .15s}
+.topic-header:hover{background:var(--bg2)}
+.topic-num{font-family:'Fira Code',monospace;font-size:.7em;font-weight:700;color:var(--emerald2);background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.2);padding:3px 8px;border-radius:5px;white-space:nowrap}
+.topic-header h3{font-size:.95em;font-weight:700;color:var(--white);flex:1;line-height:1.35}
+.topic-difficulty{font-size:.63em;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:2px 7px;border-radius:4px;flex-shrink:0}
+.diff-beginner{background:rgba(34,197,94,.1);color:var(--green2)}
+.diff-intermediate{background:rgba(16,185,129,.1);color:var(--emerald2)}
+.diff-advanced{background:rgba(244,63,94,.1);color:var(--rose2)}
+.topic-chevron{color:var(--muted);font-size:.75em;transition:transform .25s;flex-shrink:0}
+.topic-item.open .topic-chevron{transform:rotate(180deg);color:var(--emerald2)}
+.topic-body{display:none;padding:0 20px 24px;border-top:1px solid var(--border)}
+.topic-item.open .topic-body{display:block}
+.topic-intro{padding:18px 0 14px;color:var(--text2);font-size:.92em;line-height:1.85}
+.topic-intro strong{color:var(--white)}
+
+/* ── KEY POINTS ── */
+.keypoints{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+.kp{display:flex;align-items:flex-start;gap:10px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-size:.89em;color:var(--text2)}
+.kp-dot{width:6px;height:6px;border-radius:50%;background:var(--emerald);flex-shrink:0;margin-top:7px}
+.kp strong{color:var(--white)}
+
+/* ── BLOCK GRID ── */
+.block-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}
+.info-block{border-radius:10px;padding:16px;font-size:.87em}
+.info-block .block-label{display:flex;align-items:center;gap:6px;font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px}
+.block-example{background:rgba(16,185,129,.05);border:1px solid rgba(16,185,129,.18);border-left:3px solid var(--emerald)}
+.block-example .block-label{color:var(--emerald2)}
+.block-task{background:rgba(245,158,11,.05);border:1px solid rgba(245,158,11,.18);border-left:3px solid var(--amber)}
+.block-task .block-label{color:var(--amber2)}
+.block-insight{background:rgba(139,92,246,.05);border:1px solid rgba(139,92,246,.18);border-left:3px solid var(--violet)}
+.block-insight .block-label{color:var(--violet2)}
+.block-warning{background:rgba(244,63,94,.05);border:1px solid rgba(244,63,94,.18);border-left:3px solid var(--rose)}
+.block-warning .block-label{color:var(--rose2)}
+.block-lime{background:rgba(132,204,22,.05);border:1px solid rgba(132,204,22,.18);border-left:3px solid var(--lime)}
+.block-lime .block-label{color:var(--lime2)}
+.info-block p{color:var(--text2);line-height:1.7;margin-bottom:8px}
+.info-block p:last-child{margin-bottom:0}
+.info-block ul,.info-block ol{padding-left:16px;color:var(--text2)}
+.info-block li{margin-bottom:5px;line-height:1.65}
+.info-block strong{color:var(--white)}
+
+/* ── TASKS ── */
+.task-list{display:flex;flex-direction:column;gap:7px}
+.task-check-item{display:flex;align-items:flex-start;gap:10px;cursor:pointer}
+.task-check-item input[type="checkbox"]{display:none}
+.check-box{width:18px;height:18px;border-radius:4px;flex-shrink:0;border:1.5px solid rgba(16,185,129,.4);background:transparent;display:flex;align-items:center;justify-content:center;margin-top:2px;transition:all .15s;font-size:.6em;color:transparent}
+.task-check-item.checked .check-box{background:var(--emerald);border-color:var(--emerald);color:#fff;font-size:.65em}
+.task-text{font-size:.86em;color:var(--text2);line-height:1.6;transition:color .15s}
+.task-check-item.checked .task-text{color:var(--muted);text-decoration:line-through}
+
+/* ── CODE ── */
+code{font-family:'Fira Code',monospace;font-size:.83em;background:rgba(255,255,255,.06);color:var(--emerald2);padding:2px 6px;border-radius:4px}
+[data-theme="light"] code{background:rgba(0,0,0,.06);color:var(--emerald)}
+
+/* ── RESOURCES ── */
+.resources-block{margin-top:18px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.res-title{padding:11px 16px;background:var(--bg3);border-bottom:1px solid var(--border);font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--emerald2);display:flex;align-items:center;gap:6px}
+.res-links{display:flex;flex-direction:column}
+.res-link{display:flex;align-items:flex-start;gap:12px;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;transition:background .15s}
+.res-link:last-child{border-bottom:none}
+.res-link:hover{background:rgba(16,185,129,.04)}
+.res-icon{font-size:1.1em;flex-shrink:0;margin-top:1px}
+.res-text{flex:1}
+.res-text strong{display:block;font-size:.85em;font-weight:600;color:var(--blue2);margin-bottom:2px}
+.res-link:hover .res-text strong{color:var(--emerald2)}
+.res-text span{font-size:.77em;color:var(--muted);line-height:1.4}
+.res-badge{font-size:.62em;font-weight:700;text-transform:uppercase;padding:2px 7px;border-radius:3px;flex-shrink:0;margin-top:2px;letter-spacing:.5px}
+.res-free{background:rgba(34,197,94,.1);color:var(--green2);border:1px solid rgba(34,197,94,.2)}
+.res-blog{background:rgba(59,130,246,.1);color:var(--blue2);border:1px solid rgba(59,130,246,.2)}
+.res-video{background:rgba(244,63,94,.15);color:#ff8080;border:1px solid rgba(244,63,94,.3)}
+.res-tool{background:rgba(139,92,246,.1);color:var(--violet2);border:1px solid rgba(139,92,246,.2)}
+.res-official{background:rgba(245,158,11,.1);color:var(--amber);border:1px solid rgba(245,158,11,.2)}
+
+/* ── WHY/WHERE/HOW/WHEN NOTE ── */
+.topic-note{margin-top:18px;border-radius:12px;overflow:hidden;border:1px solid rgba(16,185,129,.25);background:var(--note-bg)}
+.note-header{display:flex;align-items:center;gap:8px;padding:10px 16px;background:rgba(16,185,129,.1);border-bottom:1px solid rgba(16,185,129,.18);font-size:.7em;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--emerald2)}
+.note-grid{display:grid;grid-template-columns:1fr 1fr}
+.note-cell{padding:13px 16px;border-right:1px solid rgba(16,185,129,.12);border-bottom:1px solid rgba(16,185,129,.12)}
+.note-cell:nth-child(2n){border-right:none}
+.note-cell:nth-child(3),.note-cell:nth-child(4){border-bottom:none}
+.note-cell-label{font-size:.64em;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;color:var(--emerald2);margin-bottom:5px;display:flex;align-items:center;gap:5px}
+.note-cell p{font-size:.82em;color:var(--text2);line-height:1.6}
+.note-cell strong{color:var(--white)}
+
+/* ── CONTENT CALENDAR ── */
+.cal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0}
+.cal-week{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px;font-size:.83em}
+.cal-week-label{font-family:'Fira Code',monospace;font-size:.68em;font-weight:700;color:var(--emerald2);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.cal-week h4{font-size:.9em;font-weight:700;color:var(--white);margin-bottom:6px}
+.cal-week p{color:var(--text2);line-height:1.55;font-size:.88em}
+
+/* ── CONTENT TYPE TABLE ── */
+.comp-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.85em}
+.comp-table th{background:var(--bg3);color:var(--emerald2);padding:10px 14px;text-align:left;font-weight:700;font-size:.8em;text-transform:uppercase;letter-spacing:.8px;border-bottom:1px solid var(--border2)}
+.comp-table td{padding:10px 14px;color:var(--text2);border-bottom:1px solid var(--border);vertical-align:top}
+.comp-table tr:last-child td{border-bottom:none}
+.comp-table tr:hover td{background:rgba(16,185,129,.03)}
+.comp-table td:first-child{color:var(--white);font-weight:600}
+
+/* ── TOOLS CHIPS ── */
+.tools-chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+.tool-chip{font-family:'Fira Code',monospace;font-size:.74em;font-weight:500;padding:4px 11px;border-radius:6px;background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.2);color:var(--emerald2);text-decoration:none;transition:all .15s}
+.tool-chip:hover{background:rgba(16,185,129,.18);border-color:var(--emerald2)}
+
+/* ── SKYSCRAPER STEPS ── */
+.steps-visual{display:flex;flex-direction:column;gap:0;margin:14px 0}
+.step-visual-item{display:flex;align-items:flex-start;gap:14px;padding:13px 16px;border:1px solid var(--border);border-bottom:none;background:var(--card);transition:background .15s}
+.step-visual-item:first-child{border-radius:10px 10px 0 0}
+.step-visual-item:last-child{border-bottom:1px solid var(--border);border-radius:0 0 10px 10px}
+.step-visual-item:hover{background:var(--bg2)}
+.step-num-badge{font-family:'Fira Code',monospace;font-size:.72em;font-weight:700;background:var(--emerald);color:#fff;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.step-visual-content h4{font-size:.88em;font-weight:700;color:var(--white);margin-bottom:3px}
+.step-visual-content p{font-size:.83em;color:var(--text2);line-height:1.6}
+
+/* ── QUIZ ── */
+.quiz-block{margin-top:20px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.quiz-header{padding:12px 16px;background:var(--bg3);border-bottom:1px solid var(--border);font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--violet2);display:flex;align-items:center;gap:7px}
+.quiz-q{padding:14px 16px;border-bottom:1px solid var(--border)}
+.quiz-q:last-child{border-bottom:none}
+.quiz-q p{font-size:.88em;color:var(--white);font-weight:600;margin-bottom:10px}
+.quiz-options{display:flex;flex-direction:column;gap:7px}
+.quiz-opt{display:flex;align-items:center;gap:10px;padding:9px 13px;border-radius:8px;border:1px solid var(--border);background:var(--card);cursor:pointer;font-size:.84em;color:var(--text2);transition:all .15s}
+.quiz-opt:hover{border-color:var(--border2);background:var(--bg3)}
+.quiz-opt.correct{border-color:var(--green);background:rgba(34,197,94,.1);color:var(--green2)}
+.quiz-opt.wrong{border-color:var(--rose);background:rgba(244,63,94,.1);color:var(--rose2)}
+.quiz-opt-letter{width:22px;height:22px;border-radius:50%;flex-shrink:0;background:var(--bg3);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-family:'Fira Code',monospace;font-size:.72em;font-weight:700;color:var(--muted)}
+.quiz-opt.correct .quiz-opt-letter{background:var(--green);border-color:var(--green);color:#000}
+.quiz-opt.wrong .quiz-opt-letter{background:var(--rose);border-color:var(--rose);color:#fff}
+.quiz-feedback{font-size:.79em;margin-top:8px;padding:8px 12px;border-radius:6px;display:none}
+.quiz-feedback.show{display:block}
+.quiz-feedback.ok{background:rgba(34,197,94,.1);color:var(--green2);border:1px solid rgba(34,197,94,.2)}
+.quiz-feedback.no{background:rgba(244,63,94,.1);color:var(--rose2);border:1px solid rgba(244,63,94,.2)}
+
+/* ── BLOG SECTION ── */
+.blog-section{margin-top:20px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:30px}
+.blog-header{padding:11px 16px;background:var(--bg3);border-bottom:1px solid var(--border);font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--lime2);display:flex;align-items:center;gap:7px}
+.blog-item{display:flex;align-items:flex-start;gap:12px;padding:13px 16px;border-bottom:1px solid var(--border);text-decoration:none;transition:background .15s}
+.blog-item:last-child{border-bottom:none}
+.blog-item:hover{background:rgba(132,204,22,.04)}
+.blog-icon{font-size:1.1em;flex-shrink:0;margin-top:1px}
+.blog-text{flex:1}
+.blog-text strong{display:block;font-size:.85em;font-weight:600;color:var(--blue2);margin-bottom:2px}
+.blog-item:hover .blog-text strong{color:var(--emerald2)}
+.blog-text span{font-size:.77em;color:var(--muted);line-height:1.4}
+
+/* ── FLASHCARD ── */
+.flashcard-block{margin-top:20px;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:var(--card)}
+.flashcard-header{padding:11px 16px;background:var(--bg3);border-bottom:1px solid var(--border);font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--teal2);display:flex;align-items:center;gap:7px}
+.flashcard-inner{padding:20px;display:flex;flex-direction:column;align-items:center;gap:14px}
+.flashcard{width:100%;min-height:110px;border-radius:10px;cursor:pointer;position:relative;perspective:800px}
+.flashcard-face{width:100%;min-height:110px;border-radius:10px;display:flex;align-items:center;justify-content:center;padding:20px;text-align:center;backface-visibility:hidden;transition:transform .5s;position:absolute;top:0;left:0}
+.fc-front{background:var(--bg2);border:1px solid var(--border);color:var(--white);font-weight:700;font-size:.95em;transform:rotateY(0deg)}
+.fc-back{background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.3);color:var(--text2);font-size:.87em;line-height:1.6;transform:rotateY(180deg)}
+.flashcard.flipped .fc-front{transform:rotateY(-180deg)}
+.flashcard.flipped .fc-back{transform:rotateY(0deg)}
+.fc-nav{display:flex;align-items:center;gap:12px}
+.fc-btn{background:var(--bg2);border:1px solid var(--border);color:var(--text2);border-radius:8px;padding:7px 16px;cursor:pointer;font-size:.78em;font-weight:600;font-family:'Syne',sans-serif;transition:all .15s}
+.fc-btn:hover{border-color:var(--emerald2);color:var(--emerald2)}
+.fc-counter{font-size:.75em;color:var(--muted);font-family:'Fira Code',monospace}
+
+/* ── CONTENT BRIEF BUILDER ── */
+.brief-builder{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:16px 0}
+.brief-header{padding:12px 16px;background:var(--bg3);border-bottom:1px solid var(--border);font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--amber2);display:flex;align-items:center;gap:7px}
+.brief-body{padding:16px}
+.brief-row{display:flex;flex-direction:column;gap:5px;margin-bottom:14px}
+.brief-row:last-child{margin-bottom:0}
+.brief-label{font-size:.72em;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.8px}
+.brief-input{background:var(--bg2);border:1px solid var(--border);border-radius:7px;padding:9px 12px;font-size:.86em;color:var(--text);font-family:'Syne',sans-serif;resize:vertical;width:100%;transition:border-color .15s;min-height:36px}
+.brief-input:focus{outline:none;border-color:var(--emerald);background:var(--bg1)}
+.brief-btn{background:var(--emerald);color:#fff;border:none;border-radius:7px;padding:9px 18px;font-size:.82em;font-weight:700;font-family:'Syne',sans-serif;cursor:pointer;transition:all .15s;margin-top:10px}
+.brief-btn:hover{background:var(--emerald2);transform:translateY(-1px)}
+.brief-output{background:var(--bg2);border:1px solid rgba(16,185,129,.3);border-radius:8px;padding:14px;margin-top:12px;font-size:.84em;color:var(--text2);line-height:1.7;display:none}
+.brief-output.show{display:block}
+
+/* ── DIVIDER ── */
+.section-divider{display:flex;align-items:center;gap:14px;margin:44px 0 32px}
+.section-divider::before,.section-divider::after{content:'';flex:1;height:1px;background:linear-gradient(to right,transparent,var(--border),transparent)}
+.section-divider span{font-family:'Fira Code',monospace;font-size:.68em;color:var(--muted);white-space:nowrap;text-transform:uppercase;letter-spacing:2px}
+
+/* ── MOD NAV ── */
+.mod-nav{display:flex;justify-content:space-between;gap:14px;margin-top:50px}
+.mod-nav-btn{display:flex;align-items:center;gap:10px;padding:14px 20px;border:1px solid var(--border);border-radius:10px;text-decoration:none;transition:all .2s;flex:1}
+.mod-nav-btn:hover{border-color:var(--emerald);background:rgba(16,185,129,.05)}
+.mod-nav-btn.prev{flex-direction:row}
+.mod-nav-btn.next{flex-direction:row-reverse;text-align:right}
+.mod-nav-label{font-size:.68em;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted)}
+.mod-nav-title{font-size:.88em;font-weight:700;color:var(--text2)}
+.mod-nav-btn:hover .mod-nav-title{color:var(--emerald2)}
+.mod-nav-arrow{font-size:1.2em;color:var(--muted)}
+
+/* ── OVERLAY ── */
+.sb-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:150;opacity:0;transition:opacity .3s}
+.sb-overlay.show{display:block;opacity:1}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .sidebar{transform:translateX(-100%)}
+  .sidebar.open{transform:translateX(0)}
+  .main{margin-left:0}
+  .hamburger{display:flex}
+  .topbar{padding:10px 20px}
+  .mod-hero{padding:36px 24px 28px}
+  .content-area{padding:28px 20px 80px}
+  .block-grid{grid-template-columns:1fr}
+  .note-grid{grid-template-columns:1fr}
+  .note-cell:nth-child(2n){border-right:1px solid rgba(16,185,129,.12)}
+  .note-cell{border-right:none !important}
+  .note-cell:nth-child(3){border-bottom:1px solid rgba(16,185,129,.12) !important}
+  .hero-stats{grid-template-columns:repeat(2,1fr);width:100%}
+  .cal-grid{grid-template-columns:1fr 1fr}
+  .mod-nav{flex-direction:column}
+}
+@media(max-width:500px){
+  .topbar-breadcrumb{display:none}
+  .mod-hero h1{font-size:1.65em}
+  .cal-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="shell">
+
+<!-- ══════ SIDEBAR ══════ -->
+<nav class="sidebar" id="sidebar">
+  <div class="sb-brand">
+    <a class="sb-back" href="seo_complete_roadmap_v3.html">← All Modules</a>
+    <div class="sb-mod-badge">MODULE 05</div>
+    <h2>Content Strategy</h2>
+    <p>Creating Content That Actually Ranks</p>
+  </div>
+  <div class="sb-progress">
+    <div class="prog-label"><span>Module Progress</span><span id="prog-pct">0%</span></div>
+    <div class="prog-bg"><div class="prog-fill" id="prog-bar"></div></div>
+  </div>
+  <div class="sb-nav">
+    <div class="sb-section-label">Topics</div>
+    <a class="nav-link" href="#t5-1" data-target="t5-1"><span class="nav-num">5.1</span>Topic Clusters & Pillar Pages<span class="nav-done">✓</span></a>
+    <a class="nav-link" href="#t5-2" data-target="t5-2"><span class="nav-num">5.2</span>Writing SEO Content That Ranks<span class="nav-done">✓</span></a>
+    <a class="nav-link" href="#t5-3" data-target="t5-3"><span class="nav-num">5.3</span>Search Intent & Content Formats<span class="nav-done">✓</span></a>
+    <a class="nav-link" href="#t5-4" data-target="t5-4"><span class="nav-num">5.4</span>Content Repurposing & Updating<span class="nav-done">✓</span></a>
+    <a class="nav-link" href="#t5-5" data-target="t5-5"><span class="nav-num">5.5</span>Editorial Calendar & Content Ops<span class="nav-done">✓</span></a>
+    <a class="nav-link" href="#t5-6" data-target="t5-6"><span class="nav-num">5.6</span>AI & Content at Scale<span class="nav-done">✓</span></a>
+    <div class="sb-section-label" style="margin-top:8px">Study Aids</div>
+    <a class="nav-link" href="#brief-section" data-target="brief-section"><span class="nav-num">📝</span>Content Brief Builder<span class="nav-done">✓</span></a>
+    <a class="nav-link" href="#tools-section" data-target="tools-section"><span class="nav-num">🔧</span>Tool Stack<span class="nav-done">✓</span></a>
+    <a class="nav-link" href="#quiz-section" data-target="quiz-section"><span class="nav-num">🎯</span>Module Quiz<span class="nav-done">✓</span></a>
+    <a class="nav-link" href="#flashcard-section" data-target="flashcard-section"><span class="nav-num">🃏</span>Flashcards<span class="nav-done">✓</span></a>
+  </div>
+  <div class="sb-footer">
+    <p>SEO Mastery Roadmap 2025 Module 5 of 12</p>
+  </div>
+</nav>
+
+<div class="sb-overlay" id="sb-overlay" onclick="closeSidebar()"></div>
+
+<!-- ══════ MAIN ══════ -->
+<div class="main">
+
+<div class="topbar">
+  <button class="hamburger" onclick="toggleSidebar()" aria-label="Menu"><span></span><span></span><span></span></button>
+  <div class="topbar-breadcrumb">
+    <a href="seo_complete_roadmap_v3.html">SEO Mastery 2025</a>
+    <span style="color:var(--muted)">›</span>
+    <span>Module 5 — Content Strategy</span>
+  </div>
+  <button class="theme-btn" onclick="toggleTheme()" id="theme-btn">☀️ Light Mode</button>
+</div>
+
+<!-- HERO -->
+<div class="mod-hero">
+  <div class="mod-hero-bg"></div>
+  <div class="mod-hero-grid"></div>
+  <div class="mod-hero-inner">
+    <div class="mod-number-tag">MODULE 05 / 10</div>
+    <h1>Content Strategy —<br><em>Content That Actually Ranks</em></h1>
+    <p>Writing is only 20% of the battle. The other 80% is strategy — knowing what to write, for whom, in what format, how long, and when to refresh it. This module gives you the complete system to plan, produce, and maintain content that compounds in value over time.</p>
+    <div class="mod-tags">
+      <span class="mtag mtag-emerald">Core Skill</span>
+      <span class="mtag mtag-amber">High ROI</span>
+      <span class="mtag mtag-lime">Creative</span>
+      <span class="mtag mtag-violet">Intermediate</span>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-box"><div class="stat-n">6</div><div class="stat-l">Topics</div></div>
+      <div class="stat-box"><div class="stat-n">26</div><div class="stat-l">Tasks</div></div>
+      <div class="stat-box"><div class="stat-n">18</div><div class="stat-l">Resources</div></div>
+      <div class="stat-box"><div class="stat-n">3–4h</div><div class="stat-l">Est. Time</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="content-area">
+
+<!-- ═══ TOPIC 5.1 ═══ -->
+<div class="topic-item open" id="t5-1">
+  <div class="topic-header" onclick="toggleTopic(this)">
+    <span class="topic-num">5.1</span>
+    <h3>Topic Clusters, Pillar Pages & Building Topical Authority</h3>
+    <span class="topic-difficulty diff-intermediate">Intermediate</span>
+    <span class="topic-chevron">▼</span>
+  </div>
+  <div class="topic-body">
+    <div class="topic-intro">
+      <strong>Topical authority</strong> is Google's internal assessment of how comprehensively and reliably a website covers a particular subject area. A site that deeply covers every facet of a topic — from beginner overviews to advanced sub-topics — consistently outranks sites with just one or two good articles, even when those articles have stronger backlinks. The <strong>topic cluster model</strong> is the systematic method for building this authority. It transforms a random blog into a content machine that ranks across hundreds of related keywords simultaneously.
+    </div>
+
+    <div class="keypoints">
+      <div class="kp"><div class="kp-dot"></div><div><strong>Pillar Page — The authoritative hub:</strong> A single comprehensive page (3,000–8,000 words) covering a broad topic thoroughly. Examples: "The Complete Guide to Email Marketing", "Everything About Weight Training", "SEO for Beginners: The Definitive Guide." Pillar pages target broad, high-volume keywords and serve as the internal linking hub for all cluster content.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Cluster Articles — Depth that builds the pillar's authority:</strong> 1,500–3,000 word articles each covering one specific sub-topic in detail. Each links back to the pillar and cross-links to sibling clusters. Example cluster for an "Email Marketing" pillar: "how to grow an email list", "best email subject lines", "email open rate benchmarks", "email automation sequences", "A/B testing email campaigns." 8–12 clusters per pillar is the sweet spot.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>The Internal Linking Architecture:</strong> Hub-and-spoke model. Every cluster article links to the pillar page with keyword-rich anchor text. The pillar links to all cluster articles. Cluster articles cross-link to related clusters. This creates a dense internal link web that distributes PageRank and signals topical depth to Google's crawlers.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Depth Before Breadth — The authority building principle:</strong> 3 topics covered comprehensively (1 pillar + 10 clusters each = 33 articles total) dramatically outperforms 33 isolated articles on 33 different topics. Depth per topic signals domain expertise; scattered breadth signals a generalist with no clear authority niche.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>How to Choose Your Pillar Topics:</strong> Your pillar topic should be: (1) a keyword with 10,000+ monthly searches, (2) directly relevant to your business or niche, (3) broad enough to spawn 8–12 genuinely distinct sub-topic cluster articles. Use Ahrefs or SEMrush to verify search volume. Start with 2–3 pillar topics maximum before expanding.</div></div>
+    </div>
+
+    <div class="block-grid">
+      <div class="info-block block-example">
+        <div class="block-label">📖 HubSpot — The Origin Story</div>
+        <p>In 2017, HubSpot had 3,000+ scattered blog posts performing poorly. They restructured everything into 50+ topic clusters. Their "CRM" cluster: 1 pillar page "What Is CRM?" + 18 deeply interlinked cluster articles.</p>
+        <p style="margin-top:8px"><strong>Result:</strong> HubSpot now ranks #1 for "CRM" (550,000 monthly searches) — a keyword previously dominated only by Salesforce and dedicated CRM tools. Google now recognises HubSpot as the definitive CRM authority. The restructure drove a <strong>50%+ organic traffic increase</strong> with no new content — only reorganisation and internal linking.</p>
+        <p style="margin-top:8px"><strong>Lesson:</strong> Topical authority is not about writing more — it's about organising what you have into coherent, interlinked clusters that signal depth to Google.</p>
+      </div>
+      <div class="info-block block-task">
+        <div class="block-label">✅ Your Tasks</div>
+        <div class="task-list">
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Pick one niche. Build a full topic cluster map: 1 pillar + 10 cluster articles, each with a target keyword and word count estimate. Draw the internal linking structure.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Analyse HubSpot.com — identify one of their live topic clusters. Map the pillar page + 5 cluster articles and document the exact internal linking pattern used.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Create a complete H1 + H2 outline for a 3,000-word pillar page on any topic you know well. Every H2 should map to a potential cluster article.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Use <strong>Ahrefs Keywords Explorer</strong> or <strong>SEMrush</strong> to find 3 pillar topic candidates in your niche. Validate that each has 5,000+ monthly searches and enough sub-topics for 8+ clusters.</span></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="resources-block">
+      <div class="res-title">📚 Learning Resources</div>
+      <div class="res-links">
+        <a class="res-link" href="https://blog.hubspot.com/marketing/topic-clusters-seo" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>HubSpot — Topic Clusters: The Future of SEO</strong><span>The original article that launched the topic cluster model. Includes full methodology, internal linking diagrams, and their real traffic data.</span></div><span class="res-badge res-blog">BLOG</span></a>
+        <a class="res-link" href="https://ahrefs.com/blog/content-strategy/" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Ahrefs — How to Create a Content Strategy</strong><span>Step-by-step content strategy guide covering topic clustering, keyword research integration, and editorial calendar planning.</span></div><span class="res-badge res-blog">GUIDE</span></a>
+        <a class="res-link" href="https://www.semrush.com/blog/topical-authority/" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>SEMrush — Topical Authority: What It Is & How to Build It</strong><span>Deep-dive into how Google evaluates topical authority and the step-by-step process for building it systematically.</span></div><span class="res-badge res-blog">BLOG</span></a>
+        <a class="res-link" href="https://www.youtube.com/watch?v=oYPUSKFJY5M" target="_blank" rel="noopener"><span class="res-icon">▶️</span><div class="res-text"><strong>Ahrefs YouTube — Topic Clusters Explained (with Examples)</strong><span>Visual walkthrough of how topic clusters work, how to build them, and how they improve rankings across a whole niche.</span></div><span class="res-badge res-video">VIDEO</span></a>
+      </div>
+    </div>
+
+    <div class="topic-note">
+      <div class="note-header">📌 Quick Reference — Topic Clusters & Topical Authority</div>
+      <div class="note-grid">
+        <div class="note-cell">
+          <div class="note-cell-label">✅ Why Use</div>
+          <p>Topic clusters make Google recognise your site as a <strong>niche authority</strong>, lifting rankings across all related keywords simultaneously — not just the pages you're actively optimising. It's a compounding structure.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">📍 Where Use</div>
+          <p>Every content-driven website — blogs, SaaS companies, e-commerce with a blog, service businesses with resource sections. Especially powerful for <strong>new sites</strong> trying to break through in competitive niches with limited backlinks.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">⚙️ How Use</div>
+          <p>Choose 2–3 broad pillar topics → research 8–12 sub-topics per pillar → write pillar page first → write cluster articles → interlink them all. Use Ahrefs or SEMrush to validate keyword demand for every cluster article before writing.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">⏱ When Use</div>
+          <p>Start with topic clusters <strong>before writing your first article</strong>. If you have existing content, audit it and reorganise into clusters before adding more. Review your cluster structure every 6 months and fill gaps with new cluster articles.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ TOPIC 5.2 ═══ -->
+<div class="topic-item" id="t5-2">
+  <div class="topic-header" onclick="toggleTopic(this)">
+    <span class="topic-num">5.2</span>
+    <h3>Writing SEO Content — Framework, Structure & Optimisation</h3>
+    <span class="topic-difficulty diff-intermediate">Intermediate</span>
+    <span class="topic-chevron">▼</span>
+  </div>
+  <div class="topic-body">
+    <div class="topic-intro">
+      Great SEO content satisfies two audiences simultaneously: <strong>search algorithms</strong> (correct keyword signals, structure, schema) and <strong>human readers</strong> (clarity, depth, readability, value). These goals align far more than they conflict — Google's algorithm has become extraordinarily good at measuring genuine user satisfaction. The article ranking #1 is usually there because it comprehensively answers the query, is easy to read, and leaves users with zero reason to return to the search results. Writing for rankings means writing to serve the reader completely.
+    </div>
+
+    <!-- Skyscraper Steps -->
+    <div class="steps-visual">
+      <div class="step-visual-item">
+        <div class="step-num-badge">1</div>
+        <div class="step-visual-content">
+          <h4>SERP Analysis Before Writing</h4>
+          <p>Study the top 5 ranking articles for your target keyword. Note: what sub-topics they cover (every H2), what format they use (guide, list, comparison), average word count, what questions they leave unanswered. This becomes your content brief.</p>
+        </div>
+      </div>
+      <div class="step-visual-item">
+        <div class="step-num-badge">2</div>
+        <div class="step-visual-content">
+          <h4>Strategic Keyword Placement</h4>
+          <p>Primary keyword in: title tag, H1, first 100 words, at least 2 H2s, URL slug, and one image alt text. Include LSI keywords (semantic variants) naturally throughout. Never target a keyword density percentage — it's outdated. Write naturally for readers, use the keyword where it fits.</p>
+        </div>
+      </div>
+      <div class="step-visual-item">
+        <div class="step-num-badge">3</div>
+        <div class="step-visual-content">
+          <h4>Match Length to the Query</h4>
+          <p>How-to guides: 1,500–3,000 words. Pillar pages: 3,000–8,000 words. Product pages: 200–500 words unique copy. News: 300–700 words. Never write long for the sake of it — match the depth and length of what's already ranking for your keyword.</p>
+        </div>
+      </div>
+      <div class="step-visual-item">
+        <div class="step-num-badge">4</div>
+        <div class="step-visual-content">
+          <h4>LSI & Semantic Keyword Coverage</h4>
+          <p>Latent Semantic Indexing keywords are terms Google expects to see alongside your main keyword. For "content marketing": include "blog posts", "social media", "lead generation", "editorial calendar", "ROI." Tools: LSIGraph.com, Surfer SEO, Google's "Related Searches" section.</p>
+        </div>
+      </div>
+      <div class="step-visual-item">
+        <div class="step-num-badge">5</div>
+        <div class="step-visual-content">
+          <h4>Publish → Optimise → Update Cycle</h4>
+          <p>Never treat a published article as finished. Monitor in GSC for 60–90 days. If ranking positions 8–20: refresh content, add missing sections, update statistics, improve H2 structure. Refreshing consistently outperforms publishing new articles on the same topic.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="block-grid">
+      <div class="info-block block-example">
+        <div class="block-label">📖 Skyscraper Technique — Real Results</div>
+        <p>Brian Dean applied his Skyscraper method to "link building strategies." Step 1: Found top result ranking with a 2012 article listing 17 tactics. Step 2: Identified gaps — outdated tactics, no visuals, no case studies, thin explanations. Step 3: Published a comprehensive guide with 52 tactics, original screenshots, and case study data.</p>
+        <p style="margin-top:8px"><strong>Result:</strong> 1.7 million organic visits over 3 years from a single article. The page now has 21,000+ backlinks. Zero paid promotion was used. <em>One well-executed article built an entire brand.</em></p>
+        <p style="margin-top:8px">The lesson isn't "write long articles" — it's "write the definitive resource that makes every competing article redundant."</p>
+      </div>
+      <div class="info-block block-task">
+        <div class="block-label">✅ Your Tasks</div>
+        <div class="task-list">
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Pick any keyword. Study the top 5 ranking articles. List every H2 sub-topic each covers. Create an outline that includes ALL their topics PLUS 3 unique additional sections.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Write a complete <strong>1,500-word SEO article</strong> on any topic you know well. Score it in Rank Math or Yoast — aim for 80+. Fix every flagged issue before publishing.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Find an existing article ranking positions 8–20. Update it: add 500+ words, refresh all statistics with current data, add one new H2 section, add 3 internal links. Track position weekly for 6 weeks in GSC.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Use <strong>LSIGraph.com</strong> for any topic. Find 10 LSI keywords not yet in your article. Weave them in naturally during a content refresh and note the content score improvement.</span></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="resources-block">
+      <div class="res-title">📚 Learning Resources</div>
+      <div class="res-links">
+        <a class="res-link" href="https://backlinko.com/skyscraper-technique" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Backlinko — The Skyscraper Technique (Original)</strong><span>The definitive guide to creating content that earns links and ranks at the top. Includes the full methodology and real case study data.</span></div><span class="res-badge res-blog">GUIDE</span></a>
+        <a class="res-link" href="https://surferseo.com/" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>Surfer SEO</strong><span>Analyses top-ranking pages and scores your content in real time as you write. Shows keyword usage, heading structure, and content gaps.</span></div><span class="res-badge res-tool">TOOL</span></a>
+        <a class="res-link" href="https://lsigraph.com" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>LSIGraph — Semantic Keyword Generator</strong><span>Free tool generating all semantic/LSI keywords for any seed term. Include these naturally throughout your content for topical completeness.</span></div><span class="res-badge res-free">FREE TOOL</span></a>
+        <a class="res-link" href="https://hemingwayapp.com" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>Hemingway Editor</strong><span>Paste any content for readability score, complex sentence flagging, and passive voice detection. Target Grade 8 readability for maximum audience reach.</span></div><span class="res-badge res-free">FREE TOOL</span></a>
+      </div>
+    </div>
+
+    <div class="topic-note">
+      <div class="note-header">📌 Quick Reference — Writing SEO Content</div>
+      <div class="note-grid">
+        <div class="note-cell">
+          <div class="note-cell-label">✅ Why Use</div>
+          <p>Content is the primary lever for organic rankings. Unlike backlinks, you control content entirely. Well-written, strategically structured content <strong>compounds in value</strong> — rankings improve over months without ongoing investment.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">📍 Where Use</div>
+          <p>Every indexed page — blog posts, product pages, service pages, landing pages. Apply the SERP analysis process to every piece of content before writing. No page should be written without first studying what's already ranking.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">⚙️ How Use</div>
+          <p>Process: SERP analysis → content brief → keyword mapping → write with LSI coverage → score in Yoast/Rank Math → publish → monitor in GSC → refresh after 90 days. Use Surfer SEO for content scoring during writing.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">⏱ When Use</div>
+          <p>Before every piece of content you write. Set a <strong>monthly content refresh schedule</strong> for your top 10 highest-traffic pages — these maintain and improve their rankings through regular updates. Don't publish and forget.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ TOPIC 5.3 ═══ -->
+<div class="topic-item" id="t5-3">
+  <div class="topic-header" onclick="toggleTopic(this)">
+    <span class="topic-num">5.3</span>
+    <h3>Search Intent & Matching Content Formats to Queries</h3>
+    <span class="topic-difficulty diff-beginner">Beginner</span>
+    <span class="topic-chevron">▼</span>
+  </div>
+  <div class="topic-body">
+    <div class="topic-intro">
+      <strong>Search intent</strong> is the underlying goal a user has when they type a query into Google. It is the single most important factor in content strategy that most beginners ignore — and it's why technically perfect articles fail to rank despite having backlinks and good on-page SEO. If your content format doesn't match what Google has determined users want for that query, no amount of optimisation will make it rank. Understanding and matching intent is the prerequisite to everything else.
+    </div>
+
+    <div class="keypoints">
+      <div class="kp"><div class="kp-dot"></div><div><strong>Informational Intent — "I want to learn something":</strong> Queries: "how to lose weight", "what is SEO", "why does bread rise." Best format: how-to guides, explainer articles, listicles, tutorials. Length: 1,500–3,000+ words. These are top-of-funnel content — high traffic, low conversion, excellent for link acquisition.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Navigational Intent — "I want to find a specific page":</strong> Queries: "Facebook login", "Ahrefs pricing", "Nike Air Max." User already knows where they want to go — they're using Google as a navigation shortcut. Create branded pages with exact-match content. You can't steal these — unless you're the brand they're searching for.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Commercial Investigation Intent — "I want to compare options":</strong> Queries: "best SEO tools 2025", "Ahrefs vs SEMrush", "iPhone 16 review." Best format: comparison articles, reviews, roundups, "best X for Y" listicles. Length: 2,000–4,000 words. High buying intent — these pages convert well with affiliate links or product recommendations.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Transactional Intent — "I want to buy something":</strong> Queries: "buy SEO audit", "cheap running shoes online", "SEMrush coupon code." Best format: product pages, landing pages, category pages with clear CTAs. Length: 200–500 words of unique copy + product listings. These pages drive revenue — prioritise speed and conversion over word count.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>How to Read Intent from the SERP:</strong> Google already tells you the intent. Look at the top 5 results: Are they mostly blog posts? (Informational). Are they product pages? (Transactional). Are they comparison articles? (Commercial investigation). Are they videos? (Consider a YouTube strategy). The SERP is Google's declaration of what format wins for that query — match it exactly.</div></div>
+    </div>
+
+    <div class="block-grid">
+      <div class="info-block block-warning">
+        <div class="block-label">⚠️ Intent Mismatch — The Silent Ranking Killer</div>
+        <p>A finance blog published a comprehensive "what is a credit card" guide — great content, strong backlinks from 40 referring domains. It never ranked past position 22.</p>
+        <p style="margin-top:8px">Analysis revealed: the SERP for "what is a credit card" was dominated by short, simple definition pages from major banks (200–400 words). The blog had written a 3,000-word deep guide — wrong format entirely for that intent. Users wanted a quick definition, not a comprehensive guide.</p>
+        <p style="margin-top:8px"><strong>Fix:</strong> They rewrote it as a concise 400-word definition page with a clear structure. It reached position 4 within 8 weeks — same backlinks, same domain, different content format matching intent.</p>
+      </div>
+      <div class="info-block block-task">
+        <div class="block-label">✅ Your Tasks</div>
+        <div class="task-list">
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Search 10 different keywords in Google. Classify each by intent type (Informational / Navigational / Commercial / Transactional) by analysing the SERP results. Note the dominant content format for each.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Find 3 articles on any site that have strong backlinks but weak rankings. Diagnose whether intent mismatch is the cause — does the content format match what the SERP shows Google wants?</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">For your topic cluster plan from 5.1: classify every keyword by intent and assign the correct content format and approximate length to each cluster article.</span></label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content Format Table -->
+    <table class="comp-table">
+      <thead>
+        <tr><th>Intent Type</th><th>Example Query</th><th>Best Format</th><th>Target Length</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Informational</td><td>"how to do keyword research"</td><td>How-to guide / Tutorial</td><td>1,500–3,000 words</td></tr>
+        <tr><td>Commercial</td><td>"best keyword research tools"</td><td>Comparison / Roundup</td><td>2,000–4,000 words</td></tr>
+        <tr><td>Transactional</td><td>"buy ahrefs subscription"</td><td>Landing / Product page</td><td>200–500 words + CTA</td></tr>
+        <tr><td>Navigational</td><td>"Ahrefs login page"</td><td>Brand page / Exact match</td><td>Match brand page structure</td></tr>
+        <tr><td>Local</td><td>"SEO agency in Delhi"</td><td>Local landing page</td><td>500–1,000 + map/NAP</td></tr>
+      </tbody>
+    </table>
+
+    <div class="resources-block">
+      <div class="res-title">📚 Learning Resources</div>
+      <div class="res-links">
+        <a class="res-link" href="https://ahrefs.com/blog/search-intent/" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Ahrefs — Search Intent: The Complete Beginner's Guide</strong><span>The most comprehensive guide to understanding and matching search intent for SEO. Includes examples for every intent type.</span></div><span class="res-badge res-blog">GUIDE</span></a>
+        <a class="res-link" href="https://moz.com/blog/intent-based-keyword-research" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Moz — Intent-Based Keyword Research</strong><span>How to incorporate search intent into your keyword research process so every content decision is intent-matched from the start.</span></div><span class="res-badge res-blog">BLOG</span></a>
+        <a class="res-link" href="https://backlinko.com/search-intent-seo" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Backlinko — Search Intent SEO Guide</strong><span>Practical guide to diagnosing intent from SERPs and restructuring content to match what Google actually wants to rank.</span></div><span class="res-badge res-blog">BLOG</span></a>
+      </div>
+    </div>
+
+    <div class="topic-note">
+      <div class="note-header">📌 Quick Reference — Search Intent</div>
+      <div class="note-grid">
+        <div class="note-cell">
+          <div class="note-cell-label">✅ Why Use</div>
+          <p>Intent is the <strong>prerequisite to everything else in content strategy</strong>. Mismatched intent means your perfectly optimised article will never rank regardless of backlinks. Matching intent is the single highest-leverage content fix available.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">📍 Where Use</div>
+          <p>For every keyword before you write any content. Also retroactively on pages ranking positions 10–30 that have quality backlinks — intent mismatch is often the hidden cause of underperformance.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">⚙️ How Use</div>
+          <p>Search the keyword in Google → look at the top 5 results → identify the dominant format and length → match your content to that pattern. Use Ahrefs' "SERP overview" feature to see the content type breakdown for any keyword without searching manually.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">⏱ When Use</div>
+          <p>Before every piece of content is planned. If rankings aren't improving despite good on-page SEO and backlinks, intent mismatch is the first thing to check. Re-evaluate intent <strong>annually</strong> — Google's understanding of intent for queries evolves as search behavior changes.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ TOPIC 5.4 ═══ -->
+<div class="topic-item" id="t5-4">
+  <div class="topic-header" onclick="toggleTopic(this)">
+    <span class="topic-num">5.4</span>
+    <h3>Content Repurposing, Freshness & Update Strategy</h3>
+    <span class="topic-difficulty diff-intermediate">Intermediate</span>
+    <span class="topic-chevron">▼</span>
+  </div>
+  <div class="topic-body">
+    <div class="topic-intro">
+      Most content creators make the same mistake: publish, promote briefly, then immediately move on to creating new content. This is the least efficient use of your time. A single well-ranked article, systematically updated and repurposed, delivers more value than ten new articles on the same topic that split your audience, cannibalise each other's rankings, and dilute your internal links. The most sophisticated content operations in the world are built on <strong>update and repurpose</strong> workflows, not perpetual new content creation.
+    </div>
+
+    <div class="keypoints">
+      <div class="kp"><div class="kp-dot"></div><div><strong>The Content Freshness Signal:</strong> Google's "Query Deserves Freshness" (QDF) algorithm boosts recently updated content for time-sensitive queries. Topics with frequent updates (software, finance, news, health guidelines) heavily reward freshness. Updating statistics, examples, and date references on existing articles is often faster than writing new ones and produces equivalent or better ranking improvements.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>When to Update vs Create New:</strong> Update if: you have an existing page on the topic, it ranks positions 5–30, or it has backlinks you'd lose by creating a separate competing page. Create new only if: the new piece targets genuinely different intent, or the existing content is too structurally different to salvage.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Content Repurposing — Maximum reach from one asset:</strong> One high-performing blog post → Twitter/X thread (key insights) → LinkedIn carousel (data points) → YouTube script (walk-through format) → Pinterest infographic (key stats) → email newsletter (summary + link) → podcast episode (audio discussion). Each repurposed format drives traffic back to the original, building backlinks and brand awareness simultaneously.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Content Cannibalization — When updating creates a new problem:</strong> Happens when 2+ of your pages compete for the same keyword, splitting impressions and clicks between them. Google can't determine which to rank — so it ranks neither well. Fix: identify cannibalising pages in GSC (same keyword appearing on multiple pages in Search Results report), then either consolidate (301 redirect the weaker to the stronger) or differentiate (target clearly different keywords).</div></div>
+    </div>
+
+    <div class="block-grid">
+      <div class="info-block block-example">
+        <div class="block-label">📖 Update Strategy — Real Numbers</div>
+        <p>A marketing blog had an article on "email marketing statistics" ranking at position 14. The article was 18 months old with outdated data. Action taken:</p>
+        <ul style="margin-top:8px;padding-left:14px">
+          <li>Updated 23 statistics with current data</li>
+          <li>Added 2 new sections on AI-powered email</li>
+          <li>Refreshed publish date to current month</li>
+          <li>Added 4 new internal links from related articles</li>
+        </ul>
+        <p style="margin-top:8px"><strong>Result:</strong> Moved from position 14 to position 3 in 5 weeks. Time invested: 3 hours. Equivalent content creation effort would have been 15+ hours for a new article — with no guarantee of ranking. <em>Update ROI: 5× greater than new content for the same keyword.</em></p>
+      </div>
+      <div class="info-block block-task">
+        <div class="block-label">✅ Your Tasks</div>
+        <div class="task-list">
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">In GSC, find your top 5 pages by impressions ranking positions 8–20. These are your highest-priority update candidates — plan a specific refresh for each.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Take one existing article and repurpose it into 3 different formats: a Twitter/X thread (10 tweets), a LinkedIn post (400 words), and an email newsletter version (250 words).</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Check for content cannibalization in GSC: filter Search Results by keyword, check if multiple URLs appear for the same queries. Document any cannibalising pairs and your fix plan.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Create a <strong>Content Refresh Tracker</strong> spreadsheet: list your top 20 articles, their current ranking, last updated date, and planned next update date.</span></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="resources-block">
+      <div class="res-title">📚 Learning Resources</div>
+      <div class="res-links">
+        <a class="res-link" href="https://ahrefs.com/blog/content-refresh/" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Ahrefs — How to Refresh Old Blog Posts to Get More Traffic</strong><span>Step-by-step guide on identifying which posts to update, how to update them, and how to measure the impact.</span></div><span class="res-badge res-blog">GUIDE</span></a>
+        <a class="res-link" href="https://moz.com/blog/keyword-cannibalization" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Moz — Keyword Cannibalization: What Is It & How Do You Fix It?</strong><span>Complete guide to diagnosing, mapping, and fixing content cannibalization issues that silently kill rankings.</span></div><span class="res-badge res-blog">GUIDE</span></a>
+        <a class="res-link" href="https://backlinko.com/content-repurposing" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Backlinko — The Ultimate Guide to Content Repurposing</strong><span>How to systematically turn one piece of content into 10+ different assets across every major platform and format.</span></div><span class="res-badge res-blog">GUIDE</span></a>
+      </div>
+    </div>
+
+    <div class="topic-note">
+      <div class="note-header">📌 Quick Reference — Repurposing & Content Freshness</div>
+      <div class="note-grid">
+        <div class="note-cell">
+          <div class="note-cell-label">✅ Why Use</div>
+          <p>Updating existing content delivers 5× the ROI of new content for the same keyword. Repurposing multiplies the reach of a single content investment across platforms. Both strategies compound existing SEO work rather than starting from scratch.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">📍 Where Use</div>
+          <p>Update priority: pages ranking 5–20 with existing backlinks and impressions. Repurpose priority: your <strong>top 10 highest-performing articles</strong> by organic traffic — these have proven audience interest and deserve the widest distribution.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">⚙️ How Use</div>
+          <p>Monthly update review: check GSC for ranking drops → identify stale content → update statistics, add new sections, refresh internal links. Repurposing: write article first, then batch-adapt to other formats using the core arguments and data points.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">⏱ When Use</div>
+          <p>Schedule content audits <strong>quarterly</strong>. Set alerts for your top 20 pages so you know immediately when rankings drop. Repurpose immediately after any article reaches the top 5 — this is when audience interest is highest and the content is most link-worthy.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ TOPIC 5.5 ═══ -->
+<div class="topic-item" id="t5-5">
+  <div class="topic-header" onclick="toggleTopic(this)">
+    <span class="topic-num">5.5</span>
+    <h3>Editorial Calendar, Content Operations & Publishing Consistency</h3>
+    <span class="topic-difficulty diff-beginner">Beginner</span>
+    <span class="topic-chevron">▼</span>
+  </div>
+  <div class="topic-body">
+    <div class="topic-intro">
+      Publishing consistency is one of the most underrated ranking factors. Google's algorithm rewards sites that publish regularly — not because frequency is a direct signal, but because consistent publishing leads to more frequent crawling, more indexed pages, more internal linking opportunities, and stronger topical coverage over time. An editorial calendar is the operational backbone that makes consistency possible without burning out — and it's the difference between a professional content operation and an amateur blog.
+    </div>
+
+    <div class="keypoints">
+      <div class="kp"><div class="kp-dot"></div><div><strong>Publish Cadence — Quality beats quantity every time:</strong> Publishing 2 high-quality articles per month consistently outperforms publishing 8 thin articles per month. Set a realistic cadence you can maintain for 12 months without quality degradation. 1–2 posts per week is optimal for most content operations. Never sacrifice depth for frequency.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Editorial Calendar Structure:</strong> For each planned article: target keyword, search volume, difficulty score, assigned writer, draft due date, edit due date, publish date, assigned internal links (which pages will link to this new article), and post-publish promotion plan. This gives every piece of content a complete lifecycle, not just a publish date.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Content Batching — The consistency secret:</strong> Batch research + planning (1 day/month), batch writing (2–3 days/month), batch editing + publishing (1 day/month). Working in batches is 3× more efficient than creating one piece at a time — you maintain topic focus, reduce context-switching, and stay ahead of your publishing schedule.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Balancing New Content vs Updates:</strong> Professional content operations run on a 70/30 split: 70% of effort on new cluster articles, 30% on updating and improving existing top-performing content. This ratio keeps the content library growing while maintaining the quality of existing rankings.</div></div>
+    </div>
+
+    <!-- Sample Calendar -->
+    <p style="font-size:.85em;font-weight:700;color:var(--text2);margin-bottom:10px">📅 Sample 4-Week Content Sprint</p>
+    <div class="cal-grid">
+      <div class="cal-week">
+        <div class="cal-week-label">Week 1</div>
+        <h4>Research & Planning</h4>
+        <p>Keyword validation for next 4 articles. SERP analysis for each. Content briefs written. Internal link plan mapped. Sources bookmarked.</p>
+      </div>
+      <div class="cal-week">
+        <div class="cal-week-label">Week 2</div>
+        <h4>Writing Sprint</h4>
+        <p>2 cluster articles written to full draft. Focus on depth and LSI coverage. Images sourced and compressed. Alt text written during draft.</p>
+      </div>
+      <div class="cal-week">
+        <div class="cal-week-label">Week 3</div>
+        <h4>Edit, Optimise & Publish</h4>
+        <p>Both articles edited. On-page scored in Rank Math (target 80+). Published with schema markup. Internal links added from 3 existing articles to each new post.</p>
+      </div>
+      <div class="cal-week">
+        <div class="cal-week-label">Week 4</div>
+        <h4>Promote & Refresh</h4>
+        <p>Promote new articles via social and email. Update 1 existing article ranking 8–20. Review GSC data for previous month's articles. Plan next sprint.</p>
+      </div>
+    </div>
+
+    <div class="block-grid">
+      <div class="info-block block-insight">
+        <div class="block-label">💡 Editorial Calendar Tools</div>
+        <ul>
+          <li><strong>Notion</strong> — Free, flexible database. Best for solo creators and small teams. Build a Kanban board with Status, Keyword, Volume, Difficulty, Writer, Due Date columns.</li>
+          <li><strong>Airtable</strong> — More structured than Notion. Excellent for teams. Calendar view shows publish schedule visually across weeks/months.</li>
+          <li><strong>Google Sheets</strong> — Simplest option. Create columns: Keyword, Intent, Volume, Difficulty, Writer, Draft Due, Publish Date, Status, Word Count, Internal Links Added.</li>
+          <li><strong>CoSchedule</strong> — Paid, but specifically built for content marketing calendars with WordPress integration.</li>
+        </ul>
+      </div>
+      <div class="info-block block-task">
+        <div class="block-label">✅ Your Tasks</div>
+        <div class="task-list">
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Build a <strong>3-month editorial calendar</strong> for any niche using Notion or Google Sheets. Plan 2 articles per week — include keyword, intent, format, length, and publish date for each.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Create a <strong>content brief template</strong> you'll use for every article: target keyword, search intent, SERP analysis, H2 outline, LSI keywords, internal links to add, target word count.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Run a content audit of any site with 20+ articles. Categorise each as: Keep (performing), Update (underperforming), Consolidate (duplicate intent), Delete (thin/irrelevant). Justify each decision.</span></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="resources-block">
+      <div class="res-title">📚 Learning Resources</div>
+      <div class="res-links">
+        <a class="res-link" href="https://ahrefs.com/blog/content-audit/" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Ahrefs — How to Do a Content Audit</strong><span>Step-by-step process for auditing your entire content library and making decisions on what to keep, update, merge, or delete.</span></div><span class="res-badge res-blog">GUIDE</span></a>
+        <a class="res-link" href="https://coschedule.com/blog/editorial-calendar" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>CoSchedule — How to Create an Editorial Calendar</strong><span>The ultimate editorial calendar guide with templates, workflow tips, and advice for solo creators and content teams.</span></div><span class="res-badge res-blog">GUIDE</span></a>
+        <a class="res-link" href="https://notion.so" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>Notion — Free Editorial Calendar Builder</strong><span>Build a fully customised content calendar using Notion's database feature. Free tier sufficient for most content operations.</span></div><span class="res-badge res-free">FREE TOOL</span></a>
+      </div>
+    </div>
+
+    <div class="topic-note">
+      <div class="note-header">📌 Quick Reference — Editorial Calendar & Content Ops</div>
+      <div class="note-grid">
+        <div class="note-cell">
+          <div class="note-cell-label">✅ Why Use</div>
+          <p>Without a calendar, content creation is reactive and inconsistent. An editorial calendar creates <strong>systematic publishing</strong> that signals reliability to Google's freshness algorithms and builds audience trust through predictable delivery.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">📍 Where Use</div>
+          <p>Any content-driven site. Essential for client work — showing a client a documented editorial calendar is a professional signal that builds trust and justifies retainer fees.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">⚙️ How Use</div>
+          <p>Set up your calendar tool (Notion/Google Sheets/Airtable). Map every planned article 4–8 weeks in advance. Batch research sessions monthly. Set hard deadlines for drafts and publication. Review and adjust the plan at the start of each month.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">⏱ When Use</div>
+          <p>Build your editorial calendar <strong>before publishing your first article</strong>. Plan in 3-month sprints. Review monthly — adjust for keyword opportunities that emerge, algorithm changes, or seasonal content needs. Never freestyle — always plan ahead.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ TOPIC 5.6 ═══ -->
+<div class="topic-item" id="t5-6">
+  <div class="topic-header" onclick="toggleTopic(this)">
+    <span class="topic-num">5.6</span>
+    <h3>AI-Assisted Content Creation & Scaling Without Losing Quality</h3>
+    <span class="topic-difficulty diff-intermediate">Intermediate</span>
+    <span class="topic-chevron">▼</span>
+  </div>
+  <div class="topic-body">
+    <div class="topic-intro">
+      AI writing tools are now firmly embedded in professional content operations — not as a replacement for human expertise, but as a force multiplier for research, outlining, and first drafts. Google's position is clear: it does not penalise AI-generated content per se, it penalises <strong>low-quality, unhelpful content</strong> regardless of origin. AI-generated content that demonstrates genuine expertise, adds original insight, and satisfies user intent can rank. Mass-produced AI spam cannot. The winning approach: use AI for speed, humans for expertise, strategy, and differentiation.
+    </div>
+
+    <div class="keypoints">
+      <div class="kp"><div class="kp-dot"></div><div><strong>Google's Official Position on AI Content:</strong> Google's 2023 guidance explicitly states AI-generated content is not inherently against their guidelines. What matters is whether content is "helpful, reliable, people-first content" — regardless of how it was produced. The Helpful Content Update targets thin, generic content that prioritises search engines over people — whether human-written or AI-generated.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>What AI Does Well in Content Operations:</strong> First draft generation from a detailed brief, outlining and structure suggestions, meta description and title tag variations, FAQ generation for schema markup, repurposing existing content for different formats, research summarisation, generating LSI keyword lists, and creating content briefs from SERP analysis data.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>What AI Cannot Replace:</strong> Original research and data. First-hand experience and case studies (critical for E-E-A-T's "Experience" component). Expert opinion and nuanced judgment. Brand voice and personality. Genuinely novel ideas that haven't been written before. Strategic decisions about what content to create and why. These are your competitive moat — protect them.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>The Human-AI Content Workflow:</strong> (1) Human: keyword research, intent analysis, content brief creation. (2) AI: first draft from brief. (3) Human: fact-check every claim, add personal examples, inject expertise, strengthen arguments, add original data. (4) AI: assist with readability improvements, meta variations. (5) Human: final quality gate, publishing decision. Never publish AI output without substantive human review.</div></div>
+    </div>
+
+    <div class="block-grid">
+      <div class="info-block block-lime">
+        <div class="block-label">🤖 AI Tools for Content Strategy</div>
+        <ul>
+          <li><strong>ChatGPT / Claude</strong> — First drafts, outlines, FAQ generation, meta descriptions, title tag variations, repurposing existing content.</li>
+          <li><strong>Jasper AI</strong> — Purpose-built for marketing content. Templates for blog posts, product descriptions, ads.</li>
+          <li><strong>Surfer SEO + AI</strong> — Combines AI writing with real-time keyword optimisation. Score improves as you write.</li>
+          <li><strong>Perplexity AI</strong> — AI-powered research with cited sources. Great for finding current statistics and data points to include in content.</li>
+          <li><strong>Copy.ai</strong> — Strong for short-form content: social posts, email subjects, product descriptions.</li>
+        </ul>
+      </div>
+      <div class="info-block block-task">
+        <div class="block-label">✅ Your Tasks</div>
+        <div class="task-list">
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Write a detailed content brief for any article (keyword, intent, target audience, outline, LSI keywords, tone). Use it to prompt an AI tool to generate a first draft. Then spend 1 hour improving the draft with your own expertise and examples.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Use an AI tool to generate 10 title tag variations and 5 meta description options for one of your existing articles. Choose the best, refine it, and update the page. Track CTR change in GSC over 4 weeks.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Read Google's <strong>helpful content guidance</strong>. List 5 specific characteristics of unhelpful AI content and write a personal checklist to ensure your AI-assisted content avoids every one of them.</span></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="resources-block">
+      <div class="res-title">📚 Learning Resources</div>
+      <div class="res-links">
+        <a class="res-link" href="https://developers.google.com/search/blog/2023/02/google-search-and-ai-content" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Google — AI-Generated Content & Search (Official)</strong><span>Google's official statement on AI-generated content and exactly what their guidelines say about it for ranking purposes.</span></div><span class="res-badge res-official">OFFICIAL</span></a>
+        <a class="res-link" href="https://ahrefs.com/blog/ai-content-seo/" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Ahrefs — AI Content & SEO: What You Need to Know</strong><span>Comprehensive analysis of how AI content performs in search, with data on what works and what gets penalised.</span></div><span class="res-badge res-blog">BLOG</span></a>
+        <a class="res-link" href="https://surferseo.com/" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>Surfer SEO (AI + Optimisation)</strong><span>Combines AI writing with real-time content scoring. Ensures AI-generated content is keyword-optimised as it's created.</span></div><span class="res-badge res-tool">TOOL</span></a>
+        <a class="res-link" href="https://www.jasper.ai" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>Jasper AI</strong><span>Purpose-built AI writing assistant for marketers. Strong templates for blog posts, product descriptions, and long-form SEO content.</span></div><span class="res-badge res-tool">TOOL</span></a>
+      </div>
+    </div>
+
+    <div class="topic-note">
+      <div class="note-header">📌 Quick Reference — AI & Content at Scale</div>
+      <div class="note-grid">
+        <div class="note-cell">
+          <div class="note-cell-label">✅ Why Use</div>
+          <p>AI accelerates content production by 3–5×. Used correctly, it handles the repetitive structural elements of content creation, freeing human expertise for strategy, research, and the original insights that actually differentiate your content.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">📍 Where Use</div>
+          <p>First drafts, outlines, meta variations, FAQ sections, content repurposing, social media adaptations. <strong>Never</strong> as a no-review publish pipeline. AI is the starting point, human expertise is the differentiator.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">⚙️ How Use</div>
+          <p>Provide detailed briefs with specific context — the more specific your prompt, the better the output. Always fact-check claims. Add first-person examples, case studies, and original data. Use Hemingway Editor to improve readability after AI drafting.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">⏱ When Use</div>
+          <p>Immediately integrate AI into your workflow — but build your human review process first. The risk is publishing AI content without substantive review — <strong>this is what Google penalises</strong>. AI + expert review = competitive advantage. AI alone = Helpful Content Update risk.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ CONTENT BRIEF BUILDER ═══ -->
+<div class="section-divider" id="brief-section"><span>◈ Interactive Content Brief Builder</span></div>
+
+<div class="brief-builder">
+  <div class="brief-header">📝 Content Brief Generator — Fill in the Details</div>
+  <div class="brief-body">
+    <div class="brief-row">
+      <label class="brief-label">Target Keyword</label>
+      <input class="brief-input" id="bf-keyword" placeholder="e.g. how to do keyword research" />
+    </div>
+    <div class="brief-row">
+      <label class="brief-label">Search Intent</label>
+      <select class="brief-input" id="bf-intent" style="cursor:pointer" title="hi">
+        <option value="informational">Informational — User wants to learn</option>
+        <option value="commercial">Commercial — User is comparing options</option>
+        <option value="transactional">Transactional — User wants to buy</option>
+      </select>
+    </div>
+    <div class="brief-row">
+      <label class="brief-label">Target Audience</label>
+      <input class="brief-input" id="bf-audience" placeholder="e.g. beginner bloggers with no SEO experience" />
+    </div>
+    <div class="brief-row">
+      <label class="brief-label">3 Competitor URLs to Beat (optional)</label>
+      <input class="brief-input" id="bf-comps" placeholder="e.g. backlinko.com/keyword-research, ahrefs.com/blog/..." />
+    </div>
+    <button class="brief-btn" onclick="generateBrief()">⚡ Generate Content Brief</button>
+    <div class="brief-output" id="bf-output"></div>
+  </div>
+</div>
+
+<!-- ═══ TOOLS ═══ -->
+<div class="section-divider" id="tools-section"><span>◈ Essential Tools</span></div>
+
+<div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:24px">
+  <h3 style="font-family:'Fraunces',serif;font-size:1.25em;color:var(--white);margin-bottom:6px">🔧 Module 5 Tool Stack</h3>
+  <p style="font-size:.87em;color:var(--text2);margin-bottom:18px">Every tool you need for professional content strategy. All clickable and verified.</p>
+  <div class="tools-chips">
+    <a class="tool-chip" href="https://surferseo.com/" target="_blank" rel="noopener">Surfer SEO</a>
+    <a class="tool-chip" href="https://lsigraph.com" target="_blank" rel="noopener">LSIGraph</a>
+    <a class="tool-chip" href="https://hemingwayapp.com" target="_blank" rel="noopener">Hemingway Editor</a>
+    <a class="tool-chip" href="https://answerthepublic.com" target="_blank" rel="noopener">AnswerThePublic</a>
+    <a class="tool-chip" href="https://alsoasked.com" target="_blank" rel="noopener">AlsoAsked</a>
+    <a class="tool-chip" href="https://notion.so" target="_blank" rel="noopener">Notion (Calendar)</a>
+    <a class="tool-chip" href="https://rankmath.com/" target="_blank" rel="noopener">Rank Math</a>
+    <a class="tool-chip" href="https://yoast.com/wordpress/plugins/seo/" target="_blank" rel="noopener">Yoast SEO</a>
+    <a class="tool-chip" href="https://search.google.com/search-console" target="_blank" rel="noopener">Google Search Console</a>
+    <a class="tool-chip" href="https://www.jasper.ai" target="_blank" rel="noopener">Jasper AI</a>
+    <a class="tool-chip" href="https://copy.ai" target="_blank" rel="noopener">Copy.ai</a>
+    <a class="tool-chip" href="https://www.perplexity.ai" target="_blank" rel="noopener">Perplexity AI</a>
+    <a class="tool-chip" href="https://www.clearscope.io" target="_blank" rel="noopener">Clearscope</a>
+    <a class="tool-chip" href="https://ahrefs.com/blog/" target="_blank" rel="noopener">Ahrefs Blog</a>
+    <a class="tool-chip" href="https://www.semrush.com/features/seo-writing-assistant/" target="_blank" rel="noopener">SEMrush Writing Assistant</a>
+    <a class="tool-chip" href="https://coschedule.com/" target="_blank" rel="noopener">CoSchedule</a>
+  </div>
+</div>
+
+<!-- BLOG SECTION -->
+<div class="blog-section">
+  <div class="blog-header">✍️ Must-Read — Content Strategy</div>
+  <a class="blog-item" href="https://backlinko.com/content-marketing-guide" target="_blank" rel="noopener">
+    <span class="blog-icon">📝</span>
+    <div class="blog-text"><strong>Backlinko — The Definitive Guide to Content Marketing</strong><span>Brian Dean's comprehensive guide to content marketing strategy — covers every aspect from ideation to promotion to measuring ROI.</span></div>
+    <div class="blog-meta"><span class="res-badge res-blog">GUIDE</span></div>
+  </a>
+  <a class="blog-item" href="https://neilpatel.com/blog/content-strategy/" target="_blank" rel="noopener">
+    <span class="blog-icon">📝</span>
+    <div class="blog-text"><strong>Neil Patel — Content Strategy: The Definitive Guide</strong><span>End-to-end content strategy framework covering research, creation, distribution, and measurement for SEO-driven content.</span></div>
+    <div class="blog-meta"><span class="res-badge res-blog">BLOG</span></div>
+  </a>
+  <a class="blog-item" href="https://ahrefs.com/blog/content-marketing/" target="_blank" rel="noopener">
+    <span class="blog-icon">📝</span>
+    <div class="blog-text"><strong>Ahrefs — Content Marketing Guide for SEO</strong><span>How to create content that ranks and earns links simultaneously. Covers the research-to-publish workflow with real examples.</span></div>
+    <div class="blog-meta"><span class="res-badge res-blog">GUIDE</span></div>
+  </a>
+  <a class="blog-item" href="https://www.semrush.com/blog/content-marketing-strategy/" target="_blank" rel="noopener">
+    <span class="blog-icon">📝</span>
+    <div class="blog-text"><strong>SEMrush — How to Build a Content Marketing Strategy</strong><span>Data-driven content strategy guide with templates, workflow advice, and research on what content formats drive the most SEO value.</span></div>
+    <div class="blog-meta"><span class="res-badge res-blog">BLOG</span></div>
+  </a>
+  <a class="blog-item" href="https://developers.google.com/search/docs/fundamentals/creating-helpful-content" target="_blank" rel="noopener">
+    <span class="blog-icon">📄</span>
+    <div class="blog-text"><strong>Google — Creating Helpful, Reliable, People-First Content</strong><span>Official Google documentation on what makes content "helpful" by Google's definition. Essential reading for understanding the Helpful Content system.</span></div>
+    <div class="blog-meta"><span class="res-badge res-official">OFFICIAL</span></div>
+  </a>
+  <a class="blog-item" href="https://www.youtube.com/watch?v=6L3Fmb-pnGM" target="_blank" rel="noopener">
+    <span class="blog-icon">▶️</span>
+    <div class="blog-text"><strong>Ahrefs YouTube — Content Strategy Masterclass</strong><span>60-minute free video course covering the complete content strategy framework from keyword research to editorial calendar to measuring results.</span></div>
+    <div class="blog-meta"><span class="res-badge res-video">VIDEO</span></div>
+  </a>
+</div>
+
+<!-- ═══ QUIZ ═══ -->
+<div class="section-divider" id="quiz-section"><span>◈ Test Your Knowledge</span></div>
+<div class="quiz-block">
+  <div class="quiz-header">🎯 Module 5 Quiz — Content Strategy</div>
+
+  <div class="quiz-q" id="q1">
+    <p>1. What is the primary purpose of a topic cluster's internal linking structure?</p>
+    <div class="quiz-options">
+      <div class="quiz-opt" onclick="answerQuiz('q1','a','c')"><span class="quiz-opt-letter">A</span>To get more pages indexed faster</div>
+      <div class="quiz-opt" onclick="answerQuiz('q1','b','c')"><span class="quiz-opt-letter">B</span>To reduce bounce rate on individual pages</div>
+      <div class="quiz-opt" onclick="answerQuiz('q1','c','c')"><span class="quiz-opt-letter">C</span>To signal topical depth and distribute PageRank across all cluster pages</div>
+      <div class="quiz-opt" onclick="answerQuiz('q1','d','c')"><span class="quiz-opt-letter">D</span>To increase the number of pages Google crawls per day</div>
+    </div>
+    <div class="quiz-feedback ok" id="q1-ok">✅ Correct! The hub-and-spoke internal linking in a topic cluster serves two critical functions: it signals to Google that your site has deep, interconnected topical coverage (authority), and it distributes PageRank from your pillar page to all cluster articles, lifting rankings across all related keywords.</div>
+    <div class="quiz-feedback no" id="q1-no">❌ The answer is C. Topic cluster internal linking signals topical depth to Google and distributes PageRank across related pages — causing all cluster articles to rank better, not just the ones with external backlinks.</div>
+  </div>
+
+  <div class="quiz-q" id="q2">
+    <p>2. A user searches "best accounting software for small businesses 2025." What is their search intent?</p>
+    <div class="quiz-options">
+      <div class="quiz-opt" onclick="answerQuiz('q2','a','b')"><span class="quiz-opt-letter">A</span>Informational — they want to learn about accounting</div>
+      <div class="quiz-opt" onclick="answerQuiz('q2','b','b')"><span class="quiz-opt-letter">B</span>Commercial Investigation — they are comparing options before buying</div>
+      <div class="quiz-opt" onclick="answerQuiz('q2','c','b')"><span class="quiz-opt-letter">C</span>Transactional — they want to purchase immediately</div>
+      <div class="quiz-opt" onclick="answerQuiz('q2','d','b')"><span class="quiz-opt-letter">D</span>Navigational — they're looking for a specific software's website</div>
+    </div>
+    <div class="quiz-feedback ok" id="q2-ok">✅ Correct! "Best [X] for [use case]" is the classic commercial investigation query. The user knows they need accounting software but is still comparing options — they haven't decided yet. The ideal content format is a comparison/roundup article reviewing the top options.</div>
+    <div class="quiz-feedback no" id="q2-no">❌ This is Commercial Investigation intent. The word "best" combined with a use-case descriptor signals the user is in comparison mode — they know what they want but are evaluating options. Best content format: a comparison roundup article.</div>
+  </div>
+
+  <div class="quiz-q" id="q3">
+    <p>3. When should you update an existing article rather than create a new one on the same topic?</p>
+    <div class="quiz-options">
+      <div class="quiz-opt" onclick="answerQuiz('q3','a','a')"><span class="quiz-opt-letter">A</span>Almost always — if you have an existing page ranking positions 5–30 with backlinks</div>
+      <div class="quiz-opt" onclick="answerQuiz('q3','b','a')"><span class="quiz-opt-letter">B</span>Only when the existing article is less than 6 months old</div>
+      <div class="quiz-opt" onclick="answerQuiz('q3','c','a')"><span class="quiz-opt-letter">C</span>Never — new content always outperforms updated content</div>
+      <div class="quiz-opt" onclick="answerQuiz('q3','d','a')"><span class="quiz-opt-letter">D</span>Only when you have more than 100 backlinks to the existing page</div>
+    </div>
+    <div class="quiz-feedback ok" id="q3-ok">✅ Correct! An existing page already has backlinks, internal links, and some ranking data. Creating a new page on the same topic means starting from zero AND creating a cannibalisation problem where both pages compete, and neither ranks well. Update the existing page — it delivers 5× the ROI of writing new content on the same keyword.</div>
+    <div class="quiz-feedback no" id="q3-no">❌ The answer is A. An existing ranking page already has accumulated backlinks, indexing history, and GSC data — assets you'd lose by creating a new page. Updating is almost always faster, cheaper, and more effective than competing against yourself with a new article.</div>
+  </div>
+
+  <div class="quiz-q" id="q4">
+    <p>4. Google's Helpful Content Update primarily targets which type of content?</p>
+    <div class="quiz-options">
+      <div class="quiz-opt" onclick="answerQuiz('q4','a','c')"><span class="quiz-opt-letter">A</span>Any content written with AI assistance</div>
+      <div class="quiz-opt" onclick="answerQuiz('q4','b','c')"><span class="quiz-opt-letter">B</span>Content that is longer than 3,000 words</div>
+      <div class="quiz-opt" onclick="answerQuiz('q4','c','c')"><span class="quiz-opt-letter">C</span>Thin, generic content written primarily for search engines rather than people</div>
+      <div class="quiz-opt" onclick="answerQuiz('q4','d','c')"><span class="quiz-opt-letter">D</span>Content that uses too many keywords</div>
+    </div>
+    <div class="quiz-feedback ok" id="q4-ok">✅ Correct! Google explicitly states that AI-generated content is not inherently penalised. What the Helpful Content Update targets is content that prioritises search engines over actual users — regardless of how it was written. Thin, generic, low-experience content (human OR AI) gets demoted. Original, expert, genuinely helpful content ranks.</div>
+    <div class="quiz-feedback no" id="q4-no">❌ The Helpful Content Update targets thin, generic, people-last content — NOT AI content specifically. Google's guidance is explicit: AI content is fine if it meets their quality standards. The target is content written for search engines rather than humans, regardless of how it was produced.</div>
+  </div>
+</div>
+
+<!-- ═══ FLASHCARDS ═══ -->
+<div class="section-divider" id="flashcard-section"><span>◈ Flashcards</span></div>
+<div class="flashcard-block">
+  <div class="flashcard-header">🃏 Module 5 Flashcards — Click to Flip</div>
+  <div class="flashcard-inner">
+    <div class="flashcard" id="fc" onclick="flipCard()">
+      <div class="flashcard-face fc-front" id="fc-front">Loading...</div>
+      <div class="flashcard-face fc-back" id="fc-back">Loading...</div>
+    </div>
+    <div class="fc-nav">
+      <button class="fc-btn" onclick="prevCard()">← Prev</button>
+      <span class="fc-counter" id="fc-counter">1 / 10</span>
+      <button class="fc-btn" onclick="nextCard()">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- MOD NAV -->
+<div class="mod-nav">
+  <a href="module-4.html" class="mod-nav-btn prev">
+    <span class="mod-nav-arrow">←</span>
+    <div><div class="mod-nav-label">Previous Module</div><div class="mod-nav-title">Module 4 — Technical SEO</div></div>
+  </a>
+  <a href="module-6.html" class="mod-nav-btn next">
+    <span class="mod-nav-arrow">→</span>
+    <div><div class="mod-nav-label">Next Module</div><div class="mod-nav-title">Module 6 — Link Building</div></div>
+  </a>
+</div>
+
+</div><!-- /content-area -->
+
+</div><!-- /main -->
+</div><!-- /shell -->
+
+<script>
+/* ── THEME ── */
+function toggleTheme(){const h=document.documentElement;const d=h.dataset.theme==='dark';h.dataset.theme=d?'light':'dark';document.getElementById('theme-btn').textContent=d?'🌙 Dark Mode':'☀️ Light Mode';localStorage.setItem('seo-theme',h.dataset.theme)}
+(function(){const s=localStorage.getItem('seo-theme');if(s){document.documentElement.dataset.theme=s;document.getElementById('theme-btn').textContent=s==='light'?'🌙 Dark Mode':'☀️ Light Mode'}})();
+
+/* ── SIDEBAR ── */
+function toggleSidebar(){document.getElementById('sidebar').classList.toggle('open');document.getElementById('sb-overlay').classList.toggle('show')}
+function closeSidebar(){document.getElementById('sidebar').classList.remove('open');document.getElementById('sb-overlay').classList.remove('show')}
+
+/* ── ACCORDION ── */
+function toggleTopic(h){const i=h.parentElement;const o=i.classList.contains('open');document.querySelectorAll('.topic-item.open').forEach(e=>e.classList.remove('open'));if(!o)i.classList.add('open')}
+
+/* ── TASKS ── */
+function toggleTask(el){el.classList.toggle('checked');updateProgress();saveTasks()}
+
+function updateProgress(){
+  const total=document.querySelectorAll('.task-check-item').length;
+  const done=document.querySelectorAll('.task-check-item.checked').length;
+  const pct=total>0?Math.round((done/total)*100):0;
+  document.getElementById('prog-pct').textContent=pct+'%';
+  document.getElementById('prog-bar').style.width=pct+'%';
+  document.querySelectorAll('.topic-item').forEach(item=>{
+    const id=item.id;const nl=document.querySelector(`.nav-link[href="#${id}"]`);
+    const t=item.querySelectorAll('.task-check-item').length;
+    const c=item.querySelectorAll('.task-check-item.checked').length;
+    if(nl&&t>0&&c===t)nl.classList.add('completed');else if(nl)nl.classList.remove('completed');
+  });
+}
+
+function saveTasks(){
+  const s={};
+  document.querySelectorAll('.task-check-item').forEach((el,i)=>{s[i]=el.classList.contains('checked')});
+  try{localStorage.setItem('seo-m5-tasks',JSON.stringify(s))}catch(e){}
+}
+function loadTasks(){
+  try{
+    const s=JSON.parse(localStorage.getItem('seo-m5-tasks')||'{}');
+    document.querySelectorAll('.task-check-item').forEach((el,i)=>{if(s[i])el.classList.add('checked')});
+    updateProgress();
+  }catch(e){}
+}
+
+/* ── NAV HIGHLIGHT ── */
+const navLinks=document.querySelectorAll('.nav-link[data-target]');
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){const id=e.target.id;navLinks.forEach(l=>l.classList.toggle('active',l.dataset.target===id))}});
+},{threshold:.15,rootMargin:'-80px 0px -80px 0px'});
+document.querySelectorAll('[id]').forEach(el=>obs.observe(el));
+navLinks.forEach(l=>l.addEventListener('click',()=>{if(window.innerWidth<=900)closeSidebar()}));
+
+/* ── QUIZ ── */
+function answerQuiz(qId,chosen,correct){
+  const qEl=document.getElementById(qId);if(qEl.dataset.answered)return;qEl.dataset.answered='1';
+  const opts=qEl.querySelectorAll('.quiz-opt');const letters=['a','b','c','d'];
+  opts.forEach((opt,i)=>{
+    if(letters[i]===correct)opt.classList.add('correct');
+    else if(letters[i]===chosen&&chosen!==correct)opt.classList.add('wrong');
+    opt.style.pointerEvents='none';
+  });
+  const ok=chosen===correct;
+  document.getElementById(qId+'-ok').classList.toggle('show',ok);
+  document.getElementById(qId+'-no').classList.toggle('show',!ok);
+}
+
+/* ── CONTENT BRIEF BUILDER ── */
+function generateBrief(){
+  const kw=document.getElementById('bf-keyword').value.trim()||'[your keyword]';
+  const intent=document.getElementById('bf-intent').value;
+  const audience=document.getElementById('bf-audience').value.trim()||'your target audience';
+  const comps=document.getElementById('bf-comps').value.trim();
+
+  const intentMap={
+    informational:{format:'How-to Guide / Tutorial',length:'1,500–3,000 words',cta:'Educate and build trust'},
+    commercial:{format:'Comparison / Best-of Roundup',length:'2,000–4,000 words',cta:'Drive affiliate clicks or lead generation'},
+    transactional:{format:'Landing Page / Product Page',length:'300–600 words + strong CTA',cta:'Drive immediate conversion'}
+  };
+  const im=intentMap[intent];
+
+  const out=document.getElementById('bf-output');
+  out.innerHTML=`<strong style="color:var(--emerald2);font-size:.9em">📄 CONTENT BRIEF — ${kw.toUpperCase()}</strong>
+
+<hr style="border:none;border-top:1px solid var(--border);margin:10px 0">
+
+<strong>🎯 Target Keyword:</strong> ${kw}
+<strong>👥 Target Audience:</strong> ${audience}
+<strong>🔍 Search Intent:</strong> ${intent.charAt(0).toUpperCase()+intent.slice(1)}
+<strong>📄 Recommended Format:</strong> ${im.format}
+<strong>📏 Target Length:</strong> ${im.length}
+<strong>💡 Primary Goal:</strong> ${im.cta}
+
+<hr style="border:none;border-top:1px solid var(--border);margin:10px 0">
+
+<strong>✅ Pre-Writing Checklist:</strong>
+□ Search "${kw}" in Google — analyse top 5 results
+□ Note every H2 sub-topic each top result covers
+□ Note what they're missing that you can add
+□ Find LSI keywords using LSIGraph.com
+□ Confirm keyword in: Title, H1, first 100 words, 2 H2s, URL, 1 image alt
+
+<strong>🔗 Internal Linking Plan:</strong>
+□ Identify 3 existing articles that should link TO this new article
+□ Identify 2 existing articles this new article should link TO
+□ Plan anchor text for each internal link
+
+${comps?`<strong>⚔️ Competitors to Beat:</strong>\n${comps.split(',').map((c,i)=>`${i+1}. ${c.trim()} — study their structure, find their gaps`).join('\n')}`:''}
+
+<hr style="border:none;border-top:1px solid var(--border);margin:10px 0">
+<em style="font-size:.8em;color:var(--muted)">Save this brief before writing. Score your finished article in Rank Math/Yoast — target 80+.</em>`;
+  out.style.whiteSpace='pre-line';
+  out.classList.add('show');
+}
+
+/* ── FLASHCARDS ── */
+const cards=[
+  {q:'What is the hub-and-spoke model in topic clusters?',a:'The pillar page is the "hub" — a comprehensive overview linking to all cluster articles. Cluster articles are the "spokes" — each covers one specific sub-topic and links back to the pillar and to sibling clusters. This dense interlinking signals topical depth to Google.'},
+  {q:'What are the 4 types of search intent?',a:'Informational (want to learn), Navigational (looking for a specific site), Commercial Investigation (comparing options before buying), Transactional (ready to purchase). Every piece of content must match the dominant intent Google shows for that keyword.'},
+  {q:'What is the Skyscraper Technique?',a:'Brian Dean\'s method: (1) Find the best-ranking content for a keyword, (2) Identify what it\'s missing or what\'s outdated, (3) Create a comprehensively better version, (4) Outreach to sites linking to the weaker version. Drives links and rankings through superior content.'},
+  {q:'What is content cannibalization and how do you fix it?',a:'When 2+ of your pages compete for the same keyword, splitting ranking signals — causing neither to rank well. Fix: identify cannibalising pairs in GSC (multiple URLs for same query) → 301-redirect the weaker to the stronger, OR differentiate them by targeting clearly different keywords.'},
+  {q:'What does Google\'s Helpful Content Update target?',a:'Thin, generic content written primarily for search engines rather than people — regardless of whether it was human or AI-written. It targets sites where the majority of content shows no real expertise, experience, or genuine value for the reader.'},
+  {q:'What is the ideal topic cluster structure?',a:'1 Pillar Page (3,000–8,000 words, broad topic, high-volume keyword) + 8–12 Cluster Articles (1,500–3,000 words each, specific sub-topics, lower-volume keywords). All interlinked in a hub-and-spoke pattern. Begin with 2–3 clusters before expanding.'},
+  {q:'What is "Search Intent" and why does it affect rankings?',a:'Search intent is the underlying goal behind a search query. If your content format doesn\'t match what Google determines users want for that query (based on what already ranks), your content will not rank — regardless of keywords, backlinks, or quality. Intent match is non-negotiable.'},
+  {q:'What is the recommended content update strategy split?',a:'70% effort on new cluster articles, 30% on refreshing and improving existing top-performing content. This ratio grows the content library while maintaining existing rankings through regular freshness signals.'},
+  {q:'What does LSI (Latent Semantic Indexing) mean in content?',a:'LSI keywords are semantically related terms Google expects to find alongside your main keyword. Including them signals topical completeness. For "email marketing": expect "open rate", "subject line", "automation", "segmentation", "list growth." Tool: LSIGraph.com.'},
+  {q:'What is the correct ratio for AI vs human content?',a:'There is no fixed ratio — but the rule is: AI generates the structure and first draft, humans verify facts, add first-person experience, inject expertise, and make strategic decisions. The "Experience" component of E-E-A-T cannot come from AI — it must come from you.'},
+];
+
+let current=0,flipped=false;
+function showCard(i){
+  const fc=document.getElementById('fc');fc.classList.remove('flipped');flipped=false;
+  document.getElementById('fc-front').textContent=cards[i].q;
+  document.getElementById('fc-back').textContent=cards[i].a;
+  document.getElementById('fc-counter').textContent=(i+1)+' / '+cards.length;
+  setTimeout(()=>{
+    const f=document.getElementById('fc-front');const b=document.getElementById('fc-back');
+    const h=Math.max(f.scrollHeight,b.scrollHeight,110);
+    fc.style.height=h+'px';f.style.minHeight=h+'px';b.style.minHeight=h+'px';
+  },10);
+}
+function flipCard(){flipped=!flipped;document.getElementById('fc').classList.toggle('flipped',flipped)}
+function nextCard(){current=(current+1)%cards.length;showCard(current)}
+function prevCard(){current=(current-1+cards.length)%cards.length;showCard(current)}
+
+/* ── INIT ── */
+document.addEventListener('DOMContentLoaded',()=>{loadTasks();showCard(0)});
+</script>
+</body>
+</html>

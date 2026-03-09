@@ -1,0 +1,2547 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 11 — SEO Interview Questions — Beginner to Advanced | SEO Mastery</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,700;0,900;1,300;1,700&family=Syne:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════
+   MIDNIGHT EMBER — Dark: deep navy-black + electric orange
+   Light: warm ivory + burnt sienna
+═══════════════════════════════════════════════════════ */
+:root {
+  /* ── Dark palette (default) ── */
+  --bg:    #07080f;
+  --bg1:   #0c0e18;
+  --bg2:   #11141f;
+  --bg3:   #181c2d;
+  --card:  #0f1220;
+  --border:  #1f2540;
+  --border2: #2a3358;
+
+  /* ── Brand accent: electric orange → amber glow ── */
+  --accent:  #f97316;
+  --accent2: #fb923c;
+  --accent3: #fdba74;
+
+  /* ── Level colours ── */
+  --clr-b:  #22d3ee;   /* cyan   – Beginner     */
+  --clr-i:  #a78bfa;   /* violet – Intermediate  */
+  --clr-a:  #f43f5e;   /* rose   – Advanced      */
+  --clr-e:  #fbbf24;   /* gold   – Expert        */
+
+  /* ── Typography ── */
+  --text:   #e2e8f8;
+  --text2:  #8fa0c0;
+  --muted:  #435070;
+  --white:  #f8faff;
+
+  /* ── Layout ── */
+  --sidebar-w:   280px;
+  --topbar-h:    56px;
+  --content-max: 900px;
+  --radius-card: 18px;
+  --radius-sm:   10px;
+
+  /* ── Level aliases for existing HTML classes ── */
+  --beginner-color:     var(--clr-b);
+  --intermediate-color: var(--clr-i);
+  --advanced-color:     var(--clr-a);
+  --expert-color:       var(--clr-e);
+}
+
+[data-theme="light"] {
+  --bg:    #fdf8f4;
+  --bg1:   #f7efe6;
+  --bg2:   #efe3d4;
+  --bg3:   #e4d0b8;
+  --card:  #ffffff;
+  --border:  #ddc8ae;
+  --border2: #c8aa88;
+
+  --accent:  #ea580c;
+  --accent2: #f97316;
+  --accent3: #fb923c;
+
+  --clr-b:  #0891b2;
+  --clr-i:  #7c3aed;
+  --clr-a:  #e11d48;
+  --clr-e:  #d97706;
+
+  --text:   #1c1008;
+  --text2:  #5c3d1e;
+  --muted:  #9a7050;
+  --white:  #1c1008;
+}
+
+/* ── Reset & Base ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 15px; }
+body {
+  font-family: 'Syne', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.75;
+  overflow-x: hidden;
+  max-width: 100vw;
+  transition: background .3s, color .3s;
+}
+img, video, iframe, table { max-width: 100%; }
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
+
+/* ═══════════════════════════════════════════════════════
+   LAYOUT SHELL
+═══════════════════════════════════════════════════════ */
+.shell { display: flex; min-height: 100vh; }
+
+/* ═══════════════════════════════════════════════════════
+   SIDEBAR
+═══════════════════════════════════════════════════════ */
+.sidebar {
+  width: var(--sidebar-w);
+  min-width: var(--sidebar-w);
+  background: var(--bg1);
+  border-right: 1px solid var(--border);
+  position: fixed;
+  inset: 0 auto 0 0;
+  overflow-y: auto;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  transition: transform .3s ease, background .3s;
+}
+.sidebar::-webkit-scrollbar { width: 3px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--border2); }
+
+/* Brand */
+.sidebar-logo {
+  padding: 22px 22px 16px;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(135deg, var(--bg1), var(--bg2));
+}
+.sidebar-logo .logo-tag {
+  font-family: 'Fira Code', monospace;
+  font-size: .68rem;
+  color: var(--accent);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.sidebar-logo h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.3;
+}
+.sidebar-logo h2 span {
+  background: linear-gradient(90deg, var(--accent), var(--accent3));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Progress */
+.sidebar-progress {
+  padding: 14px 22px;
+  border-bottom: 1px solid var(--border);
+}
+.sp-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.sp-label { font-size: .68rem; color: var(--muted); letter-spacing: .07em; text-transform: uppercase; font-weight: 600; }
+.sp-pct { font-family: 'Fira Code', monospace; font-size: .82rem; color: var(--accent); font-weight: 700; }
+.sp-bar { height: 4px; background: var(--bg3); border-radius: 8px; overflow: hidden; }
+.sp-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  border-radius: 8px;
+  transition: width .5s ease;
+  box-shadow: 0 0 8px rgba(249,115,22,.4);
+}
+.sp-stats { display: flex; gap: 10px; margin-top: 7px; }
+.sp-stat { font-size: .66rem; color: var(--muted); }
+.sp-stat strong { color: var(--text2); }
+
+/* Nav */
+.sidebar-nav { padding: 12px 12px; flex: 1; }
+.nav-section { margin-bottom: 8px; }
+.nav-section-title {
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 6px 10px;
+  margin-bottom: 2px;
+}
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--text2);
+  font-size: .8rem;
+  font-weight: 500;
+  transition: all .18s;
+  line-height: 1.3;
+  border: 1px solid transparent;
+}
+.nav-item:hover { background: var(--bg3); color: var(--white); border-color: var(--border); }
+.nav-item.active {
+  background: rgba(249,115,22,.12);
+  color: var(--accent2);
+  border-color: rgba(249,115,22,.25);
+}
+.nav-item .nav-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--border2);
+  flex-shrink: 0;
+  transition: background .2s;
+}
+.nav-item.active .nav-dot { background: var(--accent); box-shadow: 0 0 6px rgba(249,115,22,.6); }
+.nav-item:hover .nav-dot { background: var(--accent2); }
+
+.nav-badge {
+  margin-left: auto;
+  font-size: .58rem;
+  font-family: 'Fira Code', monospace;
+  padding: 2px 7px;
+  border-radius: 20px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.badge-beginner     { background: rgba(34,211,238,.18); color: var(--clr-b); }
+.badge-intermediate { background: rgba(167,139,250,.18); color: var(--clr-i); }
+.badge-advanced     { background: rgba(244,63,94,.18);  color: var(--clr-a); }
+.badge-expert       { background: rgba(251,191,36,.18); color: var(--clr-e); }
+
+/* Footer */
+.sidebar-footer {
+  padding: 14px 22px;
+  border-top: 1px solid var(--border);
+  background: var(--bg1);
+}
+.sidebar-footer .mod-nav-links { display: flex; flex-direction: column; gap: 7px; }
+.mod-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: .73rem;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color .2s;
+  padding: 2px 0;
+}
+.mod-link:hover { color: var(--accent2); }
+
+/* ═══════════════════════════════════════════════════════
+   TOPBAR
+═══════════════════════════════════════════════════════ */
+.topbar {
+  position: fixed;
+  top: 0; left: var(--sidebar-w); right: 0;
+  height: var(--topbar-h);
+  background: rgba(7,8,15,.9);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  gap: 12px;
+  z-index: 100;
+  transition: left .3s ease, background .3s;
+}
+[data-theme="light"] .topbar { background: rgba(253,248,244,.92); }
+
+.topbar-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: .76rem;
+  color: var(--muted);
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.topbar-breadcrumb a { color: var(--muted); text-decoration: none; transition: color .2s; flex-shrink: 0; }
+.topbar-breadcrumb a:hover { color: var(--accent2); }
+.topbar-breadcrumb .sep { color: var(--border2); flex-shrink: 0; }
+.topbar-breadcrumb .current { color: var(--text2); font-weight: 600; overflow: hidden; text-overflow: ellipsis; }
+
+.topbar-actions { display: flex; align-items: center; gap: 8px; margin-left: auto; flex-shrink: 0; }
+.theme-btn, .menu-btn {
+  width: 34px; height: 34px;
+  border-radius: 8px;
+  border: 1px solid var(--border2);
+  background: var(--bg2);
+  color: var(--text2);
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .95rem;
+  transition: all .2s;
+  flex-shrink: 0;
+}
+.theme-btn:hover, .menu-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(249,115,22,.08);
+}
+.menu-btn { display: none; }
+
+/* ── Sidebar overlay ── */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.55);
+  backdrop-filter: blur(3px);
+  z-index: 150;
+}
+.sidebar-overlay.visible { display: block; }
+
+/* ═══════════════════════════════════════════════════════
+   MAIN
+═══════════════════════════════════════════════════════ */
+.main {
+  margin-left: var(--sidebar-w);
+  padding-top: var(--topbar-h);
+  flex: 1;
+  min-width: 0;
+}
+.content-wrap {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 44px 32px 80px;
+}
+
+/* ═══════════════════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════════════════ */
+.hero {
+  background: linear-gradient(135deg, var(--bg2) 0%, var(--bg3) 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  padding: 40px 44px;
+  margin-bottom: 44px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 360px; height: 360px;
+  background: radial-gradient(circle, rgba(249,115,22,.14) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -60px; left: -40px;
+  width: 250px; height: 250px;
+  background: radial-gradient(circle, rgba(34,211,238,.06) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Fira Code', monospace;
+  font-size: .68rem;
+  color: var(--accent);
+  background: rgba(249,115,22,.1);
+  border: 1px solid rgba(249,115,22,.28);
+  padding: 4px 13px;
+  border-radius: 20px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.hero h1 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.7rem, 3.5vw, 2.5rem);
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 12px;
+  color: var(--white);
+  word-break: break-word;
+}
+.hero h1 em {
+  font-style: italic;
+  background: linear-gradient(90deg, var(--accent), var(--accent3));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero p { color: var(--text2); font-size: .93rem; max-width: 580px; margin-bottom: 28px; line-height: 1.7; }
+
+.hero-stats { display: flex; gap: 28px; flex-wrap: wrap; }
+.hstat { display: flex; flex-direction: column; gap: 2px; }
+.hstat-num {
+  font-family: 'Fraunces', serif;
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1;
+  background: linear-gradient(135deg, var(--accent), var(--accent3));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hstat-label { font-size: .68rem; color: var(--muted); letter-spacing: .07em; text-transform: uppercase; font-weight: 600; }
+
+/* ═══════════════════════════════════════════════════════
+   LEVEL FILTER STRIP
+═══════════════════════════════════════════════════════ */
+.level-strip { display: flex; gap: 10px; margin-bottom: 40px; flex-wrap: wrap; }
+.level-pill {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid;
+  font-size: .76rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .2s;
+  user-select: none;
+}
+.level-pill.beginner     { border-color: rgba(34,211,238,.35); background: rgba(34,211,238,.07);   color: var(--clr-b); }
+.level-pill.intermediate { border-color: rgba(167,139,250,.35); background: rgba(167,139,250,.07); color: var(--clr-i); }
+.level-pill.advanced     { border-color: rgba(244,63,94,.35);   background: rgba(244,63,94,.07);   color: var(--clr-a); }
+.level-pill.expert       { border-color: rgba(251,191,36,.35);  background: rgba(251,191,36,.07);  color: var(--clr-e); }
+.level-pill.active, .level-pill:hover { filter: brightness(1.25); box-shadow: 0 0 12px currentColor; opacity: 1; }
+.level-pill .count {
+  font-family: 'Fira Code', monospace;
+  font-size: .66rem;
+  padding: 1px 7px;
+  border-radius: 20px;
+  background: rgba(255,255,255,.1);
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION HEADER
+═══════════════════════════════════════════════════════ */
+.section-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 22px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.section-icon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+.section-icon.bg-beginner     { background: rgba(34,211,238,.14); }
+.section-icon.bg-intermediate { background: rgba(167,139,250,.14); }
+.section-icon.bg-advanced     { background: rgba(244,63,94,.14); }
+.section-icon.bg-expert       { background: rgba(251,191,36,.14); }
+
+.section-title-block h2 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+  font-weight: 700;
+  color: var(--white);
+  word-break: break-word;
+}
+.level-tag {
+  font-family: 'Fira Code', monospace;
+  font-size: .62rem;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+.lt-beginner     { background: rgba(34,211,238,.14);   color: var(--clr-b); }
+.lt-intermediate { background: rgba(167,139,250,.14);  color: var(--clr-i); }
+.lt-advanced     { background: rgba(244,63,94,.14);    color: var(--clr-a); }
+.lt-expert       { background: rgba(251,191,36,.14);   color: var(--clr-e); }
+.section-title-block p { color: var(--text2); font-size: .8rem; margin-top: 5px; }
+
+/* ═══════════════════════════════════════════════════════
+   SECTION BLOCK
+═══════════════════════════════════════════════════════ */
+.section-block {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  padding: 28px 32px;
+  margin-bottom: 36px;
+}
+
+/* ═══════════════════════════════════════════════════════
+   Q&A ACCORDION
+═══════════════════════════════════════════════════════ */
+.qa-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 10px;
+  overflow: hidden;
+  transition: border-color .2s, box-shadow .2s;
+}
+.qa-item:hover { border-color: var(--border2); }
+.qa-item.open             { border-color: var(--accent);  box-shadow: 0 0 0 1px rgba(249,115,22,.12); }
+.qa-item.open-intermediate { border-color: var(--clr-i);  box-shadow: 0 0 0 1px rgba(167,139,250,.12); }
+.qa-item.open-advanced    { border-color: var(--clr-a);   box-shadow: 0 0 0 1px rgba(244,63,94,.12); }
+.qa-item.open-expert      { border-color: var(--clr-e);   box-shadow: 0 0 0 1px rgba(251,191,36,.12); }
+
+.qa-q {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 18px;
+  cursor: pointer;
+  background: var(--bg2);
+  transition: background .18s;
+}
+.qa-q:hover { background: var(--bg3); }
+.qa-num {
+  font-family: 'Fira Code', monospace;
+  font-size: .68rem;
+  color: var(--muted);
+  padding-top: 3px;
+  flex-shrink: 0;
+  min-width: 26px;
+}
+.qa-text { flex: 1; font-size: .88rem; font-weight: 600; color: var(--text); line-height: 1.45; word-break: break-word; }
+.qa-chevron { font-size: .72rem; color: var(--muted); transition: transform .28s; padding-top: 3px; flex-shrink: 0; }
+.qa-item.open .qa-chevron,
+.qa-item.open-intermediate .qa-chevron,
+.qa-item.open-advanced .qa-chevron,
+.qa-item.open-expert .qa-chevron { transform: rotate(180deg); color: var(--accent2); }
+
+.qa-a {
+  display: none;
+  padding: 16px 18px 18px 56px;
+  background: var(--card);
+  border-top: 1px solid var(--border);
+}
+.qa-item.open .qa-a,
+.qa-item.open-intermediate .qa-a,
+.qa-item.open-advanced .qa-a,
+.qa-item.open-expert .qa-a { display: block; }
+
+.qa-a p { font-size: .86rem; color: var(--text2); line-height: 1.75; margin-bottom: 11px; }
+.qa-a p:last-child { margin-bottom: 0; }
+.qa-a strong { color: var(--text); }
+.qa-a .answer-tip {
+  background: var(--bg3);
+  border-left: 3px solid var(--accent);
+  padding: 10px 14px;
+  border-radius: 0 8px 8px 0;
+  margin: 12px 0;
+  font-size: .82rem;
+  color: var(--text2);
+  line-height: 1.6;
+}
+.answer-tip.tip-intermediate { border-color: var(--clr-i); }
+.answer-tip.tip-advanced     { border-color: var(--clr-a); }
+.answer-tip.tip-expert       { border-color: var(--clr-e); }
+.qa-a code {
+  font-family: 'Fira Code', monospace;
+  font-size: .79rem;
+  background: rgba(249,115,22,.1);
+  padding: 1px 6px;
+  border-radius: 4px;
+  color: var(--accent2);
+}
+.qa-a ul { padding-left: 18px; margin: 8px 0 12px; }
+.qa-a ul li { font-size: .86rem; color: var(--text2); margin-bottom: 6px; line-height: 1.65; }
+.qa-a .answer-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: 'Fira Code', monospace;
+  font-size: .6rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  padding: 2px 8px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+.al-beginner     { background: rgba(34,211,238,.12);  color: var(--clr-b); }
+.al-intermediate { background: rgba(167,139,250,.12); color: var(--clr-i); }
+.al-advanced     { background: rgba(244,63,94,.12);   color: var(--clr-a); }
+.al-expert       { background: rgba(251,191,36,.12);  color: var(--clr-e); }
+
+/* ═══════════════════════════════════════════════════════
+   PRO TIP PANEL
+═══════════════════════════════════════════════════════ */
+.pro-tip-panel {
+  background: linear-gradient(135deg, rgba(249,115,22,.07), rgba(251,191,36,.04));
+  border: 1px solid rgba(249,115,22,.22);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius-sm);
+  padding: 18px 22px;
+  margin-bottom: 22px;
+}
+.pro-tip-panel h4 { font-size: .8rem; font-weight: 700; color: var(--accent2); margin-bottom: 10px; letter-spacing: .04em; }
+.pro-tip-panel ul { padding-left: 16px; }
+.pro-tip-panel ul li { font-size: .83rem; color: var(--text2); margin-bottom: 6px; line-height: 1.55; }
+
+/* ═══════════════════════════════════════════════════════
+   ROLE TABLE
+═══════════════════════════════════════════════════════ */
+.role-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.role-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 18px 0;
+  font-size: .82rem;
+  min-width: 480px;
+}
+.role-table th {
+  text-align: left;
+  padding: 10px 14px;
+  background: var(--bg3);
+  color: var(--text2);
+  font-size: .7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  border-bottom: 1px solid var(--border);
+}
+.role-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text2);
+  line-height: 1.5;
+}
+.role-table tr:last-child td { border-bottom: none; }
+.role-table tr:hover td { background: rgba(249,115,22,.04); }
+.role-table .level-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; }
+.dot-b { background: var(--clr-b); }
+.dot-i { background: var(--clr-i); }
+.dot-a { background: var(--clr-a); }
+.dot-e { background: var(--clr-e); }
+
+/* ═══════════════════════════════════════════════════════
+   SCENARIO CARD
+═══════════════════════════════════════════════════════ */
+.scenario-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 16px 20px;
+  margin-bottom: 12px;
+}
+.scenario-card h5 { font-size: .84rem; font-weight: 700; color: var(--text); margin-bottom: 7px; }
+.scenario-card .context { font-size: .78rem; color: var(--muted); margin-bottom: 9px; font-style: italic; }
+.scenario-card .response { font-size: .83rem; color: var(--text2); line-height: 1.65; }
+
+/* ═══════════════════════════════════════════════════════
+   MOCK INTERVIEW
+═══════════════════════════════════════════════════════ */
+.mock-interview {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  padding: 26px;
+  margin-bottom: 36px;
+}
+.mock-interview h3 { font-family: 'Fraunces', serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 7px; color: var(--white); }
+.mock-interview > p { font-size: .84rem; color: var(--text2); margin-bottom: 18px; }
+.mock-level-sel { display: flex; gap: 7px; margin-bottom: 16px; flex-wrap: wrap; }
+.mock-level-btn {
+  padding: 5px 13px;
+  border-radius: 8px;
+  font-size: .73rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid var(--border2);
+  background: var(--bg3);
+  color: var(--text2);
+  transition: all .18s;
+}
+.mock-level-btn.active-b { border-color: var(--clr-b); color: var(--clr-b); background: rgba(34,211,238,.1); }
+.mock-level-btn.active-i { border-color: var(--clr-i); color: var(--clr-i); background: rgba(167,139,250,.1); }
+.mock-level-btn.active-a { border-color: var(--clr-a); color: var(--clr-a); background: rgba(244,63,94,.1); }
+.mock-level-btn.active-e { border-color: var(--clr-e); color: var(--clr-e); background: rgba(251,191,36,.1); }
+.mock-q-display {
+  background: var(--bg3);
+  border-left: 3px solid var(--accent);
+  padding: 14px 17px;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-size: .92rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 13px;
+  min-height: 58px;
+  line-height: 1.5;
+}
+.mock-input-area {
+  width: 100%;
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  border-radius: var(--radius-sm);
+  padding: 13px 15px;
+  color: var(--text);
+  font-family: 'Syne', sans-serif;
+  font-size: .86rem;
+  resize: vertical;
+  min-height: 110px;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+  margin-bottom: 12px;
+}
+.mock-input-area:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(249,115,22,.12); }
+.mock-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+.mock-btn {
+  padding: 8px 17px;
+  border-radius: 8px;
+  font-family: 'Syne', sans-serif;
+  font-size: .8rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: all .2s;
+}
+.mock-btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #fff; box-shadow: 0 3px 12px rgba(249,115,22,.3); }
+.mock-btn-primary:hover { box-shadow: 0 5px 18px rgba(249,115,22,.45); transform: translateY(-1px); }
+.mock-btn-secondary { background: var(--bg3); border: 1px solid var(--border2); color: var(--text2); }
+.mock-btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+.mock-feedback {
+  display: none;
+  background: rgba(249,115,22,.06);
+  border: 1px solid rgba(249,115,22,.2);
+  border-radius: var(--radius-sm);
+  padding: 15px 17px;
+  font-size: .84rem;
+  color: var(--text2);
+  margin-top: 12px;
+  line-height: 1.65;
+}
+
+/* ═══════════════════════════════════════════════════════
+   CHEAT SHEET
+═══════════════════════════════════════════════════════ */
+.cheat-sheet {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  padding: 26px;
+  margin-bottom: 36px;
+}
+.cheat-sheet h3 { font-family: 'Fraunces', serif; font-size: 1.05rem; font-weight: 700; margin-bottom: 18px; color: var(--white); }
+.cheat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+.cheat-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px 15px;
+  transition: border-color .2s;
+}
+.cheat-card:hover { border-color: rgba(249,115,22,.3); }
+.cheat-card h5 {
+  font-size: .76rem;
+  font-weight: 700;
+  color: var(--accent2);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  font-family: 'Fira Code', monospace;
+}
+.cheat-card ul { list-style: none; padding: 0; }
+.cheat-card ul li {
+  font-size: .76rem;
+  color: var(--text2);
+  padding: 4px 0;
+  border-bottom: 1px solid var(--border);
+  line-height: 1.4;
+}
+.cheat-card ul li:last-child { border-bottom: none; }
+.cheat-card ul li strong { color: var(--text); }
+
+/* ═══════════════════════════════════════════════════════
+   RESOURCES
+═══════════════════════════════════════════════════════ */
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+  margin-bottom: 36px;
+}
+.resource-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 16px 18px;
+  text-decoration: none;
+  color: inherit;
+  transition: all .22s;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.resource-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(249,115,22,.12); }
+.rc-top { display: flex; align-items: center; gap: 8px; }
+.rc-icon { font-size: 1.2rem; flex-shrink: 0; }
+.rc-badge {
+  font-family: 'Fira Code', monospace;
+  font-size: .58rem;
+  padding: 2px 7px;
+  border-radius: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+.badge-free  { background: rgba(34,211,238,.15);  color: var(--clr-b); }
+.badge-paid  { background: rgba(251,191,36,.15);  color: var(--clr-e); }
+.badge-video { background: rgba(244,63,94,.15);   color: var(--clr-a); }
+.rc-title { font-size: .86rem; font-weight: 700; color: var(--text); }
+.rc-desc  { font-size: .76rem; color: var(--muted); line-height: 1.5; }
+
+/* ═══════════════════════════════════════════════════════
+   MODULE NAV
+═══════════════════════════════════════════════════════ */
+.module-nav {
+  display: flex;
+  gap: 14px;
+  margin-top: 56px;
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+.mod-nav-btn {
+  flex: 1;
+  min-width: 180px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 18px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  text-decoration: none;
+  color: inherit;
+  transition: all .22s;
+}
+.mod-nav-btn:hover { border-color: var(--accent); background: rgba(249,115,22,.04); box-shadow: 0 4px 16px rgba(249,115,22,.1); }
+.mod-nav-btn.next { flex-direction: row-reverse; text-align: right; }
+.mod-nav-btn .arrow { font-size: 1.1rem; color: var(--muted); transition: color .2s; }
+.mod-nav-btn:hover .arrow { color: var(--accent2); }
+.mod-nav-btn .nav-label { font-size: .62rem; text-transform: uppercase; letter-spacing: .09em; color: var(--muted); margin-bottom: 3px; font-family: 'Fira Code', monospace; display: block; }
+.mod-nav-btn .nav-title { font-size: .86rem; font-weight: 700; color: var(--text); display: block; }
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE — Small laptop ≤1100px
+═══════════════════════════════════════════════════════ */
+@media (max-width: 1100px) {
+  :root { --sidebar-w: 250px; }
+  .content-wrap { padding: 40px 28px 70px; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE — Tablet ≤900px  (sidebar → drawer)
+═══════════════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  :root { --sidebar-w: 280px; }
+
+  .sidebar { transform: translateX(-100%); box-shadow: 6px 0 32px rgba(0,0,0,.5); }
+  .sidebar.open { transform: translateX(0); }
+  .topbar { left: 0; padding: 0 16px; }
+  .main { margin-left: 0; }
+  .menu-btn { display: flex; }
+
+  .content-wrap { padding: 30px 20px 60px; }
+  .hero { padding: 30px 26px; margin-bottom: 32px; }
+  .section-block { padding: 24px 22px; }
+  .mock-interview, .cheat-sheet { padding: 22px 20px; }
+
+  .resource-grid { grid-template-columns: 1fr 1fr; }
+  .module-nav { gap: 10px; margin-top: 40px; }
+  .mod-nav-btn { min-width: 160px; padding: 13px 15px; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE — Large phone ≤640px
+═══════════════════════════════════════════════════════ */
+@media (max-width: 640px) {
+  html { font-size: 14px; }
+
+  /* Topbar */
+  .topbar { padding: 0 12px; gap: 8px; }
+  .topbar-breadcrumb a:first-child,
+  .topbar-breadcrumb .sep:first-of-type { display: none; }
+  .topbar-breadcrumb { font-size: .72rem; }
+
+  /* Content */
+  .content-wrap { padding: 22px 14px 54px; }
+
+  /* Hero */
+  .hero { padding: 24px 18px; border-radius: 14px; margin-bottom: 26px; }
+  .hero p { font-size: .88rem; margin-bottom: 20px; }
+  .hero-stats { gap: 18px; }
+  .hstat-num { font-size: 1.7rem; }
+  .hstat-label { font-size: .64rem; }
+
+  /* Level strip */
+  .level-strip { gap: 6px; margin-bottom: 26px; }
+  .level-pill { padding: 7px 12px; font-size: .71rem; }
+
+  /* Section */
+  .section-header { gap: 10px; padding-bottom: 13px; margin-bottom: 18px; }
+  .section-icon { width: 38px; height: 38px; font-size: 1.1rem; border-radius: 10px; }
+  .section-title-block h2 { font-size: 1.15rem; }
+  .section-block { padding: 16px 14px; border-radius: 12px; margin-bottom: 24px; }
+
+  /* Q&A */
+  .qa-item { border-radius: 9px; margin-bottom: 8px; }
+  .qa-q { padding: 12px 14px; gap: 9px; }
+  .qa-text { font-size: .84rem; }
+  .qa-a { padding: 14px 14px 16px 14px; }
+  .qa-a p, .qa-a ul li { font-size: .83rem; }
+  .answer-tip { font-size: .8rem; padding: 8px 11px; }
+
+  /* Pro tip */
+  .pro-tip-panel { padding: 14px 16px; }
+  .pro-tip-panel ul li { font-size: .8rem; }
+
+  /* Scenario */
+  .scenario-card { padding: 13px 15px; }
+
+  /* Mock interview */
+  .mock-interview { padding: 18px 14px; border-radius: 12px; margin-bottom: 26px; }
+  .mock-q-display { font-size: .87rem; padding: 12px 14px; }
+  .mock-input-area { font-size: .84rem; padding: 11px 13px; min-height: 95px; }
+  .mock-level-btn { padding: 5px 10px; font-size: .7rem; }
+
+  /* Cheat sheet */
+  .cheat-sheet { padding: 18px 14px; border-radius: 12px; margin-bottom: 26px; }
+  .cheat-grid { grid-template-columns: 1fr 1fr; gap: 9px; }
+  .cheat-card h5 { font-size: .72rem; }
+  .cheat-card ul li { font-size: .72rem; }
+
+  /* Resources */
+  .resource-grid { grid-template-columns: 1fr; gap: 9px; margin-bottom: 26px; }
+  .resource-card { padding: 13px 15px; }
+  .rc-title { font-size: .84rem; }
+  .rc-desc { font-size: .73rem; }
+
+  /* Module nav */
+  .module-nav { flex-direction: column; gap: 9px; margin-top: 32px; }
+  .mod-nav-btn { min-width: unset; width: 100%; padding: 13px 15px; border-radius: 11px; }
+  .mod-nav-btn.next { flex-direction: row; text-align: left; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE — Mobile portrait ≤480px
+═══════════════════════════════════════════════════════ */
+@media (max-width: 480px) {
+  html { font-size: 13.5px; }
+
+  .content-wrap { padding: 18px 12px 48px; }
+  .hero { padding: 20px 15px; border-radius: 12px; margin-bottom: 22px; }
+  .hero-tag { font-size: .63rem; padding: 3px 10px; margin-bottom: 12px; }
+  .hero p { font-size: .85rem; margin-bottom: 16px; }
+  .hero-stats { gap: 14px; }
+  .hstat-num { font-size: 1.5rem; }
+
+  .level-strip { gap: 5px; margin-bottom: 20px; }
+  .level-pill { padding: 6px 10px; font-size: .68rem; border-radius: 8px; }
+  .level-pill .count { display: none; }
+
+  .section-icon { width: 34px; height: 34px; font-size: 1rem; border-radius: 8px; }
+  .section-block { padding: 13px 12px; border-radius: 10px; margin-bottom: 18px; }
+
+  .qa-q { padding: 11px 11px; }
+  .qa-num { display: none; }
+  .qa-text { font-size: .82rem; }
+  .qa-a { padding: 12px 12px 14px; }
+  .qa-a p, .qa-a ul li { font-size: .81rem; }
+
+  .mock-interview { padding: 15px 12px; border-radius: 10px; }
+  .mock-q-display { font-size: .84rem; min-height: 50px; }
+  .mock-input-area { min-height: 88px; font-size: .82rem; }
+  .mock-btn { padding: 7px 13px; font-size: .77rem; }
+
+  .cheat-sheet { padding: 15px 12px; border-radius: 10px; }
+  .cheat-grid { grid-template-columns: 1fr; }
+
+  .module-nav { margin-top: 28px; padding-top: 22px; }
+  .mod-nav-btn { padding: 11px 13px; border-radius: 10px; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE — Small phones ≤380px
+═══════════════════════════════════════════════════════ */
+@media (max-width: 380px) {
+  html { font-size: 13px; }
+  .content-wrap { padding: 14px 10px 44px; }
+  .hero { padding: 16px 12px; }
+  .hero-stats { gap: 10px; }
+  .hstat-num { font-size: 1.35rem; }
+  .section-block { padding: 11px 10px; }
+  .qa-q { padding: 10px; }
+  .mock-interview, .cheat-sheet { padding: 13px 10px; }
+}
+</style>
+</head>
+<body>
+
+<div class="shell">
+
+<!-- ══ SIDEBAR ══ -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <div class="logo-tag">🎯 SEO Mastery</div>
+    <h2>Interview <span>Prep</span></h2>
+  </div>
+  <div class="sidebar-progress">
+    <div class="sp-header">
+      <span class="sp-label">Questions Reviewed</span>
+      <span class="sp-pct" id="sp-pct">0%</span>
+    </div>
+    <div class="sp-bar"><div class="sp-fill" id="sp-fill" style="width:0%"></div></div>
+    <div class="sp-stats">
+      <span class="sp-stat"><strong id="sp-done">0</strong> of <strong>50</strong> reviewed</span>
+    </div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-section">
+      <div class="nav-section-title">Levels</div>
+      <a href="#beginner" class="nav-item active">
+        <div class="nav-dot"></div> Beginner
+        <span class="nav-badge badge-beginner">12 Q</span>
+      </a>
+      <a href="#intermediate" class="nav-item">
+        <div class="nav-dot"></div> Intermediate
+        <span class="nav-badge badge-intermediate">14 Q</span>
+      </a>
+      <a href="#advanced" class="nav-item">
+        <div class="nav-dot"></div> Advanced
+        <span class="nav-badge badge-advanced">14 Q</span>
+      </a>
+      <a href="#expert" class="nav-item">
+        <div class="nav-dot"></div> Expert / Scenario
+        <span class="nav-badge badge-expert">10 Q</span>
+      </a>
+    </div>
+    <div class="nav-section">
+      <div class="nav-section-title">Tools</div>
+      <a href="#mock-interview" class="nav-item">
+        <div class="nav-dot"></div> Mock Interview
+      </a>
+      <a href="#cheat-sheet" class="nav-item">
+        <div class="nav-dot"></div> Cheat Sheet
+      </a>
+      <a href="#resources" class="nav-item">
+        <div class="nav-dot"></div> Resources
+      </a>
+    </div>
+  </nav>
+  <div class="sidebar-footer">
+    <div class="mod-nav-links">
+      <p class="mod-link">SEO Mastery Roadmap 2025<br>Module 11 of 12</p>
+    </div>
+  </div>
+</aside>
+
+<!-- ══ TOPBAR ══ -->
+<div class="topbar">
+  <button class="menu-btn" id="menuBtn" onclick="toggleSidebar()">☰</button>
+  <div class="topbar-breadcrumb">
+    <a href="seo_complete_roadmap_v3.html">SEO Mastery 2025</a>
+    <span class="sep">›</span> <span class="current">Module 10 — Interview Prep for Beginner to Advanced</span>
+  </div>
+  <div class="topbar-actions">
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="Toggle theme">🌙</button>
+  </div>
+</div>
+
+<!-- ══ MAIN CONTENT ══ -->
+<main class="main">
+<div class="content-wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-tag">💼 Interview Prep Module</div>
+    <h1>SEO Interview Questions<br><em>Beginner to Advanced</em></h1>
+    <p>A comprehensive collection of 50 real-world SEO interview questions with expert-level answers, tips, and scenario-based challenges used by top companies.</p>
+    <div class="hero-stats">
+      <div class="hstat"><div class="hstat-num">50</div><div class="hstat-label">Questions</div></div>
+      <div class="hstat"><div class="hstat-num">4</div><div class="hstat-label">Levels</div></div>
+      <div class="hstat"><div class="hstat-num">10</div><div class="hstat-label">Scenarios</div></div>
+      <div class="hstat"><div class="hstat-num">3–4h</div><div class="hstat-label">Est. Time</div></div>
+    </div>
+  </div>
+
+  <!-- LEVEL FILTER PILLS -->
+  <div class="level-strip">
+    <div class="level-pill beginner active" onclick="filterLevel('all')">🟢 All Levels</div>
+    <div class="level-pill beginner" onclick="filterLevel('beginner')">🌱 Beginner <span class="count">12</span></div>
+    <div class="level-pill intermediate" onclick="filterLevel('intermediate')">📈 Intermediate <span class="count">14</span></div>
+    <div class="level-pill advanced" onclick="filterLevel('advanced')">🔥 Advanced <span class="count">14</span></div>
+    <div class="level-pill expert" onclick="filterLevel('expert')">🎓 Expert <span class="count">10</span></div>
+  </div>
+
+  <!-- ════════════════════════════════
+       BEGINNER SECTION
+  ════════════════════════════════ -->
+  <div id="beginner" class="level-section" data-level="beginner">
+    <div class="section-header">
+      <div class="section-icon bg-beginner">🌱</div>
+      <div class="section-title-block">
+        <h2>Beginner Questions <span class="level-tag lt-beginner">0–1 Year XP</span></h2>
+        <p>Foundational SEO concepts, definitions, and basic practices — commonly asked in junior and entry-level interviews.</p>
+      </div>
+    </div>
+
+    <div class="pro-tip-panel">
+      <h4>💡 Interviewer's Intent at Beginner Level</h4>
+      <ul>
+        <li>They want to see you understand <strong>why SEO matters</strong>, not just buzzwords.</li>
+        <li>Be able to explain every answer as if talking to a non-technical person — clarity beats jargon.</li>
+        <li>Show enthusiasm and curiosity; hiring managers value coachable candidates over know-it-alls.</li>
+        <li>Back up every answer with a simple example from your own practice or research.</li>
+      </ul>
+    </div>
+
+    <div class="section-block">
+
+      <!-- Q1 -->
+      <div class="qa-item" id="q1">
+        <div class="qa-q" onclick="toggleQ('q1','beginner')">
+          <span class="qa-num">Q1</span>
+          <span class="qa-text">What is SEO and why is it important for businesses?</span>
+          <span class="qa-chevron">▼</span>
+        </div>
+        <div class="qa-a">
+          <div class="answer-label al-beginner">✓ Model Answer</div>
+          <p>SEO (Search Engine Optimisation) is the practice of improving a website's visibility in organic (unpaid) search engine results. It involves optimising content, technical infrastructure, and earning links so search engines understand and trust your site.</p>
+          <p><strong>Why it matters:</strong> Google processes over 8.5 billion searches daily. Ranking on page 1 can drive predictable, compounding traffic without the recurring cost of paid ads. Businesses investing in SEO typically see a long-term ROI of 5–15× vs. PPC which stops the moment you stop paying.</p>
+          <div class="answer-tip">
+            <strong>🎯 Answer Tip:</strong> Always connect SEO to business outcomes — traffic is a vanity metric. Tie it to leads, revenue, or brand visibility. Interviewers love candidates who speak in business terms.
+          </div>
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="qa-item" id="q2">
+        <div class="qa-q" onclick="toggleQ('q2','beginner')">
+          <span class="qa-num">Q2</span>
+          <span class="qa-text">What is the difference between on-page, off-page, and technical SEO?</span>
+          <span class="qa-chevron">▼</span>
+        </div>
+        <div class="qa-a">
+          <div class="answer-label al-beginner">✓ Model Answer</div>
+          <ul>
+            <li><strong>On-Page SEO:</strong> Everything you control on the page itself — title tags, meta descriptions, header tags, content quality, keyword placement, internal linking, and image optimisation.</li>
+            <li><strong>Off-Page SEO:</strong> Everything that happens outside your site — backlinks from authoritative domains, brand mentions, social signals, and digital PR. It signals trust and authority to Google.</li>
+            <li><strong>Technical SEO:</strong> The infrastructure that helps search engines crawl, index, and render your site — site speed, Core Web Vitals, XML sitemaps, robots.txt, HTTPS, mobile-first design, and structured data.</li>
+          </ul>
+          <div class="answer-tip">
+            <strong>🎯 Answer Tip:</strong> Use an analogy: "On-page is what you say, off-page is what others say about you, and technical SEO is making sure Google can actually hear the conversation."
+          </div>
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="qa-item" id="q3">
+        <div class="qa-q" onclick="toggleQ('q3','beginner')">
+          <span class="qa-num">Q3</span>
+          <span class="qa-text">What is a keyword and how do you choose the right ones?</span>
+          <span class="qa-chevron">▼</span>
+        </div>
+        <div class="qa-a">
+          <div class="answer-label al-beginner">✓ Model Answer</div>
+          <p>A keyword is any word or phrase users type into a search engine to find information. Choosing the right keywords requires balancing three factors:</p>
+          <ul>
+            <li><strong>Search Volume:</strong> How many people search for it monthly (use Google Keyword Planner, Ahrefs, SEMrush).</li>
+            <li><strong>Keyword Difficulty (KD):</strong> How competitive the term is — beginners should target KD under 30 to get early wins.</li>
+            <li><strong>Search Intent:</strong> Is the user looking to buy (transactional), learn (informational), or navigate to a site (navigational)? Matching intent is the #1 ranking factor most beginners miss.</li>
+          </ul>
+          <div class="answer-tip">
+            <strong>🎯 Answer Tip:</strong> Mention long-tail keywords (3+ word phrases) as a smart starter strategy — lower competition, higher conversion rates because they signal specific intent.
+          </div>
+        </div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="qa-item" id="q4">
+        <div class="qa-q" onclick="toggleQ('q4','beginner')">
+          <span class="qa-num">Q4</span>
+          <span class="qa-text">What is a title tag and why does it matter?</span>
+          <span class="qa-chevron">▼</span>
+        </div>
+        <div class="qa-a">
+          <div class="answer-label al-beginner">✓ Model Answer</div>
+          <p>A title tag is an HTML element (<code>&lt;title&gt;</code>) that defines the title of a web page. It appears as the blue clickable headline in Google's search results and in the browser tab. It's one of the most critical on-page SEO factors.</p>
+          <p><strong>Best practices:</strong> Keep it 50–60 characters, include your primary keyword near the beginning, make it compelling to increase CTR, and keep it unique per page.</p>
+          <div class="answer-tip"><strong>🎯 Answer Tip:</strong> Mention that Google rewrites ~60% of title tags when it thinks the provided one is misleading or too long — so matching title to content intent is crucial.</div>
+        </div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="qa-item" id="q5">
+        <div class="qa-q" onclick="toggleQ('q5','beginner')">
+          <span class="qa-num">Q5</span>
+          <span class="qa-text">What is a meta description and does it directly affect rankings?</span>
+          <span class="qa-chevron">▼</span>
+        </div>
+        <div class="qa-a">
+          <div class="answer-label al-beginner">✓ Model Answer</div>
+          <p>A meta description is the short snippet (160 characters) shown below the title tag in search results. <strong>It does NOT directly affect rankings</strong> — Google confirmed this. However, it significantly impacts <strong>Click-Through Rate (CTR)</strong>.</p>
+          <p>A well-written meta description acts like ad copy. Higher CTR sends a positive user engagement signal which can indirectly boost rankings. It should include the primary keyword (Google bolds it), a clear value proposition, and a call to action.</p>
+          <div class="answer-tip"><strong>🎯 Answer Tip:</strong> Showing you know the nuance (not a direct ranking factor BUT affects CTR which is a signal) demonstrates depth that impresses interviewers.</div>
+        </div>
+      </div>
+
+      <!-- Q6 -->
+      <div class="qa-item" id="q6">
+        <div class="qa-q" onclick="toggleQ('q6','beginner')">
+          <span class="qa-num">Q6</span>
+          <span class="qa-text">What is a backlink and why are backlinks important?</span>
+          <span class="qa-chevron">▼</span>
+        </div>
+        <div class="qa-a">
+          <div class="answer-label al-beginner">✓ Model Answer</div>
+          <p>A backlink is a hyperlink from another website pointing to yours. Google treats backlinks like "votes of confidence" — the more high-authority sites that link to you, the more trustworthy your site appears.</p>
+          <p>Quality > Quantity: A single backlink from Forbes or BBC can be worth more than 1,000 links from low-authority blogs. Key metrics: Domain Authority (DA), Domain Rating (DR), relevance of the linking page, and whether it's <code>dofollow</code> vs <code>nofollow</code>.</p>
+          <div class="answer-tip"><strong>🎯 Answer Tip:</strong> Mention that toxic backlinks (from spam or PBNs) can harm rankings and sometimes require Google Disavow Tool intervention.</div>
+        </div>
+      </div>
+
+      <!-- Q7 -->
+      <div class="qa-item" id="q7">
+        <div class="qa-q" onclick="toggleQ('q7','beginner')">
+          <span class="qa-num">Q7</span>
+          <span class="qa-text">What is the difference between dofollow and nofollow links?</span>
+          <span class="qa-chevron">▼</span>
+        </div>
+        <div class="qa-a">
+          <div class="answer-label al-beginner">✓ Model Answer</div>
+          <ul>
+            <li><strong>Dofollow links:</strong> Pass "link equity" (PageRank) to the linked page. They help improve rankings. Most editorial backlinks are dofollow by default.</li>
+            <li><strong>Nofollow links (<code>rel="nofollow"</code>):</strong> Originally told Google not to pass link equity. Used for user-generated content, paid links, and untrusted sources.</li>
+            <li><strong>Sponsored (<code>rel="sponsored"</code>):</strong> For paid placements or affiliate links.</li>
+            <li><strong>UGC (<code>rel="ugc"</code>):</strong> For user-generated content like forum posts or blog comments.</li>
+          </ul>
+          <div class="answer-tip"><strong>🎯 Answer Tip:</strong> Note that in 2019 Google changed nofollow to a "hint" rather than a directive — it may still pass some value in certain contexts.</div>
+        </div>
+      </div>
+
+      <!-- Q8 -->
+      <div class="qa-item" id="q8">
+        <div class="qa-q" onclick="toggleQ('q8','beginner')">
+          <span class="qa-num">Q8</span>
+          <span class="qa-text">What is Google Search Console and how is it used in SEO?</span>
+          <span class="qa-chevron">▼</span>
+        </div>
+        <div class="qa-a">
+          <div class="answer-label al-beginner">✓ Model Answer</div>
+          <p>Google Search Console (GSC) is a free tool by Google that lets you monitor how your site performs in Google Search. Key uses include:</p>
+          <ul>
+            <li>Seeing which queries and pages drive the most impressions and clicks</li>
+            <li>Submitting XML sitemaps for faster indexing</li>
+            <li>Identifying crawl errors, mobile usability issues, and Core Web Vitals problems</li>
+            <li>Checking which pages are indexed and requesting indexing for new pages</li>
+            <li>Reviewing manual actions or security issues applied by Google</li>
+          </ul>
+          <div class="answer-tip"><strong>🎯 Answer Tip:</strong> Mention a specific use case: "I use the Performance report to find pages with high impressions but low CTR, then optimise the title tag and meta description to improve click rates."</div>
+        </div>
+      </div>
+
+      <!-- Q9 -->
+      <div class="qa-item" id="q9">
+        <div class="qa-q" onclick="toggleQ('q9','beginner')">
+          <span class="qa-num">Q9</span>
+          <span class="qa-text">What is search intent and why does it matter more than keywords?</span>
+          <span class="qa-chevron">▼</span>
+        </div>
+        <div class="qa-a">
+          <div class="answer-label al-beginner">✓ Model Answer</div>
+          <p>Search intent (or user intent) is the primary goal behind a search query. Google's algorithms have become sophisticated enough to detect intent, not just keywords. The 4 main types are:</p>
+          <ul>
+            <li><strong>Informational:</strong> User wants to learn ("what is schema markup")</li>
+            <li><strong>Navigational:</strong> User wants a specific site ("Ahrefs login")</li>
+            <li><strong>Commercial Investigation:</strong> User is researching before buying ("best SEO tools 2025")</li>
+            <li><strong>Transactional:</strong> User wants to buy ("buy SEMrush subscription")</li>
+          </ul>
+          <p>Matching intent is critical because if you write a product page for an informational query, Google won't rank it — even if keywords match perfectly.</p>
+          <div class="answer-tip"><strong>🎯 Answer Tip:</strong> "I always Google the target keyword first to analyse what type of content is currently ranking — format, length, and content type reveal Google's intent interpretation."</div>
+        </div>
+      </div>
+
+      <!-- Q10 -->
+      <div class="qa-item" id="q10">
+        <div class="qa-q" onclick="toggleQ('q10','beginner')">
+          <span class="qa-num">Q10</span>
+          <span class="qa-text">What is Domain Authority (DA) and is it a Google ranking factor?</span>
+          <span class="qa-chevron">▼</span>
+        </div>
+        <div class="qa-a">
+          <div class="answer-label al-beginner">✓ Model Answer</div>
+          <p>Domain Authority (DA) is a score (1–100) created by <strong>Moz</strong> that predicts how likely a domain is to rank in search results based on its backlink profile. <strong>It is NOT a Google ranking factor.</strong></p>
+          <p>Google uses its own proprietary metric called PageRank. DA, DR (Ahrefs' Domain Rating), and AS (Semrush's Authority Score) are third-party proxies — useful for comparisons but not official signals.</p>
+          <div class="answer-tip"><strong>🎯 Answer Tip:</strong> This is a trap question! Many candidates say DA affects rankings. Saying "DA is a third-party metric, not a Google signal — Google uses PageRank and hundreds of other factors" shows you know the industry nuance.</div>
+        </div>
+      </div>
+
+      <!-- Q11 -->
+      <div class="qa-item" id="q11">
+        <div class="qa-q" onclick="toggleQ('q11','beginner')">
+          <span class="qa-num">Q11</span>
+          <span class="qa-text">What is a sitemap and why should you submit one to Google?</span>
+          <span class="qa-chevron">▼</span>
+        </div>
+        <div class="qa-a">
+          <div class="answer-label al-beginner">✓ Model Answer</div>
+          <p>An XML sitemap is a file that lists all the important URLs on your website, along with metadata like last-modified date and priority. It acts as a roadmap for search engine crawlers.</p>
+          <p>Submitting to Google Search Console ensures Googlebot discovers new or updated pages faster — especially important for large sites, new sites with few backlinks, or pages with deep architecture that might not get crawled naturally.</p>
+          <div class="answer-tip"><strong>🎯 Answer Tip:</strong> Mention you should exclude noindex pages, paginated duplicates, and low-quality URLs from your sitemap — only include pages you want indexed.</div>
+        </div>
+      </div>
+
+      <!-- Q12 -->
+      <div class="qa-item" id="q12">
+        <div class="qa-q" onclick="toggleQ('q12','beginner')">
+          <span class="qa-num">Q12</span>
+          <span class="qa-text">What is the robots.txt file and what does it do?</span>
+          <span class="qa-chevron">▼</span>
+        </div>
+        <div class="qa-a">
+          <div class="answer-label al-beginner">✓ Model Answer</div>
+          <p><code>robots.txt</code> is a text file at the root of your domain (<code>yourdomain.com/robots.txt</code>) that gives instructions to search engine crawlers about which pages or sections they can and cannot access.</p>
+          <p><strong>Important distinction:</strong> Disallowing in robots.txt <em>prevents crawling</em> but does NOT prevent indexing. If a page has external links pointing to it, Google may still index it even if crawling is disallowed. For full blocking, use <code>noindex</code> meta tags.</p>
+          <div class="answer-tip"><strong>🎯 Answer Tip:</strong> "A critical mistake I've seen is blocking CSS and JavaScript in robots.txt — this prevents Google from rendering pages correctly and can tank rankings. Never block render-critical resources."</div>
+        </div>
+      </div>
+
+    </div><!-- /section-block beginner -->
+  </div><!-- /beginner -->
+
+  <!-- ════════════════════════════════
+       INTERMEDIATE SECTION
+  ════════════════════════════════ -->
+  <div id="intermediate" class="level-section" data-level="intermediate">
+    <div class="section-header">
+      <div class="section-icon bg-intermediate">📈</div>
+      <div class="section-title-block">
+        <h2>Intermediate Questions <span class="level-tag lt-intermediate">1–3 Years XP</span></h2>
+        <p>Strategy, tools, analytics, content optimisation, and link building — expected for SEO Specialist and Senior roles.</p>
+      </div>
+    </div>
+
+    <div class="pro-tip-panel">
+      <h4>💡 Interviewer's Intent at Intermediate Level</h4>
+      <ul>
+        <li>They want to see you can run campaigns end-to-end, not just apply tactics.</li>
+        <li>Bring data: mention specific percentage improvements, traffic numbers, and tools used.</li>
+        <li>Show you understand trade-offs — what you'd prioritise and why when resources are limited.</li>
+      </ul>
+    </div>
+
+    <div class="section-block">
+
+      <!-- Q13 -->
+      <div class="qa-item" id="q13">
+        <div class="qa-q" onclick="toggleQ('q13','intermediate')">
+          <span class="qa-num">Q13</span>
+          <span class="qa-text">Walk me through how you would conduct keyword research for a new website.</span>
+          <span class="qa-chevron">▼</span>
+        </div>
+        <div class="qa-a">
+          <div class="answer-label al-intermediate">✓ Model Answer</div>
+          <p>My keyword research process follows 5 phases:</p>
+          <ul>
+            <li><strong>1. Seed Keywords:</strong> Start with core topics from the business model. For an e-commerce shoe store: "running shoes," "sneakers," "trainers."</li>
+            <li><strong>2. Competitor Gap Analysis:</strong> In Ahrefs/SEMrush, enter 3–5 competitors and find keywords they rank for that you don't. This is the fastest way to find proven opportunities.</li>
+            <li><strong>3. Long-Tail Expansion:</strong> Use "People Also Ask," Google Autocomplete, and Answer the Public to find question-based and long-tail variants.</li>
+            <li><strong>4. Intent Mapping:</strong> Categorise every keyword by intent (informational, commercial, transactional) and map to content type.</li>
+            <li><strong>5. Prioritisation:</strong> Score by: volume × (1/KD) × business relevance. Focus first on moderate-volume, low-KD, high-relevance keywords for quick wins.</li>
+          </ul>
+          <div class="answer-tip tip-intermediate"><strong>🎯 Answer Tip:</strong> Structure your answer as a process, not a list. Saying "I follow a 5-phase process" immediately signals methodical thinking.</div>
+        </div>
+      </div>
+
+      <!-- Q14 -->
+      <div class="qa-item" id="q14">
+        <div class="qa-q" onclick="toggleQ('q14','intermediate')">
+          <span class="qa-num">Q14</span>
+          <span class="qa-text">What is keyword cannibalism and how do you fix it?</span>
+          <span class="qa-chevron">▼</span>
+        </div>
+        <div class="qa-a">
+          <div class="answer-label al-intermediate">✓ Model Answer</div>
+          <p>Keyword cannibalism occurs when multiple pages on the same site compete for the same keyword, causing Google to be confused about which page to rank. This splits ranking authority and often leads to neither page ranking well.</p>
+          <p><strong>How to fix it:</strong></p>
+          <ul>
+            <li><strong>Consolidate:</strong> Merge the weaker page into the stronger one via 301 redirect.</li>
+            <li><strong>Canonicalise:</strong> Add <code>rel=canonical</code> from the duplicate to the primary page.</li>
+            <li><strong>Differentiate:</strong> If both pages serve different intents, rewrite one to target a different keyword cluster.</li>
+            <li><strong>Internal Links:</strong> Ensure internal links always point to the primary "canonical" version of the page.</li>
+          </ul>
+          <div class="answer-tip tip-intermediate"><strong>🎯 Answer Tip:</strong> To find cannibalism: In Google, search <code>site:yourdomain.com "target keyword"</code> — if multiple pages show up, you have an issue.</div>
+        </div>
+      </div>
+
+      <!-- Q15 -->
+      <div class="qa-item" id="q15">
+        <div class="qa-q" onclick="toggleQ('q15','intermediate')">
+          <span class="qa-num">Q15</span>
+          <span class="qa-text">What is E-E-A-T and how does it impact content strategy?</span>
+          <span class="qa-chevron">▼</span>
+        </div>
+        <div class="qa-a">
+          <div class="answer-label al-intermediate">✓ Model Answer</div>
+          <p>E-E-A-T stands for <strong>Experience, Expertise, Authoritativeness, and Trustworthiness</strong> — Google's quality rater framework from its Search Quality Evaluator Guidelines. The first "E" (Experience) was added in 2022.</p>
+          <ul>
+            <li><strong>Experience:</strong> First-hand, real-world experience with the topic (e.g., a product review from someone who actually used it).</li>
+            <li><strong>Expertise:</strong> Demonstrated knowledge in the subject area.</li>
+            <li><strong>Authoritativeness:</strong> Recognition by others in the field (citations, backlinks, mentions).</li>
+            <li><strong>Trustworthiness:</strong> Accuracy, transparency, security, and accountability.</li>
+          </ul>
+          <p><strong>Content strategy impact:</strong> For YMYL (Your Money, Your Life) topics — health, finance, legal — E-E-A-T must be demonstrable. Use author bios with credentials, cite primary sources, display reviews, and earn media mentions.</p>
+          <div class="answer-tip tip-intermediate"><strong>🎯 Answer Tip:</strong> E-E-A-T is not a direct ranking factor but Google's algorithms are trained on quality rater data. Strong E-E-A-T signals correlate with higher rankings, especially post-HCU (Helpful Content Update).</div>
+        </div>
+      </div>
+
+      <!-- Q16 -->
+      <div class="qa-item" id="q16">
+        <div class="qa-q" onclick="toggleQ('q16','intermediate')">
+          <span class="qa-num">Q16</span>
+          <span class="qa-text">How do you build backlinks ethically without buying them?</span>
+          <span class="qa-chevron">▼</span>
+        </div>
+        <div class="qa-a">
+          <div class="answer-label al-intermediate">✓ Model Answer</div>
+          <p>The most sustainable link-building strategies are:</p>
+          <ul>
+            <li><strong>Digital PR:</strong> Create newsworthy studies, data reports, or surveys that journalists naturally cite.</li>
+            <li><strong>Skyscraper Technique:</strong> Find top-ranking content, create a significantly better version, and outreach to sites linking to the original.</li>
+            <li><strong>Guest Posting (earned):</strong> Write high-quality articles for authoritative industry publications — not just any blog.</li>
+            <li><strong>Broken Link Building:</strong> Find broken external links on relevant sites using Ahrefs, create replacement content, and suggest your link.</li>
+            <li><strong>Resource Page Outreach:</strong> Find "best resources" pages in your niche and pitch inclusion if your content genuinely adds value.</li>
+            <li><strong>HARO / Connectively:</strong> Respond to journalist queries to earn editorial citations from major publications.</li>
+          </ul>
+          <div class="answer-tip tip-intermediate"><strong>🎯 Answer Tip:</strong> Always mention that link quality matters 10× more than quantity. One contextual link from a high-DR, relevant domain beats 100 directory links.</div>
+        </div>
+      </div>
+
+      <!-- Q17 -->
+      <div class="qa-item" id="q17">
+        <div class="qa-q" onclick="toggleQ('q17','intermediate')">
+          <span class="qa-num">Q17</span>
+          <span class="qa-text">How do you measure the success of an SEO campaign?</span>
+          <span class="qa-chevron">▼</span>
+        </div>
+        <div class="qa-a">
+          <div class="answer-label al-intermediate">✓ Model Answer</div>
+          <p>SEO success requires tracking metrics at multiple levels:</p>
+          <ul>
+            <li><strong>Visibility Metrics:</strong> Keyword rankings (tracked via Ahrefs/SEMrush), Search Impressions (GSC), Share of Voice.</li>
+            <li><strong>Traffic Metrics:</strong> Organic sessions (GA4), new vs returning users, pages per session, bounce rate.</li>
+            <li><strong>Engagement Metrics:</strong> CTR from GSC, average session duration, scroll depth (GA4).</li>
+            <li><strong>Business Metrics:</strong> Organic leads, organic revenue, assisted conversions, customer acquisition cost from organic.</li>
+            <li><strong>Technical Health:</strong> Crawl errors, Core Web Vitals scores, index coverage rate, page speed.</li>
+          </ul>
+          <div class="answer-tip tip-intermediate"><strong>🎯 Answer Tip:</strong> Frame your answer around OKRs: "Our objective is X, so we measure with KPIs Y and Z." This shows strategic thinking, not just tactical reporting.</div>
+        </div>
+      </div>
+
+      <!-- Q18 -->
+      <div class="qa-item" id="q18">
+        <div class="qa-q" onclick="toggleQ('q18','intermediate')">
+          <span class="qa-num">Q18</span>
+          <span class="qa-text">What is a content audit and how do you approach one?</span>
+          <span class="qa-chevron">▼</span>
+        </div>
+        <div class="qa-a">
+          <div class="answer-label al-intermediate">✓ Model Answer</div>
+          <p>A content audit evaluates the performance and quality of every page on a site to decide: Keep, Update, Consolidate, or Remove (the KUCR framework).</p>
+          <ul>
+            <li><strong>Step 1 — Crawl:</strong> Use Screaming Frog to export all URLs with metadata.</li>
+            <li><strong>Step 2 — Pull Data:</strong> Import GSC data (clicks, impressions, CTR) and GA4 data (sessions, conversions) via Sheets/Looker Studio.</li>
+            <li><strong>Step 3 — Segment:</strong> Categorise pages by: Declining traffic, Zero traffic (>3 months old), Thin content, Duplicate/near-duplicate, High-traffic earners.</li>
+            <li><strong>Step 4 — Decide:</strong> High traffic + outdated = refresh. Low traffic + low quality = delete + 301. Cannibalistic = consolidate. Evergreen winners = protect and update.</li>
+          </ul>
+          <div class="answer-tip tip-intermediate"><strong>🎯 Answer Tip:</strong> Mention the "content decay" concept — even great articles lose rankings over time without maintenance. A content audit should be done every 6–12 months.</div>
+        </div>
+      </div>
+
+      <!-- Q19 -->
+      <div class="qa-item" id="q19">
+        <div class="qa-q" onclick="toggleQ('q19','intermediate')">
+          <span class="qa-num">Q19</span>
+          <span class="qa-text">What is the difference between a 301 redirect and a 302 redirect?</span>
+          <span class="qa-chevron">▼</span>
+        </div>
+        <div class="qa-a">
+          <div class="answer-label al-intermediate">✓ Model Answer</div>
+          <ul>
+            <li><strong>301 Redirect:</strong> Permanent redirect. Passes ~90–99% of link equity to the new URL. Used when a page is permanently moved or deleted. Google updates its index to show the new URL.</li>
+            <li><strong>302 Redirect:</strong> Temporary redirect. Passes minimal link equity. Used for A/B testing, temporary maintenance pages, or geo-redirects. Google keeps the original URL in its index.</li>
+          </ul>
+          <p><strong>Common mistake:</strong> Using 302 when you mean 301. This is very common during site migrations and results in massive link equity loss because Google doesn't consolidate the PageRank.</p>
+          <div class="answer-tip tip-intermediate"><strong>🎯 Answer Tip:</strong> Also mention redirect chains (A→B→C) and redirect loops (A→B→A) — both dilute link equity and slow crawl speed. Always audit redirects with Screaming Frog before and after migrations.</div>
+        </div>
+      </div>
+
+      <!-- Q20 -->
+      <div class="qa-item" id="q20">
+        <div class="qa-q" onclick="toggleQ('q20','intermediate')">
+          <span class="qa-num">Q20</span>
+          <span class="qa-text">What are Core Web Vitals and how do you improve them?</span>
+          <span class="qa-chevron">▼</span>
+        </div>
+        <div class="qa-a">
+          <div class="answer-label al-intermediate">✓ Model Answer</div>
+          <p>Core Web Vitals are three user-centric performance metrics that became a ranking factor in Google's Page Experience update (2021):</p>
+          <ul>
+            <li><strong>LCP (Largest Contentful Paint):</strong> Loading performance. Target: &lt;2.5s. Fix: Optimise images (WebP, lazy load), use CDN, preload key resources.</li>
+            <li><strong>INP (Interaction to Next Paint):</strong> Interactivity. Target: &lt;200ms (replaced FID in 2024). Fix: Reduce main thread blocking, defer non-critical JavaScript, use web workers.</li>
+            <li><strong>CLS (Cumulative Layout Shift):</strong> Visual stability. Target: &lt;0.1. Fix: Set explicit width/height on images and embeds, avoid injecting content above the fold after load.</li>
+          </ul>
+          <div class="answer-tip tip-intermediate"><strong>🎯 Answer Tip:</strong> Mentioning that FID was replaced by INP in March 2024 shows you stay current with algorithm updates — a key trait interviewers look for.</div>
+        </div>
+      </div>
+
+      <!-- Q21 -->
+      <div class="qa-item" id="q21">
+        <div class="qa-q" onclick="toggleQ('q21','intermediate')">
+          <span class="qa-num">Q21</span>
+          <span class="qa-text">What is structured data (schema markup) and when should you use it?</span>
+          <span class="qa-chevron">▼</span>
+        </div>
+        <div class="qa-a">
+          <div class="answer-label al-intermediate">✓ Model Answer</div>
+          <p>Structured data is code (usually JSON-LD format) added to a page's HTML that explicitly tells search engines what the content means — not just what it says. It's based on Schema.org vocabulary.</p>
+          <p>Benefits: Enables <strong>rich results</strong> in SERPs — star ratings, FAQ dropdowns, How-to steps, recipe cards, product prices, event dates. Rich results typically have 20–30% higher CTR.</p>
+          <p>Best use cases: Products (price, availability, reviews), Articles (publish date, author), FAQs, Local Business (address, hours), Recipes, Events, and Breadcrumbs.</p>
+          <div class="answer-tip tip-intermediate"><strong>🎯 Answer Tip:</strong> "Structured data doesn't guarantee rich results — Google uses it as a hint. Always validate with the Rich Results Test and monitor performance in GSC's Enhancements reports."</div>
+        </div>
+      </div>
+
+      <!-- Q22 -->
+      <div class="qa-item" id="q22">
+        <div class="qa-q" onclick="toggleQ('q22','intermediate')">
+          <span class="qa-num">Q22</span>
+          <span class="qa-text">How do you optimise for local SEO?</span>
+          <span class="qa-chevron">▼</span>
+        </div>
+        <div class="qa-a">
+          <div class="answer-label al-intermediate">✓ Model Answer</div>
+          <p>Local SEO strategy centres on the <strong>Google Map Pack</strong> (3-pack) and geo-targeted organic results. Key pillars:</p>
+          <ul>
+            <li><strong>Google Business Profile (GBP):</strong> Complete all fields, add photos, post weekly updates, respond to all reviews within 24hrs.</li>
+            <li><strong>NAP Consistency:</strong> Name, Address, Phone must be identical across all directories (Yelp, Bing Places, Apple Maps, Trustpilot).</li>
+            <li><strong>Local Landing Pages:</strong> Create city/service-specific pages with local keywords, embedded maps, and customer testimonials.</li>
+            <li><strong>Reviews:</strong> Active review generation strategy — review velocity and recency are strong local ranking signals.</li>
+            <li><strong>Local Citations:</strong> Build citations on industry and local directories. Use Moz Local or BrightLocal to manage.</li>
+          </ul>
+          <div class="answer-tip tip-intermediate"><strong>🎯 Answer Tip:</strong> Mention that proximity, prominence, and relevance are Google's 3 official local ranking factors — and that "prominence" is primarily driven by reviews and backlinks from local sources.</div>
+        </div>
+      </div>
+
+      <!-- Q23 -->
+      <div class="qa-item" id="q23">
+        <div class="qa-q" onclick="toggleQ('q23','intermediate')">
+          <span class="qa-num">Q23</span>
+          <span class="qa-text">What tools do you use in your day-to-day SEO workflow?</span>
+          <span class="qa-chevron">▼</span>
+        </div>
+        <div class="qa-a">
+          <div class="answer-label al-intermediate">✓ Model Answer</div>
+          <p>A well-rounded SEO toolset covers every workflow stage:</p>
+          <ul>
+            <li><strong>Keyword Research:</strong> Ahrefs Keywords Explorer, SEMrush Keyword Magic Tool, Google Keyword Planner</li>
+            <li><strong>Technical Audits:</strong> Screaming Frog (crawling), PageSpeed Insights, GTmetrix (performance), Sitebulb</li>
+            <li><strong>Analytics:</strong> Google Analytics 4, Google Search Console, Looker Studio (dashboards)</li>
+            <li><strong>Link Building:</strong> Ahrefs (backlink analysis), Hunter.io (email finding), BuzzStream (outreach CRM)</li>
+            <li><strong>Content:</strong> Clearscope / SurferSEO (content optimisation), Hemingway Editor, Grammarly</li>
+            <li><strong>Rank Tracking:</strong> Ahrefs Rank Tracker, STAT, Accuranker</li>
+          </ul>
+          <div class="answer-tip tip-intermediate"><strong>🎯 Answer Tip:</strong> Don't just list tools — mention HOW you use them. "I use Screaming Frog's custom extraction to audit schema markup across 10,000 pages in one crawl" shows deep expertise.</div>
+        </div>
+      </div>
+
+      <!-- Q24 -->
+      <div class="qa-item" id="q24">
+        <div class="qa-q" onclick="toggleQ('q24','intermediate')">
+          <span class="qa-num">Q24</span>
+          <span class="qa-text">How do you handle an unexpected drop in organic traffic?</span>
+          <span class="qa-chevron">▼</span>
+        </div>
+        <div class="qa-a">
+          <div class="answer-label al-intermediate">✓ Model Answer</div>
+          <p>My traffic drop investigation checklist:</p>
+          <ul>
+            <li><strong>1. Verify the data:</strong> Check GA4 for tracking issues, filter issues, or GA4 migration errors.</li>
+            <li><strong>2. Check algorithm updates:</strong> Was there a confirmed Google core update? Use MozCast or Semrush Sensor to correlate timing.</li>
+            <li><strong>3. GSC Analysis:</strong> Check Coverage errors, Indexing drops, and Manual Actions. Were pages de-indexed?</li>
+            <li><strong>4. Technical check:</strong> Was there a recent deployment? Check robots.txt wasn't accidentally changed. Check for accidental noindex tags.</li>
+            <li><strong>5. Competitor analysis:</strong> Did a competitor launch stronger content? Did they steal your featured snippet?</li>
+            <li><strong>6. Segment the drop:</strong> Which pages dropped? Which keywords? Mobile vs desktop? Identify patterns.</li>
+          </ul>
+          <div class="answer-tip tip-intermediate"><strong>🎯 Answer Tip:</strong> Structure this as a diagnostic framework, not a panic reaction. Saying "first I verify it's a real drop, not a tracking issue" shows professional composure.</div>
+        </div>
+      </div>
+
+      <!-- Q25 -->
+      <div class="qa-item" id="q25">
+        <div class="qa-q" onclick="toggleQ('q25','intermediate')">
+          <span class="qa-num">Q25</span>
+          <span class="qa-text">What is a featured snippet and how do you optimise for one?</span>
+          <span class="qa-chevron">▼</span>
+        </div>
+        <div class="qa-a">
+          <div class="answer-label al-intermediate">✓ Model Answer</div>
+          <p>A featured snippet is a highlighted box at the top of Google results (Position 0) that directly answers a query. Types: paragraph, list, table, and video snippets.</p>
+          <p><strong>Optimisation tactics:</strong></p>
+          <ul>
+            <li>Target question-based keywords (who, what, how, why, when)</li>
+            <li>Provide a concise, direct answer in the first 40–60 words of a section</li>
+            <li>Use the exact question as a header (<code>&lt;h2&gt;</code> or <code>&lt;h3&gt;</code>)</li>
+            <li>For list snippets: use HTML ordered or unordered lists</li>
+            <li>For table snippets: use HTML <code>&lt;table&gt;</code> elements with clear headers</li>
+          </ul>
+          <div class="answer-tip tip-intermediate"><strong>🎯 Answer Tip:</strong> "You must already rank on page 1 to earn a featured snippet — Google almost never pulls snippets from page 2+ results. So fix rankings first, then optimise for snippet capture."</div>
+        </div>
+      </div>
+
+      <!-- Q26 -->
+      <div class="qa-item" id="q26">
+        <div class="qa-q" onclick="toggleQ('q26','intermediate')">
+          <span class="qa-num">Q26</span>
+          <span class="qa-text">What is the difference between indexing and crawling?</span>
+          <span class="qa-chevron">▼</span>
+        </div>
+        <div class="qa-a">
+          <div class="answer-label al-intermediate">✓ Model Answer</div>
+          <ul>
+            <li><strong>Crawling:</strong> Googlebot discovering and accessing your URLs by following links and sitemaps. It reads the page's HTML, CSS, and JavaScript.</li>
+            <li><strong>Indexing:</strong> Google processing and storing the crawled content in its index — the searchable database. Only indexed pages can appear in search results.</li>
+            <li><strong>Rendering:</strong> The intermediate step where Google executes JavaScript to understand dynamic content. This can lag crawling by days or weeks for JS-heavy sites.</li>
+          </ul>
+          <p>A page can be crawled but not indexed (if it has noindex tag, thin content, or is of low quality). A page can also be indexed without being recently crawled (if it was indexed in the past but crawling is now blocked).</p>
+          <div class="answer-tip tip-intermediate"><strong>🎯 Answer Tip:</strong> Interviewers may phrase this as "what's the difference between crawling and indexing" specifically to test whether you know they're separate processes — many confuse them.</div>
+        </div>
+      </div>
+
+    </div><!-- /section-block intermediate -->
+  </div><!-- /intermediate -->
+
+  <!-- ════════════════════════════════
+       ADVANCED SECTION
+  ════════════════════════════════ -->
+  <div id="advanced" class="level-section" data-level="advanced">
+    <div class="section-header">
+      <div class="section-icon bg-advanced">🔥</div>
+      <div class="section-title-block">
+        <h2>Advanced Questions <span class="level-tag lt-advanced">3–6 Years XP</span></h2>
+        <p>Strategic thinking, algorithm understanding, technical depth, and cross-channel integration — for Senior and Lead roles.</p>
+      </div>
+    </div>
+
+    <div class="pro-tip-panel">
+      <h4>💡 Interviewer's Intent at Advanced Level</h4>
+      <ul>
+        <li>They want strategic thinkers who can lead SEO programs, not just execute tasks.</li>
+        <li>Demonstrate how you've influenced business decisions using SEO data.</li>
+        <li>Show cross-functional experience: working with devs, content teams, and CMOs.</li>
+        <li>Be ready to disagree diplomatically — showing intellectual integrity matters at senior level.</li>
+      </ul>
+    </div>
+
+    <div class="section-block">
+
+      <!-- Q27 -->
+      <div class="qa-item" id="q27">
+        <div class="qa-q" onclick="toggleQ('q27','advanced')">
+          <span class="qa-num">Q27</span>
+          <span class="qa-text">How do you handle SEO for a large-scale website migration?</span>
+          <span class="qa-chevron">▼</span>
+        </div>
+        <div class="qa-a">
+          <div class="answer-label al-advanced">✓ Model Answer</div>
+          <p>Site migrations are one of the highest-risk SEO events. My structured approach:</p>
+          <ul>
+            <li><strong>Pre-Migration (4–6 weeks before):</strong> Full crawl of current site, export all ranking URLs + their traffic data, build a complete 1:1 URL mapping, set up staging environment, run GA4 and GSC on new site.</li>
+            <li><strong>301 Redirect Mapping:</strong> Every old URL must redirect to the most relevant new URL. Never 301 to the homepage unless the page is being retired entirely.</li>
+            <li><strong>Content Parity Check:</strong> Ensure all content, internal links, and structured data are transferred accurately. Re-implement analytics tags.</li>
+            <li><strong>Post-Migration Monitoring (first 72hrs):</strong> Check crawl errors in GSC, verify 301s are working, confirm no 404s on top pages, validate robots.txt didn't accidentally block everything.</li>
+            <li><strong>30-Day Review:</strong> Compare traffic by page segment. If significant drops >20% persist, investigate crawl logs.</li>
+          </ul>
+          <div class="answer-tip tip-advanced"><strong>🎯 Answer Tip:</strong> "The most costly migration mistake I've seen is forgetting to migrate canonical tags — if they point back to the old domain post-migration, you create a massive self-referential canonical loop."</div>
+        </div>
+      </div>
+
+      <!-- Q28 -->
+      <div class="qa-item" id="q28">
+        <div class="qa-q" onclick="toggleQ('q28','advanced')">
+          <span class="qa-num">Q28</span>
+          <span class="qa-text">Explain how Google's algorithm works and what major updates have shaped modern SEO.</span>
+          <span class="qa-chevron">▼</span>
+        </div>
+        <div class="qa-a">
+          <div class="answer-label al-advanced">✓ Model Answer</div>
+          <p>Google's algorithm is a multi-layered system ranking pages by relevance, quality, and user experience. Key algorithmic systems:</p>
+          <ul>
+            <li><strong>Hummingbird (2013):</strong> Semantic search — understanding meaning, not just matching words. Enabled conversational queries.</li>
+            <li><strong>RankBrain (2015):</strong> ML-based interpretation of ambiguous queries. Google's first major AI ranking signal.</li>
+            <li><strong>BERT (2019):</strong> Natural language processing for understanding prepositions and context in long queries.</li>
+            <li><strong>MUM (2021):</strong> 1000× more powerful than BERT — can process images, video, and text multimodally.</li>
+            <li><strong>Helpful Content System (2022–ongoing):</strong> Site-wide signal targeting content written primarily for search engines rather than people.</li>
+            <li><strong>AI Overviews (2024):</strong> Generative AI summaries at the top of results — changing the click-through landscape significantly.</li>
+          </ul>
+          <div class="answer-tip tip-advanced"><strong>🎯 Answer Tip:</strong> Don't just list updates — explain the directional shift: "Each update has moved Google from keyword-matching toward genuine user intent understanding and content quality evaluation."</div>
+        </div>
+      </div>
+
+      <!-- Q29 -->
+      <div class="qa-item" id="q29">
+        <div class="qa-q" onclick="toggleQ('q29','advanced')">
+          <span class="qa-num">Q29</span>
+          <span class="qa-text">How do you manage crawl budget for a large e-commerce site with millions of pages?</span>
+          <span class="qa-chevron">▼</span>
+        </div>
+        <div class="qa-a">
+          <div class="answer-label al-advanced">✓ Model Answer</div>
+          <p>Crawl budget is the number of pages Googlebot crawls on a site within a given time frame. For large e-commerce sites:</p>
+          <ul>
+            <li><strong>Eliminate faceted navigation waste:</strong> URL parameters from filters (colour, size) can create millions of duplicate URLs. Block these in robots.txt or canonicalise to the parent category.</li>
+            <li><strong>Clean up thin pages:</strong> Use noindex on paginated results beyond page 2, internal search results, and out-of-stock products with no content.</li>
+            <li><strong>XML Sitemap hygiene:</strong> Only include canonical, indexable URLs in sitemaps. Broken links inflate crawl budget waste.</li>
+            <li><strong>Log file analysis:</strong> Parse server logs to see which pages Googlebot actually crawls. Identify crawl waste on redirect chains, 404 pages, and parameter URLs.</li>
+            <li><strong>Internal linking structure:</strong> Deep pages with few internal links get crawled rarely. Elevate important pages through category navigation and internal linking.</li>
+          </ul>
+          <div class="answer-tip tip-advanced"><strong>🎯 Answer Tip:</strong> Mention Screaming Frog's Log File Analyser or Botify for enterprise-scale crawl budget management. Enterprise tools matter at this level.</div>
+        </div>
+      </div>
+
+      <!-- Q30 -->
+      <div class="qa-item" id="q30">
+        <div class="qa-q" onclick="toggleQ('q30','advanced')">
+          <span class="qa-num">Q30</span>
+          <span class="qa-text">How do you measure SEO's contribution to revenue and report it to C-suite?</span>
+          <span class="qa-chevron">▼</span>
+        </div>
+        <div class="qa-a">
+          <div class="answer-label al-advanced">✓ Model Answer</div>
+          <p>Connecting SEO to revenue requires a clear attribution model and business-aligned reporting:</p>
+          <ul>
+            <li><strong>GA4 + CRM Integration:</strong> Track organic-sourced conversions through the full funnel. Map form fills to closed deals in Salesforce/HubSpot.</li>
+            <li><strong>Assisted Conversions:</strong> Organic often influences but doesn't close — first-touch and linear attribution models better reflect SEO's role than last-click.</li>
+            <li><strong>Organic Revenue Report:</strong> Build a Looker Studio dashboard with: Organic revenue, Organic conversion rate, Revenue by landing page, YoY growth.</li>
+            <li><strong>CAC Comparison:</strong> Calculate organic CAC vs paid CAC. Organic typically has 5–10× better lifetime CAC, which resonates with CFOs.</li>
+            <li><strong>Forecast Modelling:</strong> Use share-of-voice and traffic data to project revenue impact of ranking improvements.</li>
+          </ul>
+          <div class="answer-tip tip-advanced"><strong>🎯 Answer Tip:</strong> "I always frame SEO reports around business impact, not traffic. 'We grew organic revenue by 34% to £840K this quarter' lands far better than '50K more clicks.'"</div>
+        </div>
+      </div>
+
+      <!-- Q31 -->
+      <div class="qa-item" id="q31">
+        <div class="qa-q" onclick="toggleQ('q31','advanced')">
+          <span class="qa-num">Q31</span>
+          <span class="qa-text">What is the impact of Google's AI Overviews (SGE) on SEO strategy?</span>
+          <span class="qa-chevron">▼</span>
+        </div>
+        <div class="qa-a">
+          <div class="answer-label al-advanced">✓ Model Answer</div>
+          <p>Google's AI Overviews (formerly SGE) present AI-generated answers at the top of results, often reducing the need to click through. Key impacts and adaptations:</p>
+          <ul>
+            <li><strong>Zero-click increases:</strong> Informational queries now get answered in-SERP. SEOs must shift focus to transactional and commercial intent keywords where AI answers are less definitive.</li>
+            <li><strong>Citation opportunities:</strong> AI Overviews cite sources. Sites with strong E-E-A-T and clear factual content (with structured data) are more likely to be cited — this represents a new form of visibility.</li>
+            <li><strong>BOFU content priority:</strong> Bottom-of-funnel content (comparisons, reviews, pricing) is less likely to be AI-summarised, maintaining click value.</li>
+            <li><strong>Brand mentions:</strong> Even without a click, appearing in an AI Overview builds brand awareness — track impressions alongside clicks.</li>
+          </ul>
+          <div class="answer-tip tip-advanced"><strong>🎯 Answer Tip:</strong> This is a cutting-edge topic. Showing awareness of the paradigm shift (from "rank to get clicks" to "rank to get cited in AI answers") signals strategic vision.</div>
+        </div>
+      </div>
+
+      <!-- Q32 -->
+      <div class="qa-item" id="q32">
+        <div class="qa-q" onclick="toggleQ('q32','advanced')">
+          <span class="qa-num">Q32</span>
+          <span class="qa-text">How would you build a topical authority strategy from scratch?</span>
+          <span class="qa-chevron">▼</span>
+        </div>
+        <div class="qa-a">
+          <div class="answer-label al-advanced">✓ Model Answer</div>
+          <p>Topical authority is about becoming the definitive resource on a subject within a given niche. Google increasingly rewards sites that cover topics comprehensively.</p>
+          <ul>
+            <li><strong>1. Topic Cluster Architecture:</strong> Build pillar pages (comprehensive 3,000–5,000 word guides) for each core topic. Create cluster pages for every sub-topic, all internally linking to the pillar.</li>
+            <li><strong>2. Keyword Universe Mapping:</strong> Map every related keyword to a specific page — zero keyword overlap. Use Ahrefs to identify topic coverage gaps vs competitors.</li>
+            <li><strong>3. Content Velocity:</strong> Consistent publishing builds topical depth over time. 3–5 cluster articles per week for the first 6 months creates momentum.</li>
+            <li><strong>4. Internal Linking Web:</strong> Every new article links to the pillar and to 3–5 relevant cluster pages. This passes authority and helps Googlebot understand the topic hierarchy.</li>
+            <li><strong>5. Expert Contributions:</strong> Commission subject matter experts to author or review content for E-E-A-T depth.</li>
+          </ul>
+          <div class="answer-tip tip-advanced"><strong>🎯 Answer Tip:</strong> Reference the "knowledge graph" concept — Google builds a map of entities and their relationships. Deep topical coverage helps your site become an entity-authority within that knowledge graph.</div>
+        </div>
+      </div>
+
+      <!-- Q33 -->
+      <div class="qa-item" id="q33">
+        <div class="qa-q" onclick="toggleQ('q33','advanced')">
+          <span class="qa-num">Q33</span>
+          <span class="qa-text">How do you approach JavaScript SEO for a Single Page Application (SPA)?</span>
+          <span class="qa-chevron">▼</span>
+        </div>
+        <div class="qa-a">
+          <div class="answer-label al-advanced">✓ Model Answer</div>
+          <p>SPAs present major SEO challenges because content is rendered client-side via JavaScript — meaning Googlebot may not see it on first crawl.</p>
+          <ul>
+            <li><strong>Rendering Gap:</strong> Google crawls pages, adds them to a "rendering queue," then renders them later (can be hours to weeks). During this gap, content is invisible to Google.</li>
+            <li><strong>Server-Side Rendering (SSR):</strong> Ideal solution — render HTML on the server before sending to browser. Frameworks: Next.js, Nuxt.js. Google sees fully-formed HTML immediately.</li>
+            <li><strong>Static Site Generation (SSG):</strong> Pre-render all pages at build time. Excellent for content-heavy sites. Tools: Gatsby, Astro.</li>
+            <li><strong>Dynamic Rendering:</strong> Serve pre-rendered HTML specifically to crawlers (using Rendertron or Prerender.io) while users get the SPA. Google's stance: acceptable workaround, not ideal.</li>
+            <li><strong>Audit tools:</strong> Chrome DevTools Network tab (disable JS and inspect), Google's URL Inspection tool (view rendered HTML), Screaming Frog with JS rendering enabled.</li>
+          </ul>
+          <div class="answer-tip tip-advanced"><strong>🎯 Answer Tip:</strong> "I always recommend SSR or SSG over dynamic rendering for SEO-critical sites — dynamic rendering adds infrastructure complexity and Google officially describes it as a workaround, not a recommended solution."</div>
+        </div>
+      </div>
+
+      <!-- Q34 -->
+      <div class="qa-item" id="q34">
+        <div class="qa-q" onclick="toggleQ('q34','advanced')">
+          <span class="qa-num">Q34</span>
+          <span class="qa-text">How do you prioritise SEO recommendations when working with limited development resources?</span>
+          <span class="qa-chevron">▼</span>
+        </div>
+        <div class="qa-a">
+          <div class="answer-label al-advanced">✓ Model Answer</div>
+          <p>With limited dev bandwidth, prioritisation frameworks are essential:</p>
+          <ul>
+            <li><strong>Impact vs Effort Matrix:</strong> Score each fix on projected traffic impact (High/Medium/Low) vs development effort (days). Quick wins (high impact, low effort) get done first.</li>
+            <li><strong>Revenue Potential:</strong> Fix issues affecting your highest-converting pages first. A canonical tag error on a £100K/month landing page beats fixing H2 tags on thin blog posts.</li>
+            <li><strong>RICE Score:</strong> Reach × Impact × Confidence ÷ Effort. Quantified prioritisation works well for dev ticket systems.</li>
+            <li><strong>Categorise by fix owner:</strong> Some fixes are pure SEO (no dev needed): content, internal links, title tags. Separate these from dev-dependent fixes to ensure momentum.</li>
+            <li><strong>Sprint integration:</strong> Get recurring SEO capacity (10–20% of each sprint). Frame fixes as user experience improvements, not just SEO tasks, to get buy-in.</li>
+          </ul>
+          <div class="answer-tip tip-advanced"><strong>🎯 Answer Tip:</strong> "The question tests whether you understand cross-functional working. Show that you can write clear dev tickets, use data to justify prioritisation, and communicate in business terms — not SEO jargon."</div>
+        </div>
+      </div>
+
+      <!-- Q35 -->
+      <div class="qa-item" id="q35">
+        <div class="qa-q" onclick="toggleQ('q35','advanced')">
+          <span class="qa-num">Q35</span>
+          <span class="qa-text">What is log file analysis and what insights can it reveal that GSC cannot?</span>
+          <span class="qa-chevron">▼</span>
+        </div>
+        <div class="qa-a">
+          <div class="answer-label al-advanced">✓ Model Answer</div>
+          <p>Log file analysis involves examining raw server access logs to understand exactly how search engines behave on your site — Googlebot's actual crawl behaviour, not a sample.</p>
+          <p><strong>Unique insights vs GSC:</strong></p>
+          <ul>
+            <li>Exact crawl frequency per URL — identify crawl waste on low-value pages</li>
+            <li>Detect crawl budget leakage to URL parameters and pagination</li>
+            <li>Identify rendering delays (first crawl vs rendered crawl timing)</li>
+            <li>Spot crawl prioritisation patterns — does Googlebot prefer certain subdirectories?</li>
+            <li>See other bots (Bingbot, SEMrush, Ahrefs) vs Googlebot split</li>
+          </ul>
+          <p>Tools: Screaming Frog Log Analyser, Botify, JetOctopus, or custom Python scripts with Pandas for enterprise-scale log parsing.</p>
+          <div class="answer-tip tip-advanced"><strong>🎯 Answer Tip:</strong> "GSC shows sampled data with a 3-day delay. Log files are the ground truth. For any serious technical SEO investigation — especially post-migration or post-update — log file analysis is non-negotiable."</div>
+        </div>
+      </div>
+
+      <!-- Q36 -->
+      <div class="qa-item" id="q36">
+        <div class="qa-q" onclick="toggleQ('q36','advanced')">
+          <span class="qa-num">Q36</span>
+          <span class="qa-text">How do you build and scale an internal link strategy for a large site?</span>
+          <span class="qa-chevron">▼</span>
+        </div>
+        <div class="qa-a">
+          <div class="answer-label al-advanced">✓ Model Answer</div>
+          <p>Internal links distribute PageRank, aid crawlability, and clarify site architecture. A scalable system:</p>
+          <ul>
+            <li><strong>Link Equity Audit:</strong> Use Screaming Frog to map internal link counts per page. Pages with 0–3 internal links are "orphan" or "orphan-adjacent" — prioritise linking to them.</li>
+            <li><strong>Anchor Text Optimisation:</strong> Use descriptive, keyword-rich anchor text — not "click here" or "read more." This helps Google understand page relevance.</li>
+            <li><strong>Hub Pages:</strong> Identify 5–10 most valuable pages and ensure they receive the highest internal link count from relevant context.</li>
+            <li><strong>Programmatic Links:</strong> For large sites, use "related articles" modules, breadcrumbs, and category navigation to automatically generate contextual links at scale.</li>
+            <li><strong>Regular Audit Cadence:</strong> Run quarterly crawls to catch orphaned pages created by CMS changes, deleted redirects, or new content not being linked to.</li>
+          </ul>
+          <div class="answer-tip tip-advanced"><strong>🎯 Answer Tip:</strong> "The most underrated internal link tactic: when publishing a new article, manually add internal links FROM 5–10 high-authority existing pages TO the new article. This immediately boosts its crawl priority and equity."</div>
+        </div>
+      </div>
+
+      <!-- Q37 -->
+      <div class="qa-item" id="q37">
+        <div class="qa-q" onclick="toggleQ('q37','advanced')">
+          <span class="qa-num">Q37</span>
+          <span class="qa-text">What is the Helpful Content System and how has it changed content strategy?</span>
+          <span class="qa-chevron">▼</span>
+        </div>
+        <div class="qa-a">
+          <div class="answer-label al-advanced">✓ Model Answer</div>
+          <p>Google's Helpful Content System (HCU), introduced in 2022 and expanded in 2023–2024, applies a site-wide classifier that identifies content created primarily for search rankings rather than to genuinely help users.</p>
+          <p><strong>What changed:</strong></p>
+          <ul>
+            <li>Sites with significant portions of unhelpful or AI-generated content (without human review) saw whole-site ranking drops — not just individual page penalties.</li>
+            <li>Pure affiliate sites and programmatic SEO sites that produce content at scale without genuine expertise were heavily impacted.</li>
+            <li>Reddit, Quora, and forums saw massive increases — Google is surfacing first-hand experience over polished but generic content.</li>
+          </ul>
+          <p><strong>Adapted strategy:</strong> Prioritise original research, first-person experience, user perspectives, expert authorship, and demonstrated subject matter depth. Quality > volume.</p>
+          <div class="answer-tip tip-advanced"><strong>🎯 Answer Tip:</strong> "The HCU fundamentally reframed the question from 'What does Google want to rank?' to 'What would genuinely satisfy a user?' — these are not always the same thing, and the gap was closing fast."</div>
+        </div>
+      </div>
+
+      <!-- Q38 -->
+      <div class="qa-item" id="q38">
+        <div class="qa-q" onclick="toggleQ('q38','advanced')">
+          <span class="qa-num">Q38</span>
+          <span class="qa-text">How do you approach international SEO for a global website?</span>
+          <span class="qa-chevron">▼</span>
+        </div>
+        <div class="qa-a">
+          <div class="answer-label al-advanced">✓ Model Answer</div>
+          <p>International SEO requires solving two problems: telling Google which version of your content to show for each country/language, and creating content that resonates locally.</p>
+          <ul>
+            <li><strong>URL Structure choice:</strong> ccTLDs (.co.uk, .de) signal strongest geo-relevance but are expensive. Subdirectories (/uk/, /de/) are recommended for most businesses — they share domain authority.</li>
+            <li><strong>Hreflang implementation:</strong> The <code>hreflang</code> tag tells Google which language/region each page targets. Must be bidirectional — every alternates page must reference all other alternates. Misconfigured hreflang is extremely common.</li>
+            <li><strong>Translation vs Localisation:</strong> Translated content isn't enough — keywords, idioms, cultural references, and SERP intent differ by market. German users search differently than UK users for the same product.</li>
+            <li><strong>Local backlinks:</strong> Earn links from local domains (.de, .fr) for geo-specific authority signals.</li>
+          </ul>
+          <div class="answer-tip tip-advanced"><strong>🎯 Answer Tip:</strong> "The most common international SEO error is implementing hreflang only on the homepage. Every translated page needs hreflang tags, including the sitemap entries."</div>
+        </div>
+      </div>
+
+      <!-- Q39 -->
+      <div class="qa-item" id="q39">
+        <div class="qa-q" onclick="toggleQ('q39','advanced')">
+          <span class="qa-num">Q39</span>
+          <span class="qa-text">How would you present an SEO business case to secure a £500K budget?</span>
+          <span class="qa-chevron">▼</span>
+        </div>
+        <div class="qa-a">
+          <div class="answer-label al-advanced">✓ Model Answer</div>
+          <p>A winning SEO business case has five components:</p>
+          <ul>
+            <li><strong>1. Current State:</strong> Show current organic traffic, rankings, and revenue. Identify the gap vs top competitors using Share of Voice analysis.</li>
+            <li><strong>2. Opportunity Sizing:</strong> Estimate traffic and revenue potential for target keywords. Use GSC CTR curves × monthly search volume × conversion rate × average order value.</li>
+            <li><strong>3. Investment Breakdown:</strong> Allocate budget across content, technical SEO, link building, tooling, and headcount clearly.</li>
+            <li><strong>4. ROI Projections:</strong> Show 12-month, 24-month, and 36-month return. SEO compounds — Year 3 ROI typically 5–10× Year 1.</li>
+            <li><strong>5. Risk Mitigation:</strong> Address the "what if rankings drop" question with diversification strategy and historical recovery data.</li>
+          </ul>
+          <div class="answer-tip tip-advanced"><strong>🎯 Answer Tip:</strong> "Always anchor your opportunity estimate to GSC and competitor data — not industry averages. A CFO can dismiss averages; they can't dismiss your own site's data showing you're leaving £2M/year on the table."</div>
+        </div>
+      </div>
+
+      <!-- Q40 -->
+      <div class="qa-item" id="q40">
+        <div class="qa-q" onclick="toggleQ('q40','advanced')">
+          <span class="qa-num">Q40</span>
+          <span class="qa-text">How do you integrate SEO with paid search and content marketing?</span>
+          <span class="qa-chevron">▼</span>
+        </div>
+        <div class="qa-a">
+          <div class="answer-label al-advanced">✓ Model Answer</div>
+          <p>SEO, PPC, and content are most powerful when integrated rather than siloed:</p>
+          <ul>
+            <li><strong>SEO + PPC:</strong> Use PPC data to validate SEO keyword priorities (if a keyword converts well in ads, invest in organic ranking for it). Reduce PPC spend on keywords where organic already ranks in position 1–3.</li>
+            <li><strong>Content + SEO:</strong> Every piece of content should have a primary target keyword with clear intent mapping. Content teams should check GSC monthly to identify which posts are in positions 4–15 and update them (content decay wins).</li>
+            <li><strong>Shared KPIs:</strong> Move from siloed channel metrics to shared business metrics — organic + paid combined revenue, brand search volume as a health metric.</li>
+            <li><strong>Full-funnel mapping:</strong> SEO serves awareness/consideration (TOFU/MOFU), PPC retargeting closes BOFU. Design content to feed users down the funnel across channels.</li>
+          </ul>
+          <div class="answer-tip tip-advanced"><strong>🎯 Answer Tip:</strong> Demonstrating cross-channel thinking is essential for senior roles. Most SEO candidates can't articulate this clearly — doing so in an interview signals leadership potential.</div>
+        </div>
+      </div>
+
+    </div><!-- /section-block advanced -->
+  </div><!-- /advanced -->
+
+  <!-- ════════════════════════════════
+       EXPERT / SCENARIO SECTION
+  ════════════════════════════════ -->
+  <div id="expert" class="level-section" data-level="expert">
+    <div class="section-header">
+      <div class="section-icon bg-expert">🎓</div>
+      <div class="section-title-block">
+        <h2>Expert & Scenario Questions <span class="level-tag lt-expert">6+ Years / Leadership</span></h2>
+        <p>Real-world scenarios, strategic challenges, and impossible-situation problem-solving for Head of SEO, VP, and Director roles.</p>
+      </div>
+    </div>
+
+    <div class="pro-tip-panel">
+      <h4>💡 Interviewer's Intent at Expert Level</h4>
+      <ul>
+        <li>They're testing judgement under ambiguity — there are no perfect answers, only thoughtful frameworks.</li>
+        <li>Show how you handle conflict: dev pushback, stakeholder disagreement, executive pressure to "just rank faster."</li>
+        <li>Demonstrate thought leadership: mention industry figures, resources, and original thinking you've developed.</li>
+        <li>They want to see how you build and lead teams, not just personal output.</li>
+      </ul>
+    </div>
+
+    <div class="section-block">
+
+      <!-- Scenario Cards -->
+      <div class="scenario-card">
+        <h5>🔥 Scenario Q41 — The Penalty</h5>
+        <div class="context">"Your site just received a manual action from Google. Organic traffic dropped 85% overnight. The CEO is in the office demanding answers. Walk me through the next 72 hours."</div>
+        <div class="response">
+          <strong>Framework:</strong> Diagnose → Document → Remediate → Request Review → Prevent.<br><br>
+          <strong>Hour 1–4:</strong> Check GSC Manual Actions for the exact penalty type (unnatural links, thin content, cloaking, etc.). Document the full scope — how many pages affected, which keyword clusters, revenue impact.<br><br>
+          <strong>Hour 4–24:</strong> For link penalties: export full backlink profile from Ahrefs + GSC, categorise into natural/suspicious/toxic. Attempt manual outreach to remove spammy links. For content penalties: audit flagged pages for thin, duplicate, or keyword-stuffed content.<br><br>
+          <strong>Day 2–3:</strong> Build comprehensive disavow file if link-related. Fix all content issues. Submit Reconsideration Request with full evidence of what was found, removed, and changed.<br><br>
+          <strong>Expectation setting for CEO:</strong> "Manual action reviews typically take 2–4 weeks. Recovery post-review can take an additional 2–4 weeks for re-crawling. We should plan for 6–8 weeks to full recovery."
+        </div>
+      </div>
+
+      <div class="scenario-card">
+        <h5>⚡ Scenario Q42 — The Algorithm Update</h5>
+        <div class="context">"Google releases a core update. Your traffic drops 40% across the board. Your CTO insists it's a 'technical issue' that needs emergency development work. You disagree. How do you handle this?"</div>
+        <div class="response">
+          <strong>Answer:</strong> Core algorithm updates rarely have technical root causes — they're quality assessments. First, validate the disagreement with data:<br><br>
+          1. Compare your traffic drop timing exactly against Moz/Semrush sensor data to confirm it's algorithm-related, not server/crawl issue. 2. Check if competitors with similar content also dropped — if yes, it's an industry-wide quality recalibration. 3. Check GSC: any crawl errors? Any indexing changes? If nothing technical changed, the CTO hypothesis is disproven by data.<br><br>
+          Present this diplomatically: "The data shows the drop correlated precisely with the Core Update rollout and the affected pages are our thin-content blog posts — not the product pages which are technically complex. Here's a data-backed content improvement plan that addresses the likely root cause."
+        </div>
+      </div>
+
+      <div class="scenario-card">
+        <h5>🌍 Scenario Q43 — The Global Expansion</h5>
+        <div class="context">"The company is expanding to 12 new markets simultaneously. You have 6 months and a team of 4. How do you structure your international SEO strategy?"</div>
+        <div class="response">
+          <strong>Answer:</strong> Prioritise ruthlessly — 12 markets simultaneously with 4 people is unsustainable at full depth. My framework:<br><br>
+          1. <strong>Tier Markets:</strong> Rank 12 markets by revenue potential × search volume × competitive gap. Focus depth on Tier 1 (top 3 markets) in months 1–3. 2. <strong>Technical Foundation First:</strong> Get URL structure, hreflang, and sitemap infrastructure right before launching content — mistakes here are hard to undo at scale. 3. <strong>Core Page Localisation:</strong> Homepage, product pages, and 5 high-intent landing pages per market before blog/content. 4. <strong>Local SEO Partnerships:</strong> Contract native-language SEO specialists for content validation and local link building in each market — your team can't do this in-house at this scale. 5. <strong>Month 4–6:</strong> Tier 2 markets launch with lessons learned from Tier 1. Build localised content calendars with native writers.
+        </div>
+      </div>
+
+      <!-- Q44–50: Q&A format -->
+      <div class="qa-item" id="q44">
+        <div class="qa-q" onclick="toggleQ('q44','expert')">
+          <span class="qa-num">Q44</span>
+          <span class="qa-text">How do you keep a team of SEO specialists motivated and growing when results take 6+ months?</span>
+          <span class="qa-chevron">▼</span>
+        </div>
+        <div class="qa-a">
+          <div class="answer-label al-expert">✓ Model Answer</div>
+          <p>Managing SEO teams requires reframing success metrics to include leading indicators, not just lagging ones:</p>
+          <ul>
+            <li><strong>Leading KPIs:</strong> Track and celebrate: pages published, technical issues fixed, backlinks earned, CWV improvements. These precede traffic gains by weeks/months.</li>
+            <li><strong>Micro-wins visibility:</strong> Weekly standups that surface small wins — a featured snippet earned, a position 4→2 improvement. Recognition reinforces momentum.</li>
+            <li><strong>Skill development:</strong> Budget for courses (Ahrefs Academy, CXL, BrightEdge certification), conferences, and tool experimentation. Growth-oriented people tolerate slow revenue cycles better when they're personally growing.</li>
+            <li><strong>Autonomy + ownership:</strong> Assign each team member full ownership of a content cluster or site section. Ownership drives accountability and engagement.</li>
+          </ul>
+          <div class="answer-tip tip-expert"><strong>🎯 Answer Tip:</strong> "This tests emotional intelligence and leadership philosophy. The best answer acknowledges the psychological challenge of SEO's time lag and shows structured systems for keeping teams engaged despite it."</div>
+        </div>
+      </div>
+
+      <div class="qa-item" id="q45">
+        <div class="qa-q" onclick="toggleQ('q45','expert')">
+          <span class="qa-num">Q45</span>
+          <span class="qa-text">How do you evaluate whether to pursue programmatic SEO and when does it backfire?</span>
+          <span class="qa-chevron">▼</span>
+        </div>
+        <div class="qa-a">
+          <div class="answer-label al-expert">✓ Model Answer</div>
+          <p>Programmatic SEO (pSEO) involves creating thousands of landing pages from structured data templates — powerful when done correctly, disastrous when not.</p>
+          <p><strong>When it works:</strong> Platforms with genuine unique data per page (Tripadvisor's city pages, Zapier's integration pages, Nomad List's city profiles). Each page has unique, valuable information that no competitor can easily replicate.</p>
+          <p><strong>When it backfires:</strong> Thin pSEO — generating pages like "best plumber in [city]" × 10,000 cities with only the location variable changing. Google's HCU was specifically designed to penalise this. Signs you're in trouble: GSC shows mass "Discovered - not indexed" or "Crawled - not indexed" statuses.</p>
+          <p><strong>Evaluation criteria:</strong> Does each programmatically-generated page have genuinely unique value? Would a user find this page more useful than a generic site? Could you verify the quality of each page if Google asked?</p>
+          <div class="answer-tip tip-expert"><strong>🎯 Answer Tip:</strong> "The threshold question for any pSEO decision: 'Would I be proud to show Googlers this page?' If the answer is no, the page shouldn't exist."</div>
+        </div>
+      </div>
+
+      <div class="qa-item" id="q46">
+        <div class="qa-q" onclick="toggleQ('q46','expert')">
+          <span class="qa-num">Q46</span>
+          <span class="qa-text">What's your view on the future of SEO over the next 5 years?</span>
+          <span class="qa-chevron">▼</span>
+        </div>
+        <div class="qa-a">
+          <div class="answer-label al-expert">✓ Model Answer</div>
+          <p>SEO is evolving from keyword-ranking to brand and entity optimisation:</p>
+          <ul>
+            <li><strong>AI-first search:</strong> As AI Overviews expand, the focus shifts from "rank #1" to "be cited in AI answers." This requires deep E-E-A-T, authoritative sourcing, and knowledge panel presence.</li>
+            <li><strong>Entity SEO:</strong> Google's Knowledge Graph increasingly drives results. Brands, people, and products must be established entities. Wikipedia, Wikidata, and brand mentions on authoritative sites build entity recognition.</li>
+            <li><strong>Multi-modal search:</strong> Visual search (Google Lens), voice search, and video search are growing. Content strategies must expand beyond text.</li>
+            <li><strong>First-party data:</strong> As third-party cookies sunset, the intersection of SEO and CRM data becomes more important for personalised search experiences.</li>
+            <li><strong>The enduring truth:</strong> Regardless of algorithm changes, genuine helpfulness and subject matter depth will always be rewarded. The tools change; the principle doesn't.</li>
+          </ul>
+          <div class="answer-tip tip-expert"><strong>🎯 Answer Tip:</strong> "This question tests vision and intellectual curiosity. Balance optimism with realism — show you track industry developments through primary sources (Google Search Central blog, Search Off the Record podcast) and form your own opinions."</div>
+        </div>
+      </div>
+
+      <div class="qa-item" id="q47">
+        <div class="qa-q" onclick="toggleQ('q47','expert')">
+          <span class="qa-num">Q47</span>
+          <span class="qa-text">How do you handle SEO for a new site competing against billion-dollar incumbents?</span>
+          <span class="qa-chevron">▼</span>
+        </div>
+        <div class="qa-a">
+          <div class="answer-label al-expert">✓ Model Answer</div>
+          <p>Head-on competition with established domains is a losing strategy for new sites. The playbook is asymmetric:</p>
+          <ul>
+            <li><strong>Long-tail first:</strong> Target niche, high-intent, low-competition keywords that large sites ignore due to low volume. These convert at 3–5× the rate of head terms.</li>
+            <li><strong>Hyper-specific topical authority:</strong> Own a sub-niche completely before expanding. It's easier to become the #1 resource on "SEO for Shopify stores" than "SEO."</li>
+            <li><strong>Content differentiation:</strong> Original data, primary research, unique opinions. Incumbents publish generic content at scale — you can win on depth and first-hand experience.</li>
+            <li><strong>Community-first link building:</strong> Build links through genuine community participation (Reddit, LinkedIn, niche forums, podcasts) before outreach campaigns.</li>
+            <li><strong>Product-led SEO:</strong> If you have a tool or data set, let the product generate backlinks organically through free tools, embeddable widgets, or publicly accessible research.</li>
+          </ul>
+          <div class="answer-tip tip-expert"><strong>🎯 Answer Tip:</strong> Frame this as "judo strategy" — using the incumbent's size against them. Large sites are slow to update, often have generic content, and ignore long-tail. Agile startups can outmanoeuvre them in specific niches.</div>
+        </div>
+      </div>
+
+      <div class="qa-item" id="q48">
+        <div class="qa-q" onclick="toggleQ('q48','expert')">
+          <span class="qa-num">Q48</span>
+          <span class="qa-text">If you could only do 3 things to improve SEO for a struggling website, what would they be?</span>
+          <span class="qa-chevron">▼</span>
+        </div>
+        <div class="qa-a">
+          <div class="answer-label al-expert">✓ Model Answer</div>
+          <p><strong>Without seeing the site, I'd need to diagnose first</strong> — but based on the highest-impact fixes that solve the most common problems:</p>
+          <ul>
+            <li><strong>1. Fix indexation issues:</strong> Many struggling sites have pages accidentally blocked, noindexed, or trapped behind faceted navigation. Use GSC Index Coverage report + crawl to ensure all valuable pages are indexed. This is foundational.</li>
+            <li><strong>2. Refresh declining content:</strong> Export GSC data, identify pages that ranked 4–15 and are losing impressions YoY. Update these with fresher information, improved intent matching, and stronger internal linking. Much faster wins than creating new content.</li>
+            <li><strong>3. Acquire 5 high-quality backlinks per month:</strong> Most struggling sites have weak authority. A focused digital PR or broken link building campaign to earn 5 DR60+ links/month compounds significantly over 6–12 months.</li>
+          </ul>
+          <div class="answer-tip tip-expert"><strong>🎯 Answer Tip:</strong> The qualifier "I'd need to diagnose first" is important — shows you don't apply generic solutions without data. Then give concrete, ranked recommendations. This balance of rigour + decisiveness is what directors want to see.</div>
+        </div>
+      </div>
+
+      <div class="qa-item" id="q49">
+        <div class="qa-q" onclick="toggleQ('q49','expert')">
+          <span class="qa-num">Q49</span>
+          <span class="qa-text">How do you stay current with SEO when Google makes 4,000+ algorithm changes per year?</span>
+          <span class="qa-chevron">▼</span>
+        </div>
+        <div class="qa-a">
+          <div class="answer-label al-expert">✓ Model Answer</div>
+          <p>No one tracks 4,000 changes — the strategy is to filter signal from noise:</p>
+          <ul>
+            <li><strong>Primary sources only for major updates:</strong> Google Search Central Blog, Gary Illyes + John Mueller on social media, "Search Off the Record" podcast — official information without distortion.</li>
+            <li><strong>Trusted secondary voices:</strong> Lily Ray (E-E-A-T), Kevin Indig (strategy), Glen Allsopp (content research), Cyrus Shepard (on-page), Barry Schwartz (news aggregation at Search Engine Roundtable).</li>
+            <li><strong>Own data as signal:</strong> Monitor your sites closely. Correlating your traffic changes with industry tools (MozCast, SEMrush Sensor) is more relevant than reading about what happened to others.</li>
+            <li><strong>Test, don't theorise:</strong> Run controlled SEO tests on low-risk pages. Real data beats third-party speculation every time.</li>
+            <li><strong>Annual deep dives:</strong> Read Google's QRG (Quality Rater Guidelines) annually — it's 170 pages but it's the closest thing to a Google algorithm manual we have.</li>
+          </ul>
+          <div class="answer-tip tip-expert"><strong>🎯 Answer Tip:</strong> Naming specific trusted sources (and why you trust them) signals genuine industry engagement. Interviewers notice when candidates can't name a single SEO thought leader or publication.</div>
+        </div>
+      </div>
+
+      <div class="qa-item" id="q50">
+        <div class="qa-q" onclick="toggleQ('q50','expert')">
+          <span class="qa-num">Q50</span>
+          <span class="qa-text">What questions should you ask the interviewer about the company's SEO maturity?</span>
+          <span class="qa-chevron">▼</span>
+        </div>
+        <div class="qa-a">
+          <div class="answer-label al-expert">✓ Model Answer</div>
+          <p>Asking great questions shows strategic thinking and helps you evaluate if the role is right:</p>
+          <ul>
+            <li>"How is SEO currently reported in the organisation — to marketing, product, or directly to leadership?"</li>
+            <li>"What's the typical turnaround time for dev tickets raised by SEO?"</li>
+            <li>"Has the site been affected by any recent Google algorithm updates, and what was the response?"</li>
+            <li>"What percentage of revenue currently comes from organic search, and what's the target?"</li>
+            <li>"What does success look like for this role in the first 90 days vs. first year?"</li>
+            <li>"What SEO tools and data stack does the team currently use?"</li>
+            <li>"What's the biggest SEO challenge the business hasn't been able to solve yet?"</li>
+          </ul>
+          <div class="answer-tip tip-expert"><strong>🎯 Answer Tip:</strong> "This question tests self-awareness and strategic fit. Asking about dev turnaround tells you how much you can actually implement. Asking about revenue attribution tells you if leadership understands and values SEO. Red flags: no dev bandwidth, no SEO tooling budget, leadership views SEO as a 'free traffic hack.'"</div>
+        </div>
+      </div>
+
+    </div><!-- /section-block expert -->
+  </div><!-- /expert -->
+
+  <!-- ════════════════════════
+       MOCK INTERVIEW
+  ════════════════════════ -->
+  <div id="mock-interview" class="mock-interview">
+    <h3>🎤 Mock Interview Simulator</h3>
+    <p>Select a difficulty level and get a random interview question. Type your answer and see a sample response to compare against.</p>
+    <div class="mock-level-sel">
+      <button class="mock-level-btn active-b" onclick="setMockLevel('beginner',this)">🌱 Beginner</button>
+      <button class="mock-level-btn" onclick="setMockLevel('intermediate',this)">📈 Intermediate</button>
+      <button class="mock-level-btn" onclick="setMockLevel('advanced',this)">🔥 Advanced</button>
+      <button class="mock-level-btn" onclick="setMockLevel('expert',this)">🎓 Expert</button>
+    </div>
+    <div class="mock-q-display" id="mockQ">Press "New Question" to begin your mock interview →</div>
+    <textarea class="mock-input-area" id="mockAnswer" placeholder="Type your answer here..."></textarea>
+    <div class="mock-btns">
+      <button class="mock-btn mock-btn-primary" onclick="newMockQ()">New Question</button>
+      <button class="mock-btn mock-btn-secondary" onclick="showMockAnswer()">Show Sample Answer</button>
+      <button class="mock-btn mock-btn-secondary" onclick="clearMockAnswer()">Clear</button>
+    </div>
+    <div class="mock-feedback" id="mockFeedback"></div>
+  </div>
+
+  <!-- ════════════════════════
+       CHEAT SHEET
+  ════════════════════════ -->
+  <div id="cheat-sheet" class="cheat-sheet">
+    <h3>📋 SEO Interview Cheat Sheet</h3>
+    <div class="cheat-grid">
+      <div class="cheat-card">
+        <h5>Key Google Updates</h5>
+        <ul>
+          <li><strong>Hummingbird</strong> (2013) — Semantic search</li>
+          <li><strong>Penguin</strong> (2012/16) — Spammy links</li>
+          <li><strong>Panda</strong> (2011) — Thin content</li>
+          <li><strong>BERT</strong> (2019) — NLP understanding</li>
+          <li><strong>HCU</strong> (2022) — People-first content</li>
+          <li><strong>AI Overviews</strong> (2024) — SGE rollout</li>
+        </ul>
+      </div>
+      <div class="cheat-card">
+        <h5>Core Web Vitals</h5>
+        <ul>
+          <li><strong>LCP</strong> target: &lt;2.5s (loading)</li>
+          <li><strong>INP</strong> target: &lt;200ms (interactivity)</li>
+          <li><strong>CLS</strong> target: &lt;0.1 (visual stability)</li>
+          <li>INP replaced FID in March 2024</li>
+          <li>Tools: PSI, GSC, Lighthouse</li>
+        </ul>
+      </div>
+      <div class="cheat-card">
+        <h5>Redirect Types</h5>
+        <ul>
+          <li><strong>301</strong> — Permanent, passes ~99% equity</li>
+          <li><strong>302</strong> — Temporary, minimal equity</li>
+          <li><strong>307</strong> — Temporary (method-safe)</li>
+          <li><strong>308</strong> — Permanent (method-safe)</li>
+          <li>Chains dilute equity — audit quarterly</li>
+        </ul>
+      </div>
+      <div class="cheat-card">
+        <h5>E-E-A-T Signals</h5>
+        <ul>
+          <li><strong>Experience</strong> — First-hand use</li>
+          <li><strong>Expertise</strong> — Subject knowledge</li>
+          <li><strong>Authority</strong> — Industry recognition</li>
+          <li><strong>Trust</strong> — Accuracy, transparency</li>
+          <li>YMYL pages = highest scrutiny</li>
+        </ul>
+      </div>
+      <div class="cheat-card">
+        <h5>Must-Know Tools</h5>
+        <ul>
+          <li><strong>GSC</strong> — Indexing, performance</li>
+          <li><strong>GA4</strong> — Analytics, goals</li>
+          <li><strong>Ahrefs</strong> — Links, keywords</li>
+          <li><strong>Screaming Frog</strong> — Technical crawl</li>
+          <li><strong>SEMrush</strong> — Competitor intel</li>
+          <li><strong>Looker Studio</strong> — Reporting</li>
+        </ul>
+      </div>
+      <div class="cheat-card">
+        <h5>Link Attributes</h5>
+        <ul>
+          <li><strong>dofollow</strong> — Passes PageRank</li>
+          <li><strong>nofollow</strong> — Hint (not directive)</li>
+          <li><strong>sponsored</strong> — Paid/affiliate</li>
+          <li><strong>ugc</strong> — User-generated</li>
+          <li>Quality > quantity always</li>
+        </ul>
+      </div>
+      <div class="cheat-card">
+        <h5>Content Types by Intent</h5>
+        <ul>
+          <li><strong>Informational</strong> — Guides, blogs</li>
+          <li><strong>Navigational</strong> — Brand pages</li>
+          <li><strong>Commercial</strong> — Comparisons, reviews</li>
+          <li><strong>Transactional</strong> — Product, landing pages</li>
+        </ul>
+      </div>
+      <div class="cheat-card">
+        <h5>Title Tag Rules</h5>
+        <ul>
+          <li>50–60 characters max</li>
+          <li>Primary keyword near start</li>
+          <li>Unique per page</li>
+          <li>Match search intent</li>
+          <li>Google rewrites ~60% of titles</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Role/Salary Table -->
+  <div class="section-block" style="margin-bottom:40px;">
+    <h3 style="font-family:'Fraunces',serif;font-size:1.1rem;font-weight:700;margin-bottom:16px;">📊 SEO Career Levels & Expectations</h3>
+    <table class="role-table">
+      <thead>
+        <tr>
+          <th>Role</th>
+          <th>Experience</th>
+          <th>Key Skills Expected</th>
+          <th>Interview Focus</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="level-dot dot-b"></span>SEO Executive</td>
+          <td>0–2 years</td>
+          <td>On-page basics, GSC, GA4, keyword research</td>
+          <td>Beginner Q1–Q12</td>
+        </tr>
+        <tr>
+          <td><span class="level-dot dot-i"></span>SEO Specialist</td>
+          <td>2–4 years</td>
+          <td>Technical SEO, link building, content strategy, audits</td>
+          <td>Intermediate Q13–Q26</td>
+        </tr>
+        <tr>
+          <td><span class="level-dot dot-a"></span>Senior SEO Manager</td>
+          <td>4–6 years</td>
+          <td>Migration management, strategy, team collaboration, reporting</td>
+          <td>Advanced Q27–Q40</td>
+        </tr>
+        <tr>
+          <td><span class="level-dot dot-e"></span>Head of SEO / Director</td>
+          <td>6+ years</td>
+          <td>P&amp;L ownership, team leadership, C-suite communication, innovation</td>
+          <td>Expert Q41–Q50</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ════════════════════════
+       RESOURCES
+  ════════════════════════ -->
+  <div id="resources">
+    <h3 style="font-family:'Fraunces',serif;font-size:1.15rem;font-weight:700;margin-bottom:20px;">📚 Interview Prep Resources</h3>
+    <div class="resource-grid">
+      <a href="https://developers.google.com/search/docs" target="_blank" class="resource-card">
+        <div class="rc-top">
+          <span class="rc-icon">🔍</span>
+          <span class="rc-badge badge-free">FREE</span>
+        </div>
+        <div class="rc-title">Google Search Central Docs</div>
+        <div class="rc-desc">Official Google documentation — the primary source for all technical SEO facts.</div>
+      </a>
+      <a href="https://static.googleusercontent.com/media/guidelines.raterhub.com/en//searchqualityevaluatorguidelines.pdf" target="_blank" class="resource-card">
+        <div class="rc-top">
+          <span class="rc-icon">📄</span>
+          <span class="rc-badge badge-free">FREE</span>
+        </div>
+        <div class="rc-title">Google Quality Rater Guidelines</div>
+        <div class="rc-desc">The 170-page guide that reveals how Google trains its quality algorithms. Essential for senior roles.</div>
+      </a>
+      <a href="https://ahrefs.com/blog/seo-interview-questions/" target="_blank" class="resource-card">
+        <div class="rc-top">
+          <span class="rc-icon">📝</span>
+          <span class="rc-badge badge-free">FREE</span>
+        </div>
+        <div class="rc-title">Ahrefs SEO Interview Guide</div>
+        <div class="rc-desc">Comprehensive list of interview questions with expert answers from the Ahrefs team.</div>
+      </a>
+      <a href="https://moz.com/beginners-guide-to-seo" target="_blank" class="resource-card">
+        <div class="rc-top">
+          <span class="rc-icon">📗</span>
+          <span class="rc-badge badge-free">FREE</span>
+        </div>
+        <div class="rc-title">Moz Beginner's Guide to SEO</div>
+        <div class="rc-desc">The most widely-read introduction to SEO. Covers all fundamentals clearly and reliably.</div>
+      </a>
+      <a href="https://www.semrush.com/academy/" target="_blank" class="resource-card">
+        <div class="rc-top">
+          <span class="rc-icon">🎓</span>
+          <span class="rc-badge badge-free">FREE</span>
+        </div>
+        <div class="rc-title">SEMrush Academy</div>
+        <div class="rc-desc">Free certification courses on SEO, content marketing, and competitive research.</div>
+      </a>
+      <a href="https://www.youtube.com/@GoogleSearchCentral" target="_blank" class="resource-card">
+        <div class="rc-top">
+          <span class="rc-icon">▶️</span>
+          <span class="rc-badge badge-video">VIDEO</span>
+        </div>
+        <div class="rc-title">Google Search Central YouTube</div>
+        <div class="rc-desc">Official video content including SEO Office Hours, deep-dives, and algorithm explanations.</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- MODULE NAV -->
+  <div class="module-nav">
+    <a href="module-10.html" class="mod-nav-btn prev">
+      <span class="arrow">←</span>
+      <div>
+        <div class="nav-label">Previous Module</div>
+        <div class="nav-title">Module 10: Advanced SEO</div>
+      </div>
+    </a>
+    <a href="module-12.html" class="mod-nav-btn next">
+      <div>
+        <div class="nav-label">Next Module</div>
+        <div class="nav-title">Module 12: All Projects</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+
+</div><!-- /content-wrap -->
+</main>
+</div><!-- /shell -->
+
+<script>
+/* ══════════════════════════════
+   THEME TOGGLE
+══════════════════════════════ */
+function toggleTheme() {
+  const html = document.documentElement;
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  document.getElementById('themeBtn').textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('iqTheme', isDark ? 'light' : 'dark');
+}
+(function() {
+  const saved = localStorage.getItem('iqTheme');
+  if (saved === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+    document.getElementById('themeBtn').textContent = '🌙';
+  }
+})();
+
+/* ══════════════════════════════
+   SIDEBAR TOGGLE
+══════════════════════════════ */
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+}
+document.addEventListener('click', function(e) {
+  const sb = document.getElementById('sidebar');
+  const mb = document.getElementById('menuBtn');
+  if (!sb.contains(e.target) && !mb.contains(e.target)) {
+    sb.classList.remove('open');
+  }
+});
+
+/* ══════════════════════════════
+   QUESTION TOGGLE & PROGRESS
+══════════════════════════════ */
+const reviewed = new Set(JSON.parse(localStorage.getItem('iqReviewed') || '[]'));
+const TOTAL = 50;
+
+function toggleQ(id, level) {
+  const item = document.getElementById(id);
+  const openClass = level === 'beginner' ? 'open' :
+                    level === 'intermediate' ? 'open-intermediate' :
+                    level === 'advanced' ? 'open-advanced' : 'open-expert';
+  const wasOpen = item.classList.contains(openClass);
+  item.classList.toggle(openClass);
+  if (!wasOpen) {
+    reviewed.add(id);
+    localStorage.setItem('iqReviewed', JSON.stringify([...reviewed]));
+    updateProgress();
+  }
+}
+
+function updateProgress() {
+  const done = reviewed.size;
+  const pct = Math.round((done / TOTAL) * 100);
+  document.getElementById('sp-pct').textContent = pct + '%';
+  document.getElementById('sp-fill').style.width = pct + '%';
+  document.getElementById('sp-done').textContent = done;
+}
+updateProgress();
+
+/* ══════════════════════════════
+   LEVEL FILTER
+══════════════════════════════ */
+function filterLevel(level) {
+  const sections = document.querySelectorAll('.level-section');
+  sections.forEach(s => {
+    if (level === 'all' || s.dataset.level === level) {
+      s.style.display = '';
+    } else {
+      s.style.display = 'none';
+    }
+  });
+}
+
+/* ══════════════════════════════
+   ACTIVE NAV ON SCROLL
+══════════════════════════════ */
+const navItems = document.querySelectorAll('.nav-item');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navItems.forEach(n => n.classList.remove('active'));
+      const id = entry.target.id;
+      const nav = document.querySelector(`.nav-item[href="#${id}"]`);
+      if (nav) nav.classList.add('active');
+    }
+  });
+}, { threshold: 0.2 });
+['beginner','intermediate','advanced','expert','mock-interview','cheat-sheet','resources'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) observer.observe(el);
+});
+
+/* ══════════════════════════════
+   MOCK INTERVIEW
+══════════════════════════════ */
+const mockQuestions = {
+  beginner: [
+    { q: "In your own words, explain what SEO is and why businesses should invest in it.", a: "SEO is optimising a website to rank higher in organic search results. Businesses invest because it drives compounding, long-term traffic at lower CAC than paid advertising. Unlike PPC, SEO traffic continues flowing even when you reduce budget — and it builds brand authority over time." },
+    { q: "What is the difference between a keyword and a search query?", a: "A keyword is what you're targeting as an SEO (your strategy term). A search query is the exact text a user types into Google (the behaviour). They often differ — users might search 'how to fix slow website' while you're targeting 'website speed optimisation.' GSC shows you actual queries so you can bridge this gap." },
+    { q: "What would you check first if a client said their website doesn't appear in Google?", a: "First, test with site:domain.com in Google to see if ANY pages are indexed. Then check GSC for manual actions, crawl blocks in robots.txt, and sitewide noindex tags. Check if the domain is new (<6 months) — brand new domains can take weeks to appear even with clean setup." },
+    { q: "What is anchor text and why does it matter for SEO?", a: "Anchor text is the clickable text in a hyperlink. It signals to Google what the linked page is about. Descriptive, keyword-rich anchor text (contextual links) helps Google understand page relevance. Over-optimised exact-match anchor text in backlinks can trigger Penguin penalties — diversity and naturalness are key." },
+  ],
+  intermediate: [
+    { q: "A client's blog posts are getting traffic but zero conversions. What do you investigate?", a: "First, check intent — are the posts targeting informational queries when the conversion goal is transactional? If so, they're serving the wrong audience. Then analyse: CTAs present? Landing on correct conversion pages? Mobile experience broken? Bounce rate? Time on page? The fix might be adding clearer CTAs, creating BOFU content to capture blog traffic, or building a nurture sequence for email capture." },
+    { q: "What is keyword clustering and why should you do it before writing content?", a: "Keyword clustering groups semantically-related keywords that share the same search intent — allowing one page to rank for multiple related terms instead of creating separate pages. Before writing, cluster keywords using tools like Keyword Insights or manual SERP analysis. Pages that comprehensively cover a topic's keyword cluster outperform narrow, single-keyword pages significantly." },
+    { q: "How do you approach a competitor gap analysis?", a: "In Ahrefs Site Explorer, I run a Content Gap analysis between my domain and 3–5 competitors. This surfaces keywords competitors rank for in positions 1–10 that I don't rank for at all. I filter for: search volume >200/mo, KD <50, and keywords where at least 2 competitors rank — these are validated opportunities where content clearly satisfies ranking requirements." },
+  ],
+  advanced: [
+    { q: "You discover Googlebot is spending 60% of your crawl budget on faceted navigation URLs. What do you do?", a: "This is a classic e-commerce crawl budget leak. Step 1: Confirm via log file analysis (Screaming Frog Log Analyser). Step 2: Identify which parameters are creating faceted URLs (colour, size, sort, etc.). Step 3: Add canonicals from all faceted variations to the category page. Step 4: For the worst offenders, block parameter URLs in robots.txt — but carefully, never block URLs that have external backlinks. Step 5: Monitor GSC crawl stats weekly post-fix to confirm reclamation." },
+    { q: "How would you audit a 500,000-page e-commerce site for SEO health?", a: "Enterprise audits require sampling and prioritisation. I'd use Botify or Sitebulb for a full crawl (sampling if 100% impractical). The audit pyramid: Technical foundation first (indexation errors, crawl efficiency, Core Web Vitals at scale), then On-Page health (title tag uniqueness, meta quality, H1 coverage), then Content quality (thin pages, duplicate content ratios), then Links (internal equity distribution, external link quality). Each layer gets a risk-prioritised fix list with business impact scoring." },
+    { q: "Your organic traffic dropped 25% after a developers deployed 'minor UI changes.' What happened and how do you investigate?", a: "Never underestimate 'minor' deployments. Check: Was robots.txt accidentally changed (blocking crawl)? Were noindex tags added to category or product pages programmatically? Were internal links removed or changed? Were canonical tags modified? Was structured data broken? Check GSC crawl errors and index coverage immediately post-deploy. Use URL Inspection tool on top 10 affected pages. Compare crawled vs indexed counts before/after. Run Screaming Frog on the live site vs a cache snapshot from the day before deployment." },
+  ],
+  expert: [
+    { q: "A major media publication wants to cover your brand but insists on a nofollow link. Do you accept? Why?", a: "Absolutely yes. Nofollow links from major publications provide: brand awareness to large audiences, referral traffic from relevant readers, brand entity signals (Google's Knowledge Graph picks up brand mentions), social proof for future PR pitches, and potential for the tag to be changed by editors later. The 2019 nofollow-as-hint change also means some indirect value may pass. Brand visibility in authoritative media compounds over time — treating links as purely technical equity-transfer misses the marketing picture." },
+    { q: "If you were starting an SEO consultancy tomorrow, what would your first 90 days look like?", a: "Days 1–30: Build positioning. Identify 1 niche where I have deep expertise and competitors. Create a clear value proposition. Build a simple site showcasing my work. Publish 3 in-depth case studies and begin documenting my process publicly (builds thought leadership). Days 30–60: Distribution. LinkedIn content daily. Outreach to 5 potential clients per day. Guest posts on industry blogs. Attend or speak at one event. Days 60–90: First clients. Onboard 2–3 pilot clients at slightly reduced rate for testimonials. Document everything systematically — the SOPs I build now will scale the business later." },
+  ]
+};
+
+let currentLevel = 'beginner';
+let currentAnswer = '';
+
+function setMockLevel(level, btn) {
+  currentLevel = level;
+  document.querySelectorAll('.mock-level-btn').forEach(b => {
+    b.className = 'mock-level-btn';
+  });
+  const classes = { beginner: 'active-b', intermediate: 'active-i', advanced: 'active-a', expert: 'active-e' };
+  btn.className = 'mock-level-btn ' + classes[level];
+  document.getElementById('mockFeedback').style.display = 'none';
+}
+
+function newMockQ() {
+  const qs = mockQuestions[currentLevel];
+  const q = qs[Math.floor(Math.random() * qs.length)];
+  currentAnswer = q.a;
+  document.getElementById('mockQ').textContent = q.q;
+  document.getElementById('mockAnswer').value = '';
+  document.getElementById('mockFeedback').style.display = 'none';
+}
+
+function showMockAnswer() {
+  if (!currentAnswer) { newMockQ(); return; }
+  const fb = document.getElementById('mockFeedback');
+  fb.style.display = 'block';
+  fb.innerHTML = '<strong style="color:var(--accent2)">📝 Sample Answer:</strong><br><br>' + currentAnswer;
+}
+
+function clearMockAnswer() {
+  document.getElementById('mockAnswer').value = '';
+  document.getElementById('mockFeedback').style.display = 'none';
+}
+</script>
+</body>
+</html>

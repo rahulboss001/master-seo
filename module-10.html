@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 10 — Advanced SEO | SEO Mastery Roadmap 2025</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,700;0,900;1,300&family=Syne:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+[data-theme="dark"]{
+  --bg:#130a0d;--bg1:#1a0c12;--bg2:#21101a;--bg3:#291520;
+  --card:#140b10;--card2:#1e1020;--border:#301520;--border2:#4a1e30;
+  --rose:#f43f5e;--rose2:#fb7185;--rose3:#fda4af;
+  --pink:#ec4899;--pink2:#f472b6;
+  --fuchsia:#d946ef;--fuchsia2:#e879f9;
+  --amber:#f59e0b;--amber2:#fbbf24;
+  --green:#22c55e;--green2:#4ade80;
+  --blue:#3b82f6;--blue2:#60a5fa;
+  --violet:#8b5cf6;--violet2:#a78bfa;
+  --text:#f4dde4;--text2:#c47a90;--muted:#7a3a50;--white:#fef0f3;
+  --shadow:rgba(0,0,0,.7);
+  --sidebar-bg:#1a0c12;--header-bg:#130a0d;
+  --note-bg:rgba(244,63,94,.05);
+}
+[data-theme="light"]{
+  --bg:#fff1f4;--bg1:#ffe4e9;--bg2:#ffd6de;--bg3:#ffc7d0;
+  --card:#ffffff;--card2:#fff8f9;--border:#fbbfd4;--border2:#f89db8;
+  --rose:#e11d48;--rose2:#be123c;--rose3:#9f1239;
+  --pink:#db2777;--pink2:#be185d;
+  --fuchsia:#c026d3;--fuchsia2:#a21caf;
+  --amber:#d97706;--amber2:#b45309;
+  --green:#16a34a;--green2:#15803d;
+  --blue:#2563eb;--blue2:#1d4ed8;
+  --violet:#7c3aed;--violet2:#6d28d9;
+  --text:#2d0a15;--text2:#7a1d35;--muted:#c06080;--white:#1a0510;
+  --shadow:rgba(0,0,0,.1);
+  --sidebar-bg:#ffe4e9;--header-bg:#fff1f4;
+  --note-bg:rgba(244,63,94,.04);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:15px}
+body{font-family:'Syne',sans-serif;background:var(--bg);color:var(--text);line-height:1.75;overflow-x:hidden;transition:background .3s,color .3s}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--rose);border-radius:10px}
+.shell{display:flex;min-height:100vh}
+
+/* ── SIDEBAR ── */
+.sidebar{width:272px;min-width:272px;background:var(--sidebar-bg);border-right:1px solid var(--border);position:fixed;top:0;left:0;bottom:0;overflow-y:auto;z-index:200;display:flex;flex-direction:column;transition:transform .3s,background .3s}
+.sidebar::-webkit-scrollbar{width:3px}.sidebar::-webkit-scrollbar-thumb{background:var(--border2)}
+.sb-brand{padding:24px 20px 18px;border-bottom:1px solid var(--border)}
+.sb-back{display:inline-flex;align-items:center;gap:7px;font-size:.75em;font-weight:700;color:var(--muted);text-decoration:none;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;transition:color .15s}
+.sb-back:hover{color:var(--rose2)}
+.sb-mod-badge{display:inline-block;font-family:'Fira Code',monospace;font-size:.65em;font-weight:700;background:linear-gradient(135deg,var(--rose),var(--pink));color:#fff;padding:3px 9px;border-radius:6px;margin-bottom:10px}
+.sb-brand h2{font-family:'Fraunces',serif;font-size:1.02em;font-weight:700;color:var(--white);line-height:1.35}
+.sb-brand p{font-size:.72em;color:var(--muted);margin-top:4px}
+.sb-progress{padding:14px 20px;border-bottom:1px solid var(--border)}
+.prog-label{display:flex;justify-content:space-between;font-size:.68em;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:7px}
+.prog-label span:last-child{color:var(--rose2);font-family:'Fira Code',monospace}
+.prog-bg{height:4px;background:var(--border);border-radius:2px;overflow:hidden}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--rose),var(--pink2));width:0%;transition:width .4s ease}
+.sb-nav{padding:10px 0;flex:1}
+.sb-section-label{padding:10px 20px 4px;font-size:.63em;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted)}
+.nav-link{display:flex;align-items:center;gap:10px;padding:9px 20px;text-decoration:none;color:var(--muted);font-size:.8em;font-weight:500;transition:all .15s;border-left:2px solid transparent;cursor:pointer}
+.nav-link:hover{color:var(--text);background:var(--bg2)}
+.nav-link.active{color:var(--rose2);border-left-color:var(--rose);background:rgba(244,63,94,.07)}
+.nav-num{font-family:'Fira Code',monospace;font-size:.72em;color:var(--border2);min-width:28px}
+.nav-link.active .nav-num{color:var(--rose2)}
+.nav-done{margin-left:auto;font-size:.8em;color:var(--green2);opacity:0;transition:opacity .2s}
+.nav-link.completed .nav-done{opacity:1}
+.sb-footer{padding:14px 20px;border-top:1px solid var(--border)}
+.sb-footer p{font-size:.7em;color:var(--muted);line-height:1.5}
+
+/* ── MAIN ── */
+.main{margin-left:272px;flex:1;min-width:0}
+.topbar{position:sticky;top:0;z-index:100;background:var(--header-bg);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;padding:12px 40px;transition:background .3s}
+.topbar-breadcrumb{font-size:.78em;color:var(--muted);display:flex;align-items:center;gap:6px;flex:1;flex-wrap:wrap}
+.topbar-breadcrumb a{color:var(--muted);text-decoration:none;transition:color .15s}
+.topbar-breadcrumb a:hover{color:var(--rose2)}
+.topbar-breadcrumb span{color:var(--text2);font-weight:600}
+.theme-btn{display:flex;align-items:center;gap:7px;background:var(--card);border:1px solid var(--border2);border-radius:50px;padding:7px 14px;cursor:pointer;font-size:.76em;font-weight:600;color:var(--text2);transition:all .2s;font-family:'Syne',sans-serif;white-space:nowrap}
+.theme-btn:hover{border-color:var(--rose2);color:var(--rose2)}
+.hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:4px;background:none;border:none}
+.hamburger span{display:block;width:20px;height:2px;background:var(--text2);border-radius:2px}
+
+/* ── HERO ── */
+.mod-hero{background:var(--bg1);border-bottom:1px solid var(--border);padding:56px 56px 44px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 700px 500px at 80% -15%,rgba(244,63,94,.14) 0%,transparent 60%),radial-gradient(ellipse 500px 400px at -5% 100%,rgba(236,72,153,.08) 0%,transparent 60%),radial-gradient(ellipse 400px 300px at 30% 120%,rgba(217,70,239,.06) 0%,transparent 60%)}
+.hero-grid{position:absolute;inset:0;pointer-events:none;opacity:.022;background-image:linear-gradient(var(--border2) 1px,transparent 1px),linear-gradient(90deg,var(--border2) 1px,transparent 1px);background-size:44px 44px}
+.hero-inner{max-width:820px;position:relative}
+.mod-num-tag{font-family:'Fira Code',monospace;font-size:.68em;font-weight:700;color:#fff;background:var(--rose);padding:4px 12px;border-radius:6px;display:inline-block;margin-bottom:16px}
+.mod-hero h1{font-family:'Fraunces',serif;font-size:clamp(1.9em,4vw,3em);font-weight:900;color:var(--white);line-height:1.08;margin-bottom:10px}
+.mod-hero h1 em{font-style:italic;background:linear-gradient(135deg,var(--rose2) 0%,var(--pink2) 50%,var(--fuchsia2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.mod-hero p{color:var(--text2);font-size:.96em;max-width:700px;margin-bottom:22px;line-height:1.8}
+.mod-tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:28px}
+.mtag{font-size:.67em;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding:3px 10px;border-radius:4px}
+.mtag-rose{background:rgba(244,63,94,.1);color:var(--rose2);border:1px solid rgba(244,63,94,.25)}
+.mtag-pink{background:rgba(236,72,153,.1);color:var(--pink2);border:1px solid rgba(236,72,153,.25)}
+.mtag-fuchsia{background:rgba(217,70,239,.1);color:var(--fuchsia2);border:1px solid rgba(217,70,239,.25)}
+.mtag-amber{background:rgba(245,158,11,.1);color:var(--amber);border:1px solid rgba(245,158,11,.25)}
+.mtag-blue{background:rgba(59,130,246,.1);color:#93c5fd;border:1px solid rgba(59,130,246,.25)}
+.hero-stats{display:grid;grid-template-columns:repeat(4,auto);width:fit-content;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.stat-box{background:var(--bg2);padding:16px 20px;text-align:center}
+.stat-n{font-family:'Fraunces',serif;font-size:1.7em;font-weight:700;color:var(--rose2);line-height:1;margin-bottom:3px}
+.stat-l{font-size:.65em;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.8px}
+
+.content-area{max-width:840px;margin:0 auto;padding:44px 56px 100px}
+.section-header{display:flex;align-items:center;gap:14px;margin-bottom:20px;margin-top:40px}
+.section-header h2{font-family:'Fraunces',serif;font-size:1.35em;font-weight:700;color:var(--white)}
+.section-line{flex:1;height:1px;background:var(--border)}
+
+/* ── TOPICS ── */
+.topic-item{border:1px solid var(--border);border-radius:14px;margin-bottom:14px;overflow:hidden;background:var(--card);transition:border-color .2s,box-shadow .2s}
+.topic-item:hover{border-color:var(--border2);box-shadow:0 4px 28px var(--shadow)}
+.topic-item.open{border-color:rgba(244,63,94,.4);box-shadow:0 0 0 1px rgba(244,63,94,.1)}
+.topic-header{display:flex;align-items:center;gap:12px;padding:17px 20px;cursor:pointer;user-select:none;transition:background .15s}
+.topic-header:hover{background:var(--bg2)}
+.topic-num{font-family:'Fira Code',monospace;font-size:.7em;font-weight:700;color:var(--rose2);background:rgba(244,63,94,.08);border:1px solid rgba(244,63,94,.2);padding:3px 8px;border-radius:5px;white-space:nowrap}
+.topic-header h3{font-size:.95em;font-weight:700;color:var(--white);flex:1;line-height:1.35}
+.diff{font-size:.63em;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:2px 7px;border-radius:4px;flex-shrink:0}
+.diff-int{background:rgba(244,63,94,.1);color:var(--rose2)}
+.diff-adv{background:rgba(236,72,153,.12);color:var(--pink2)}
+.diff-exp{background:rgba(217,70,239,.12);color:var(--fuchsia2)}
+.chevron{color:var(--muted);font-size:.75em;transition:transform .25s;flex-shrink:0}
+.topic-item.open .chevron{transform:rotate(180deg);color:var(--rose2)}
+.topic-body{display:none;padding:0 20px 24px;border-top:1px solid var(--border)}
+.topic-item.open .topic-body{display:block}
+.topic-intro{padding:18px 0 14px;color:var(--text2);font-size:.92em;line-height:1.85}
+.topic-intro strong{color:var(--white)}
+
+.keypoints{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+.kp{display:flex;align-items:flex-start;gap:10px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-size:.89em;color:var(--text2)}
+.kp-dot{width:6px;height:6px;border-radius:50%;background:var(--rose);flex-shrink:0;margin-top:7px}
+.kp strong{color:var(--white)}
+code{font-family:'Fira Code',monospace;font-size:.83em;background:rgba(244,63,94,.08);color:var(--rose2);padding:2px 6px;border-radius:4px}
+[data-theme="light"] code{background:rgba(244,63,94,.1)}
+
+/* ── BLOCKS ── */
+.block-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}
+.info-block{border-radius:10px;padding:16px;font-size:.87em}
+.blabel{display:flex;align-items:center;gap:6px;font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px}
+.b-example{background:rgba(244,63,94,.05);border:1px solid rgba(244,63,94,.18);border-left:3px solid var(--rose)}
+.b-example .blabel{color:var(--rose2)}
+.b-task{background:rgba(245,158,11,.05);border:1px solid rgba(245,158,11,.18);border-left:3px solid var(--amber)}
+.b-task .blabel{color:var(--amber)}
+.b-insight{background:rgba(217,70,239,.05);border:1px solid rgba(217,70,239,.18);border-left:3px solid var(--fuchsia)}
+.b-insight .blabel{color:var(--fuchsia2)}
+.b-warn{background:rgba(244,63,94,.07);border:1px solid rgba(244,63,94,.22);border-left:3px solid var(--rose)}
+.b-warn .blabel{color:var(--rose2)}
+.b-future{background:rgba(236,72,153,.05);border:1px solid rgba(236,72,153,.2);border-left:3px solid var(--pink)}
+.b-future .blabel{color:var(--pink2)}
+.info-block p{color:var(--text2);line-height:1.7;margin-bottom:8px}
+.info-block p:last-child{margin-bottom:0}
+.info-block strong{color:var(--white)}
+.info-block ul,.info-block ol{padding-left:16px;color:var(--text2)}
+.info-block li{margin-bottom:5px;line-height:1.65}
+
+/* ── TASKS ── */
+.task-list{display:flex;flex-direction:column;gap:7px}
+.task-item{display:flex;align-items:flex-start;gap:10px;cursor:pointer}
+.task-item input{display:none}
+.chk{width:18px;height:18px;border-radius:4px;flex-shrink:0;border:1.5px solid rgba(244,63,94,.4);background:transparent;display:flex;align-items:center;justify-content:center;margin-top:2px;transition:all .15s;font-size:.65em;color:transparent}
+.task-item.checked .chk{background:var(--rose);border-color:var(--rose);color:#fff}
+.task-txt{font-size:.86em;color:var(--text2);line-height:1.6;transition:color .15s}
+.task-item.checked .task-txt{color:var(--muted);text-decoration:line-through}
+
+/* ── RESOURCES ── */
+.res-block{margin-top:18px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.res-title{padding:11px 16px;background:var(--bg3);border-bottom:1px solid var(--border);font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--rose2)}
+.res-links{display:flex;flex-direction:column}
+.res-link{display:flex;align-items:flex-start;gap:12px;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;transition:background .15s}
+.res-link:last-child{border-bottom:none}
+.res-link:hover{background:rgba(244,63,94,.04)}
+.res-icon{font-size:1.1em;flex-shrink:0;margin-top:1px}
+.res-info{flex:1}
+.res-info strong{display:block;font-size:.85em;font-weight:600;color:var(--rose2);margin-bottom:2px}
+.res-link:hover .res-info strong{color:var(--pink2)}
+.res-info span{font-size:.77em;color:var(--muted);line-height:1.4}
+.res-badge{font-size:.62em;font-weight:700;text-transform:uppercase;padding:2px 7px;border-radius:3px;flex-shrink:0;margin-top:2px;letter-spacing:.5px}
+.badge-free{background:rgba(34,197,94,.1);color:var(--green2);border:1px solid rgba(34,197,94,.2)}
+.badge-blog{background:rgba(244,63,94,.1);color:var(--rose2);border:1px solid rgba(244,63,94,.2)}
+.badge-video{background:rgba(236,72,153,.15);color:var(--pink2);border:1px solid rgba(236,72,153,.3)}
+.badge-tool{background:rgba(217,70,239,.1);color:var(--fuchsia2);border:1px solid rgba(217,70,239,.2)}
+.badge-official{background:rgba(245,158,11,.1);color:var(--amber);border:1px solid rgba(245,158,11,.2)}
+
+/* ── NOTE ── */
+.topic-note{margin-top:18px;border-radius:12px;overflow:hidden;border:1px solid rgba(244,63,94,.25);background:var(--note-bg)}
+.note-hdr{padding:10px 16px;background:rgba(244,63,94,.1);border-bottom:1px solid rgba(244,63,94,.18);font-size:.7em;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--rose2)}
+.note-grid{display:grid;grid-template-columns:1fr 1fr}
+.note-cell{padding:13px 16px;border-right:1px solid rgba(244,63,94,.12);border-bottom:1px solid rgba(244,63,94,.12)}
+.note-cell:nth-child(2n){border-right:none}
+.note-cell:nth-child(3),.note-cell:nth-child(4){border-bottom:none}
+.note-lbl{font-size:.64em;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;color:var(--rose2);margin-bottom:5px}
+.note-cell p{font-size:.82em;color:var(--text2);line-height:1.6}
+.note-cell strong{color:var(--white)}
+
+/* ── TOOLS ── */
+.tools-wrap{display:flex;flex-wrap:wrap;gap:7px;margin:14px 0}
+.t-chip{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;background:var(--bg2);border:1px solid var(--border2);border-radius:20px;font-size:.76em;font-weight:600;color:var(--text2);text-decoration:none;transition:all .15s}
+.t-chip:hover{background:rgba(244,63,94,.08);border-color:var(--rose);color:var(--rose2);transform:translateY(-1px)}
+
+/* ── QUIZ ── */
+.quiz-section{margin-top:32px;background:var(--bg2);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+.quiz-hdr{padding:14px 20px;background:var(--bg3);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.quiz-hdr h3{font-family:'Fraunces',serif;font-size:1em;font-weight:700;color:var(--white)}
+.quiz-score{font-family:'Fira Code',monospace;font-size:.76em;color:var(--rose2);background:rgba(244,63,94,.08);padding:4px 12px;border-radius:20px;border:1px solid rgba(244,63,94,.2)}
+.quiz-body{padding:20px}
+.quiz-q{display:none}.quiz-q.active{display:block}
+.qnum{display:inline-block;font-family:'Fira Code',monospace;font-size:.65em;color:var(--rose2);background:rgba(244,63,94,.08);padding:2px 7px;border-radius:4px;margin-bottom:8px}
+.qtext{font-size:.92em;font-weight:600;color:var(--white);margin-bottom:14px;line-height:1.5}
+.qopts{display:flex;flex-direction:column;gap:7px}
+.qopt{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;background:var(--card);border:1.5px solid var(--border);border-radius:8px;cursor:pointer;transition:all .15s;font-size:.88em;color:var(--text2)}
+.qopt:hover:not(.disabled){background:rgba(244,63,94,.04);border-color:var(--rose);color:var(--white)}
+.qopt.correct{background:rgba(34,197,94,.08);border-color:var(--green2);color:var(--white)}
+.qopt.wrong{background:rgba(244,63,94,.08);border-color:var(--rose);color:var(--text2)}
+.qopt.disabled{cursor:default}
+.opt-l{font-family:'Fira Code',monospace;font-size:.75em;font-weight:700;color:var(--rose2);background:rgba(244,63,94,.08);width:22px;height:22px;border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.qopt.correct .opt-l{background:rgba(34,197,94,.2);color:var(--green2)}
+.qopt.wrong .opt-l{background:rgba(244,63,94,.15);color:var(--rose2)}
+.qfb{margin-top:12px;padding:10px 14px;border-radius:8px;font-size:.84em;display:none;line-height:1.5}
+.qfb.show{display:block}
+.qfb.ok{background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2);color:var(--green2)}
+.qfb.no{background:rgba(244,63,94,.08);border:1px solid rgba(244,63,94,.2);color:var(--rose2)}
+.quiz-nav{display:flex;align-items:center;justify-content:space-between;margin-top:16px;padding-top:14px;border-top:1px solid var(--border)}
+.qbtn{padding:8px 18px;border-radius:7px;border:none;font-family:'Syne',sans-serif;font-size:.82em;font-weight:700;cursor:pointer;transition:all .15s}
+.qbtn-sec{background:var(--bg3);color:var(--muted)}.qbtn-sec:hover{color:var(--text);background:var(--border)}
+.qbtn-pri{background:var(--rose);color:#fff}.qbtn-pri:hover{background:var(--rose2);transform:translateY(-1px)}
+.qdots{display:flex;gap:5px}
+.qdot{width:7px;height:7px;border-radius:50%;background:var(--border);transition:.2s}
+.qdot.done{background:var(--green2)}.qdot.cur{background:var(--rose)}
+
+/* ── FLASHCARDS ── */
+.flash-section{margin-top:32px}
+.flash-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.flash-hdr h3{font-family:'Fraunces',serif;font-size:1em;font-weight:700;color:var(--white)}
+.fc-count{font-family:'Fira Code',monospace;font-size:.76em;color:var(--rose2)}
+.fc-wrap{perspective:1000px;height:190px;margin-bottom:12px;cursor:pointer}
+.fc-card{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .5s ease}
+.fc-card.flipped{transform:rotateY(180deg)}
+.fc-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center}
+.fc-front{background:var(--bg2);border:1.5px solid rgba(244,63,94,.3)}
+.fc-back{background:linear-gradient(135deg,rgba(244,63,94,.08),rgba(236,72,153,.06));border:1.5px solid rgba(244,63,94,.4);transform:rotateY(180deg)}
+.fc-lbl{font-size:.62em;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px}
+.fc-front .fc-lbl{color:var(--muted)}.fc-back .fc-lbl{color:var(--rose2)}
+.fc-txt{font-size:.95em;font-weight:600;color:var(--white);line-height:1.5}
+.fc-hint{font-size:.72em;color:var(--muted);margin-top:8px}
+.fc-controls{display:flex;align-items:center;justify-content:center;gap:10px}
+.fc-btn{padding:7px 18px;border-radius:7px;border:1px solid var(--border2);background:var(--bg2);color:var(--text2);font-family:'Syne',sans-serif;font-size:.8em;font-weight:600;cursor:pointer;transition:all .15s}
+.fc-btn:hover{border-color:var(--rose);color:var(--rose2)}
+.fc-btn:disabled{opacity:.35;cursor:default}
+
+/* ── CHECKLIST ── */
+.checklist-section{margin-top:32px;background:var(--bg2);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+.cl-hdr{padding:14px 20px;background:var(--bg3);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.cl-hdr h3{font-family:'Fraunces',serif;font-size:1em;font-weight:700;color:var(--white)}
+.cl-prog{font-family:'Fira Code',monospace;font-size:.76em;color:var(--rose2)}
+.cl-tier{padding:12px 20px;border-bottom:1px solid var(--border)}
+.cl-tier:last-child{border-bottom:none}
+.cl-tier-lbl{font-size:.67em;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:9px}
+.tier-ai .cl-tier-lbl{color:var(--rose2)}
+.tier-auth .cl-tier-lbl{color:var(--pink2)}
+.tier-tech .cl-tier-lbl{color:var(--fuchsia2)}
+.cl-items{display:flex;flex-direction:column;gap:6px}
+.cl-item{display:flex;align-items:center;gap:9px;padding:8px 12px;border-radius:7px;background:var(--card);border:1px solid var(--border);cursor:pointer;transition:all .15s}
+.cl-item:hover{border-color:var(--border2)}
+.cl-item.chk-done{background:rgba(244,63,94,.04);border-color:rgba(244,63,94,.2)}
+.cl-item.chk-done .cl-chk{background:var(--rose);border-color:var(--rose);color:#fff;font-size:.6em}
+.cl-item.chk-done .cl-txt{color:var(--muted);text-decoration:line-through}
+.cl-chk{width:17px;height:17px;border-radius:3px;border:1.5px solid var(--border2);flex-shrink:0;display:flex;align-items:center;justify-content:center;color:transparent;font-size:.5em}
+.cl-txt{font-size:.84em;color:var(--text2)}
+
+/* ── BLOGS ── */
+.blogs-grid{display:flex;flex-direction:column;gap:10px;margin-top:14px}
+.blog-card{display:flex;align-items:flex-start;gap:14px;padding:14px 16px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;text-decoration:none;transition:all .15s}
+.blog-card:hover{border-color:var(--rose);background:rgba(244,63,94,.04)}
+.b-num{font-family:'Fira Code',monospace;font-size:.7em;font-weight:700;color:var(--muted);min-width:22px}
+.b-info{flex:1}
+.b-info strong{display:block;font-size:.88em;font-weight:600;color:var(--rose2);margin-bottom:3px;line-height:1.3}
+.blog-card:hover .b-info strong{color:var(--pink2)}
+.b-info span{font-size:.77em;color:var(--muted);line-height:1.4}
+.b-type{font-size:.62em;font-weight:700;text-transform:uppercase;padding:2px 7px;border-radius:3px;flex-shrink:0;background:rgba(244,63,94,.1);color:var(--rose2);border:1px solid rgba(244,63,94,.2)}
+
+/* ── MODULE NAV ── */
+.module-nav{display:flex;justify-content:space-between;gap:12px;padding:32px 0 0;border-top:1px solid var(--border);margin-top:44px}
+.mnav-btn{display:flex;align-items:center;gap:10px;padding:12px 20px;background:var(--card);border:1px solid var(--border);border-radius:10px;text-decoration:none;color:var(--text2);transition:all .15s;flex:1;max-width:280px}
+.mnav-btn:hover{border-color:var(--rose);color:var(--rose2)}
+.mnav-arr{font-size:1.1em;color:var(--rose)}
+.mnav-lbl{font-size:.65em;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);display:block;margin-bottom:2px}
+.mnav-title{font-size:.82em;font-weight:600;line-height:1.3}
+
+/* ── OVERLAY & RESPONSIVE ── */
+.sb-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:150}
+@media(max-width:900px){
+  .sidebar{transform:translateX(-100%);z-index:300}
+  .sidebar.open{transform:translateX(0)}
+  .sb-overlay.show{display:block}
+  .main{margin-left:0}
+  .topbar{padding:12px 20px}
+  .hamburger{display:flex}
+  .mod-hero{padding:36px 24px 28px}
+  .content-area{padding:28px 20px 80px}
+  .hero-stats{grid-template-columns:1fr 1fr;width:100%}
+  .block-grid{grid-template-columns:1fr}
+  .note-grid{grid-template-columns:1fr}
+  .note-cell:nth-child(2n){border-right:1px solid rgba(244,63,94,.12)}
+  .note-cell:nth-child(n){border-bottom:1px solid rgba(244,63,94,.12)}
+  .note-cell:last-child{border-bottom:none}
+  .comp-stats{gap:6px}
+  .comp-btns{flex-direction:column;align-items:center}
+}
+@media(max-width:500px){
+  .mod-hero h1{font-size:1.65em}
+  .module-nav{flex-direction:column}
+}
+</style>
+</head>
+<body>
+<div class="shell">
+
+<!-- ═══════════ SIDEBAR ═══════════ -->
+<aside class="sidebar" id="sidebar">
+  <div class="sb-brand">
+    <a href="seo_complete_roadmap_v3.html" class="sb-back">← All Modules</a>
+    <div class="sb-mod-badge">MODULE 10</div>
+    <h2>Advanced SEO</h2>
+    <p>Featured Snippets, AI & Future-Proofing</p>
+  </div>
+  <div class="sb-progress">
+    <div class="prog-label"><span>Progress</span><span id="prog-pct">0%</span></div>
+    <div class="prog-bg"><div class="prog-fill" id="prog-fill"></div></div>
+  </div>
+  <nav class="sb-nav">
+    <div class="sb-section-label">Topics</div>
+    <a class="nav-link" href="#t10-1"><span class="nav-num">10.1</span>Featured Snippets & AI Overviews<span class="nav-done">✓</span></a>
+    <a class="nav-link" href="#t10-2"><span class="nav-num">10.2</span>E-E-A-T & Content Authority<span class="nav-done">✓</span></a>
+    <a class="nav-link" href="#t10-3"><span class="nav-num">10.3</span>Algorithm Updates<span class="nav-done">✓</span></a>
+    <a class="nav-link" href="#t10-4"><span class="nav-num">10.4</span>International SEO<span class="nav-done">✓</span></a>
+    <a class="nav-link" href="#t10-5"><span class="nav-num">10.5</span>GEO & AI-Era SEO<span class="nav-done">✓</span></a>
+    <a class="nav-link" href="#t10-6"><span class="nav-num">10.6</span>Future-Proofing Your SEO<span class="nav-done">✓</span></a>
+    <div class="sb-section-label" style="margin-top:10px">Practice & Review</div>
+    <a class="nav-link" href="#quiz-sec"><span class="nav-num">🎯</span>Knowledge Quiz</a>
+    <a class="nav-link" href="#flash-sec"><span class="nav-num">🃏</span>Flashcards</a>
+    <a class="nav-link" href="#cl-sec"><span class="nav-num">📋</span>Future-Proof Checklist</a>
+  </nav>
+  <div class="sb-footer">
+    <p>SEO Mastery Roadmap 2025<br>Module 10 of 12</p>
+  </div>
+</aside>
+<div class="sb-overlay" id="overlay" onclick="closeSB()"></div>
+
+<!-- ═══════════ MAIN ═══════════ -->
+<main class="main">
+  <div class="topbar">
+    <button class="hamburger" onclick="openSB()"><span></span><span></span><span></span></button>
+    <div class="topbar-breadcrumb">
+      <a href="seo_complete_roadmap_v3.html">SEO Mastery 2025</a> › <span>Module 10 — Advanced SEO & Future-Proofing</span>
+    </div>
+    <button class="theme-btn" onclick="toggleTheme()" id="theme-btn">☀️ Light Mode</button>
+  </div>
+
+  <!-- HERO -->
+  <div class="mod-hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-inner">
+      <div class="mod-num-tag">MODULE 10 — ADVANCED SEO</div>
+      <h1>Advanced SEO<br><em>&amp; Future-Proofing</em></h1>
+      <p>Elite techniques that most practitioners overlook. Featured Snippets, E-E-A-T, GEO, AI-era search, and international SEO — the strategies that separate top-5% SEOs from the rest and are increasingly critical as AI reshapes search in 2025 and beyond.</p>
+      <div class="mod-tags">
+        <span class="mtag mtag-rose">Expert Level</span>
+        <span class="mtag mtag-pink">Future-Proof</span>
+        <span class="mtag mtag-fuchsia">AI-Era</span>
+        <span class="mtag mtag-amber">2025+</span>
+        <span class="mtag mtag-blue">GEO</span>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-box"><div class="stat-n">6</div><div class="stat-l">Topics</div></div>
+        <div class="stat-box"><div class="stat-n">24</div><div class="stat-l">Tasks</div></div>
+        <div class="stat-box"><div class="stat-n">20</div><div class="stat-l">Resources</div></div>
+        <div class="stat-box"><div class="stat-n">3–4h</div><div class="stat-l">Est. Time</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-area">
+
+    <!-- ═══ 10.1 ═══ -->
+    <div class="topic-item open" id="t10-1">
+      <div class="topic-header" onclick="toggleTopic(this)">
+        <span class="topic-num">10.1</span>
+        <h3>Featured Snippets, AI Overviews (GEO) & Zero-Click SEO</h3>
+        <span class="diff diff-adv">Advanced</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="topic-body">
+        <div class="topic-intro">Google's search results page is evolving at unprecedented speed. Featured snippets (Position 0) and AI Overviews are taking increasing screen real estate, fundamentally changing how traffic flows from search. Understanding how to win Position 0 <strong>and</strong> how to get cited in AI Overviews is the new frontier — these skills separate 2025 SEOs from those still optimising for 2019.</div>
+        <div class="keypoints">
+          <div class="kp"><div class="kp-dot"></div><div><strong>Featured Snippet Requirements:</strong> Your page must already rank in the top 10. The query must be informational (a question or "how to"). Content must have a clear direct answer in Google's preferred format: paragraph (what/who questions), numbered list (step-by-step how-tos), table (comparisons/data). Place your concise answer immediately after the question as an H2 or H3 — this is the critical structural move.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Google AI Overviews (GEO):</strong> AI Overviews appear for 15%+ of US searches and summarise content from multiple sources — reducing clicks even when you rank #1. The new goal is being <em>cited</em> in the AI Overview. To get cited: structured writing with clear headings, cite reputable sources within your content, include original data and research, build strong E-E-A-T signals, and use FAQ sections with direct concise answers.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Zero-Click Searches:</strong> 65% of Google searches now end without a click. Optimise for this reality: brand awareness matters even when people don't click (they see your domain repeatedly), being cited in AI Overviews drives future branded searches, and informational content builds authority even if it doesn't convert directly. Zero-click isn't failure — it's brand-building at massive scale.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Voice Search Optimisation:</strong> 50%+ of searches are now voice-initiated. Voice results are almost always featured snippets read aloud by Google Assistant. Target conversational long-tail queries ("what is the best way to...", "how do I...") with 2–3 sentence paragraph answers. Add FAQ sections on key pages with verbatim questions people actually ask aloud — these are your voice search landing zones.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Format Matching by Query Type:</strong> "What is X" queries → 40–60 word paragraph after H2. "How to X" queries → numbered list immediately after H2 with 5–9 clear steps. "Best X vs Y" queries → comparison table. Don't guess — Google the target query, study the existing snippet format, then match and out-execute it. Google prefers consistency in how a query type is answered.</div></div>
+        </div>
+        <div class="block-grid">
+          <div class="info-block b-example">
+            <div class="blabel">📖 Real Example</div>
+            <p>A health website rewrote their "How long does COVID last?" page with a precise structure: H2 "How Long Does COVID-19 Last?" followed immediately by a 2-sentence direct answer, then a detailed table with patient types and recovery durations, then expanded sections. They captured the featured snippet within 3 weeks. Impressions: unchanged at 280,000/month. Clicks: <strong>increased from 4,200 → 18,900/month</strong> — a 350% traffic increase with zero ranking change and zero new content needed. Pure formatting improvement.</p>
+          </div>
+          <div class="info-block b-task">
+            <div class="blabel">✅ Your Tasks</div>
+            <div class="task-list">
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Find 10 question-based queries in your niche. Search each and note: does a featured snippet appear? What format is it (paragraph / list / table)?</span></label>
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Take any page ranking positions 4–10 for a question keyword. Rewrite one section specifically targeting the featured snippet using the correct format.</span></label>
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Research "Generative Engine Optimisation (GEO)". Write a 300-word summary of how AI Overviews change SEO strategy and your specific response plan.</span></label>
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Add an FAQ section with 5 conversational questions to an existing page. Format each answer for potential featured snippet capture.</span></label>
+            </div>
+          </div>
+        </div>
+        <div class="res-block">
+          <div class="res-title">📚 Resources</div>
+          <div class="res-links">
+            <a class="res-link" href="https://ahrefs.com/blog/featured-snippets/" target="_blank"><span class="res-icon">🔗</span><div class="res-info"><strong>Ahrefs — How to Optimise for Featured Snippets</strong><span>Data-driven analysis of what content formats win Position 0, with step-by-step guide and real examples.</span></div><span class="res-badge badge-blog">GUIDE</span></a>
+            <a class="res-link" href="https://searchengineland.com/what-is-generative-engine-optimization-geo-429851" target="_blank"><span class="res-icon">🔗</span><div class="res-info"><strong>Search Engine Land — What Is GEO?</strong><span>Complete introduction to Generative Engine Optimisation — optimising for AI overview citations instead of just blue links.</span></div><span class="res-badge badge-blog">BLOG</span></a>
+            <a class="res-link" href="https://developers.google.com/search/blog" target="_blank"><span class="res-icon">🔗</span><div class="res-info"><strong>Google Search Central Blog</strong><span>Official Google blog announcing algorithm updates, new features, and best practice changes. Required reading for any serious SEO professional.</span></div><span class="res-badge badge-official">OFFICIAL</span></a>
+            <a class="res-link" href="https://www.semrush.com/blog/zero-click-searches/" target="_blank"><span class="res-icon">🔗</span><div class="res-info"><strong>SEMrush — Zero-Click Searches: How to Win Despite No Clicks</strong><span>Research-backed guide to adapting your SEO strategy for the zero-click search reality of 2025.</span></div><span class="res-badge badge-blog">BLOG</span></a>
+          </div>
+        </div>
+        <div class="topic-note">
+          <div class="note-hdr">📌 Why / Where / How / When</div>
+          <div class="note-grid">
+            <div class="note-cell"><div class="note-lbl">🎯 Why Use It</div><p>Position 0 delivers <strong>2–5× more clicks</strong> than Position 1 for question queries. In the AI Overview era, being cited positions you as authoritative even when users don't click — brand recognition at search scale.</p></div>
+            <div class="note-cell"><div class="note-lbl">📍 Where to Use It</div><p>Informational pages already ranking positions 4–15 for question-based queries. Prioritise pages with high impressions and poor CTR in GSC — these are your highest-leverage opportunities.</p></div>
+            <div class="note-cell"><div class="note-lbl">🔧 How to Use It</div><p>Study the current snippet format. Write a direct answer (40–60 words max for paragraphs) immediately after the question heading. Add structured lists or tables matching Google's preferred format for that query.</p></div>
+            <div class="note-cell"><div class="note-lbl">⏰ When to Prioritise</div><p>After page 1 rankings are established for target keywords. Featured snippet optimisation is a <strong>next-level activity</strong> — don't attempt it before you're ranking in the top 10 for the target query.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ 10.2 ═══ -->
+    <div class="topic-item" id="t10-2">
+      <div class="topic-header" onclick="toggleTopic(this)">
+        <span class="topic-num">10.2</span>
+        <h3>E-E-A-T — Experience, Expertise, Authoritativeness & Trust</h3>
+        <span class="diff diff-adv">Advanced</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="topic-body">
+        <div class="topic-intro">E-E-A-T is Google's framework for evaluating content quality — especially for YMYL (Your Money or Your Life) topics covering health, finance, legal, and safety. Google's human quality raters use E-E-A-T guidelines to evaluate search quality, and these guidelines directly inform algorithm training. Mastering E-E-A-T signals is the most important long-term SEO investment you can make for any serious publishing site.</div>
+        <div class="keypoints">
+          <div class="kp"><div class="kp-dot"></div><div><strong>Experience (added 2022):</strong> Demonstrates first-hand experience with the topic — not theoretical knowledge. Signals: personal case studies, original photos you took, hands-on test results, "tested by" labels, first-person narrative about real situations. A travel article written by someone who visited the location vs an AI-generated summary. Google aims to reward genuine experience.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Expertise:</strong> Domain-specific knowledge demonstrated through content depth, accuracy, and professional terminology. Signals: detailed author bios with credentials, bylines linked to expert profiles, content reviewed by subject matter experts, nuanced treatment of complex topics rather than surface-level coverage, citations of peer-reviewed or authoritative sources throughout the content.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Authoritativeness:</strong> How the broader web perceives you as a source. Signals: editorial backlinks from high-authority sites in your niche, mentions in reputable publications, author cited by other recognised experts, brand searches growing over time, presence on Wikipedia or industry databases, awards or industry recognition, speaking at industry conferences.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Trustworthiness — The Foundation:</strong> The most important E-E-A-T element. Signals: secure HTTPS, clear privacy policy and terms, transparent about-us page with real team photos and contact details, accurate and current information with visible update dates, clear author information on every article, citing sources for factual claims, positive online reviews and reputation, physical address for local businesses.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>YMYL Sites — Highest Scrutiny:</strong> YMYL categories — medical/health, financial decisions, legal guidance, safety information, news, civic matters — face the strictest E-E-A-T evaluation. For YMYL content: must be reviewed by verified experts (show credentials), sources must be cited with links, information must be updated regularly with visible timestamps, expert credentials must be prominently displayed on every article. Non-YMYL sites face significantly lower E-E-A-T thresholds.</div></div>
+        </div>
+        <div class="block-grid">
+          <div class="info-block b-example">
+            <div class="blabel">📖 Real Example</div>
+            <p>A medical information website had 400+ articles, all written by freelance writers with no credentials listed. After Google's 2022 Helpful Content Update, organic traffic dropped 68%. Recovery plan: (1) Added a medical doctor as content reviewer for all articles, (2) Each article now shows author bio + reviewer credentials with MD/PhD verification, (3) Added "Medically reviewed by Dr. [Name]" banners, (4) Cited peer-reviewed studies with direct links throughout. Traffic recovered fully in 7 months. <strong>The content itself barely changed — only the E-E-A-T signals did.</strong></p>
+          </div>
+          <div class="info-block b-task">
+            <div class="blabel">✅ Your Tasks</div>
+            <div class="task-list">
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Audit your own (or a client's) site E-E-A-T signals. Score 1–10 for each: author credentials, source citations, trust signals, site transparency. Write a specific improvement plan.</span></label>
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Write a fully optimised <strong>Expert Author Bio</strong> — include professional credentials, years experience, publications, links to social proof profiles, and a photo recommendation.</span></label>
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Find any YMYL article lacking E-E-A-T signals. List every missing signal, then rewrite the article header and author section to include all required E-E-A-T elements.</span></label>
+            </div>
+          </div>
+        </div>
+        <div class="res-block">
+          <div class="res-title">📚 Resources</div>
+          <div class="res-links">
+            <a class="res-link" href="https://static.googleusercontent.com/media/guidelines.raterhub.com/en//searchqualityevaluatorguidelines.pdf" target="_blank"><span class="res-icon">📄</span><div class="res-info"><strong>Google Quality Rater Guidelines (Full PDF)</strong><span>The 168-page document Google quality raters use to evaluate search results. E-E-A-T is covered extensively. Essential reading for advanced SEOs.</span></div><span class="res-badge badge-official">OFFICIAL</span></a>
+            <a class="res-link" href="https://ahrefs.com/blog/eat-seo/" target="_blank"><span class="res-icon">🔗</span><div class="res-info"><strong>Ahrefs — E-E-A-T: What It Is & How to Improve It</strong><span>Practical guide to implementing E-E-A-T signals across different types of websites — with specific actions per signal.</span></div><span class="res-badge badge-blog">GUIDE</span></a>
+            <a class="res-link" href="https://www.semrush.com/blog/eeat-seo/" target="_blank"><span class="res-icon">🔗</span><div class="res-info"><strong>SEMrush — E-E-A-T in SEO: Complete Guide with Examples</strong><span>Comprehensive breakdown of each E-E-A-T component with specific actionable steps for improving trust and authority signals.</span></div><span class="res-badge badge-blog">BLOG</span></a>
+          </div>
+        </div>
+        <div class="topic-note">
+          <div class="note-hdr">📌 Why / Where / How / When</div>
+          <div class="note-grid">
+            <div class="note-cell"><div class="note-lbl">🎯 Why Use It</div><p>E-E-A-T is Google's official quality manual. Sites without it are vulnerable to every Core Update. Sites <strong>with strong E-E-A-T</strong> consistently recover from updates while competitors drop and stay down.</p></div>
+            <div class="note-cell"><div class="note-lbl">📍 Where to Use It</div><p>Most critical for YMYL topics. All sites should implement Trust and Authoritativeness signals at minimum. <strong>Never skip</strong> author bios, source citations, or contact information — even for non-YMYL sites.</p></div>
+            <div class="note-cell"><div class="note-lbl">🔧 How to Use It</div><p>Author bios with credentials on every article. Cite reputable sources inline. Display contact info, privacy policy, about page. Earn editorial mentions. Update all content with visible timestamps.</p></div>
+            <div class="note-cell"><div class="note-lbl">⏰ When to Prioritise</div><p>Build E-E-A-T signals <strong>from Day 1</strong> on any new site. For existing sites, make E-E-A-T improvements your first post-audit priority — especially if you've been affected by a Google Core Update.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ 10.3 ═══ -->
+    <div class="topic-item" id="t10-3">
+      <div class="topic-header" onclick="toggleTopic(this)">
+        <span class="topic-num">10.3</span>
+        <h3>Google Algorithm Updates — Surviving, Diagnosing & Recovering</h3>
+        <span class="diff diff-adv">Advanced</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="topic-body">
+        <div class="topic-intro">Google updates its algorithm thousands of times annually, with major "Core Updates" released multiple times per year that can dramatically shift rankings overnight. Understanding how to identify an update hit, diagnose the cause, and build a structured recovery plan is an expert skill that commands premium rates — businesses in crisis will pay significantly more than standard retainer fees for an SEO who can calmly navigate an update recovery.</div>
+        <div class="keypoints">
+          <div class="kp"><div class="kp-dot"></div><div><strong>Types of Major Updates:</strong> <strong>Core Updates</strong> — broad quality reassessment, primarily affects E-E-A-T and helpfulness. <strong>Helpful Content Update</strong> — rewards people-first content, penalises AI-generated or SEO-first thin content. <strong>Penguin</strong> — spammy manipulative backlinks. <strong>Spam Updates</strong> — low-quality, scaled, or auto-generated content. <strong>Page Experience</strong> — Core Web Vitals and UX signals. Each requires different diagnosis and recovery approach.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Diagnosing an Update Hit (4 Steps):</strong> (1) Cross-reference traffic drop date with confirmed algorithm update dates on MozCast or Search Engine Land. (2) In GSC, check if traffic dropped site-wide or only on specific page types. (3) Compare lost pages vs stable pages — what's different in content quality, E-E-A-T, or technical setup? (4) Check competitor traffic — did everyone in your niche drop (broad update) or just you (site-specific issue)?</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Recovery Strategy:</strong> Google's official guidance: "Focus on building great content that serves your users." Specific actions: improve E-E-A-T on all major pages, prune thin/low-quality pages (delete or substantially improve them), fix any technical issues found, update outdated content with current information. Recovery is typically visible <strong>at the next Core Update</strong> — which may be 3–6 months away. There is no instant recovery path for Core Update impacts.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Staying Ahead of Updates:</strong> Follow Google Search Central Blog, Search Engine Land, and Ahrefs Blog. Monitor Google's official Search Status Dashboard. Subscribe to SEO newsletters (Search Engine Roundtable, SEO Signals Lab). Build sites aligned with Google's stated quality guidelines — such sites are generally <strong>rewarded</strong> by Core Updates rather than penalised. The best update protection is proactive quality investment, not reactive patching.</div></div>
+        </div>
+        <div class="block-grid">
+          <div class="info-block b-example">
+            <div class="blabel">📖 Real Example</div>
+            <p>An affiliate review site lost 60% traffic after the September 2023 Core Update. Diagnosis: 40% of pages were thin "best X" listicles with no original testing, no author credentials, and no first-hand experience demonstrated. Recovery plan: deleted 85 thin pages entirely, rewrote 40 remaining pages with hands-on testing results, added author credentials, added original product photos. Re-submitted updated sitemap. Traffic was <strong>80% restored at the March 2024 Core Update</strong> — exactly 6 months later. This timeline is the norm. Patience + consistent quality improvement is the only path.</p>
+          </div>
+          <div class="info-block b-task">
+            <div class="blabel">✅ Your Tasks</div>
+            <div class="task-list">
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Look up Google's confirmed algorithm update timeline for the last 2 years. Cross-reference with GSC traffic data for any site you have access to. Can you spot specific update impact dates?</span></label>
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Set up a <strong>daily SEO monitoring system</strong>: bookmark Search Engine Land, set Google Alerts for "Google algorithm update", and follow 3 senior SEO professionals on LinkedIn.</span></label>
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Write a <strong>client update communication template</strong> explaining a 25% traffic drop from an algorithm update. Include: cause, impact, recovery plan, realistic timeline, and next check-in date.</span></label>
+            </div>
+          </div>
+        </div>
+        <div class="res-block">
+          <div class="res-title">📚 Resources</div>
+          <div class="res-links">
+            <a class="res-link" href="https://status.search.google.com/products/rGHU1u87FJnkP6W2GwMi/history" target="_blank"><span class="res-icon">🔗</span><div class="res-info"><strong>Google Search Status Dashboard</strong><span>Official Google dashboard for confirmed search ranking updates, data issues, and system status. Bookmark this immediately.</span></div><span class="res-badge badge-official">OFFICIAL</span></a>
+            <a class="res-link" href="https://searchengineland.com/library/google/google-algorithm-updates" target="_blank"><span class="res-icon">🔗</span><div class="res-info"><strong>Search Engine Land — Google Algorithm Update History</strong><span>Complete timeline of all confirmed Google algorithm updates with dates, descriptions, and reported impacts since 2000.</span></div><span class="res-badge badge-blog">RESOURCE</span></a>
+            <a class="res-link" href="https://moz.com/google-algorithm-change-history" target="_blank"><span class="res-icon">🔗</span><div class="res-info"><strong>Moz — Google Algorithm Change History</strong><span>Detailed changelog of major updates with explanations, community observations, and practical recovery guidance.</span></div><span class="res-badge badge-blog">RESOURCE</span></a>
+          </div>
+        </div>
+        <div class="topic-note">
+          <div class="note-hdr">📌 Why / Where / How / When</div>
+          <div class="note-grid">
+            <div class="note-cell"><div class="note-lbl">🎯 Why Use It</div><p>Algorithm awareness is the <strong>difference between panic and strategy</strong>. SEOs who understand update patterns recover clients confidently. Those who don't lose clients who assume the SEO caused the traffic drop.</p></div>
+            <div class="note-cell"><div class="note-lbl">📍 Where to Use It</div><p>Every client engagement. Monitor for update impact at all times. Major Core Updates (4–5×/year) need immediate diagnosis. Always communicate proactively — don't wait for clients to ask about traffic drops.</p></div>
+            <div class="note-cell"><div class="note-lbl">🔧 How to Use It</div><p>Maintain a daily news monitoring habit. Cross-reference traffic drops with update dates immediately. Run content audits quarterly to identify thin pages <strong>before</strong> they become update casualties.</p></div>
+            <div class="note-cell"><div class="note-lbl">⏰ When to Prioritise</div><p>Immediately after any unexplained traffic drop. Also proactively — audit for content quality issues <strong>before</strong> Core Updates land rather than scrambling to recover afterward.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ 10.4 ═══ -->
+    <div class="topic-item" id="t10-4">
+      <div class="topic-header" onclick="toggleTopic(this)">
+        <span class="topic-num">10.4</span>
+        <h3>International SEO — Hreflang, Country Targeting & Multi-Language</h3>
+        <span class="diff diff-exp">Expert</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="topic-body">
+        <div class="topic-intro">International SEO — serving the right content to the right users in the right countries and languages — is one of the most technically complex and highest-value SEO skills. It's rarely needed for local clients but is essential for SaaS companies, large e-commerce stores, and multinational brands. Mastering it opens the door to enterprise-level projects and significantly higher day rates.</div>
+        <div class="keypoints">
+          <div class="kp"><div class="kp-dot"></div><div><strong>Hreflang Tag:</strong> Tells Google which version of a page to show to users in specific countries or languages. Format: <code>&lt;link rel="alternate" hreflang="en-IN" href="https://example.com/in/"&gt;</code>. The 4 most common mistakes: missing self-referential hreflang (every page must include itself), incorrect ISO language codes, missing <code>x-default</code> tag (shown when no country matches), and not including all alternate URLs reciprocally on every language version.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>URL Structure — 3 Options:</strong> (1) <strong>ccTLDs</strong> (.in, .co.uk, .de) — strongest geo-signal, expensive, requires entirely separate SEO work per domain. (2) <strong>Subdomains</strong> (in.example.com) — moderate geo-signal, treated as separate entities by Google. (3) <strong>Subdirectories</strong> (example.com/in/) — Google's official recommendation for most sites, shares root domain authority, easier to manage and scale. Subdirectories win on practicality for most businesses.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Keyword Research Per Market:</strong> Don't simply translate keywords — research them independently per market. "Running shoes" in India has different competitor landscapes, search volumes, and intent patterns vs the UK. Use local Google (google.co.in, google.co.uk) for searches, country-specific Keyword Planner data, and Ahrefs country filters for accurate market intelligence.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>GSC International Targeting:</strong> In GSC → Settings → International Targeting: manually set the preferred country for subdirectory-based sites (subdirectories don't carry automatic geo-signals the way ccTLDs do). Verify ccTLDs and subdomains as separate GSC properties. Check the "International Targeting" report regularly to confirm correct country association for each URL version.</div></div>
+        </div>
+        <div class="block-grid">
+          <div class="info-block b-insight">
+            <div class="blabel">💡 Hreflang Structure Example</div>
+            <p><strong>Correct implementation for EN/HI/x-default:</strong></p>
+            <p style="font-family:'Fira Code',monospace;font-size:.79em;line-height:1.9;background:rgba(244,63,94,.05);padding:12px;border-radius:6px;border:1px solid rgba(244,63,94,.15);margin-top:8px;color:var(--rose3)">
+              &lt;link rel="alternate"<br>
+              &nbsp;&nbsp;hreflang="en-IN"<br>
+              &nbsp;&nbsp;href="https://site.com/in/"&gt;<br>
+              &lt;link rel="alternate"<br>
+              &nbsp;&nbsp;hreflang="hi"<br>
+              &nbsp;&nbsp;href="https://site.com/hi/"&gt;<br>
+              &lt;link rel="alternate"<br>
+              &nbsp;&nbsp;hreflang="x-default"<br>
+              &nbsp;&nbsp;href="https://site.com/"&gt;
+            </p>
+            <p style="margin-top:10px"><strong>x-default</strong> = fallback for users whose country/language doesn't match any other tag. Always required.</p>
+          </div>
+          <div class="info-block b-task">
+            <div class="blabel">✅ Your Tasks</div>
+            <div class="task-list">
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Analyse any large international site (e.g. Booking.com, Shopify). View page source and find their hreflang tags. List all languages and countries targeted.</span></label>
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Write a complete hreflang implementation plan for a business targeting India (English + Hindi), UK (English), and Germany (German). Include every required tag and x-default.</span></label>
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Use Ahrefs or SEMrush to compare keyword volume for 5 target keywords across India vs UK vs US. Document the volume, competition, and CPC differences per market.</span></label>
+            </div>
+          </div>
+        </div>
+        <div class="res-block">
+          <div class="res-title">📚 Resources</div>
+          <div class="res-links">
+            <a class="res-link" href="https://developers.google.com/search/docs/specialty/international/localization-with-hreflang" target="_blank"><span class="res-icon">🔗</span><div class="res-info"><strong>Google — Managing Multi-regional and Multilingual Sites</strong><span>Official Google documentation on hreflang, URL structure, and content localisation for international SEO. The authoritative reference.</span></div><span class="res-badge badge-official">OFFICIAL</span></a>
+            <a class="res-link" href="https://ahrefs.com/blog/international-seo/" target="_blank"><span class="res-icon">🔗</span><div class="res-info"><strong>Ahrefs — International SEO: The Complete Guide</strong><span>Comprehensive practical guide to hreflang implementation, URL structure decisions, and international keyword research methodology.</span></div><span class="res-badge badge-blog">GUIDE</span></a>
+            <a class="res-link" href="https://hreflang.org/checker/" target="_blank"><span class="res-icon">🔧</span><div class="res-info"><strong>Hreflang.org Checker (Free)</strong><span>Instantly validates hreflang implementation. Identifies missing self-referential tags, wrong ISO codes, and missing x-default.</span></div><span class="res-badge badge-free">FREE TOOL</span></a>
+          </div>
+        </div>
+        <div class="topic-note">
+          <div class="note-hdr">📌 Why / Where / How / When</div>
+          <div class="note-grid">
+            <div class="note-cell"><div class="note-lbl">🎯 Why Use It</div><p>Without hreflang, Google may serve the wrong language to users — causing high bounce rates, poor UX, and ranking penalties. <strong>Correct implementation is the foundation</strong> of all international SEO success.</p></div>
+            <div class="note-cell"><div class="note-lbl">📍 Where to Use It</div><p>Any site with content in multiple languages or targeting multiple countries. Especially critical for e-commerce, SaaS, travel, and media with global audiences and language-specific content.</p></div>
+            <div class="note-cell"><div class="note-lbl">🔧 How to Use It</div><p>Implement via HTML head tags (preferred), XML sitemap, or HTTP headers. Validate with Hreflang.org checker. Monitor GSC International Targeting report monthly for mismatches.</p></div>
+            <div class="note-cell"><div class="note-lbl">⏰ When to Prioritise</div><p>Plan at the site architecture stage <strong>before</strong> international expansion. Retrofitting hreflang to large existing sites is complex and expensive — always plan it upfront as a structural decision.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ 10.5 ═══ -->
+    <div class="topic-item" id="t10-5">
+      <div class="topic-header" onclick="toggleTopic(this)">
+        <span class="topic-num">10.5</span>
+        <h3>SEO for the AI Age — GEO, ChatGPT Search & The New Landscape</h3>
+        <span class="diff diff-exp">Expert</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="topic-body">
+        <div class="topic-intro">Search is undergoing its most fundamental transformation since Google's launch. AI Overviews, ChatGPT Search, Perplexity AI, and Bing Copilot are changing how people find information — and how they bypass traditional search entirely. Generative Engine Optimisation (GEO) is the emerging discipline of getting cited, referenced, and recommended by AI systems. This is the frontier of SEO in 2025, and early movers have a significant advantage.</div>
+        <div class="keypoints">
+          <div class="kp"><div class="kp-dot"></div><div><strong>What is GEO:</strong> Optimising your content and brand to appear in AI-generated answers from ChatGPT Search, Google AI Overviews, Perplexity AI, and Claude. Unlike traditional SEO (rank in a list of links), GEO aims to be cited as a source within an AI-generated response. GEO requires strong E-E-A-T, structured information architecture, original data, and established domain authority.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>How AI Systems Select Sources:</strong> Research indicates AI systems select sources based on: (1) Domain authority and trustworthiness — established sites with strong link profiles, (2) Structured clear content with direct factual statements, (3) Original research and statistics — AI systems prefer to cite unique data, (4) Content recency and regular updates, (5) Proper structured data markup helping AI understand content context and entity relationships.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Content Optimisation for GEO:</strong> Write clear, quotable single-sentence statements per key fact. Use inverted pyramid style — lead each section with the most important conclusion first. Add original statistics you've created (survey 20 people, compile data). Use structured data markup extensively. Build brand recognition through PR and authoritative media mentions so AI training data associates your brand with expertise.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>The Multi-Platform Discovery Reality:</strong> Future-proof SEO means optimising across multiple discovery surfaces. ChatGPT has 200M+ weekly users. Perplexity AI processes 100M+ queries/month. TikTok Search is Gen Z's primary discovery tool. Voice search via smart speakers continues growing. Each platform has different ranking signals — but strong content quality and brand authority are universal. Build for people first; discovery platforms will follow.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>What Never Changes:</strong> Despite all transformation, fundamentals are permanent: excellent accurate content wins, authoritative backlinks win, fast technically sound websites win, genuine brand recognition wins. The SEOs thriving in the AI era built strong foundations rather than chasing tricks. Tactics evolve constantly — principles are permanent. Your competitive advantage is combining deep principles knowledge with fast tactical adaptation.</div></div>
+        </div>
+        <div class="block-grid">
+          <div class="info-block b-future">
+            <div class="blabel">🔮 The AI Search Landscape (2025)</div>
+            <ul>
+              <li><strong>ChatGPT Search:</strong> 200M+ weekly users, live web access</li>
+              <li><strong>Google AI Overviews:</strong> Present in 15%+ of US searches</li>
+              <li><strong>Perplexity AI:</strong> 100M+ queries/month, rapidly growing</li>
+              <li><strong>Bing Copilot:</strong> AI-powered search with source citations</li>
+              <li><strong>TikTok Search:</strong> 40% of Gen Z's primary discovery tool</li>
+              <li><strong>Voice Search:</strong> 50%+ of all search queries initiated</li>
+              <li>Being cited in AI = <strong>new form of Page 1 visibility</strong></li>
+            </ul>
+          </div>
+          <div class="info-block b-task">
+            <div class="blabel">✅ Your Tasks</div>
+            <div class="task-list">
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Search your niche in ChatGPT Search, Perplexity AI, and Google AI Overviews. Do competitor sites appear as cited sources? What content type do they cite?</span></label>
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Write a <strong>GEO-optimised article section</strong> — inverted pyramid structure, quotable key statistic in the first sentence, direct factual answer within the opening 2 sentences.</span></label>
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Conduct original "micro-research" — survey 20 people in your niche, compile results, create a citable statistic. Publish it as a shareable data point with a permanent URL.</span></label>
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Map a <strong>multi-platform discovery strategy</strong> for any brand. One specific action per platform: Google, ChatGPT, Perplexity, TikTok Search, and Voice.</span></label>
+            </div>
+          </div>
+        </div>
+        <div class="res-block">
+          <div class="res-title">📚 Resources</div>
+          <div class="res-links">
+            <a class="res-link" href="https://searchengineland.com/what-is-generative-engine-optimization-geo-429851" target="_blank"><span class="res-icon">🔗</span><div class="res-info"><strong>Search Engine Land — GEO: The Complete Guide</strong><span>The definitive introduction to Generative Engine Optimisation and how to optimise for AI search citations across all major platforms.</span></div><span class="res-badge badge-blog">GUIDE</span></a>
+            <a class="res-link" href="https://ahrefs.com/blog/generative-engine-optimization/" target="_blank"><span class="res-icon">🔗</span><div class="res-info"><strong>Ahrefs — GEO: Optimising for AI Search in 2025</strong><span>Practical, data-backed guide to adapting your content strategy for citation in AI-generated search answers.</span></div><span class="res-badge badge-blog">BLOG</span></a>
+            <a class="res-link" href="https://www.perplexity.ai" target="_blank"><span class="res-icon">🔧</span><div class="res-info"><strong>Perplexity AI</strong><span>One of the fastest-growing AI search engines. Use it to understand how AI presents information and which sources it cites for niche queries.</span></div><span class="res-badge badge-tool">EXPLORE</span></a>
+            <a class="res-link" href="https://developers.google.com/search/blog/2024/07/how-ai-overviews-work" target="_blank"><span class="res-icon">🔗</span><div class="res-info"><strong>Google — How AI Overviews Work</strong><span>Official Google explanation of AI Overview generation, source selection criteria, and content practices that help sites get cited.</span></div><span class="res-badge badge-official">OFFICIAL</span></a>
+          </div>
+        </div>
+        <div class="topic-note">
+          <div class="note-hdr">📌 Why / Where / How / When</div>
+          <div class="note-grid">
+            <div class="note-cell"><div class="note-lbl">🎯 Why Use It</div><p>AI search is the fastest-growing discovery channel in history. Being cited in AI answers <strong>drives brand awareness and trust</strong> even with zero clicks — equivalent to a positive editorial mention in every relevant conversation globally.</p></div>
+            <div class="note-cell"><div class="note-lbl">📍 Where to Use It</div><p>All content sites targeting informational queries. Priority for: how-to guides, comparison content, industry data, FAQs, and YMYL content where AI systems most aggressively summarise information.</p></div>
+            <div class="note-cell"><div class="note-lbl">🔧 How to Use It</div><p>Inverted pyramid structure. Single-sentence quotable key facts. Original research data. Strong structured markup. Authoritative backlinks. Consistent brand building across all discovery platforms.</p></div>
+            <div class="note-cell"><div class="note-lbl">⏰ When to Prioritise</div><p>Start <strong>today</strong>. GEO is in its early stages — the SEOs building AI-citation strategies now will dominate the next 3–5 years. The window for early-mover advantage in this space is narrow and closing.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ 10.6 ═══ -->
+    <div class="topic-item" id="t10-6">
+      <div class="topic-header" onclick="toggleTopic(this)">
+        <span class="topic-num">10.6</span>
+        <h3>Future-Proofing Your SEO — The Principles That Never Change</h3>
+        <span class="diff diff-int">Advanced</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="topic-body">
+        <div class="topic-intro">Every year, someone declares "SEO is dead" — killed by algorithm updates, AI, social media, or the latest platform shift. Every year, they're wrong. SEO continues to evolve, but its core has remained stable for 25 years: help people find what they're looking for, and make it easy for search engines to understand and trust your site. These are the principles that survive every update, outlast every trend, and compound in value over time.</div>
+        <div class="keypoints">
+          <div class="kp"><div class="kp-dot"></div><div><strong>Principle 1 — User Value Above All:</strong> Google's entire business model depends on showing searchers the most helpful, accurate, trustworthy results. Content strategies aligned with genuinely helping users are protected by Google's algorithm long-term, not punished. The shortcut mindset — keyword stuffing, link schemes, AI content spam — produces short-term gains and long-term destruction. There are no sustainable shortcuts against Google's stated direction of travel.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Principle 2 — Build Real Brand Authority:</strong> Branded search (people searching directly for your brand) is the ultimate algorithm-proof signal. Brands with strong recognition get traffic even when organic rankings fluctuate. Invest in brand building — PR, social presence, email lists, community — alongside traditional SEO. A brand with 50,000 email subscribers and strong branded search is insulated from algorithm changes in ways a pure-SEO site never can be.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Principle 3 — Technical Excellence:</strong> Fast pages, mobile-friendly design, clean site architecture, and error-free indexation have been table stakes since 2015 and will remain so indefinitely. Technical SEO isn't exciting but it's the foundation — every strategy fails if crawlers can't efficiently access and understand your content. Invest in technical health maintenance as ongoing hygiene, not a one-time audit.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Principle 4 — Diversify Traffic Sources:</strong> Organic search should be one traffic channel, not the only one. Build: email newsletter, YouTube channel, social following, podcast, professional community. Each additional channel reduces Google-dependence and creates multiple audience pathways. The most resilient digital businesses use SEO to attract an audience, then <strong>own</strong> that audience through multiple independent channels.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Continuous Learning System:</strong> Build a sustainable learning habit: 30 minutes/day reading industry sources. Join SEO communities (LinkedIn SEO groups, Twitter/X SEO community, Reddit r/SEO). Run regular experiments and document results. Share your learnings publicly — this builds your own authority and attracts clients. The SEOs who stay ahead treat it as a continuous craft, not a certificate earned once.</div></div>
+        </div>
+        <div class="block-grid">
+          <div class="info-block b-example">
+            <div class="blabel">📖 Real Example</div>
+            <p>After Google's March 2024 Core Update, a site built entirely on AI-generated affiliate content lost 95% traffic in a single day — essentially wiped out. Meanwhile, a competing site with original research, genuine author expertise, user testimonials, and 20,000 email subscribers retained 90% of its traffic despite ranking changes. The difference: the second site had built an audience that didn't depend on Google rankings. Email, community, brand recognition — these protected it. <strong>This is why building beyond SEO is the ultimate future-proofing strategy.</strong></p>
+          </div>
+          <div class="info-block b-task">
+            <div class="blabel">✅ Your Tasks</div>
+            <div class="task-list">
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Write your personal <strong>SEO Learning Plan</strong> — list 3 daily learning habits, 5 resources to follow weekly, 2 communities to join, and 1 experiment to run each month.</span></label>
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Audit any site's traffic diversification. What % comes from organic vs email vs social vs direct? Build a plan to reduce organic-only dependency below 60% within 12 months.</span></label>
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Write a 400-word <strong>"SEO in 2027" prediction essay</strong> — what changes, what stays the same, and how you would prepare a new site today for those changes.</span></label>
+            </div>
+          </div>
+        </div>
+        <div class="res-block">
+          <div class="res-title">📚 Resources — Daily & Weekly Reading</div>
+          <div class="res-links">
+            <a class="res-link" href="https://www.searchengineland.com" target="_blank"><span class="res-icon">🔗</span><div class="res-info"><strong>Search Engine Land — Daily SEO News</strong><span>The most authoritative SEO and search marketing news source. Read daily to stay current with algorithm updates, Google features, and industry trends.</span></div><span class="res-badge badge-blog">DAILY</span></a>
+            <a class="res-link" href="https://www.seroundtable.com" target="_blank"><span class="res-icon">🔗</span><div class="res-info"><strong>Search Engine Roundtable — Algorithm Tracking</strong><span>Daily update analysis and early-warning ranking fluctuation tracking. Best source for detecting new algorithm rollouts before official confirmation.</span></div><span class="res-badge badge-blog">DAILY</span></a>
+            <a class="res-link" href="https://ahrefs.com/blog" target="_blank"><span class="res-icon">🔗</span><div class="res-info"><strong>Ahrefs Blog — Data-Driven SEO Research</strong><span>The most research-backed SEO blog available. Original studies, case studies, and practical strategies backed by their own tool data.</span></div><span class="res-badge badge-blog">WEEKLY</span></a>
+            <a class="res-link" href="https://backlinko.com/blog" target="_blank"><span class="res-icon">🔗</span><div class="res-info"><strong>Backlinko — Definitive SEO Guides</strong><span>Brian Dean's research-heavy definitive guides. Quality over quantity — every piece is comprehensive and data-driven.</span></div><span class="res-badge badge-blog">RESOURCE</span></a>
+          </div>
+        </div>
+        <div class="topic-note">
+          <div class="note-hdr">📌 Why / Where / How / When</div>
+          <div class="note-grid">
+            <div class="note-cell"><div class="note-lbl">🎯 Why Use It</div><p>SEO professionals with 10-year careers are those who <strong>adapted continuously</strong>. Principles-based thinking protects you from every tactic shift or algorithm change — you always know the right direction to move regardless of what changes.</p></div>
+            <div class="note-cell"><div class="note-lbl">📍 Where to Use It</div><p>In every strategic client conversation. Use principles to explain why you recommend long-term brand investments that competitors aren't recommending. Principles separate strategists from tacticians.</p></div>
+            <div class="note-cell"><div class="note-lbl">🔧 How to Use It</div><p>Build a 30-min daily learning habit. Follow industry news. Run and document your own experiments. Share learnings publicly to build your own professional authority in the field.</p></div>
+            <div class="note-cell"><div class="note-lbl">⏰ When to Prioritise</div><p>Always. <strong>Learning is the meta-skill</strong> that makes all other SEO skills more effective over time. The education hour invested today compounds every single year of your career.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOOLS -->
+    <div class="section-header">
+      <h2>🔧 Advanced SEO Tools</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="tools-wrap">
+      <a class="t-chip" href="https://status.search.google.com" target="_blank"><span>🔴</span>Google Status Dashboard</a>
+      <a class="t-chip" href="https://ahrefs.com/blog/featured-snippets/" target="_blank"><span>🎯</span>Snippet Analyser (Ahrefs)</a>
+      <a class="t-chip" href="https://hreflang.org/checker/" target="_blank"><span>🌍</span>Hreflang Checker</a>
+      <a class="t-chip" href="https://www.perplexity.ai" target="_blank"><span>🤖</span>Perplexity AI</a>
+      <a class="t-chip" href="https://chat.openai.com" target="_blank"><span>💬</span>ChatGPT Search</a>
+      <a class="t-chip" href="https://moz.com/google-algorithm-change-history" target="_blank"><span>📅</span>Moz Update History</a>
+      <a class="t-chip" href="https://static.googleusercontent.com/media/guidelines.raterhub.com/en//searchqualityevaluatorguidelines.pdf" target="_blank"><span>📄</span>Google Quality Guidelines</a>
+      <a class="t-chip" href="https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data" target="_blank"><span>📋</span>Schema Markup Docs</a>
+      <a class="t-chip" href="https://searchengineland.com" target="_blank"><span>📰</span>Search Engine Land</a>
+      <a class="t-chip" href="https://www.seroundtable.com" target="_blank"><span>📡</span>SE Roundtable</a>
+      <a class="t-chip" href="https://ahrefs.com/blog" target="_blank"><span>🔗</span>Ahrefs Blog</a>
+      <a class="t-chip" href="https://backlinko.com/blog" target="_blank"><span>📚</span>Backlinko</a>
+    </div>
+
+    <!-- BLOG POSTS -->
+    <div class="section-header">
+      <h2>📝 Essential Advanced Reading</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="blogs-grid">
+      <a class="blog-card" href="https://ahrefs.com/blog/featured-snippets/" target="_blank">
+        <span class="b-num">01</span>
+        <div class="b-info"><strong>Ahrefs — How to Optimise for Featured Snippets (Data Study)</strong><span>Data-driven analysis of what content formats win Position 0, with step-by-step optimisation guide and format templates.</span></div>
+        <span class="b-type">GUIDE</span>
+      </a>
+      <a class="blog-card" href="https://static.googleusercontent.com/media/guidelines.raterhub.com/en//searchqualityevaluatorguidelines.pdf" target="_blank">
+        <span class="b-num">02</span>
+        <div class="b-info"><strong>Google Quality Rater Guidelines — Full PDF (168 pages)</strong><span>The official document defining E-E-A-T. Read the E-E-A-T and YMYL sections at absolute minimum. Essential for advanced SEOs.</span></div>
+        <span class="b-type">OFFICIAL</span>
+      </a>
+      <a class="blog-card" href="https://searchengineland.com/what-is-generative-engine-optimization-geo-429851" target="_blank">
+        <span class="b-num">03</span>
+        <div class="b-info"><strong>Search Engine Land — What Is GEO? The Complete Guide</strong><span>The most comprehensive guide to Generative Engine Optimisation and getting cited in AI search answers across all major AI systems.</span></div>
+        <span class="b-type">GUIDE</span>
+      </a>
+      <a class="blog-card" href="https://ahrefs.com/blog/international-seo/" target="_blank">
+        <span class="b-num">04</span>
+        <div class="b-info"><strong>Ahrefs — International SEO: The Definitive Guide</strong><span>Complete hreflang implementation guide, URL structure decisions, international keyword research methodology, and common pitfalls.</span></div>
+        <span class="b-type">GUIDE</span>
+      </a>
+      <a class="blog-card" href="https://moz.com/google-algorithm-change-history" target="_blank">
+        <span class="b-num">05</span>
+        <div class="b-info"><strong>Moz — Complete Google Algorithm Update History</strong><span>The most comprehensive changelog of every major Google update with explanations and observed community impacts. Bookmark this.</span></div>
+        <span class="b-type">RESOURCE</span>
+      </a>
+      <a class="blog-card" href="https://ahrefs.com/blog/generative-engine-optimization/" target="_blank">
+        <span class="b-num">06</span>
+        <div class="b-info"><strong>Ahrefs — GEO: The Future of SEO in the AI Age</strong><span>Practical and data-backed breakdown of how to adapt content strategy for AI search citation and maximum brand visibility.</span></div>
+        <span class="b-type">BLOG</span>
+      </a>
+    </div>
+
+    <!-- ═══ QUIZ ═══ -->
+    <div class="quiz-section" id="quiz-sec">
+      <div class="quiz-hdr">
+        <h3>🎯 Knowledge Quiz — Module 10</h3>
+        <div class="quiz-score" id="quiz-score">0 / 5</div>
+      </div>
+      <div class="quiz-body">
+        <div class="quiz-q active" data-qi="0">
+          <div class="qnum">Question 1 of 5</div>
+          <div class="qtext">What is the primary prerequisite for winning a Google Featured Snippet (Position 0)?</div>
+          <div class="qopts">
+            <div class="qopt" onclick="ansQ(this,false,0)"><span class="opt-l">A</span>Having the highest Domain Authority in your niche</div>
+            <div class="qopt" onclick="ansQ(this,true,0)"><span class="opt-l">B</span>Already ranking in the top 10 + having a direct, clearly formatted answer immediately after a heading</div>
+            <div class="qopt" onclick="ansQ(this,false,0)"><span class="opt-l">C</span>Publishing the longest article on the topic (3,000+ words minimum)</div>
+            <div class="qopt" onclick="ansQ(this,false,0)"><span class="opt-l">D</span>Having the exact target keyword in your page URL</div>
+          </div>
+          <div class="qfb" id="fb-0">✅ Correct! Google only considers pages already in the top 10 for snippets. The structural key: place a clear direct answer (40–60 words for paragraphs, numbered steps for how-tos, tables for comparisons) immediately after the question as an H2 or H3. The format must match what Google already shows for that query type.</div>
+        </div>
+        <div class="quiz-q" data-qi="1">
+          <div class="qnum">Question 2 of 5</div>
+          <div class="qtext">In E-E-A-T, what specifically does the first "E" (Experience) require — added by Google in 2022?</div>
+          <div class="qopts">
+            <div class="qopt" onclick="ansQ(this,false,1)"><span class="opt-l">A</span>Years of SEO experience shown in the author bio</div>
+            <div class="qopt" onclick="ansQ(this,false,1)"><span class="opt-l">B</span>Domain age — older sites have more "Experience" signals</div>
+            <div class="qopt" onclick="ansQ(this,true,1)"><span class="opt-l">C</span>Demonstrable first-hand experience with the topic — personal testing, original photos, real case results, hands-on interaction</div>
+            <div class="qopt" onclick="ansQ(this,false,1)"><span class="opt-l">D</span>Content written in first-person perspective with personal opinions</div>
+          </div>
+          <div class="qfb" id="fb-1">✅ Correct! Google added "Experience" specifically to reward content from people with genuine first-hand interaction with the subject — not theoretical research. A product review by someone who actually used it, a travel guide written by someone who visited. Original photos, test results, and first-person case studies are the key signals.</div>
+        </div>
+        <div class="quiz-q" data-qi="2">
+          <div class="qnum">Question 3 of 5</div>
+          <div class="qtext">A client's traffic dropped 55% on a date aligning with a confirmed Google Core Update. What is the correct first action?</div>
+          <div class="qopts">
+            <div class="qopt" onclick="ansQ(this,false,2)"><span class="opt-l">A</span>Build 50 new backlinks immediately to recover rankings fast</div>
+            <div class="qopt" onclick="ansQ(this,false,2)"><span class="opt-l">B</span>Submit a reconsideration request to Google explaining the situation</div>
+            <div class="qopt" onclick="ansQ(this,true,2)"><span class="opt-l">C</span>Compare dropped pages vs stable pages to find patterns, then improve content quality and E-E-A-T signals — recovery shows at the next Core Update</div>
+            <div class="qopt" onclick="ansQ(this,false,2)"><span class="opt-l">D</span>Disavow all backlinks as the algorithm may have flagged toxic links</div>
+          </div>
+          <div class="qfb" id="fb-2">✅ Correct! Core Update recovery is always about content quality improvement — not link building or reconsideration requests. Compare what dropped vs what held, identify patterns (thin content? weak E-E-A-T?), improve systematically, and expect recovery to be visible at the next Core Update — typically 3–6 months away. There is no faster path for Core Updates.</div>
+        </div>
+        <div class="quiz-q" data-qi="3">
+          <div class="qnum">Question 4 of 5</div>
+          <div class="qtext">What does the hreflang <code>x-default</code> attribute specifically tell Google?</div>
+          <div class="qopts">
+            <div class="qopt" onclick="ansQ(this,false,3)"><span class="opt-l">A</span>This is the default homepage of the entire website</div>
+            <div class="qopt" onclick="ansQ(this,true,3)"><span class="opt-l">B</span>This is the fallback page shown to users whose country or language doesn't match any specific hreflang tag</div>
+            <div class="qopt" onclick="ansQ(this,false,3)"><span class="opt-l">C</span>This page should not be translated into other languages</div>
+            <div class="qopt" onclick="ansQ(this,false,3)"><span class="opt-l">D</span>This is the English-language version of the page</div>
+          </div>
+          <div class="qfb" id="fb-3">✅ Correct! x-default is the universal fallback — when a user's language or country doesn't match any specific hreflang tag on the page, Google serves the x-default version. It's NOT the same as an English tag (hreflang="en") — it's literally the "everyone else not listed" version. Always include x-default in every hreflang implementation.</div>
+        </div>
+        <div class="quiz-q" data-qi="4">
+          <div class="qnum">Question 5 of 5</div>
+          <div class="qtext">Which is the MOST future-proof SEO strategy for 2025 and beyond?</div>
+          <div class="qopts">
+            <div class="qopt" onclick="ansQ(this,false,4)"><span class="opt-l">A</span>Building thousands of backlinks to rank high regardless of content quality</div>
+            <div class="qopt" onclick="ansQ(this,false,4)"><span class="opt-l">B</span>Publishing AI-generated content at high volume to cover every keyword in your niche</div>
+            <div class="qopt" onclick="ansQ(this,true,4)"><span class="opt-l">C</span>Building genuine brand authority, an owned audience (email, community), excellent user-focused content, and presence across multiple discovery channels</div>
+            <div class="qopt" onclick="ansQ(this,false,4)"><span class="opt-l">D</span>Focusing exclusively on technical SEO since algorithms increasingly prioritise site speed above all else</div>
+          </div>
+          <div class="qfb" id="fb-4">✅ Correct! The only truly future-proof strategy is building genuine brand authority and owning your audience through multiple independent channels. Sites 100% dependent on Google rankings are vulnerable to every algorithm update. Brands with email lists, strong communities, and multi-platform presence are algorithm-resilient in ways pure-SEO sites cannot be.</div>
+        </div>
+        <div class="quiz-nav">
+          <button class="qbtn qbtn-sec" onclick="prevQ()" id="q-prev" disabled>← Prev</button>
+          <div class="qdots" id="q-dots"></div>
+          <button class="qbtn qbtn-pri" onclick="nextQ()" id="q-next">Next →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ FLASHCARDS ═══ -->
+    <div class="flash-section" id="flash-sec">
+      <div class="flash-hdr">
+        <h3>🃏 Flashcards — Module 10</h3>
+        <span class="fc-count" id="fc-counter">1 / 10</span>
+      </div>
+      <div class="fc-wrap" onclick="flipCard()">
+        <div class="fc-card" id="flashcard">
+          <div class="fc-face fc-front">
+            <div class="fc-lbl">Concept / Term</div>
+            <div class="fc-txt" id="fc-front-txt">Loading...</div>
+            <div class="fc-hint">Tap to reveal answer</div>
+          </div>
+          <div class="fc-face fc-back">
+            <div class="fc-lbl">Answer</div>
+            <div class="fc-txt" id="fc-back-txt">Loading...</div>
+          </div>
+        </div>
+      </div>
+      <div class="fc-controls">
+        <button class="fc-btn" onclick="prevCard()" id="fc-prev" disabled>← Prev</button>
+        <button class="fc-btn" onclick="flipCard()">Flip Card</button>
+        <button class="fc-btn" onclick="nextCard()" id="fc-next">Next →</button>
+      </div>
+    </div>
+
+    <!-- ═══ FUTURE-PROOF CHECKLIST ═══ -->
+    <div class="checklist-section" id="cl-sec">
+      <div class="cl-hdr">
+        <h3>📋 Advanced SEO & Future-Proof Checklist</h3>
+        <div class="cl-prog" id="cl-prog">0 / 18 complete</div>
+      </div>
+      <div class="cl-tier tier-ai">
+        <div class="cl-tier-lbl">🔴 AI & Featured Snippets</div>
+        <div class="cl-items">
+          <div class="cl-item" onclick="toggleCL(this)"><span class="cl-chk">✓</span><span class="cl-txt">Featured snippet opportunities identified in GSC (queries ranking 4–10 with question format)</span></div>
+          <div class="cl-item" onclick="toggleCL(this)"><span class="cl-chk">✓</span><span class="cl-txt">Direct answers placed immediately after H2/H3 headings on key informational pages</span></div>
+          <div class="cl-item" onclick="toggleCL(this)"><span class="cl-chk">✓</span><span class="cl-txt">FAQ sections with conversational questions added to all major content pages</span></div>
+          <div class="cl-item" onclick="toggleCL(this)"><span class="cl-chk">✓</span><span class="cl-txt">Site tested in ChatGPT Search and Perplexity AI — noted which content is cited</span></div>
+          <div class="cl-item" onclick="toggleCL(this)"><span class="cl-chk">✓</span><span class="cl-txt">Original research / data statistics published for AI citation opportunities</span></div>
+          <div class="cl-item" onclick="toggleCL(this)"><span class="cl-chk">✓</span><span class="cl-txt">Content uses inverted pyramid structure — key conclusions stated first</span></div>
+        </div>
+      </div>
+      <div class="cl-tier tier-auth">
+        <div class="cl-tier-lbl">🟠 E-E-A-T & Authority</div>
+        <div class="cl-items">
+          <div class="cl-item" onclick="toggleCL(this)"><span class="cl-chk">✓</span><span class="cl-txt">Author bios with credentials and headshots on every article page</span></div>
+          <div class="cl-item" onclick="toggleCL(this)"><span class="cl-chk">✓</span><span class="cl-txt">All factual claims cite reputable external sources with inline links</span></div>
+          <div class="cl-item" onclick="toggleCL(this)"><span class="cl-chk">✓</span><span class="cl-txt">About page, contact page, privacy policy, and terms of service present and complete</span></div>
+          <div class="cl-item" onclick="toggleCL(this)"><span class="cl-chk">✓</span><span class="cl-txt">Content freshness — all major pages show "Last Updated" date prominently</span></div>
+          <div class="cl-item" onclick="toggleCL(this)"><span class="cl-chk">✓</span><span class="cl-txt">YMYL content reviewed and labelled with appropriate expert credentials</span></div>
+          <div class="cl-item" onclick="toggleCL(this)"><span class="cl-chk">✓</span><span class="cl-txt">Algorithm update monitoring system set up (bookmarks + Google Alerts)</span></div>
+        </div>
+      </div>
+      <div class="cl-tier tier-tech">
+        <div class="cl-tier-lbl">🔵 Technical & Future</div>
+        <div class="cl-items">
+          <div class="cl-item" onclick="toggleCL(this)"><span class="cl-chk">✓</span><span class="cl-txt">Hreflang implemented correctly and validated with Hreflang.org Checker (if multi-language)</span></div>
+          <div class="cl-item" onclick="toggleCL(this)"><span class="cl-chk">✓</span><span class="cl-txt">All structured data (JSON-LD) validated in Google Rich Results Test</span></div>
+          <div class="cl-item" onclick="toggleCL(this)"><span class="cl-chk">✓</span><span class="cl-txt">Alternative traffic sources built: email list, social, YouTube, or community</span></div>
+          <div class="cl-item" onclick="toggleCL(this)"><span class="cl-chk">✓</span><span class="cl-txt">Branded search monitored in GSC — brand keyword volume tracked monthly</span></div>
+          <div class="cl-item" onclick="toggleCL(this)"><span class="cl-chk">✓</span><span class="cl-txt">Personal SEO learning plan documented with daily and weekly habits</span></div>
+          <div class="cl-item" onclick="toggleCL(this)"><span class="cl-chk">✓</span><span class="cl-txt">GEO strategy documented — specific actions for ChatGPT, Perplexity, and Google AI Overviews</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODULE NAV -->
+    <div class="module-nav">
+      <a href="module-9.html" class="mnav-btn">
+        <span class="mnav-arr">←</span>
+        <div><span class="mnav-lbl">Previous Module</span><span class="mnav-title">Module 9 — SEO Analytics</span></div>
+      </a>
+      <!-- <div style="flex:1"></div> -->
+      <a href="module-11.html" class="mnav-btn">
+        <div><span class="mnav-lbl">Next Module</span><span class="mnav-title">Module 11 — Interview Questions</span></div>
+        <span class="mnav-arr">→</span>
+      </a>
+      <!-- <div style="flex:1"></div> -->
+    </div>
+
+  </div><!-- /content-area -->
+</main>
+</div><!-- /shell -->
+
+<script>
+// ── THEME ──
+const saved = localStorage.getItem('seo-theme') || 'dark';
+document.documentElement.setAttribute('data-theme', saved);
+document.getElementById('theme-btn').textContent = saved === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
+function toggleTheme() {
+  const t = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', t);
+  localStorage.setItem('seo-theme', t);
+  document.getElementById('theme-btn').textContent = t === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
+}
+
+// ── SIDEBAR ──
+function openSB() { document.getElementById('sidebar').classList.add('open'); document.getElementById('overlay').classList.add('show'); }
+function closeSB() { document.getElementById('sidebar').classList.remove('open'); document.getElementById('overlay').classList.remove('show'); }
+
+// ── TOPICS ──
+function toggleTopic(header) {
+  const item = header.parentElement;
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.topic-item.open').forEach(el => el.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+
+// ── TASKS ──
+const TASK_KEY = 'mod10-tasks';
+function loadTasks() {
+  const s = JSON.parse(localStorage.getItem(TASK_KEY) || '[]');
+  document.querySelectorAll('.task-item').forEach((el, i) => { if (s[i]) el.classList.add('checked'); });
+  updateProgress();
+}
+function toggleTask(el) {
+  el.classList.toggle('checked');
+  const all = [...document.querySelectorAll('.task-item')];
+  localStorage.setItem(TASK_KEY, JSON.stringify(all.map(e => e.classList.contains('checked'))));
+  updateProgress();
+}
+function updateProgress() {
+  const all = document.querySelectorAll('.task-item').length;
+  const done = document.querySelectorAll('.task-item.checked').length;
+  const pct = all ? Math.round(done / all * 100) : 0;
+  document.getElementById('prog-fill').style.width = pct + '%';
+  document.getElementById('prog-pct').textContent = pct + '%';
+  document.querySelectorAll('.nav-link').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href && href.startsWith('#t10-')) {
+      const tasks = document.querySelectorAll(href + ' .task-item');
+      const d = [...tasks].filter(t => t.classList.contains('checked')).length;
+      link.classList.toggle('completed', d === tasks.length && tasks.length > 0);
+    }
+  });
+}
+
+// ── CHECKLIST ──
+const CL_KEY = 'mod10-cl';
+function loadCL() {
+  const s = JSON.parse(localStorage.getItem(CL_KEY) || '[]');
+  document.querySelectorAll('.cl-item').forEach((el, i) => { if (s[i]) el.classList.add('chk-done'); });
+  updateCL();
+}
+function toggleCL(el) {
+  el.classList.toggle('chk-done');
+  const all = [...document.querySelectorAll('.cl-item')];
+  localStorage.setItem(CL_KEY, JSON.stringify(all.map(e => e.classList.contains('chk-done'))));
+  updateCL();
+}
+function updateCL() {
+  const all = document.querySelectorAll('.cl-item').length;
+  const done = document.querySelectorAll('.cl-item.chk-done').length;
+  document.getElementById('cl-prog').textContent = `${done} / ${all} complete`;
+}
+
+// ── QUIZ ──
+let curQ = 0, score = 0, answered = Array(5).fill(false);
+function initDots() {
+  const d = document.getElementById('q-dots'); d.innerHTML = '';
+  for (let i = 0; i < 5; i++) { const dot = document.createElement('div'); dot.className = 'qdot' + (i === 0 ? ' cur' : ''); d.appendChild(dot); }
+}
+function ansQ(el, correct, qi) {
+  if (answered[qi]) return;
+  answered[qi] = true;
+  const opts = el.parentElement.querySelectorAll('.qopt');
+  opts.forEach(o => o.classList.add('disabled'));
+  if (correct) { el.classList.add('correct'); score++; document.getElementById('quiz-score').textContent = score + ' / 5'; }
+  else { el.classList.add('wrong'); }
+  const fb = document.getElementById('fb-' + qi);
+  if (fb) { fb.classList.add('show', correct ? 'ok' : 'no'); if (!correct) fb.textContent = '❌ ' + fb.textContent.replace(/^✅ /, ''); }
+}
+function nextQ() { if (curQ < 4) { curQ++; showQ(); } }
+function prevQ() { if (curQ > 0) { curQ--; showQ(); } }
+function showQ() {
+  document.querySelectorAll('.quiz-q').forEach((q, i) => q.classList.toggle('active', i === curQ));
+  document.querySelectorAll('.qdot').forEach((d, i) => { d.className = 'qdot' + (answered[i] ? ' done' : '') + (i === curQ ? ' cur' : ''); });
+  document.getElementById('q-prev').disabled = curQ === 0;
+  document.getElementById('q-next').disabled = curQ === 4;
+}
+initDots();
+
+// ── FLASHCARDS ──
+const cards = [
+  { f: 'Featured Snippet (Position 0)', b: 'A Google answer box shown above all organic results. Requires: already ranking top 10, a question-type query, and a clear direct answer in the correct format (paragraph/list/table) immediately after the question as H2/H3.' },
+  { f: 'GEO — Generative Engine Optimisation', b: 'The practice of optimising content to be cited as a source in AI-generated answers from ChatGPT, Google AI Overviews, and Perplexity AI. Requires strong E-E-A-T, structured content, original data, and domain authority.' },
+  { f: 'E-E-A-T First "E" — Experience', b: 'Added by Google in 2022. Requires demonstrable first-hand experience with the topic: original photos, personal testing results, "tested by" labels, and first-person case studies. Rewards genuine human experience over theoretical research.' },
+  { f: 'YMYL — Your Money or Your Life', b: 'Content categories (health, finance, legal, safety, news) that face Google\'s strictest E-E-A-T scrutiny. Requires: verified expert credentials on every article, cited sources, regular updates with visible timestamps, and clear author/reviewer information.' },
+  { f: 'Google Core Update — Recovery Timeline', b: 'Recovery from a Core Update typically becomes visible at the NEXT Core Update — 3–6 months later. There is no instant recovery path. Required: improve content quality, E-E-A-T signals, and prune thin pages. Then wait.' },
+  { f: 'Hreflang x-default', b: 'The fallback page shown to users whose country or language doesn\'t match any specific hreflang tag. NOT the same as English (hreflang="en"). Always required in every international SEO hreflang implementation.' },
+  { f: 'Featured Snippet Format for "How to" Queries', b: 'Use a numbered list immediately after the H2 question heading, with 5–9 clear concise steps. Each step should be actionable. Study the existing snippet for that query type and match its format before attempting to replace it.' },
+  { f: 'Zero-Click Searches — Current Reality', b: '65% of Google searches now end without a click. Strategy: brand awareness matters even without clicks (domain visibility), being cited in AI Overviews drives branded searches, and informational content builds authority for future commercial conversions.' },
+  { f: 'Future-Proof SEO — The Core Principle', b: 'Build genuine brand authority + own your audience through multiple channels (email, community, social) + produce excellent helpful content. Sites with only SEO-dependent traffic are vulnerable to every algorithm update. Owned audiences are algorithm-proof.' },
+  { f: 'International SEO URL Structure — Best Practice', b: 'Google recommends subdirectories (example.com/in/) for most sites — they share root domain authority, are easiest to manage, and require only one GSC property. ccTLDs are strongest geo-signals but require separate SEO work per domain.' },
+];
+let curCard = 0, flipped = false;
+function showCard() {
+  document.getElementById('fc-front-txt').textContent = cards[curCard].f;
+  document.getElementById('fc-back-txt').textContent = cards[curCard].b;
+  document.getElementById('fc-counter').textContent = (curCard + 1) + ' / ' + cards.length;
+  document.getElementById('flashcard').classList.remove('flipped');
+  flipped = false;
+  document.getElementById('fc-prev').disabled = curCard === 0;
+  document.getElementById('fc-next').disabled = curCard === cards.length - 1;
+}
+function flipCard() { flipped = !flipped; document.getElementById('flashcard').classList.toggle('flipped', flipped); }
+function nextCard() { if (curCard < cards.length - 1) { curCard++; showCard(); } }
+function prevCard() { if (curCard > 0) { curCard--; showCard(); } }
+showCard();
+
+// ── SCROLL NAV HIGHLIGHT ──
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const id = e.target.id;
+      document.querySelectorAll('.nav-link').forEach(l => {
+        l.classList.toggle('active', l.getAttribute('href') === '#' + id);
+      });
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('[id^="t10-"]').forEach(el => observer.observe(el));
+
+// ── INIT ──
+loadTasks();
+loadCL();
+</script>
+</body>
+</html>

@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 6 — Link Building & Off-Page SEO | SEO Mastery 2025</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,700;0,900;1,300&family=Syne:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+[data-theme="dark"]{--bg:#140d0e;--bg1:#1c0f11;--bg2:#231316;--bg3:#2c191b;--card:#180d0f;--border:#2e1518;--border2:#451f23;--A:#f43f5e;--A2:#fb7185;--A3:#fecdd3;--B:#e11d48;--C:#be123c;--D:#fb923c;--D2:#fed7aa;--text:#f5dfe3;--text2:#c8a0aa;--muted:#7a4a52;--white:#fff0f2;--shadow:rgba(0,0,0,.6);--note-bg:rgba(244,63,94,.05);--sbg:#1c0f11;--hbg:#140d0e}
+[data-theme="light"]{--bg:#fff0f2;--bg1:#ffe4e8;--bg2:#ffd6dc;--bg3:#ffc5ce;--card:#ffffff;--border:#f9b8c0;--border2:#f0909f;--A:#e11d48;--A2:#be123c;--A3:#9f1239;--B:#f43f5e;--C:#fb7185;--D:#ea580c;--D2:#fed7aa;--text:#1f0810;--text2:#5c2030;--muted:#9f4455;--white:#0f0408;--shadow:rgba(0,0,0,.1);--note-bg:rgba(225,29,72,.06);--sbg:#ffe4e8;--hbg:#fff0f2}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:15px}
+body{font-family:'Syne',sans-serif;background:var(--bg);color:var(--text);line-height:1.75;overflow-x:hidden;transition:background .3s,color .3s}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--A);border-radius:10px}
+.shell{display:flex;min-height:100vh}
+/* SIDEBAR */
+.sidebar{width:272px;min-width:272px;background:var(--sbg);border-right:1px solid var(--border);position:fixed;top:0;left:0;bottom:0;overflow-y:auto;z-index:200;display:flex;flex-direction:column;transition:transform .3s}
+.sidebar::-webkit-scrollbar{width:3px}.sidebar::-webkit-scrollbar-thumb{background:var(--border2)}
+.sb-brand{padding:24px 20px 18px;border-bottom:1px solid var(--border)}
+.sb-back{display:inline-flex;align-items:center;gap:7px;font-size:.75em;font-weight:700;color:var(--muted);text-decoration:none;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;transition:color .15s}.sb-back:hover{color:var(--A2)}
+.sb-mod-badge{display:inline-block;font-family:'Fira Code',monospace;font-size:.65em;font-weight:700;background:var(--A);color:#fff;padding:3px 9px;border-radius:6px;margin-bottom:10px}
+.sb-brand h2{font-family:'Fraunces',serif;font-size:1.02em;font-weight:700;color:var(--white);line-height:1.35}.sb-brand p{font-size:.72em;color:var(--muted);margin-top:4px}
+.sb-progress{padding:14px 20px;border-bottom:1px solid var(--border)}
+.prog-label{display:flex;justify-content:space-between;font-size:.68em;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:7px}.prog-label span:last-child{color:var(--A2);font-family:'Fira Code',monospace}
+.prog-bg{height:4px;background:var(--border);border-radius:2px;overflow:hidden}.prog-fill{height:100%;background:linear-gradient(90deg,var(--A),var(--D));width:0%;transition:width .4s ease}
+.sb-nav{padding:10px 0;flex:1}.sb-section-label{padding:10px 20px 4px;font-size:.63em;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted)}
+.nav-link{display:flex;align-items:center;gap:10px;padding:9px 20px;text-decoration:none;color:var(--muted);font-size:.8em;font-weight:500;transition:all .15s;border-left:2px solid transparent}
+.nav-link:hover{color:var(--text);background:var(--bg2)}.nav-link.active{color:var(--A2);border-left-color:var(--A);background:rgba(244,63,94,.07)}
+.nav-num{font-family:'Fira Code',monospace;font-size:.72em;color:var(--border2);min-width:28px}.nav-link.active .nav-num{color:var(--A2)}
+.nav-done{margin-left:auto;font-size:.8em;color:#4ade80;opacity:0;transition:opacity .2s}.nav-link.completed .nav-done{opacity:1}
+.sb-footer{padding:14px 20px;border-top:1px solid var(--border)}.sb-footer p{font-size:.7em;color:var(--muted);line-height:1.5}
+/* MAIN */
+.main{margin-left:272px;flex:1;min-width:0}
+.topbar{position:sticky;top:0;z-index:100;background:var(--hbg);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;padding:12px 40px}
+.topbar-bc{font-size:.78em;color:var(--muted);display:flex;align-items:center;gap:6px;flex:1}.topbar-bc a{color:var(--muted);text-decoration:none}.topbar-bc a:hover{color:var(--A2)}.topbar-bc span{color:var(--text2);font-weight:600}
+.theme-btn{background:var(--card);border:1px solid var(--border2);border-radius:50px;padding:7px 14px;cursor:pointer;font-size:.76em;font-weight:600;color:var(--text2);transition:all .2s;font-family:'Syne',sans-serif;white-space:nowrap}.theme-btn:hover{border-color:var(--A2);color:var(--A2)}
+.hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:4px;background:none;border:none}.hamburger span{display:block;width:20px;height:2px;background:var(--text2);border-radius:2px}
+/* HERO */
+.mod-hero{background:var(--bg1);border-bottom:1px solid var(--border);padding:56px 56px 44px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 700px 500px at 80% -15%,rgba(244,63,94,.1) 0%,transparent 60%),radial-gradient(ellipse 500px 400px at -5% 100%,rgba(251,146,60,.06) 0%,transparent 60%)}
+.hero-grid{position:absolute;inset:0;pointer-events:none;opacity:.02;background-image:linear-gradient(var(--border2) 1px,transparent 1px),linear-gradient(90deg,var(--border2) 1px,transparent 1px);background-size:44px 44px}
+.hero-inner{max-width:820px;position:relative}
+.num-tag{font-family:'Fira Code',monospace;font-size:.68em;font-weight:700;color:#fff;background:var(--A);padding:4px 12px;border-radius:6px;display:inline-block;margin-bottom:16px}
+.mod-hero h1{font-family:'Fraunces',serif;font-size:clamp(1.9em,4vw,3.1em);font-weight:900;color:var(--white);line-height:1.08;margin-bottom:10px}
+.mod-hero h1 em{font-style:italic;background:linear-gradient(135deg,var(--A2) 0%,var(--D) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.mod-hero p{color:var(--text2);font-size:.96em;max-width:700px;margin-bottom:22px;line-height:1.8}
+.mod-tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:28px}
+.mtag{font-size:.67em;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding:3px 10px;border-radius:4px}
+.mtag-r{background:rgba(244,63,94,.1);color:var(--A2);border:1px solid rgba(244,63,94,.25)}
+.mtag-o{background:rgba(251,146,60,.1);color:#fb923c;border:1px solid rgba(251,146,60,.25)}
+.mtag-y{background:rgba(245,158,11,.1);color:#f59e0b;border:1px solid rgba(245,158,11,.25)}
+.mtag-p{background:rgba(168,85,247,.1);color:#c084fc;border:1px solid rgba(168,85,247,.25)}
+.hero-stats{display:grid;grid-template-columns:repeat(4,auto);width:fit-content;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.stat-box{background:var(--bg2);padding:16px 20px;text-align:center}
+.stat-n{font-family:'Fraunces',serif;font-size:1.7em;font-weight:700;color:var(--A2);line-height:1;margin-bottom:3px}
+.stat-l{font-size:.65em;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.8px}
+/* CONTENT */
+.content-area{max-width:840px;margin:0 auto;padding:44px 56px 100px}
+.topic-item{border:1px solid var(--border);border-radius:14px;margin-bottom:14px;overflow:hidden;background:var(--card);transition:border-color .2s,box-shadow .2s}
+.topic-item:hover{border-color:var(--border2);box-shadow:0 4px 28px var(--shadow)}.topic-item.open{border-color:rgba(244,63,94,.4)}
+.topic-header{display:flex;align-items:center;gap:12px;padding:17px 20px;cursor:pointer;transition:background .15s}.topic-header:hover{background:var(--bg2)}
+.topic-num{font-family:'Fira Code',monospace;font-size:.7em;font-weight:700;color:var(--A2);background:rgba(244,63,94,.08);border:1px solid rgba(244,63,94,.2);padding:3px 8px;border-radius:5px;white-space:nowrap}
+.topic-header h3{font-size:.95em;font-weight:700;color:var(--white);flex:1;line-height:1.35}
+.diff-b{font-size:.63em;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:2px 7px;border-radius:4px;background:rgba(74,222,128,.1);color:#4ade80}
+.diff-i{font-size:.63em;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:2px 7px;border-radius:4px;background:rgba(244,63,94,.1);color:var(--A2)}
+.diff-a{font-size:.63em;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:2px 7px;border-radius:4px;background:rgba(251,146,60,.1);color:#fb923c}
+.topic-chevron{color:var(--muted);font-size:.75em;transition:transform .25s}.topic-item.open .topic-chevron{transform:rotate(180deg);color:var(--A2)}
+.topic-body{display:none;padding:0 20px 24px;border-top:1px solid var(--border)}.topic-item.open .topic-body{display:block}
+.topic-intro{padding:18px 0 14px;color:var(--text2);font-size:.92em;line-height:1.85}.topic-intro strong{color:var(--white)}
+.keypoints{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+.kp{display:flex;align-items:flex-start;gap:10px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-size:.89em;color:var(--text2)}
+.kp-dot{width:6px;height:6px;border-radius:50%;background:var(--A);flex-shrink:0;margin-top:7px}.kp strong{color:var(--white)}
+.block-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}
+.info-block{border-radius:10px;padding:16px;font-size:.87em}
+.info-block .bl{display:flex;align-items:center;gap:6px;font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px}
+.bex{background:rgba(244,63,94,.05);border:1px solid rgba(244,63,94,.18);border-left:3px solid var(--A)}.bex .bl{color:var(--A2)}
+.btask{background:rgba(251,146,60,.05);border:1px solid rgba(251,146,60,.18);border-left:3px solid #f97316}.btask .bl{color:#fb923c}
+.bins{background:rgba(168,85,247,.05);border:1px solid rgba(168,85,247,.18);border-left:3px solid #a855f7}.bins .bl{color:#c084fc}
+.bwarn{background:rgba(245,158,11,.05);border:1px solid rgba(245,158,11,.18);border-left:3px solid #f59e0b}.bwarn .bl{color:#f59e0b}
+.info-block p,.info-block ul,.info-block ol{color:var(--text2);line-height:1.7;margin-bottom:8px}.info-block li{margin-bottom:5px}.info-block strong{color:var(--white)}
+.info-block ul,.info-block ol{padding-left:16px}
+.task-list{display:flex;flex-direction:column;gap:7px}
+.task-check-item{display:flex;align-items:flex-start;gap:10px;cursor:pointer}
+.task-check-item input{display:none}
+.check-box{width:18px;height:18px;border-radius:4px;flex-shrink:0;border:1.5px solid rgba(244,63,94,.4);display:flex;align-items:center;justify-content:center;margin-top:2px;transition:all .15s;font-size:.6em;color:transparent}
+.task-check-item.checked .check-box{background:var(--A);border-color:var(--A);color:#fff;font-size:.65em}
+.task-text{font-size:.86em;color:var(--text2);line-height:1.6}.task-check-item.checked .task-text{color:var(--muted);text-decoration:line-through}
+code{font-family:'Fira Code',monospace;font-size:.83em;background:rgba(255,255,255,.06);color:var(--A2);padding:2px 6px;border-radius:4px}
+[data-theme="light"] code{background:rgba(0,0,0,.06);color:var(--A)}
+.resources-block{margin-top:18px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.res-title{padding:11px 16px;background:var(--bg3);border-bottom:1px solid var(--border);font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--A2)}
+.res-links{display:flex;flex-direction:column}
+.res-link{display:flex;align-items:flex-start;gap:12px;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;transition:background .15s}.res-link:last-child{border-bottom:none}.res-link:hover{background:rgba(244,63,94,.04)}
+.res-icon{font-size:1.1em;flex-shrink:0;margin-top:1px}
+.res-text{flex:1}.res-text strong{display:block;font-size:.85em;font-weight:600;color:var(--A2);margin-bottom:2px}.res-link:hover .res-text strong{color:var(--D)}.res-text span{font-size:.77em;color:var(--muted);line-height:1.4}
+.res-badge{font-size:.62em;font-weight:700;text-transform:uppercase;padding:2px 7px;border-radius:3px;flex-shrink:0;margin-top:2px}
+.rb-free{background:rgba(74,222,128,.1);color:#4ade80;border:1px solid rgba(74,222,128,.2)}
+.rb-blog{background:rgba(96,165,250,.1);color:#60a5fa;border:1px solid rgba(96,165,250,.2)}
+.rb-tool{background:rgba(192,132,252,.1);color:#c084fc;border:1px solid rgba(192,132,252,.2)}
+.rb-off{background:rgba(245,158,11,.1);color:#f59e0b;border:1px solid rgba(245,158,11,.2)}
+.topic-note{margin-top:18px;border-radius:12px;overflow:hidden;border:1px solid rgba(244,63,94,.25);background:var(--note-bg)}
+.note-header{display:flex;align-items:center;gap:8px;padding:10px 16px;background:rgba(244,63,94,.1);border-bottom:1px solid rgba(244,63,94,.18);font-size:.7em;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--A2)}
+.note-grid{display:grid;grid-template-columns:1fr 1fr}
+.note-cell{padding:13px 16px;border-right:1px solid rgba(244,63,94,.12);border-bottom:1px solid rgba(244,63,94,.12)}
+.note-cell:nth-child(2n){border-right:none}.note-cell:nth-child(3),.note-cell:nth-child(4){border-bottom:none}
+.note-cell-label{font-size:.64em;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;color:var(--A2);margin-bottom:5px}
+.note-cell p{font-size:.82em;color:var(--text2);line-height:1.6}.note-cell strong{color:var(--white)}
+/* OUTREACH TEMPLATE */
+.email-template{background:var(--bg2);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin:14px 0}
+.email-header{padding:10px 14px;background:var(--bg3);border-bottom:1px solid var(--border);font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--A2);display:flex;justify-content:space-between;align-items:center}
+.email-body{padding:16px;font-size:.85em;color:var(--text2);line-height:1.75;white-space:pre-line;font-family:'Fira Code',monospace}
+.email-body strong{color:var(--white)}
+/* LINK QUALITY METER */
+.quality-bars{display:grid;grid-template-columns:1fr;gap:8px;margin:14px 0}
+.qbar-item{display:flex;align-items:center;gap:12px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:12px 14px}
+.qbar-label{font-size:.82em;font-weight:700;color:var(--white);min-width:130px}
+.qbar-track{flex:1;height:6px;background:var(--border);border-radius:3px;overflow:hidden}
+.qbar-fill{height:100%;border-radius:3px;transition:width 1s ease}
+.qbar-score{font-family:'Fira Code',monospace;font-size:.75em;color:var(--A2);min-width:36px;text-align:right}
+/* TACTICS TABLE */
+.comp-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.84em}
+.comp-table th{background:var(--bg3);color:var(--A2);padding:10px 14px;text-align:left;font-weight:700;font-size:.78em;text-transform:uppercase;letter-spacing:.8px;border-bottom:1px solid var(--border2)}
+.comp-table td{padding:10px 14px;color:var(--text2);border-bottom:1px solid var(--border);vertical-align:top}
+.comp-table tr:last-child td{border-bottom:none}.comp-table tr:hover td{background:rgba(244,63,94,.03)}.comp-table td:first-child{color:var(--white);font-weight:600}
+.tag-easy{background:rgba(74,222,128,.1);color:#4ade80;border:1px solid rgba(74,222,128,.2);padding:2px 6px;border-radius:4px;font-size:.72em;font-weight:700;text-transform:uppercase}
+.tag-med{background:rgba(251,146,60,.1);color:#fb923c;border:1px solid rgba(251,146,60,.2);padding:2px 6px;border-radius:4px;font-size:.72em;font-weight:700;text-transform:uppercase}
+.tag-hard{background:rgba(244,63,94,.1);color:var(--A2);border:1px solid rgba(244,63,94,.2);padding:2px 6px;border-radius:4px;font-size:.72em;font-weight:700;text-transform:uppercase}
+/* QUIZ */
+.quiz-block{margin-top:20px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.quiz-header{padding:12px 16px;background:var(--bg3);border-bottom:1px solid var(--border);font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:#c084fc}
+.quiz-q{padding:14px 16px;border-bottom:1px solid var(--border)}.quiz-q:last-child{border-bottom:none}
+.quiz-q p{font-size:.88em;color:var(--white);font-weight:600;margin-bottom:10px}
+.quiz-options{display:flex;flex-direction:column;gap:7px}
+.quiz-opt{display:flex;align-items:center;gap:10px;padding:9px 13px;border-radius:8px;border:1px solid var(--border);background:var(--card);cursor:pointer;font-size:.84em;color:var(--text2);transition:all .15s}
+.quiz-opt:hover{border-color:var(--border2);background:var(--bg3)}.quiz-opt.correct{border-color:#22c55e;background:rgba(34,197,94,.1);color:#4ade80}.quiz-opt.wrong{border-color:var(--A);background:rgba(244,63,94,.1);color:var(--A2)}
+.quiz-opt-letter{width:22px;height:22px;border-radius:50%;flex-shrink:0;background:var(--bg3);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-family:'Fira Code',monospace;font-size:.72em;font-weight:700;color:var(--muted)}
+.quiz-opt.correct .quiz-opt-letter{background:#22c55e;border-color:#22c55e;color:#000}.quiz-opt.wrong .quiz-opt-letter{background:var(--A);border-color:var(--A);color:#fff}
+.quiz-feedback{font-size:.79em;margin-top:8px;padding:8px 12px;border-radius:6px;display:none}.quiz-feedback.show{display:block}
+.quiz-feedback.ok{background:rgba(34,197,94,.1);color:#4ade80;border:1px solid rgba(34,197,94,.2)}.quiz-feedback.no{background:rgba(244,63,94,.1);color:var(--A2);border:1px solid rgba(244,63,94,.2)}
+/* FLASHCARD */
+.flashcard-block{margin-top:20px;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:var(--card)}
+.flashcard-header{padding:11px 16px;background:var(--bg3);border-bottom:1px solid var(--border);font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:#fb923c}
+.flashcard-inner{padding:20px;display:flex;flex-direction:column;align-items:center;gap:14px}
+.flashcard{width:100%;min-height:110px;border-radius:10px;cursor:pointer;position:relative;perspective:800px}
+.flashcard-face{width:100%;min-height:110px;border-radius:10px;display:flex;align-items:center;justify-content:center;padding:20px;text-align:center;backface-visibility:hidden;transition:transform .5s;position:absolute;top:0;left:0}
+.fc-front{background:var(--bg2);border:1px solid var(--border);color:var(--white);font-weight:700;font-size:.95em;transform:rotateY(0deg)}
+.fc-back{background:rgba(244,63,94,.08);border:1px solid rgba(244,63,94,.3);color:var(--text2);font-size:.87em;line-height:1.6;transform:rotateY(180deg)}
+.flashcard.flipped .fc-front{transform:rotateY(-180deg)}.flashcard.flipped .fc-back{transform:rotateY(0deg)}
+.fc-nav{display:flex;align-items:center;gap:12px}
+.fc-btn{background:var(--bg2);border:1px solid var(--border);color:var(--text2);border-radius:8px;padding:7px 16px;cursor:pointer;font-size:.78em;font-weight:600;font-family:'Syne',sans-serif;transition:all .15s}.fc-btn:hover{border-color:var(--A2);color:var(--A2)}
+.fc-counter{font-size:.75em;color:var(--muted);font-family:'Fira Code',monospace}
+/* BLOG */
+.blog-section{margin-top:20px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:30px}
+.blog-header{padding:11px 16px;background:var(--bg3);border-bottom:1px solid var(--border);font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:#fb923c}
+.blog-item{display:flex;align-items:flex-start;gap:12px;padding:13px 16px;border-bottom:1px solid var(--border);text-decoration:none;transition:background .15s}.blog-item:last-child{border-bottom:none}.blog-item:hover{background:rgba(244,63,94,.04)}
+.blog-icon{font-size:1.1em;flex-shrink:0;margin-top:1px}
+.blog-text{flex:1}.blog-text strong{display:block;font-size:.85em;font-weight:600;color:#60a5fa;margin-bottom:2px}.blog-item:hover .blog-text strong{color:var(--A2)}.blog-text span{font-size:.77em;color:var(--muted);line-height:1.4}
+/* TOOLS */
+.tools-chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+.tool-chip{font-family:'Fira Code',monospace;font-size:.74em;font-weight:500;padding:4px 11px;border-radius:6px;background:rgba(244,63,94,.08);border:1px solid rgba(244,63,94,.2);color:var(--A2);text-decoration:none;transition:all .15s}.tool-chip:hover{background:rgba(244,63,94,.18);border-color:var(--A2)}
+/* DIVIDER */
+.section-divider{display:flex;align-items:center;gap:14px;margin:44px 0 32px}
+.section-divider::before,.section-divider::after{content:'';flex:1;height:1px;background:linear-gradient(to right,transparent,var(--border),transparent)}
+.section-divider span{font-family:'Fira Code',monospace;font-size:.68em;color:var(--muted);white-space:nowrap;text-transform:uppercase;letter-spacing:2px}
+/* MOD NAV */
+.mod-nav{display:flex;justify-content:space-between;gap:14px;margin-top:50px}
+.mod-nav-btn{display:flex;align-items:center;gap:10px;padding:14px 20px;border:1px solid var(--border);border-radius:10px;text-decoration:none;transition:all .2s;flex:1}.mod-nav-btn:hover{border-color:var(--A);background:rgba(244,63,94,.05)}
+.mod-nav-btn.prev{flex-direction:row}.mod-nav-btn.next{flex-direction:row-reverse;text-align:right}
+.mod-nav-label{font-size:.68em;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted)}.mod-nav-title{font-size:.88em;font-weight:700;color:var(--text2)}.mod-nav-btn:hover .mod-nav-title{color:var(--A2)}.mod-nav-arrow{font-size:1.2em;color:var(--muted)}
+.sb-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:150;opacity:0;transition:opacity .3s}.sb-overlay.show{display:block;opacity:1}
+@media(max-width:900px){.sidebar{transform:translateX(-100%)}.sidebar.open{transform:translateX(0)}.main{margin-left:0}.hamburger{display:flex}.topbar{padding:10px 20px}.mod-hero{padding:36px 24px 28px}.content-area{padding:28px 20px 80px}.block-grid{grid-template-columns:1fr}.note-grid{grid-template-columns:1fr}.note-cell{border-right:none !important}.note-cell:nth-child(3){border-bottom:1px solid rgba(244,63,94,.12) !important}.hero-stats{grid-template-columns:repeat(2,1fr);width:100%}}
+@media(max-width:500px){.topbar-bc{display:none}.mod-hero h1{font-size:1.65em}}
+</style>
+</head>
+<body>
+<div class="shell">
+<nav class="sidebar" id="sidebar">
+  <div class="sb-brand">
+    <a class="sb-back" href="seo_complete_roadmap_v3.html">← All Modules</a>
+    <div class="sb-mod-badge">MODULE 06</div>
+    <h2>Link Building & Off-Page SEO</h2>
+    <p>Building Authority That Ranks</p>
+  </div>
+  <div class="sb-progress">
+    <div class="prog-label"><span>Progress</span><span id="prog-pct">0%</span></div>
+    <div class="prog-bg"><div class="prog-fill" id="prog-bar"></div></div>
+  </div>
+  <div class="sb-nav">
+    <div class="sb-section-label">Topics</div>
+    <a class="nav-link" href="#t6-1" data-target="t6-1"><span class="nav-num">6.1</span>Backlink Quality & Evaluation<span class="nav-done">✓</span></a>
+    <a class="nav-link" href="#t6-2" data-target="t6-2"><span class="nav-num">6.2</span>Guest Posting & Outreach<span class="nav-done">✓</span></a>
+    <a class="nav-link" href="#t6-3" data-target="t6-3"><span class="nav-num">6.3</span>Broken Link Building<span class="nav-done">✓</span></a>
+    <a class="nav-link" href="#t6-4" data-target="t6-4"><span class="nav-num">6.4</span>Digital PR & HARO<span class="nav-done">✓</span></a>
+    <a class="nav-link" href="#t6-5" data-target="t6-5"><span class="nav-num">6.5</span>Linkable Assets & Link Magnets<span class="nav-done">✓</span></a>
+    <a class="nav-link" href="#t6-6" data-target="t6-6"><span class="nav-num">6.6</span>Toxic Links & Disavow Strategy<span class="nav-done">✓</span></a>
+    <div class="sb-section-label" style="margin-top:8px">Study Aids</div>
+    <a class="nav-link" href="#tools-section" data-target="tools-section"><span class="nav-num">🔧</span>Tool Stack<span class="nav-done">✓</span></a>
+    <a class="nav-link" href="#quiz-section" data-target="quiz-section"><span class="nav-num">🎯</span>Module Quiz<span class="nav-done">✓</span></a>
+    <a class="nav-link" href="#flashcard-section" data-target="flashcard-section"><span class="nav-num">🃏</span>Flashcards<span class="nav-done">✓</span></a>
+  </div>
+  <div class="sb-footer"><p>SEO Mastery Roadmap 2025 Module 6 of 12</p></div>
+</nav>
+<div class="sb-overlay" id="sb-overlay" onclick="closeSidebar()"></div>
+<div class="main">
+<div class="topbar">
+  <button class="hamburger" onclick="toggleSidebar()"><span></span><span></span><span></span></button>
+  <div class="topbar-bc"><a href="seo_complete_roadmap_v3.html">SEO Mastery 2025</a><span style="color:var(--muted)">›</span><span>Module 6 — Link Building</span></div>
+  <button class="theme-btn" onclick="toggleTheme()" id="theme-btn">☀️ Light Mode</button>
+</div>
+
+<div class="mod-hero">
+  <div class="hero-bg"></div><div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="num-tag">MODULE 06 / 10</div>
+    <h1>Link Building —<br><em>Authority That Powers</em> Rankings</h1>
+    <p>Backlinks are the second-strongest ranking signal after content. One link from a DR 80 publication can do more for your rankings than 500 mediocre directory links. This module gives you the ethical, systematic, high-ROI link acquisition playbook used by professional SEOs.</p>
+    <div class="mod-tags">
+      <span class="mtag mtag-r">Advanced</span>
+      <span class="mtag mtag-o">High Authority</span>
+      <span class="mtag mtag-y">Long-term Asset</span>
+      <span class="mtag mtag-p">Premium Skill</span>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-box"><div class="stat-n">6</div><div class="stat-l">Topics</div></div>
+      <div class="stat-box"><div class="stat-n">24</div><div class="stat-l">Tasks</div></div>
+      <div class="stat-box"><div class="stat-n">18</div><div class="stat-l">Resources</div></div>
+      <div class="stat-box"><div class="stat-n">3–4h</div><div class="stat-l">Est. Time</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="content-area">
+
+<!-- T6.1 -->
+<div class="topic-item open" id="t6-1">
+  <div class="topic-header" onclick="toggleTopic(this)">
+    <span class="topic-num">6.1</span><h3>Backlink Quality, Types & Evaluation Criteria</h3>
+    <span class="diff-i">Intermediate</span><span class="topic-chevron">▼</span>
+  </div>
+  <div class="topic-body">
+    <div class="topic-intro">Not all backlinks are equal — and this is the single most important concept in link building. One contextual editorial link from a DR 75 industry publication is worth more than 10,000 low-quality directory links. Understanding the exact criteria that determine backlink value lets you focus your link building effort where it produces maximum ranking impact, and avoid wasting time on links that do nothing (or worse, cause penalties).</div>
+    <div class="keypoints">
+      <div class="kp"><div class="kp-dot"></div><div><strong>Domain Authority (DR/DA) — The authority multiplier:</strong> Ahrefs Domain Rating (DR) and Moz Domain Authority (DA) are 0–100 scores estimating a site's link equity. DR 80+ = premium (think Forbes, TechCrunch, major news outlets). DR 40–79 = strong (industry blogs, established niche sites). DR 20–39 = decent for newer sites. Under DR 20 = minimal ranking impact. Note: Google uses its own proprietary PageRank — DR/DA are strong proxies but not exact equivalents.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Topical Relevance — Often more important than authority:</strong> A DR 50 link from a fitness blog to a fitness equipment store is more valuable than a DR 80 link from a car dealership. Google's algorithm evaluates the topical relationship between the linking page, the linking site, and your site. The ideal link: high DR site, topically relevant niche, contextually embedded in relevant content.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Link Placement — Where on the page matters:</strong> Editorial links (naturally embedded in article body text) = maximum value. Sidebar/footer links = less value (these often appear site-wide and are treated as lower-quality). Comment section/forum signature links = usually nofollowed, minimal impact. The gold standard: a link in the first 300 words of a relevant article body.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Anchor Text Distribution — The manipulation detector:</strong> Keyword-rich anchors ("buy running shoes online") pass more contextual relevance but a pattern of all-exact-match anchors is a manipulation signal that Google's Penguin algorithm flags. Natural anchor distribution: ~40% branded (your site name), ~30% partial-match, ~20% generic ("click here", "read more"), ~10% exact keyword. Build naturally — don't engineer anchor text ratios.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>DoFollow vs NoFollow vs UGC vs Sponsored:</strong> DoFollow = passes full link equity. NoFollow (<code>rel="nofollow"</code>) = historically zero equity, now Google treats as a hint (may pass some value). Sponsored (<code>rel="sponsored"</code>) = paid relationship disclosed. UGC (<code>rel="ugc"</code>) = user-generated content. A natural backlink profile has a healthy mix. Sites that only have dofollow links look artificial.</div></div>
+    </div>
+
+    <!-- Quality Bars -->
+    <p style="font-size:.84em;font-weight:700;color:var(--text2);margin-bottom:10px">📊 Link Quality Impact Score by Factor</p>
+    <div class="quality-bars">
+      <div class="qbar-item"><span class="qbar-label">Domain Authority</span><div class="qbar-track"><div class="qbar-fill" style="width:90%;background:linear-gradient(90deg,var(--A),var(--D))"></div></div><span class="qbar-score">90/100</span></div>
+      <div class="qbar-item"><span class="qbar-label">Topical Relevance</span><div class="qbar-track"><div class="qbar-fill" style="width:85%;background:linear-gradient(90deg,var(--A),var(--D))"></div></div><span class="qbar-score">85/100</span></div>
+      <div class="qbar-item"><span class="qbar-label">Editorial Placement</span><div class="qbar-track"><div class="qbar-fill" style="width:80%;background:linear-gradient(90deg,var(--A),var(--D))"></div></div><span class="qbar-score">80/100</span></div>
+      <div class="qbar-item"><span class="qbar-label">Page Traffic (Linking)</span><div class="qbar-track"><div class="qbar-fill" style="width:70%;background:linear-gradient(90deg,var(--A),var(--D))"></div></div><span class="qbar-score">70/100</span></div>
+      <div class="qbar-item"><span class="qbar-label">Anchor Text Match</span><div class="qbar-track"><div class="qbar-fill" style="width:55%;background:linear-gradient(90deg,var(--A),var(--D))"></div></div><span class="qbar-score">55/100</span></div>
+      <div class="qbar-item"><span class="qbar-label">DoFollow Status</span><div class="qbar-track"><div class="qbar-fill" style="width:50%;background:linear-gradient(90deg,var(--A),var(--D))"></div></div><span class="qbar-score">50/100</span></div>
+    </div>
+
+    <div class="block-grid">
+      <div class="info-block bex">
+        <div class="bl">📖 Real Case Study</div>
+        <p>A tech startup had 2,400 backlinks from low-quality blog networks (DR 5–15) built by a previous black-hat SEO agency. Despite good content, they were stuck at positions 25–40.</p>
+        <p>After disavowing 2,000 toxic links and earning just <strong>22 high-quality editorial links (DR 40–85)</strong> through digital PR over 8 months, their target keywords moved to positions 4–12.</p>
+        <p><strong>Lesson:</strong> 22 quality links beat 2,400 low-quality links decisively. Link quality is exponentially more important than quantity.</p>
+      </div>
+      <div class="info-block btask">
+        <div class="bl">✅ Your Tasks</div>
+        <div class="task-list">
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Use <strong>Ahrefs Free Backlink Checker</strong> to analyse the backlink profiles of 3 competitors. List their top 10 linking domains — note DR, relevance, and link type.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Evaluate 10 backlinks from a site's profile. Score each as High / Medium / Low quality and write a sentence justifying each decision.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Build a <strong>link prospecting spreadsheet</strong>: find 20 ideal link targets in your niche. Columns: URL, DR, relevance (1–10), link opportunity type, contact email.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Analyse the anchor text distribution of any competitor with 100+ backlinks in Ahrefs. Does their profile look natural? What patterns do you notice?</span></label>
+        </div>
+      </div>
+    </div>
+    <div class="resources-block">
+      <div class="res-title">📚 Resources</div>
+      <div class="res-links">
+        <a class="res-link" href="https://ahrefs.com/backlink-checker" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>Ahrefs Free Backlink Checker</strong><span>Check top 100 backlinks for any domain free. Essential for competitor analysis and identifying link building gaps.</span></div><span class="res-badge rb-free">FREE</span></a>
+        <a class="res-link" href="https://moz.com/link-explorer" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>Moz Link Explorer</strong><span>10 free queries/month. Check DA/PA, anchor text distribution, and discover link opportunities for any domain.</span></div><span class="res-badge rb-free">FREE</span></a>
+        <a class="res-link" href="https://backlinko.com/link-building" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Backlinko — Link Building: The Definitive Guide</strong><span>The most comprehensive free guide to link building — covers every strategy with case studies and outreach templates.</span></div><span class="res-badge rb-blog">GUIDE</span></a>
+        <a class="res-link" href="https://ahrefs.com/blog/link-building/" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Ahrefs — Link Building Guide for SEO</strong><span>Data-driven link building guide with real metrics showing which tactics work best in 2025.</span></div><span class="res-badge rb-blog">GUIDE</span></a>
+      </div>
+    </div>
+    <div class="topic-note">
+      <div class="note-header">📌 Quick Reference — Backlink Quality</div>
+      <div class="note-grid">
+        <div class="note-cell"><div class="note-cell-label">✅ Why</div><p>Backlinks remain Google's #2 ranking signal after content. High-quality links from relevant, authoritative sites directly move rankings — often dramatically faster than content improvements alone.</p></div>
+        <div class="note-cell"><div class="note-cell-label">📍 Where</div><p>Every page you want to rank. Focus link building on your highest-value pages first: product pages, service pages, pillar content, and pages stuck at positions 5–15.</p></div>
+        <div class="note-cell"><div class="note-cell-label">⚙️ How</div><p>Research competitors' backlink profiles in Ahrefs first. Identify where their links come from. Find your link gap — sites linking to competitors but not to you. These are your warmest prospecting targets.</p></div>
+        <div class="note-cell"><div class="note-cell-label">⏱ When</div><p>Start link building after your on-page SEO and technical SEO are solid — don't build links to pages that aren't optimised. Ongoing: build at least 5–10 quality links per month to maintain competitive momentum.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- T6.2 -->
+<div class="topic-item" id="t6-2">
+  <div class="topic-header" onclick="toggleTopic(this)">
+    <span class="topic-num">6.2</span><h3>Guest Posting — The Relationship-Based Link Acquisition System</h3>
+    <span class="diff-i">Intermediate</span><span class="topic-chevron">▼</span>
+  </div>
+  <div class="topic-body">
+    <div class="topic-intro">Guest posting — writing content for other websites in exchange for a backlink — remains one of the most reliable and scalable link building tactics when done correctly. Google's stance: guest posting purely for links at scale is against guidelines; guest posting to build genuine audience, brand authority, and relationships (with a contextual link as a natural byproduct) is fine. The difference is quality and intent. One exceptional guest post on a DR 60 site beats 50 mediocre posts on DR 15 sites.</div>
+    <div class="keypoints">
+      <div class="kp"><div class="kp-dot"></div><div><strong>Finding Guest Post Opportunities:</strong> Google search operators: <code>"[your niche] + write for us"</code>, <code>"[niche] + guest post"</code>, <code>"[niche] + contribute"</code>, <code>"[niche] + submit article"</code>. Also: Ahrefs → Competing Domains → find sites linking to competitors but not you → check if they accept guest posts. Aim for DR 30+ with genuine audience relevance.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>The Perfect Pitch Formula:</strong> Subject: specific + personalised. Body: (1) one genuine compliment about their content (reference a specific article), (2) one gap you spotted in their coverage, (3) three specific article title options addressing that gap, (4) one sentence of your relevant credentials. Total: under 150 words. Never send generic pitches — editors receive hundreds and reject everything that's clearly templated.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Writing to Win Future Opportunities:</strong> Your guest post should be better than their average content — use original examples, real data, or first-person experience. Editors who love your work will invite you back, give you author bios with dofollow links, and sometimes link to your content in future articles without you asking. One great relationship beats 100 cold pitches.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Where to Place Your Link:</strong> Always aim for a contextual link within the article body (not just the author bio). Contextual links pass significantly more equity. Frame your link naturally: "For a step-by-step guide to [topic], [anchor text]." Avoid using exact-match keywords as anchor text — use partial-match or branded anchors to stay natural.</div></div>
+    </div>
+
+    <!-- Email Template -->
+    <p style="font-size:.84em;font-weight:700;color:var(--text2);margin-bottom:8px">📧 Proven Guest Post Pitch Template</p>
+    <div class="email-template">
+      <div class="email-header"><span>Subject: Article Idea for [Site Name] — [Specific Topic]</span><span style="color:var(--muted)">&lt;150 words</span></div>
+      <div class="email-body">Hi [First Name],
+
+I've been reading [Site Name] for a while — your piece on [specific article they wrote] was genuinely useful. Specifically, the section on [detail] changed how I approach [topic].
+
+I noticed you haven't covered [specific gap] yet — it's something I get asked about constantly and I think it would resonate with your audience.
+
+I'd love to write one of these for you:
+<strong>1.</strong> "[Title Option 1 — data-driven angle]"
+<strong>2.</strong> "[Title Option 2 — practical how-to angle]"
+<strong>3.</strong> "[Title Option 3 — beginner's guide angle]"
+
+A bit about me: [one sentence of relevant credibility — experience, publication, or case study result].
+
+Happy to send a full outline for whichever you prefer.
+
+[Your name]</div>
+    </div>
+
+    <div class="block-grid">
+      <div class="info-block bex">
+        <div class="bl">📖 Real Results</div>
+        <p>An SEO freelancer systematically pitched 60 guest posts over 3 months targeting only DR 40+ sites in the digital marketing niche. Acceptance rate: 13 out of 60 (22%). Average DR of accepted sites: 58.</p>
+        <p style="margin-top:8px">From those 13 guest posts, her main site's DR increased from 21 to 34. Target keywords moved an average of 9 positions. She also received <strong>3 inbound consulting inquiries</strong> from editors who became clients — making guest posting a lead generation tool, not just a link building tactic.</p>
+      </div>
+      <div class="info-block btask">
+        <div class="bl">✅ Your Tasks</div>
+        <div class="task-list">
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Find 10 guest post opportunities in your niche using search operators. Verify each site's DR (must be 30+) and confirm they accept external contributors.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Write 3 personalised guest post pitch emails using the template above — each targeting a different site. Keep each under 150 words. Make every line specific, not generic.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Write a full <strong>1,200-word guest post</strong> on any topic you know well — at publication quality. Include 2 contextual links back to your site (or a practice site).</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Use <strong>Hunter.io</strong> (free plan) to find the editor's email address for 5 of your target guest post sites. Verify each email before sending.</span></label>
+        </div>
+      </div>
+    </div>
+    <div class="resources-block">
+      <div class="res-title">📚 Resources</div>
+      <div class="res-links">
+        <a class="res-link" href="https://hunter.io" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>Hunter.io — Email Finder</strong><span>Find verified email addresses for any domain — essential for guest post outreach. 25 free searches/month.</span></div><span class="res-badge rb-free">FREE</span></a>
+        <a class="res-link" href="https://ahrefs.com/blog/guest-blogging/" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Ahrefs — Guest Blogging for SEO: What You Need to Know</strong><span>Complete guide covering the right way to do guest posting — finding targets, pitching, writing, and what to avoid.</span></div><span class="res-badge rb-blog">GUIDE</span></a>
+        <a class="res-link" href="https://buzzstream.com" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>BuzzStream — Outreach CRM</strong><span>Manage guest post outreach campaigns, track who you've pitched, follow-up sequences, and link placement status.</span></div><span class="res-badge rb-tool">TOOL</span></a>
+      </div>
+    </div>
+    <div class="topic-note">
+      <div class="note-header">📌 Quick Reference — Guest Posting</div>
+      <div class="note-grid">
+        <div class="note-cell"><div class="note-cell-label">✅ Why</div><p>Guest posting builds links, brand awareness, referral traffic, and relationships simultaneously. It is the most scalable ethical link building tactic available — and guest post relationships often turn into client referrals.</p></div>
+        <div class="note-cell"><div class="note-cell-label">📍 Where</div><p>Target sites with DR 30+ in your exact niche with genuine audiences. Avoid sites that publish unlimited guest posts from anyone — these are known as "guest post farms" and their links have minimal SEO value.</p></div>
+        <div class="note-cell"><div class="note-cell-label">⚙️ How</div><p>Find sites → verify DR + relevance → find editor contact via Hunter.io → send personalised pitch with 3 title options → write exceptional content → embed 1–2 contextual links naturally → follow up once if no response after 7 days.</p></div>
+        <div class="note-cell"><div class="note-cell-label">⏱ When</div><p>Set a monthly target: 5–10 pitches per month minimum. Expect 10–20% acceptance rate. After publishing, promote the guest post on social media — editors notice this and it improves your relationship for future opportunities.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- T6.3 -->
+<div class="topic-item" id="t6-3">
+  <div class="topic-header" onclick="toggleTopic(this)">
+    <span class="topic-num">6.3</span><h3>Broken Link Building — Replacing Dead Resources with Yours</h3>
+    <span class="diff-i">Intermediate</span><span class="topic-chevron">▼</span>
+  </div>
+  <div class="topic-body">
+    <div class="topic-intro">Broken link building is one of the highest-conversion link outreach tactics because you're offering genuine value — you're helping a webmaster fix a problem on their page (a dead link) while suggesting a natural replacement. The psychology is completely different from a cold link request: you're doing them a favour first. Conversion rates of 8–20% are common with well-executed broken link campaigns, compared to 1–5% for cold link requests.</div>
+    <div class="keypoints">
+      <div class="kp"><div class="kp-dot"></div><div><strong>Step 1 — Find resource pages with broken links:</strong> Google: <code>[your niche] + "resource page"</code>, <code>[niche] + "useful links"</code>, <code>[niche] + "recommended resources"</code>. Resource pages are link goldmines — they aggregate external links and regularly accumulate dead ones as old content disappears from the internet.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Step 2 — Find the broken links:</strong> Install the "Check My Links" Chrome extension. Visit any resource page and it instantly highlights all broken links in red. Or use Ahrefs → Broken Link Checker on any domain to find all outgoing broken links at scale.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Step 3 — Create or identify your replacement content:</strong> Use the Wayback Machine (web.archive.org) to see what the dead page used to contain — then either create a replacement resource or identify an existing piece of your content that covers the same topic better.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Step 4 — Send the outreach email:</strong> Keep it short and genuinely helpful. Lead with "You have a broken link on [specific page URL]" — this immediately proves you've done work they haven't. Offer your replacement. Never be pushy or transactional. Conversion rate increases significantly when you mention multiple broken links on the same page.</div></div>
+    </div>
+    <div class="block-grid">
+      <div class="info-block bex">
+        <div class="bl">📖 Broken Link Campaign Results</div>
+        <p>An SEO consultant ran a systematic broken link campaign targeting "digital marketing resources" pages. Using Ahrefs, they identified 340 resource pages with broken outgoing links. They contacted 180 webmasters over 3 weeks.</p>
+        <p style="margin-top:8px"><strong>Results:</strong> 28 placements (15.5% conversion). Average DR of linking sites: 44. Campaign cost: 0 tools cost (used Ahrefs trial), ~25 hours of work. The 28 links contributed to 3 target keywords moving from page 2 to top 5 within 10 weeks.</p>
+      </div>
+      <div class="info-block btask">
+        <div class="bl">✅ Your Tasks</div>
+        <div class="task-list">
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Install the <strong>Check My Links</strong> Chrome extension. Visit 5 resource pages in your niche and find every broken link on each page. Document them in a spreadsheet.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Use the <strong>Wayback Machine</strong> to see what 3 broken pages used to contain. Could you create better replacement content? Outline what you'd build.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Write a broken link outreach email for one page you identified. Keep it under 100 words — lead with the broken link information, offer your replacement link naturally.</span></label>
+        </div>
+      </div>
+    </div>
+    <div class="resources-block">
+      <div class="res-title">📚 Resources</div>
+      <div class="res-links">
+        <a class="res-link" href="https://chrome.google.com/webstore/detail/check-my-links/ojkcdipcgfaekbeaelaapakgnjflfglf" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>Check My Links (Chrome Extension)</strong><span>Instantly scans any webpage and highlights broken links in red. Essential browser tool for broken link campaigns.</span></div><span class="res-badge rb-free">FREE</span></a>
+        <a class="res-link" href="https://web.archive.org" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>Wayback Machine</strong><span>Internet Archive — see what any URL used to contain before it went dead. Essential for building replacement content.</span></div><span class="res-badge rb-free">FREE</span></a>
+        <a class="res-link" href="https://ahrefs.com/blog/broken-link-building/" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Ahrefs — Broken Link Building: The Definitive Guide</strong><span>Step-by-step broken link building guide with email templates and Ahrefs-powered prospecting workflow.</span></div><span class="res-badge rb-blog">GUIDE</span></a>
+      </div>
+    </div>
+    <div class="topic-note">
+      <div class="note-header">📌 Quick Reference — Broken Link Building</div>
+      <div class="note-grid">
+        <div class="note-cell"><div class="note-cell-label">✅ Why</div><p>15–20% outreach conversion rate vs 1–5% for cold requests. You're offering genuine value (fixing their broken link) rather than just asking for a favour. The psychology shifts the relationship entirely in your favour.</p></div>
+        <div class="note-cell"><div class="note-cell-label">📍 Where</div><p>Resource pages, "useful links" pages, "tools" pages, blog posts with many external references, and Wikipedia citations (Wikipedia links to sources — those sources often die, creating replacement opportunities).</p></div>
+        <div class="note-cell"><div class="note-cell-label">⚙️ How</div><p>Find resource pages → install Check My Links → find broken links → use Wayback Machine to understand original content → create or identify replacement → send brief helpful outreach email.</p></div>
+        <div class="note-cell"><div class="note-cell-label">⏱ When</div><p>Excellent as an ongoing campaign — set aside 2–3 hours monthly to find broken link opportunities in your niche. Scale it up when you need a burst of new links quickly, especially after publishing a new comprehensive resource page.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- T6.4 -->
+<div class="topic-item" id="t6-4">
+  <div class="topic-header" onclick="toggleTopic(this)">
+    <span class="topic-num">6.4</span><h3>Digital PR & HARO — Earning Editorial Links from Major Publications</h3>
+    <span class="diff-a">Advanced</span><span class="topic-chevron">▼</span>
+  </div>
+  <div class="topic-body">
+    <div class="topic-intro">Digital PR and HARO (Help A Reporter Out — now Connectively) represent the highest-ROI link building tactics available for service and knowledge businesses. A single mention in Forbes, TechCrunch, or a major industry publication (DR 85–95) provides more ranking power than months of other link building combined — and they're completely free. The skill required: positioning yourself as a credible expert source and responding quickly to journalist queries with genuinely useful, quotable insights.</div>
+    <div class="keypoints">
+      <div class="kp"><div class="kp-dot"></div><div><strong>How HARO / Connectively Works:</strong> Journalists from publications of all sizes post daily queries seeking expert sources, data, or quotes. You respond as an expert in your niche. If selected, you get an editorial mention with a high-authority backlink. Three emails per day: morning, afternoon, evening. Respond within 1–3 hours for best results — journalists work on deadlines.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Writing a Winning HARO Response:</strong> (1) Directly answer the journalist's question in the first sentence — don't bury the lead. (2) Include a compelling statistic or data point if available. (3) Keep responses under 200 words unless more detail is requested. (4) End with your full credentials (name, title, company, brief bio). Never pitch your business — journalists want expert insight, not advertising.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Digital PR — Proactive Outreach:</strong> Beyond HARO, create news-worthy content or data that journalists naturally want to reference: original research (even small surveys), industry reports with surprising data, counterintuitive findings, visualised data stories. Then pitch directly to journalists covering your industry via Twitter/X (many journalists are active there and accept pitches in DMs).</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Building a PR Asset Library:</strong> Prepare in advance: headshot, short bio (50 words), long bio (200 words), key statistics you know cold, 3–5 go-to talking points in your niche, and links to previous media mentions. When a journalist needs a quick quote, being ready in 5 minutes beats spending 30 minutes crafting a response — by which time they've moved on.</div></div>
+    </div>
+    <div class="block-grid">
+      <div class="info-block bex">
+        <div class="bl">📖 HARO Success Story</div>
+        <p>An independent financial advisor monitored HARO daily for 3 months, responding to every relevant query about retirement planning, investments, and personal finance — roughly 12 responses total.</p>
+        <p style="margin-top:8px"><strong>Results:</strong> 4 mentions in Forbes.com (DR 94), 2 in NerdWallet (DR 87), 1 in The Guardian (DR 94). Total: 7 high-authority editorial links. Budget: $0. Time: ~30 minutes per week.</p>
+        <p style="margin-top:8px">Their keyword "retirement planning advisor" moved from position 18 → position 6 as a direct result. Brand search volume increased 340% over the 3-month period.</p>
+      </div>
+      <div class="info-block btask">
+        <div class="bl">✅ Your Tasks</div>
+        <div class="task-list">
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Sign up for <strong>Connectively (HARO)</strong>. Select relevant categories for your niche. Monitor emails for 2 weeks and respond to every relevant query within 2 hours.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Write 3 mock HARO responses for practice: pick any query from the Connectively website and write responses under 180 words each. Get them critiqued.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Build your <strong>expert PR kit</strong>: headshot, 50-word bio, 200-word bio, 5 key stats in your niche, and 3 go-to talking points. Save as a ready-to-paste document.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Identify 5 journalists who cover your industry on Twitter/X. Follow them, study what stories they write, and compose one genuine pitch tailored to a specific story angle they haven't covered.</span></label>
+        </div>
+      </div>
+    </div>
+    <div class="resources-block">
+      <div class="res-title">📚 Resources</div>
+      <div class="res-links">
+        <a class="res-link" href="https://www.connectively.us" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>Connectively (formerly HARO)</strong><span>The platform connecting journalists with expert sources. Sign up free, select your categories, check emails 3× daily.</span></div><span class="res-badge rb-free">FREE</span></a>
+        <a class="res-link" href="https://www.helpab2bwriter.com" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>Help a B2B Writer</strong><span>Similar to HARO but focused specifically on B2B industries. High-quality journalist queries from specialised publications.</span></div><span class="res-badge rb-free">FREE</span></a>
+        <a class="res-link" href="https://ahrefs.com/blog/digital-pr/" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Ahrefs — Digital PR for Link Building</strong><span>How to earn editorial links through news-worthy content and proactive journalist outreach — with real campaign examples.</span></div><span class="res-badge rb-blog">GUIDE</span></a>
+      </div>
+    </div>
+    <div class="topic-note">
+      <div class="note-header">📌 Quick Reference — Digital PR & HARO</div>
+      <div class="note-grid">
+        <div class="note-cell"><div class="note-cell-label">✅ Why</div><p>One DR 90 editorial link from Forbes or TechCrunch delivers more ranking power than 100 average links. HARO/digital PR is the only reliable way to earn these top-tier editorial links at zero cost — making it the highest-ROI link building tactic for knowledge and service businesses.</p></div>
+        <div class="note-cell"><div class="note-cell-label">📍 Where</div><p>Best for: consultants, freelancers, service businesses, SaaS companies, research-producing organizations, and any business where personal or company expertise can be used as a PR asset.</p></div>
+        <div class="note-cell"><div class="note-cell-label">⚙️ How</div><p>HARO: check emails 3× daily → scan for relevant queries → respond within 2 hours with concise expert insight → track which publications pick up your responses. Proactive PR: create original data → identify journalists → pitch via email or Twitter.</p></div>
+        <div class="note-cell"><div class="note-cell-label">⏱ When</div><p>Allocate 20–30 minutes daily to HARO monitoring. This is a long-term play — expect results in 2–6 months. The compounding effect is powerful: each major publication mention brings further media attention and unsolicited link requests from other writers covering the same topic.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- T6.5 -->
+<div class="topic-item" id="t6-5">
+  <div class="topic-header" onclick="toggleTopic(this)">
+    <span class="topic-num">6.5</span><h3>Linkable Assets — Content That Earns Links Passively</h3>
+    <span class="diff-a">Advanced</span><span class="topic-chevron">▼</span>
+  </div>
+  <div class="topic-body">
+    <div class="topic-intro">A linkable asset is a piece of content so genuinely valuable, comprehensive, or unique that other websites link to it without you having to ask. This is the most scalable link building strategy: create it once, promote it briefly, and let it compound over years. The best linkable assets become the #1 cited resource in their niche, earning hundreds or thousands of links on autopilot — while every piece of content you publish from the same domain benefits from the authority they transfer.</div>
+    <div class="keypoints">
+      <div class="kp"><div class="kp-dot"></div><div><strong>Original Research & Industry Data:</strong> Commission or conduct a survey of 100+ people in your niche. Publish the findings with visualised charts. Example: "We surveyed 500 SEO professionals about their 2025 link building tactics — here's what we found." Journalists, bloggers, and researchers constantly need data to cite — yours becomes the primary source. One study can earn 50–500+ citations over 2–3 years.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Free Tools & Calculators:</strong> Build a simple tool that solves a recurring calculation problem in your niche. Examples: mortgage payment calculator (finance), calorie deficit calculator (health), SEO ROI calculator (marketing). Free tools attract links from educational content, comparison articles, and "best free tools" roundups. They rank for long-tail "calculator" keywords and link naturally to your main service pages.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Comprehensive Definitive Guides:</strong> A 10,000+ word pillar resource that covers every aspect of a topic — significantly more comprehensive than any existing resource. Example: "The Complete Guide to Fermentation" for a food blog. When this becomes the definitive reference for a topic, every article written about that topic has reason to link to it.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Curated Data Visualisations & Infographics:</strong> Take complex data (industry statistics, process maps, comparison charts) and make it visually compelling. Infographics get shared and embedded — often with backlinks. Include an embed code to make it frictionless for others to share your asset (with a link back to you as the source).</div></div>
+    </div>
+    <div class="block-grid">
+      <div class="info-block bex">
+        <div class="bl">📖 Linkable Asset — Real Scale</div>
+        <p>A software company published "The State of Remote Work 2024" — a survey of 1,200 remote workers with 40+ data points visualised in charts. Promotion effort: pitched 50 journalists via email and Twitter over 2 weeks.</p>
+        <p style="margin-top:8px"><strong>Results over 12 months:</strong> 847 referring domains. Featured in: Harvard Business Review, Forbes, TechCrunch, BBC, and 200+ niche blogs. Domain Rating increased from 41 to 67. The asset now auto-earns 15–25 new links every month with zero outreach — journalists discover and cite it organically from other citations.</p>
+      </div>
+      <div class="info-block btask">
+        <div class="bl">✅ Your Tasks</div>
+        <div class="task-list">
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Brainstorm 3 linkable asset ideas for any niche: one data/research piece, one free tool concept, one definitive guide topic. Validate each by searching whether similar resources already exist and how many links they have.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Use <strong>Google Forms</strong> to design a 10-question industry survey you could actually send to real professionals in any niche. Write the questions that would produce cite-worthy data.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Find 3 existing linkable assets in any niche using Ahrefs: search for pages with 100+ referring domains. Analyse why they earned so many links — what made them link-worthy?</span></label>
+        </div>
+      </div>
+    </div>
+    <div class="resources-block">
+      <div class="res-title">📚 Resources</div>
+      <div class="res-links">
+        <a class="res-link" href="https://backlinko.com/skyscraper-technique" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Backlinko — Skyscraper Technique (Content as a Link Magnet)</strong><span>How to create content that naturally attracts links by being definitively better than every competing resource.</span></div><span class="res-badge rb-blog">GUIDE</span></a>
+        <a class="res-link" href="https://ahrefs.com/blog/linkable-assets/" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Ahrefs — Linkable Assets: 20 Types That Earn Links</strong><span>Comprehensive list of every type of content that earns links passively — with examples and difficulty ratings for each.</span></div><span class="res-badge rb-blog">GUIDE</span></a>
+      </div>
+    </div>
+    <div class="topic-note">
+      <div class="note-header">📌 Quick Reference — Linkable Assets</div>
+      <div class="note-grid">
+        <div class="note-cell"><div class="note-cell-label">✅ Why</div><p>Linkable assets earn links passively over years from a single creation effort. They compound: each new citation from a high-authority site brings further organic discovery. This is the most capital-efficient long-term link building strategy.</p></div>
+        <div class="note-cell"><div class="note-cell-label">📍 Where</div><p>Create linkable assets on a dedicated subdirectory (<code>/research/</code>, <code>/tools/</code>) or as cornerstone blog content. Link them prominently from your homepage and navigation to maximise their authority distribution to other pages.</p></div>
+        <div class="note-cell"><div class="note-cell-label">⚙️ How</div><p>Identify a data gap in your niche → create the most comprehensive resource filling that gap → promote to 50–100 journalists and bloggers → submit to industry round-up newsletters → include embed codes on infographics → track in Ahrefs as links accumulate.</p></div>
+        <div class="note-cell"><div class="note-cell-label">⏱ When</div><p>Create one major linkable asset per quarter. Invest significant production time — a mediocre linkable asset earns nothing. After publication, dedicate 2 weeks to aggressive promotion before stepping back to let organic discovery take over.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- T6.6 -->
+<div class="topic-item" id="t6-6">
+  <div class="topic-header" onclick="toggleTopic(this)">
+    <span class="topic-num">6.6</span><h3>Toxic Links, Penalties & the Disavow Strategy</h3>
+    <span class="diff-a">Advanced</span><span class="topic-chevron">▼</span>
+  </div>
+  <div class="topic-body">
+    <div class="topic-intro">Not every backlink helps you — some actively hurt your rankings. Google's Penguin algorithm (running continuously since 2016) can demote sites with unnatural, manipulative link profiles. Knowing how to identify toxic links, when to disavow, and how to recover from link-based penalties is the defensive side of link building. Any SEO professional inheriting an existing site must conduct a toxic link audit — especially if the site was worked on by unknown or black-hat agencies.</div>
+    <div class="keypoints">
+      <div class="kp"><div class="kp-dot"></div><div><strong>What Makes a Link Toxic:</strong> Links from Private Blog Networks (PBNs — sites built purely to sell links), exact-match keyword anchor text at unnatural scale, links from completely irrelevant industries (a gambling site linking to a kids' toy store), links from hacked sites, links from sites with manual actions in Google's index, sitewide footer links with commercial anchors across thousands of pages.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>How to Identify Toxic Links:</strong> Run a backlink audit in Ahrefs or SEMrush. Red flags: large numbers of links from the same IP subnet (indicating a PBN), links with 100% exact-match keyword anchors, links from sites with DR 0-5 and zero organic traffic, links from adult or gambling sites to unrelated niches, sudden large spikes in backlink acquisition.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>The Disavow Process:</strong> Google Search Console → Links → Disavow (via Legacy Search Console). Create a disavow .txt file listing domains or URLs to disavow. Google then ignores these links when evaluating your site. Important: disavow is a last resort — only for clearly manipulative links. Don't disavow links just because a site has low DR.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Manual vs Algorithmic Penalties:</strong> Manual action = a Google reviewer has directly penalised your site (appears in GSC → Manual Actions). Requires submitting a reconsideration request after fixing the issues. Algorithmic (Penguin) = automatic scoring downgrade. No notification — you just see rankings drop. Fix is the same (remove/disavow toxic links) but recovery happens at the next algorithm refresh.</div></div>
+    </div>
+    <div class="block-grid">
+      <div class="info-block bwarn">
+        <div class="bl">⚠️ Disavow Caution</div>
+        <p>Many SEOs are too aggressive with disavow — they disavow links that are actually neutral or beneficial out of fear. <strong>Only disavow links that are clearly manipulative</strong>: bought links, PBN links, or links that coincide with a known penalty.</p>
+        <p style="margin-top:8px">Incorrectly disavowing good links can actively hurt your rankings. When in doubt, leave it alone. Google's algorithm is sophisticated enough to discount most low-quality links without your help.</p>
+        <p style="margin-top:8px">Google's John Mueller has confirmed that most sites don't need to use disavow at all — Penguin handles low-quality links automatically for most sites.</p>
+      </div>
+      <div class="info-block btask">
+        <div class="bl">✅ Your Tasks</div>
+        <div class="task-list">
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Run a full backlink audit on any website using <strong>Ahrefs Site Explorer</strong>. Export all backlinks and flag every suspicious link based on the toxic criteria above.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Check Google Search Console → <strong>Manual Actions</strong> for any site you manage. If a manual action exists, document the exact penalty type and research the appropriate fix.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Create a formatted <strong>disavow file</strong> for 10 sample toxic links — properly formatted with domain: prefix and comment lines explaining each disavow decision.</span></label>
+        </div>
+      </div>
+    </div>
+    <div class="resources-block">
+      <div class="res-title">📚 Resources</div>
+      <div class="res-links">
+        <a class="res-link" href="https://search.google.com/search-console/disavow-links" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>Google Disavow Tool (Search Console)</strong><span>Official Google tool for submitting disavow files. Tells Google to ignore specific links when assessing your site.</span></div><span class="res-badge rb-off">OFFICIAL</span></a>
+        <a class="res-link" href="https://developers.google.com/search/blog/2023/10/disavow-links" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Google — Disavow Links (Official Guidance)</strong><span>Google's official documentation on when and how to use the disavow tool. Essential reading before using it.</span></div><span class="res-badge rb-off">OFFICIAL</span></a>
+        <a class="res-link" href="https://ahrefs.com/blog/bad-backlinks/" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Ahrefs — Bad Backlinks: How to Find and Deal with Them</strong><span>Practical guide to identifying genuinely harmful backlinks and building a disavow file correctly.</span></div><span class="res-badge rb-blog">GUIDE</span></a>
+      </div>
+    </div>
+    <div class="topic-note">
+      <div class="note-header">📌 Quick Reference — Toxic Links & Disavow</div>
+      <div class="note-grid">
+        <div class="note-cell"><div class="note-cell-label">✅ Why</div><p>Toxic link profiles suppress rankings even when your content and on-page SEO are excellent. Identifying and neutralising manipulative links removes a hidden ceiling on your ranking potential — especially critical when taking over a site from a previous agency.</p></div>
+        <div class="note-cell"><div class="note-cell-label">📍 Where</div><p>Audit the full backlink profile of any site you take over as a client or employee. Repeat if you notice unexplained ranking drops, especially after algorithm updates. Check Manual Actions in GSC immediately — penalties must be resolved before any other work.</p></div>
+        <div class="note-cell"><div class="note-cell-label">⚙️ How</div><p>Export all backlinks in Ahrefs → filter by suspicious metrics → classify each as Keep / Monitor / Disavow → attempt manual removal first (contact site owners) → create disavow file for links you can't remove → submit via GSC Disavow Tool.</p></div>
+        <div class="note-cell"><div class="note-cell-label">⏱ When</div><p>Immediately when onboarding any new client site. Run a spot-check quarterly. Before any major link building campaign — establish a clean baseline first. After any unexplained ranking drop that coincides with an algorithm update.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LINK TACTIC TABLE -->
+<div class="section-divider"><span>◈ Tactic Comparison</span></div>
+<table class="comp-table">
+  <thead><tr><th>Tactic</th><th>Difficulty</th><th>Avg Link DR</th><th>Cost</th><th>Time to Results</th></tr></thead>
+  <tbody>
+    <tr><td>Guest Posting</td><td><span class="tag-med">Medium</span></td><td>40–65</td><td>Time only</td><td>2–4 weeks per link</td></tr>
+    <tr><td>Broken Link Building</td><td><span class="tag-easy">Easy–Med</span></td><td>30–55</td><td>Free</td><td>1–2 weeks per batch</td></tr>
+    <tr><td>HARO / Digital PR</td><td><span class="tag-med">Medium</span></td><td>70–95</td><td>Free</td><td>2–6 months</td></tr>
+    <tr><td>Linkable Asset</td><td><span class="tag-hard">High</span></td><td>40–90</td><td>Production time</td><td>3–12 months</td></tr>
+    <tr><td>Skyscraper Outreach</td><td><span class="tag-hard">High</span></td><td>35–70</td><td>Time only</td><td>4–8 weeks</td></tr>
+    <tr><td>Resource Page Links</td><td><span class="tag-easy">Easy</span></td><td>25–50</td><td>Free</td><td>1–3 weeks</td></tr>
+  </tbody>
+</table>
+
+<!-- TOOLS -->
+<div class="section-divider" id="tools-section"><span>◈ Link Building Tool Stack</span></div>
+<div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:24px">
+  <h3 style="font-family:'Fraunces',serif;font-size:1.25em;color:var(--white);margin-bottom:6px">🔧 Module 6 Tools</h3>
+  <p style="font-size:.87em;color:var(--text2);margin-bottom:18px">Every tool you need to find, build, and track links professionally.</p>
+  <div class="tools-chips">
+    <a class="tool-chip" href="https://ahrefs.com/backlink-checker" target="_blank" rel="noopener">Ahrefs Backlink Checker</a>
+    <a class="tool-chip" href="https://moz.com/link-explorer" target="_blank" rel="noopener">Moz Link Explorer</a>
+    <a class="tool-chip" href="https://hunter.io" target="_blank" rel="noopener">Hunter.io</a>
+    <a class="tool-chip" href="https://www.connectively.us" target="_blank" rel="noopener">Connectively (HARO)</a>
+    <a class="tool-chip" href="https://buzzstream.com" target="_blank" rel="noopener">BuzzStream</a>
+    <a class="tool-chip" href="https://pitchbox.com" target="_blank" rel="noopener">Pitchbox</a>
+    <a class="tool-chip" href="https://web.archive.org" target="_blank" rel="noopener">Wayback Machine</a>
+    <a class="tool-chip" href="https://chrome.google.com/webstore/detail/check-my-links/ojkcdipcgfaekbeaelaapakgnjflfglf" target="_blank" rel="noopener">Check My Links</a>
+    <a class="tool-chip" href="https://search.google.com/search-console" target="_blank" rel="noopener">Google Search Console</a>
+    <a class="tool-chip" href="https://www.semrush.com/link-building-tool/" target="_blank" rel="noopener">SEMrush Link Building</a>
+    <a class="tool-chip" href="https://majestic.com" target="_blank" rel="noopener">Majestic SEO</a>
+    <a class="tool-chip" href="https://www.helpab2bwriter.com" target="_blank" rel="noopener">Help a B2B Writer</a>
+  </div>
+</div>
+
+<!-- BLOG SECTION -->
+<div class="blog-section">
+  <div class="blog-header">✍️ Must-Read — Link Building</div>
+  <a class="blog-item" href="https://backlinko.com/link-building" target="_blank" rel="noopener"><span class="blog-icon">📝</span><div class="blog-text"><strong>Backlinko — Link Building: The Definitive Guide</strong><span>The most comprehensive link building resource online — every tactic explained with real case studies and email templates.</span></div><div><span class="res-badge rb-blog">GUIDE</span></div></a>
+  <a class="blog-item" href="https://ahrefs.com/blog/link-building-strategies/" target="_blank" rel="noopener"><span class="blog-icon">📝</span><div class="blog-text"><strong>Ahrefs — 17 Proven Link Building Strategies for 2025</strong><span>Data-driven overview of tactics ranked by difficulty and impact — with real examples and step-by-step instructions for each.</span></div><div><span class="res-badge rb-blog">BLOG</span></div></a>
+  <a class="blog-item" href="https://moz.com/learn/seo/link-building" target="_blank" rel="noopener"><span class="blog-icon">📝</span><div class="blog-text"><strong>Moz — Link Building Learning Center</strong><span>Moz's comprehensive link building resource hub — foundational concepts, advanced tactics, and link quality evaluation guides.</span></div><div><span class="res-badge rb-blog">GUIDE</span></div></a>
+  <a class="blog-item" href="https://www.searchenginejournal.com/link-building/" target="_blank" rel="noopener"><span class="blog-icon">📝</span><div class="blog-text"><strong>Search Engine Journal — Link Building Hub</strong><span>Constantly updated library of link building articles, tactics, case studies, and Google algorithm news affecting link evaluation.</span></div><div><span class="res-badge rb-blog">BLOG</span></div></a>
+  <a class="blog-item" href="https://ahrefs.com/blog/guest-blogging/" target="_blank" rel="noopener"><span class="blog-icon">📝</span><div class="blog-text"><strong>Ahrefs — The Definitive Guide to Guest Blogging for SEO</strong><span>Everything about guest posting done the right way — finding targets, crafting pitches, writing posts that get published.</span></div><div><span class="res-badge rb-blog">GUIDE</span></div></a>
+  <a class="blog-item" href="https://www.youtube.com/watch?v=aLT3XNsJnXA" target="_blank" rel="noopener"><span class="blog-icon">▶️</span><div class="blog-text"><strong>Ahrefs YouTube — Link Building Masterclass</strong><span>Full video course on link building covering every major tactic with live demonstrations using Ahrefs data.</span></div><div><span class="res-badge" style="background:rgba(244,63,94,.15);color:#ff8080;border:1px solid rgba(244,63,94,.3)">VIDEO</span></div></a>
+</div>
+
+<!-- QUIZ -->
+<div class="section-divider" id="quiz-section"><span>◈ Test Your Knowledge</span></div>
+<div class="quiz-block">
+  <div class="quiz-header">🎯 Module 6 Quiz — Link Building & Off-Page SEO</div>
+  <div class="quiz-q" id="q1">
+    <p>1. Which type of backlink passes the most ranking value?</p>
+    <div class="quiz-options">
+      <div class="quiz-opt" onclick="ansQ('q1','a','b')"><span class="quiz-opt-letter">A</span>A sitewide footer link with keyword-rich anchor text from a DR 70 site</div>
+      <div class="quiz-opt" onclick="ansQ('q1','b','b')"><span class="quiz-opt-letter">B</span>A contextual editorial link in the body of a relevant article on a DR 60 site</div>
+      <div class="quiz-opt" onclick="ansQ('q1','c','b')"><span class="quiz-opt-letter">C</span>500 nofollow links from various blog comments</div>
+      <div class="quiz-opt" onclick="ansQ('q1','d','b')"><span class="quiz-opt-letter">D</span>A link from a DR 90 site in a completely unrelated industry</div>
+    </div>
+    <div class="quiz-feedback ok" id="q1-ok">✅ Correct! Contextual editorial links — naturally embedded in body text on topically relevant pages — pass the most link equity. They signal genuine editorial endorsement, not paid placement or manipulation. The combination of good DR + relevance + editorial placement is the gold standard.</div>
+    <div class="quiz-feedback no" id="q1-no">❌ The answer is B. Contextual editorial links in article bodies on topically relevant sites pass maximum equity. Sitewide links are discounted, nofollow links pass minimal value, and irrelevant sites lose topical relevance signals regardless of DR.</div>
+  </div>
+  <div class="quiz-q" id="q2">
+    <p>2. What is the approximate conversion rate of a well-executed broken link building outreach campaign?</p>
+    <div class="quiz-options">
+      <div class="quiz-opt" onclick="ansQ('q2','a','c')"><span class="quiz-opt-letter">A</span>0.5–2% — most webmasters never update broken links</div>
+      <div class="quiz-opt" onclick="ansQ('q2','b','c')"><span class="quiz-opt-letter">B</span>3–5% — similar to cold link outreach</div>
+      <div class="quiz-opt" onclick="ansQ('q2','c','c')"><span class="quiz-opt-letter">C</span>8–20% — higher because you're solving a real problem</div>
+      <div class="quiz-opt" onclick="ansQ('q2','d','c')"><span class="quiz-opt-letter">D</span>40–60% — webmasters always want to fix dead links</div>
+    </div>
+    <div class="quiz-feedback ok" id="q2-ok">✅ Correct! Broken link building converts at 8–20% — significantly higher than cold link requests (1–5%). The reason: you're leading with genuine value (notifying them of a broken link problem) rather than just asking for a favour. The psychology is fundamentally different.</div>
+    <div class="quiz-feedback no" id="q2-no">❌ Broken link building converts at 8–20%. This is much higher than cold outreach because you're offering a genuine service (finding their broken link) alongside your replacement suggestion. The value-first approach dramatically improves response rates.</div>
+  </div>
+  <div class="quiz-q" id="q3">
+    <p>3. When should you use Google's Disavow Tool?</p>
+    <div class="quiz-options">
+      <div class="quiz-opt" onclick="ansQ('q3','a','d')"><span class="quiz-opt-letter">A</span>Whenever you find links from websites with DR under 30</div>
+      <div class="quiz-opt" onclick="ansQ('q3','b','d')"><span class="quiz-opt-letter">B</span>Monthly as part of regular link maintenance</div>
+      <div class="quiz-opt" onclick="ansQ('q3','c','d')"><span class="quiz-opt-letter">C</span>Whenever you receive links without asking for them</div>
+      <div class="quiz-opt" onclick="ansQ('q3','d','d')"><span class="quiz-opt-letter">D</span>Only for clearly manipulative links (PBNs, paid links, spammy links) that you cannot remove manually</div>
+    </div>
+    <div class="quiz-feedback ok" id="q3-ok">✅ Correct! Disavow is a last resort for clearly manipulative links that you've failed to remove by contacting the site owners. Google's John Mueller has confirmed most sites never need to use it — Penguin handles low-quality links automatically. Disavowing good links aggressively can hurt your rankings.</div>
+    <div class="quiz-feedback no" id="q3-no">❌ The answer is D. Disavow is only for clearly manipulative links (PBNs, bought links, spammy sitewide links) that cannot be removed manually. Low DR alone is not reason to disavow. Most sites never need to use the disavow tool — Penguin handles low-quality links algorithmically.</div>
+  </div>
+  <div class="quiz-q" id="q4">
+    <p>4. A financial advisor responds to 10 HARO queries over 3 months. What is the most likely realistic outcome?</p>
+    <div class="quiz-options">
+      <div class="quiz-opt" onclick="ansQ('q4','a','b')"><span class="quiz-opt-letter">A</span>Zero mentions — journalists never use HARO responses</div>
+      <div class="quiz-opt" onclick="ansQ('q4','b','b')"><span class="quiz-opt-letter">B</span>2–4 editorial mentions, potentially including high-DR publications like Forbes or NerdWallet</div>
+      <div class="quiz-opt" onclick="ansQ('q4','c','b')"><span class="quiz-opt-letter">C</span>All 10 responses get published as they come from an expert</div>
+      <div class="quiz-opt" onclick="ansQ('q4','d','b')"><span class="quiz-opt-letter">D</span>1 mention only if they pay for premium HARO subscription</div>
+    </div>
+    <div class="quiz-feedback ok" id="q4-ok">✅ Correct! A 20–40% acceptance rate from good HARO responses is realistic. From 10 high-quality responses, 2–4 placements is typical — and those can include major publications if the responses are expert, concise, and directly answer the journalist's query. It's entirely free on the standard HARO plan.</div>
+    <div class="quiz-feedback no" id="q4-no">❌ The answer is B. Well-crafted HARO responses from genuine experts see 20–40% acceptance rates. From 10 responses, 2–4 placements is realistic and achievable. Major publications use HARO extensively — Forbes, NerdWallet, and industry publications are all active on the platform.</div>
+  </div>
+</div>
+
+<!-- FLASHCARDS -->
+<div class="section-divider" id="flashcard-section"><span>◈ Flashcards</span></div>
+<div class="flashcard-block">
+  <div class="flashcard-header">🃏 Module 6 Flashcards — Click to Flip</div>
+  <div class="flashcard-inner">
+    <div class="flashcard" id="fc" onclick="flipCard()">
+      <div class="flashcard-face fc-front" id="fc-front">Loading...</div>
+      <div class="flashcard-face fc-back" id="fc-back">Loading...</div>
+    </div>
+    <div class="fc-nav">
+      <button class="fc-btn" onclick="prevCard()">← Prev</button>
+      <span class="fc-counter" id="fc-counter">1 / 10</span>
+      <button class="fc-btn" onclick="nextCard()">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- MOD NAV -->
+<div class="mod-nav">
+  <a href="module-5.html" class="mod-nav-btn prev">
+    <span class="mod-nav-arrow">←</span>
+    <div><div class="mod-nav-label">Previous Module</div><div class="mod-nav-title">Module 5 — Content Strategy</div></div>
+  </a>
+  <a href="module-7.html" class="mod-nav-btn next">
+    <span class="mod-nav-arrow">→</span>
+    <div><div class="mod-nav-label">Next Module</div><div class="mod-nav-title">Module 7 — Local SEO</div></div>
+  </a>
+</div>
+</div><!-- content-area -->
+
+</div><!-- main -->
+</div><!-- shell -->
+
+<script>
+const cards=[
+  {q:'What is the gold-standard backlink type?',a:'A contextual editorial link embedded in the body of a topically relevant article on a high-DR website. This combination of relevance + authority + editorial placement passes the maximum link equity.'},
+  {q:'What is Domain Rating (DR) and what scores are considered "good"?',a:'Ahrefs\' 0–100 score estimating a site\'s link authority. DR 80+ = premium (major publications). DR 40–79 = strong. DR 20–39 = decent for newer sites. Under 20 = minimal ranking impact. It\'s a proxy for Google\'s internal PageRank.'},
+  {q:'What is a "toxic" backlink and how do you identify one?',a:'Toxic links include: PBN links, paid links from link farms, sitewide commercial anchor links, links from adult/gambling sites to unrelated niches, and links with 100% exact-match keyword anchors. Identify via Ahrefs backlink audit filtering for suspicious DR, IP clusters, and anchor patterns.'},
+  {q:'What is the typical outreach conversion rate for broken link building?',a:'8–20% — significantly higher than cold link requests (1–5%). The reason: you lead with genuine value by notifying the webmaster of a broken link problem, making your replacement suggestion feel helpful rather than self-serving.'},
+  {q:'What is HARO and how does it generate backlinks?',a:'HARO (Help A Reporter Out, now Connectively) connects journalists with expert sources. You respond to journalist queries as an expert. If selected, you receive an editorial mention with a high-authority backlink — often from DR 80–95 publications like Forbes, TechCrunch, or industry trade press.'},
+  {q:'What is anchor text distribution and why does it matter?',a:'The pattern of clickable text across all your backlinks. A natural distribution includes: ~40% branded anchors, ~30% partial-match, ~20% generic, ~10% exact keyword. Unnatural patterns (all exact-match keywords) trigger Google\'s Penguin algorithm as a manipulation signal.'},
+  {q:'What is a linkable asset?',a:'Content so valuable that others link to it without being asked — original research, free tools, calculators, comprehensive definitive guides, or visualised data. A well-designed linkable asset can earn 50–500+ links over 2–3 years from a single production effort.'},
+  {q:'What is the difference between a Manual Action and Penguin penalty?',a:'Manual Action = a Google reviewer has directly penalised the site (visible in GSC → Manual Actions). Requires a reconsideration request. Penguin = algorithmic downgrade for unnatural link profiles. No notification — just ranking drops. Both require fixing/disavowing toxic links to recover.'},
+  {q:'When should you NOT use Google\'s Disavow Tool?',a:'When links are simply low-DR — low quality alone doesn\'t warrant disavow. Google\'s Penguin discounts most low-quality links automatically. Only disavow clearly manipulative links (PBNs, paid link schemes) that you\'ve failed to remove manually. Aggressive disavow can hurt good links.'},
+  {q:'What is the ideal guest post pitch length and structure?',a:'Under 150 words. Structure: (1) one specific genuine compliment about their content, (2) one content gap you spotted, (3) three specific article title options, (4) one sentence of your relevant credentials. Never use generic templates — editors reject them immediately.'},
+];
+let cur=0,flipped=false;
+function showCard(i){const fc=document.getElementById('fc');fc.classList.remove('flipped');flipped=false;document.getElementById('fc-front').textContent=cards[i].q;document.getElementById('fc-back').textContent=cards[i].a;document.getElementById('fc-counter').textContent=(i+1)+' / '+cards.length;setTimeout(()=>{const f=document.getElementById('fc-front'),b=document.getElementById('fc-back');const h=Math.max(f.scrollHeight,b.scrollHeight,110);fc.style.height=h+'px';f.style.minHeight=h+'px';b.style.minHeight=h+'px'},10)}
+function flipCard(){flipped=!flipped;document.getElementById('fc').classList.toggle('flipped',flipped)}
+function nextCard(){cur=(cur+1)%cards.length;showCard(cur)}
+function prevCard(){cur=(cur-1+cards.length)%cards.length;showCard(cur)}
+function ansQ(qId,chosen,correct){const qEl=document.getElementById(qId);if(qEl.dataset.answered)return;qEl.dataset.answered='1';const opts=qEl.querySelectorAll('.quiz-opt');['a','b','c','d'].forEach((l,i)=>{if(l===correct)opts[i].classList.add('correct');else if(l===chosen&&chosen!==correct)opts[i].classList.add('wrong');opts[i].style.pointerEvents='none'});document.getElementById(qId+'-ok').classList.toggle('show',chosen===correct);document.getElementById(qId+'-no').classList.toggle('show',chosen!==correct)}
+function toggleTopic(h){const i=h.parentElement;const o=i.classList.contains('open');document.querySelectorAll('.topic-item.open').forEach(e=>e.classList.remove('open'));if(!o)i.classList.add('open')}
+function toggleTask(el){el.classList.toggle('checked');updateProg();save()}
+function updateProg(){const t=document.querySelectorAll('.task-check-item').length,d=document.querySelectorAll('.task-check-item.checked').length,p=t>0?Math.round(d/t*100):0;document.getElementById('prog-pct').textContent=p+'%';document.getElementById('prog-bar').style.width=p+'%';document.querySelectorAll('.topic-item').forEach(item=>{const id=item.id;const nl=document.querySelector(`.nav-link[href="#${id}"]`);const tc=item.querySelectorAll('.task-check-item').length,cc=item.querySelectorAll('.task-check-item.checked').length;if(nl&&tc>0&&cc===tc)nl.classList.add('completed');else if(nl)nl.classList.remove('completed')})}
+function save(){const s={};document.querySelectorAll('.task-check-item').forEach((el,i)=>{s[i]=el.classList.contains('checked')});try{localStorage.setItem('seo-m6',JSON.stringify(s))}catch(e){}}
+function load(){try{const s=JSON.parse(localStorage.getItem('seo-m6')||'{}');document.querySelectorAll('.task-check-item').forEach((el,i)=>{if(s[i])el.classList.add('checked')});updateProg()}catch(e){}}
+function toggleTheme(){const h=document.documentElement;const d=h.dataset.theme==='dark';h.dataset.theme=d?'light':'dark';document.getElementById('theme-btn').textContent=d?'🌙 Dark Mode':'☀️ Light Mode';localStorage.setItem('seo-theme',h.dataset.theme)}
+function toggleSidebar(){document.getElementById('sidebar').classList.toggle('open');document.getElementById('sb-overlay').classList.toggle('show')}
+function closeSidebar(){document.getElementById('sidebar').classList.remove('open');document.getElementById('sb-overlay').classList.remove('show')}
+const navLinks=document.querySelectorAll('.nav-link[data-target]');const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const id=e.target.id;navLinks.forEach(l=>l.classList.toggle('active',l.dataset.target===id))}})},{threshold:.15,rootMargin:'-80px 0px -80px 0px'});document.querySelectorAll('[id]').forEach(el=>obs.observe(el));
+navLinks.forEach(l=>l.addEventListener('click',()=>{if(window.innerWidth<=900)closeSidebar()}));
+(function(){const s=localStorage.getItem('seo-theme');if(s){document.documentElement.dataset.theme=s;document.getElementById('theme-btn').textContent=s==='light'?'🌙 Dark Mode':'☀️ Light Mode'}})();
+document.addEventListener('DOMContentLoaded',()=>{load();showCard(0)});
+</script>
+</body>
+</html>

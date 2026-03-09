@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 4 — Technical SEO | SEO Mastery Roadmap 2025</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,700;0,900;1,300&family=Syne:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════
+   THEME VARIABLES
+══════════════════════════════════════════ */
+[data-theme="dark"] {
+  --bg:#0b0d15; --bg1:#0f1120; --bg2:#141826; --bg3:#1a2033;
+  --card:#12151f; --card2:#181e2e; --border:#1f2740; --border2:#2b3555;
+  --amber:#f59e0b; --amber2:#fbbf24; --amber3:#fde68a;
+  --teal:#14b8a6; --teal2:#2dd4bf;
+  --rose:#f43f5e; --rose2:#fb7185;
+  --blue:#3b82f6; --blue2:#60a5fa;
+  --green:#22c55e; --green2:#4ade80;
+  --violet:#8b5cf6; --violet2:#a78bfa;
+  --cyan:#06b6d4; --cyan2:#22d3ee;
+  --orange:#f97316; --orange2:#fb923c;
+  --text:#e2e8f4; --text2:#a8b4cc; --muted:#5a6882; --white:#f8faff;
+  --shadow:rgba(0,0,0,.6); --glow:rgba(59,130,246,.12);
+  --sidebar-bg:#0f1120; --header-bg:#0b0d15;
+  --note-bg:rgba(59,130,246,.05);
+  --accent:var(--blue); --accent2:var(--blue2);
+}
+[data-theme="light"] {
+  --bg:#f0f4fb; --bg1:#e8edf8; --bg2:#dfe5f5; --bg3:#d4dcf0;
+  --card:#ffffff; --card2:#f4f7ff; --border:#c8d2eb; --border2:#adb9d8;
+  --amber:#d97706; --amber2:#b45309; --amber3:#92400e;
+  --teal:#0d9488; --teal2:#0f766e;
+  --rose:#e11d48; --rose2:#be123c;
+  --blue:#2563eb; --blue2:#1d4ed8;
+  --green:#16a34a; --green2:#15803d;
+  --violet:#7c3aed; --violet2:#6d28d9;
+  --cyan:#0891b2; --cyan2:#0e7490;
+  --orange:#ea580c; --orange2:#c2410c;
+  --text:#1a2035; --text2:#334166; --muted:#6b7a9c; --white:#0f1a2e;
+  --shadow:rgba(0,0,0,.1); --glow:rgba(37,99,235,.08);
+  --sidebar-bg:#e8edf8; --header-bg:#f0f4fb;
+  --note-bg:rgba(37,99,235,.06);
+  --accent:var(--blue); --accent2:var(--blue2);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:15px}
+body{font-family:'Syne',sans-serif;background:var(--bg);color:var(--text);line-height:1.75;overflow-x:hidden;transition:background .3s,color .3s}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--blue);border-radius:10px}
+
+/* ══ LAYOUT ══ */
+.shell{display:flex;min-height:100vh}
+
+/* ══ SIDEBAR ══ */
+.sidebar{
+  width:272px;min-width:272px;
+  background:var(--sidebar-bg);border-right:1px solid var(--border);
+  position:fixed;top:0;left:0;bottom:0;
+  overflow-y:auto;z-index:200;display:flex;flex-direction:column;
+  transition:transform .3s,background .3s;
+}
+.sidebar::-webkit-scrollbar{width:3px}
+.sidebar::-webkit-scrollbar-thumb{background:var(--border2)}
+
+.sb-brand{padding:24px 20px 18px;border-bottom:1px solid var(--border)}
+.sb-back{display:inline-flex;align-items:center;gap:7px;font-size:.75em;font-weight:700;color:var(--muted);text-decoration:none;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;transition:color .15s}
+.sb-back:hover{color:var(--blue2)}
+.sb-mod-badge{display:inline-block;font-family:'Fira Code',monospace;font-size:.65em;font-weight:700;background:var(--blue);color:#fff;padding:3px 9px;border-radius:6px;margin-bottom:10px}
+.sb-brand h2{font-family:'Fraunces',serif;font-size:1.02em;font-weight:700;color:var(--white);line-height:1.35}
+.sb-brand p{font-size:.72em;color:var(--muted);margin-top:4px}
+
+.sb-progress{padding:14px 20px;border-bottom:1px solid var(--border)}
+.prog-label{display:flex;justify-content:space-between;align-items:center;font-size:.68em;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:7px}
+.prog-label span:last-child{color:var(--blue2);font-family:'Fira Code',monospace}
+.prog-bg{height:4px;background:var(--border);border-radius:2px;overflow:hidden}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--blue),var(--cyan2));width:0%;transition:width .4s ease}
+
+.sb-nav{padding:10px 0;flex:1}
+.sb-section-label{padding:10px 20px 4px;font-size:.63em;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted)}
+.nav-link{display:flex;align-items:center;gap:10px;padding:9px 20px;text-decoration:none;color:var(--muted);font-size:.8em;font-weight:500;transition:all .15s;border-left:2px solid transparent;cursor:pointer}
+.nav-link:hover{color:var(--text);background:var(--bg2)}
+.nav-link.active{color:var(--blue2);border-left-color:var(--blue);background:rgba(59,130,246,.07)}
+.nav-num{font-family:'Fira Code',monospace;font-size:.72em;color:var(--border2);min-width:28px}
+.nav-link.active .nav-num{color:var(--blue2)}
+.nav-done{margin-left:auto;font-size:.8em;color:var(--green);opacity:0;transition:opacity .2s}
+.nav-link.completed .nav-done{opacity:1}
+
+.sb-footer{padding:14px 20px;border-top:1px solid var(--border)}
+.sb-footer p{font-size:.7em;color:var(--muted);line-height:1.5}
+
+/* ══ MAIN ══ */
+.main{margin-left:272px;flex:1;min-width:0}
+
+/* ══ TOPBAR ══ */
+.topbar{
+  position:sticky;top:0;z-index:100;
+  background:var(--header-bg);border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:12px;padding:12px 40px;
+  transition:background .3s;
+}
+.topbar-breadcrumb{font-size:.78em;color:var(--muted);display:flex;align-items:center;gap:6px;flex:1}
+.topbar-breadcrumb a{color:var(--muted);text-decoration:none;transition:color .15s}
+.topbar-breadcrumb a:hover{color:var(--blue2)}
+.topbar-breadcrumb span{color:var(--text2);font-weight:600}
+.theme-btn{display:flex;align-items:center;gap:7px;background:var(--card);border:1px solid var(--border2);border-radius:50px;padding:7px 14px;cursor:pointer;font-size:.76em;font-weight:600;color:var(--text2);transition:all .2s;font-family:'Syne',sans-serif;white-space:nowrap}
+.theme-btn:hover{border-color:var(--blue2);color:var(--blue2)}
+.hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:4px;background:none;border:none}
+.hamburger span{display:block;width:20px;height:2px;background:var(--text2);border-radius:2px;transition:.3s}
+
+/* ══ MODULE HERO ══ */
+.mod-hero{background:var(--bg1);border-bottom:1px solid var(--border);padding:56px 56px 44px;position:relative;overflow:hidden}
+.mod-hero-bg{
+  position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 700px 500px at 85% -15%,rgba(59,130,246,.09) 0%,transparent 60%),
+    radial-gradient(ellipse 500px 400px at -5% 100%,rgba(6,182,212,.06) 0%,transparent 60%),
+    radial-gradient(ellipse 400px 300px at 50% 110%,rgba(139,92,246,.04) 0%,transparent 60%);
+}
+.mod-hero-grid{position:absolute;inset:0;pointer-events:none;opacity:.022;background-image:linear-gradient(var(--border2) 1px,transparent 1px),linear-gradient(90deg,var(--border2) 1px,transparent 1px);background-size:44px 44px}
+.mod-hero-inner{max-width:820px;position:relative}
+.mod-number-tag{font-family:'Fira Code',monospace;font-size:.68em;font-weight:700;color:#fff;background:var(--blue);padding:4px 12px;border-radius:6px;display:inline-block;margin-bottom:16px}
+.mod-hero h1{font-family:'Fraunces',serif;font-size:clamp(1.9em,4vw,3.1em);font-weight:900;color:var(--white);line-height:1.08;margin-bottom:10px}
+.mod-hero h1 em{font-style:italic;background:linear-gradient(135deg,var(--blue2) 0%,var(--cyan2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.mod-hero p{color:var(--text2);font-size:.96em;max-width:700px;margin-bottom:22px;line-height:1.8}
+.mod-tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:28px}
+.mtag{font-size:.67em;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding:3px 10px;border-radius:4px}
+.mtag-amber{background:rgba(245,158,11,.1);color:var(--amber);border:1px solid rgba(245,158,11,.25)}
+.mtag-teal{background:rgba(20,184,166,.1);color:var(--teal2);border:1px solid rgba(20,184,166,.25)}
+.mtag-violet{background:rgba(139,92,246,.1);color:var(--violet2);border:1px solid rgba(139,92,246,.25)}
+.mtag-green{background:rgba(34,197,94,.1);color:var(--green2);border:1px solid rgba(34,197,94,.25)}
+.mtag-rose{background:rgba(244,63,94,.1);color:var(--rose2);border:1px solid rgba(244,63,94,.25)}
+.mtag-blue{background:rgba(59,130,246,.1);color:var(--blue2);border:1px solid rgba(59,130,246,.25)}
+.mtag-cyan{background:rgba(6,182,212,.1);color:var(--cyan2);border:1px solid rgba(6,182,212,.25)}
+
+.hero-stats{display:grid;grid-template-columns:repeat(4,auto);width:fit-content;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.stat-box{background:var(--bg2);padding:16px 20px;text-align:center}
+.stat-n{font-family:'Fraunces',serif;font-size:1.7em;font-weight:700;color:var(--blue2);line-height:1;margin-bottom:3px}
+.stat-l{font-size:.65em;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.8px}
+
+/* ══ CONTENT AREA ══ */
+.content-area{max-width:840px;margin:0 auto;padding:44px 56px 100px}
+
+/* ══ TOPIC ITEM ══ */
+.topic-item{border:1px solid var(--border);border-radius:14px;margin-bottom:14px;overflow:hidden;background:var(--card);transition:border-color .2s,box-shadow .2s}
+.topic-item:hover{border-color:var(--border2);box-shadow:0 4px 28px var(--shadow)}
+.topic-item.open{border-color:rgba(59,130,246,.4);box-shadow:0 0 0 1px rgba(59,130,246,.1)}
+.topic-header{display:flex;align-items:center;gap:12px;padding:17px 20px;cursor:pointer;transition:background .15s}
+.topic-header:hover{background:var(--bg2)}
+.topic-num{font-family:'Fira Code',monospace;font-size:.7em;font-weight:700;color:var(--blue2);background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.2);padding:3px 8px;border-radius:5px;white-space:nowrap}
+.topic-header h3{font-size:.95em;font-weight:700;color:var(--white);flex:1;line-height:1.35}
+.topic-difficulty{font-size:.63em;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:2px 7px;border-radius:4px;flex-shrink:0}
+.diff-beginner{background:rgba(34,197,94,.1);color:var(--green2)}
+.diff-intermediate{background:rgba(59,130,246,.1);color:var(--blue2)}
+.diff-advanced{background:rgba(244,63,94,.1);color:var(--rose2)}
+.topic-chevron{color:var(--muted);font-size:.75em;transition:transform .25s;flex-shrink:0}
+.topic-item.open .topic-chevron{transform:rotate(180deg);color:var(--blue2)}
+.topic-body{display:none;padding:0 20px 24px;border-top:1px solid var(--border)}
+.topic-item.open .topic-body{display:block}
+.topic-intro{padding:18px 0 14px;color:var(--text2);font-size:.92em;line-height:1.85}
+.topic-intro strong{color:var(--white)}
+
+/* ══ KEY POINTS ══ */
+.keypoints{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+.kp{display:flex;align-items:flex-start;gap:10px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-size:.89em;color:var(--text2)}
+.kp-dot{width:6px;height:6px;border-radius:50%;background:var(--blue);flex-shrink:0;margin-top:7px}
+.kp strong{color:var(--white)}
+
+/* ══ BLOCK GRID ══ */
+.block-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}
+.info-block{border-radius:10px;padding:16px;font-size:.87em}
+.info-block .block-label{display:flex;align-items:center;gap:6px;font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px}
+.block-example{background:rgba(6,182,212,.05);border:1px solid rgba(6,182,212,.18);border-left:3px solid var(--cyan)}
+.block-example .block-label{color:var(--cyan2)}
+.block-task{background:rgba(59,130,246,.05);border:1px solid rgba(59,130,246,.18);border-left:3px solid var(--blue)}
+.block-task .block-label{color:var(--blue2)}
+.block-insight{background:rgba(139,92,246,.05);border:1px solid rgba(139,92,246,.18);border-left:3px solid var(--violet)}
+.block-insight .block-label{color:var(--violet2)}
+.block-warning{background:rgba(244,63,94,.05);border:1px solid rgba(244,63,94,.18);border-left:3px solid var(--rose)}
+.block-warning .block-label{color:var(--rose2)}
+.block-code{background:rgba(6,182,212,.04);border:1px solid rgba(6,182,212,.15);border-left:3px solid var(--teal)}
+.block-code .block-label{color:var(--teal2)}
+.info-block p{color:var(--text2);line-height:1.7;margin-bottom:8px}
+.info-block p:last-child{margin-bottom:0}
+.info-block ul,.info-block ol{padding-left:16px;color:var(--text2)}
+.info-block li{margin-bottom:5px;line-height:1.65}
+.info-block strong{color:var(--white)}
+
+/* ══ CODE ══ */
+code{font-family:'Fira Code',monospace;font-size:.83em;background:rgba(255,255,255,.06);color:var(--cyan2);padding:2px 6px;border-radius:4px}
+[data-theme="light"] code{background:rgba(0,0,0,.06);color:var(--teal)}
+pre{font-family:'Fira Code',monospace;font-size:.82em;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:14px;overflow-x:auto;color:var(--cyan2);line-height:1.7;margin-top:10px}
+
+/* ══ TASK LIST ══ */
+.task-list{display:flex;flex-direction:column;gap:7px}
+.task-check-item{display:flex;align-items:flex-start;gap:10px;cursor:pointer}
+.task-check-item input[type="checkbox"]{display:none}
+.check-box{width:18px;height:18px;border-radius:4px;flex-shrink:0;border:1.5px solid rgba(59,130,246,.4);background:transparent;display:flex;align-items:center;justify-content:center;margin-top:2px;transition:all .15s;font-size:.6em;color:transparent}
+.task-check-item.checked .check-box{background:var(--blue);border-color:var(--blue);color:#fff;font-size:.65em}
+.task-text{font-size:.86em;color:var(--text2);line-height:1.6;transition:color .15s}
+.task-check-item.checked .task-text{color:var(--muted);text-decoration:line-through}
+
+/* ══ RESOURCES ══ */
+.resources-block{margin-top:18px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.res-title{padding:11px 16px;background:var(--bg3);border-bottom:1px solid var(--border);font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--blue2);display:flex;align-items:center;gap:6px}
+.res-links{display:flex;flex-direction:column}
+.res-link{display:flex;align-items:flex-start;gap:12px;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;transition:background .15s}
+.res-link:last-child{border-bottom:none}
+.res-link:hover{background:rgba(59,130,246,.04)}
+.res-icon{font-size:1.1em;flex-shrink:0;margin-top:1px}
+.res-text{flex:1}
+.res-text strong{display:block;font-size:.85em;font-weight:600;color:var(--blue2);margin-bottom:2px}
+.res-link:hover .res-text strong{color:var(--cyan2)}
+.res-text span{font-size:.77em;color:var(--muted);line-height:1.4}
+.res-badge{font-size:.62em;font-weight:700;text-transform:uppercase;padding:2px 7px;border-radius:3px;flex-shrink:0;margin-top:2px;letter-spacing:.5px}
+.res-free{background:rgba(34,197,94,.1);color:var(--green2);border:1px solid rgba(34,197,94,.2)}
+.res-blog{background:rgba(59,130,246,.1);color:var(--blue2);border:1px solid rgba(59,130,246,.2)}
+.res-video{background:rgba(244,63,94,.15);color:#ff8080;border:1px solid rgba(244,63,94,.3)}
+.res-tool{background:rgba(139,92,246,.1);color:var(--violet2);border:1px solid rgba(139,92,246,.2)}
+.res-official{background:rgba(245,158,11,.1);color:var(--amber);border:1px solid rgba(245,158,11,.2)}
+
+/* ══ TOPIC NOTE (Why/Where/How/When) ══ */
+.topic-note{margin-top:18px;border-radius:12px;overflow:hidden;border:1px solid rgba(59,130,246,.25);background:var(--note-bg)}
+.note-header{display:flex;align-items:center;gap:8px;padding:10px 16px;background:rgba(59,130,246,.1);border-bottom:1px solid rgba(59,130,246,.18);font-size:.7em;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--blue2)}
+.note-grid{display:grid;grid-template-columns:1fr 1fr}
+.note-cell{padding:13px 16px;border-right:1px solid rgba(59,130,246,.12);border-bottom:1px solid rgba(59,130,246,.12)}
+.note-cell:nth-child(2n){border-right:none}
+.note-cell:nth-child(3),.note-cell:nth-child(4){border-bottom:none}
+.note-cell-label{font-size:.64em;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;color:var(--blue2);margin-bottom:5px;display:flex;align-items:center;gap:5px}
+.note-cell p{font-size:.82em;color:var(--text2);line-height:1.6}
+.note-cell strong{color:var(--white)}
+
+/* ══ TOOLS CHIPS ══ */
+.tools-chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+.tool-chip{font-family:'Fira Code',monospace;font-size:.74em;font-weight:500;padding:4px 11px;border-radius:6px;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.2);color:var(--blue2);text-decoration:none;transition:all .15s}
+.tool-chip:hover{background:rgba(59,130,246,.18);border-color:var(--blue2)}
+
+/* ══ COMPARISON TABLE ══ */
+.comp-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.85em}
+.comp-table th{background:var(--bg3);color:var(--blue2);padding:10px 14px;text-align:left;font-weight:700;font-size:.8em;text-transform:uppercase;letter-spacing:.8px;border-bottom:1px solid var(--border2)}
+.comp-table td{padding:10px 14px;color:var(--text2);border-bottom:1px solid var(--border);vertical-align:top}
+.comp-table tr:last-child td{border-bottom:none}
+.comp-table tr:nth-child(even) td{background:rgba(255,255,255,.015)}
+.comp-table td:first-child{color:var(--white);font-weight:600}
+.comp-table .good{color:var(--green2)}
+.comp-table .bad{color:var(--rose2)}
+
+/* ══ CWV METER ══ */
+.cwv-meters{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0}
+.cwv-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center}
+.cwv-name{font-family:'Fira Code',monospace;font-size:.7em;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.cwv-value{font-family:'Fraunces',serif;font-size:1.6em;font-weight:700;margin-bottom:4px}
+.cwv-value.good{color:var(--green2)}
+.cwv-value.warn{color:var(--amber2)}
+.cwv-value.bad{color:var(--rose2)}
+.cwv-label{font-size:.7em;color:var(--muted)}
+.cwv-bar-wrap{height:5px;background:var(--border);border-radius:3px;overflow:hidden;margin-top:10px}
+.cwv-bar{height:100%;border-radius:3px}
+.cwv-bar.green{background:var(--green)}
+.cwv-bar.amber{background:var(--amber)}
+.cwv-bar.red{background:var(--rose)}
+
+/* ══ QUIZ ══ */
+.quiz-block{margin-top:20px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.quiz-header{padding:12px 16px;background:var(--bg3);border-bottom:1px solid var(--border);font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--violet2);display:flex;align-items:center;gap:7px}
+.quiz-q{padding:14px 16px;border-bottom:1px solid var(--border)}
+.quiz-q:last-child{border-bottom:none}
+.quiz-q p{font-size:.88em;color:var(--white);font-weight:600;margin-bottom:10px}
+.quiz-options{display:flex;flex-direction:column;gap:7px}
+.quiz-opt{display:flex;align-items:center;gap:10px;padding:9px 13px;border-radius:8px;border:1px solid var(--border);background:var(--card);cursor:pointer;font-size:.84em;color:var(--text2);transition:all .15s}
+.quiz-opt:hover{border-color:var(--border2);background:var(--bg3)}
+.quiz-opt.correct{border-color:var(--green);background:rgba(34,197,94,.1);color:var(--green2)}
+.quiz-opt.wrong{border-color:var(--rose);background:rgba(244,63,94,.1);color:var(--rose2)}
+.quiz-opt-letter{width:22px;height:22px;border-radius:50%;flex-shrink:0;background:var(--bg3);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-family:'Fira Code',monospace;font-size:.72em;font-weight:700;color:var(--muted)}
+.quiz-opt.correct .quiz-opt-letter{background:var(--green);border-color:var(--green);color:#000}
+.quiz-opt.wrong .quiz-opt-letter{background:var(--rose);border-color:var(--rose);color:#fff}
+.quiz-feedback{font-size:.79em;margin-top:8px;padding:8px 12px;border-radius:6px;display:none}
+.quiz-feedback.show{display:block}
+.quiz-feedback.ok{background:rgba(34,197,94,.1);color:var(--green2);border:1px solid rgba(34,197,94,.2)}
+.quiz-feedback.no{background:rgba(244,63,94,.1);color:var(--rose2);border:1px solid rgba(244,63,94,.2)}
+
+/* ══ BLOG POSTS ══ */
+.blog-section{margin-top:20px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:30px}
+.blog-header{padding:11px 16px;background:var(--bg3);border-bottom:1px solid var(--border);font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--cyan2);display:flex;align-items:center;gap:7px}
+.blog-item{display:flex;align-items:flex-start;gap:12px;padding:13px 16px;border-bottom:1px solid var(--border);text-decoration:none;transition:background .15s}
+.blog-item:last-child{border-bottom:none}
+.blog-item:hover{background:rgba(6,182,212,.04)}
+.blog-icon{font-size:1.1em;flex-shrink:0;margin-top:1px}
+.blog-text{flex:1}
+.blog-text strong{display:block;font-size:.85em;font-weight:600;color:var(--blue2);margin-bottom:2px}
+.blog-item:hover .blog-text strong{color:var(--cyan2)}
+.blog-text span{font-size:.77em;color:var(--muted);line-height:1.4}
+.blog-meta{display:flex;flex-shrink:0;flex-direction:column;gap:4px}
+
+/* ══ FLASHCARD ══ */
+.flashcard-block{margin-top:20px;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:var(--card)}
+.flashcard-header{padding:11px 16px;background:var(--bg3);border-bottom:1px solid var(--border);font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--cyan2);display:flex;align-items:center;gap:7px}
+.flashcard-inner{padding:20px;display:flex;flex-direction:column;align-items:center;gap:14px}
+.flashcard{width:100%;min-height:110px;border-radius:10px;cursor:pointer;position:relative;perspective:800px}
+.flashcard-face{width:100%;min-height:110px;border-radius:10px;display:flex;align-items:center;justify-content:center;padding:20px;text-align:center;backface-visibility:hidden;transition:transform .5s;position:absolute;top:0;left:0}
+.fc-front{background:var(--bg2);border:1px solid var(--border);color:var(--white);font-weight:700;font-size:.95em;transform:rotateY(0deg)}
+.fc-back{background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.3);color:var(--text2);font-size:.87em;line-height:1.6;transform:rotateY(180deg)}
+.flashcard.flipped .fc-front{transform:rotateY(-180deg)}
+.flashcard.flipped .fc-back{transform:rotateY(0deg)}
+.fc-nav{display:flex;align-items:center;gap:12px}
+.fc-btn{background:var(--bg2);border:1px solid var(--border);color:var(--text2);border-radius:8px;padding:7px 16px;cursor:pointer;font-size:.78em;font-weight:600;font-family:'Syne',sans-serif;transition:all .15s}
+.fc-btn:hover{border-color:var(--blue2);color:var(--blue2)}
+.fc-counter{font-size:.75em;color:var(--muted);font-family:'Fira Code',monospace}
+
+/* ══ DIVIDER ══ */
+.section-divider{display:flex;align-items:center;gap:14px;margin:44px 0 32px}
+.section-divider::before,.section-divider::after{content:'';flex:1;height:1px;background:linear-gradient(to right,transparent,var(--border),transparent)}
+.section-divider span{font-family:'Fira Code',monospace;font-size:.68em;color:var(--muted);white-space:nowrap;text-transform:uppercase;letter-spacing:2px}
+
+/* ══ AUDIT CHECKLIST ══ */
+.audit-list{display:flex;flex-direction:column;gap:0;margin:14px 0}
+.audit-item{display:flex;align-items:flex-start;gap:12px;padding:11px 14px;border-bottom:1px solid var(--border);font-size:.87em;cursor:pointer;transition:background .15s}
+.audit-item:last-child{border-bottom:none}
+.audit-item:hover{background:var(--bg2)}
+.audit-item input[type="checkbox"]{display:none}
+.audit-box{width:18px;height:18px;border-radius:4px;flex-shrink:0;border:1.5px solid rgba(59,130,246,.35);background:transparent;display:flex;align-items:center;justify-content:center;margin-top:1px;transition:all .15s;font-size:.6em;color:transparent}
+.audit-item.checked .audit-box{background:var(--blue);border-color:var(--blue);color:#fff}
+.audit-text{flex:1;color:var(--text2);line-height:1.5}
+.audit-item.checked .audit-text{color:var(--muted);text-decoration:line-through}
+.audit-tag{font-size:.62em;font-weight:700;padding:2px 6px;border-radius:4px;flex-shrink:0;margin-top:1px;text-transform:uppercase;letter-spacing:.5px}
+.tag-critical{background:rgba(244,63,94,.1);color:var(--rose2);border:1px solid rgba(244,63,94,.2)}
+.tag-high{background:rgba(245,158,11,.1);color:var(--amber);border:1px solid rgba(245,158,11,.2)}
+.tag-medium{background:rgba(59,130,246,.1);color:var(--blue2);border:1px solid rgba(59,130,246,.2)}
+
+/* ══ NAV ARROWS ══ */
+.mod-nav{display:flex;justify-content:space-between;gap:14px;margin-top:50px}
+.mod-nav-btn{display:flex;align-items:center;gap:10px;padding:14px 20px;border:1px solid var(--border);border-radius:10px;text-decoration:none;transition:all .2s;flex:1}
+.mod-nav-btn:hover{border-color:var(--blue);background:rgba(59,130,246,.05)}
+.mod-nav-btn.prev{flex-direction:row}
+.mod-nav-btn.next{flex-direction:row-reverse;text-align:right}
+.mod-nav-label{font-size:.68em;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted)}
+.mod-nav-title{font-size:.88em;font-weight:700;color:var(--text2)}
+.mod-nav-btn:hover .mod-nav-title{color:var(--blue2)}
+.mod-nav-arrow{font-size:1.2em;color:var(--muted)}
+
+/* ══ OVERLAY ══ */
+.sb-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:150;opacity:0;transition:opacity .3s}
+.sb-overlay.show{display:block;opacity:1}
+
+/* ══ RESPONSIVE ══ */
+@media(max-width:900px){
+  .sidebar{transform:translateX(-100%)}
+  .sidebar.open{transform:translateX(0)}
+  .main{margin-left:0}
+  .hamburger{display:flex}
+  .topbar{padding:10px 20px}
+  .mod-hero{padding:36px 24px 28px}
+  .content-area{padding:28px 20px 80px}
+  .block-grid{grid-template-columns:1fr}
+  .note-grid{grid-template-columns:1fr}
+  .note-cell:nth-child(2n){border-right:1px solid rgba(59,130,246,.12)}
+  .note-cell{border-right:none !important}
+  .note-cell:nth-child(3){border-bottom:1px solid rgba(59,130,246,.12) !important}
+  .hero-stats{grid-template-columns:repeat(2,1fr);width:100%}
+  .cwv-meters{grid-template-columns:1fr}
+  .mod-nav{flex-direction:column}
+}
+@media(max-width:500px){
+  .topbar-breadcrumb{display:none}
+  .mod-hero h1{font-size:1.65em}
+}
+</style>
+</head>
+<body>
+<div class="shell">
+
+<!-- ══════════════ SIDEBAR ══════════════ -->
+<nav class="sidebar" id="sidebar">
+  <div class="sb-brand">
+    <a class="sb-back" href="seo_complete_roadmap_v3.html">← All Modules</a>
+    <div class="sb-mod-badge">MODULE 04</div>
+    <h2>Technical SEO</h2>
+    <p>The Infrastructure That Powers Everything</p>
+  </div>
+
+  <div class="sb-progress">
+    <div class="prog-label"><span>Module Progress</span><span id="prog-pct">0%</span></div>
+    <div class="prog-bg"><div class="prog-fill" id="prog-bar"></div></div>
+  </div>
+
+  <div class="sb-nav">
+    <div class="sb-section-label">Topics</div>
+    <a class="nav-link" href="#t4-1" data-target="t4-1"><span class="nav-num">4.1</span>Site Speed & Core Web Vitals<span class="nav-done">✓</span></a>
+    <a class="nav-link" href="#t4-2" data-target="t4-2"><span class="nav-num">4.2</span>XML Sitemaps, Canonical & Duplicate Content<span class="nav-done">✓</span></a>
+    <a class="nav-link" href="#t4-3" data-target="t4-3"><span class="nav-num">4.3</span>Redirects, HTTPS, Mobile-First & Architecture<span class="nav-done">✓</span></a>
+    <a class="nav-link" href="#t4-4" data-target="t4-4"><span class="nav-num">4.4</span>Crawl Budget, robots.txt & Log File Analysis<span class="nav-done">✓</span></a>
+    <a class="nav-link" href="#t4-5" data-target="t4-5"><span class="nav-num">4.5</span>JavaScript SEO & Structured Data<span class="nav-done">✓</span></a>
+    <a class="nav-link" href="#t4-6" data-target="t4-6"><span class="nav-num">4.6</span>Full Technical Audit Workflow<span class="nav-done">✓</span></a>
+    <div class="sb-section-label" style="margin-top:8px">Study Aids</div>
+    <a class="nav-link" href="#tools-section" data-target="tools-section"><span class="nav-num">🔧</span>Tool Stack<span class="nav-done">✓</span></a>
+    <a class="nav-link" href="#audit-checklist" data-target="audit-checklist"><span class="nav-num">📋</span>Audit Checklist<span class="nav-done">✓</span></a>
+    <a class="nav-link" href="#quiz-section" data-target="quiz-section"><span class="nav-num">🎯</span>Module Quiz<span class="nav-done">✓</span></a>
+    <a class="nav-link" href="#flashcard-section" data-target="flashcard-section"><span class="nav-num">🃏</span>Flashcards<span class="nav-done">✓</span></a>
+  </div>
+
+  <div class="sb-footer">
+    <p>SEO Mastery Roadmap 2025 Module 4 of 12</p>
+  </div>
+</nav>
+
+<div class="sb-overlay" id="sb-overlay" onclick="closeSidebar()"></div>
+
+<!-- ══════════════ MAIN ══════════════ -->
+<div class="main">
+
+<div class="topbar">
+  <button class="hamburger" onclick="toggleSidebar()" aria-label="Menu"><span></span><span></span><span></span></button>
+  <div class="topbar-breadcrumb">
+    <a href="seo_complete_roadmap_v3.html">SEO Mastery 2025</a>
+    <span style="color:var(--muted)">›</span>
+    <span>Module 4 — Technical SEO</span>
+  </div>
+  <button class="theme-btn" onclick="toggleTheme()" id="theme-btn">☀️ Light Mode</button>
+</div>
+
+<!-- HERO -->
+<div class="mod-hero">
+  <div class="mod-hero-bg"></div>
+  <div class="mod-hero-grid"></div>
+  <div class="mod-hero-inner">
+    <div class="mod-number-tag">MODULE 04 / 10</div>
+    <h1>Technical SEO —<br><em>Infrastructure That Powers</em> Rankings</h1>
+    <p>The best content in the world will not rank if technical barriers block it. Technical SEO ensures Google can crawl, render, understand, and index your site without friction. This is where SEO professionals earn premium rates — because most people don't know how to do it.</p>
+    <div class="mod-tags">
+      <span class="mtag mtag-rose">Advanced</span>
+      <span class="mtag mtag-blue">High Impact</span>
+      <span class="mtag mtag-amber">Premium Skill</span>
+      <span class="mtag mtag-cyan">Developer-Friendly</span>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-box"><div class="stat-n">6</div><div class="stat-l">Topics</div></div>
+      <div class="stat-box"><div class="stat-n">28</div><div class="stat-l">Tasks</div></div>
+      <div class="stat-box"><div class="stat-n">20</div><div class="stat-l">Resources</div></div>
+      <div class="stat-box"><div class="stat-n">3–4h</div><div class="stat-l">Est. Time</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="content-area">
+
+<!-- ════════════ TOPIC 4.1 ════════════ -->
+<div class="topic-item open" id="t4-1">
+  <div class="topic-header" onclick="toggleTopic(this)">
+    <span class="topic-num">4.1</span>
+    <h3>Site Speed & Core Web Vitals — Direct Ranking Factors</h3>
+    <span class="topic-difficulty diff-intermediate">Intermediate</span>
+    <span class="topic-chevron">▼</span>
+  </div>
+  <div class="topic-body">
+    <div class="topic-intro">
+      Page speed has been a confirmed Google ranking factor for mobile since 2018 and for desktop since 2010. In 2021, Google made <strong>Core Web Vitals</strong> official ranking signals — the first time Google publicly announced a specific, measurable technical standard your site must meet to rank competitively. Speed improvements are unique in SEO: they deliver fast, measurable results AND simultaneously improve conversions. Amazon's internal data showed every 100ms of extra load time cost them 1% in sales. Speed is not just an SEO issue — it's a revenue issue.
+    </div>
+
+    <!-- CWV Visual Meters -->
+    <div class="cwv-meters">
+      <div class="cwv-card">
+        <div class="cwv-name">LCP</div>
+        <div class="cwv-value good">&lt; 2.5s</div>
+        <div class="cwv-label">Largest Contentful Paint</div>
+        <div class="cwv-bar-wrap"><div class="cwv-bar green" style="width:100%"></div></div>
+      </div>
+      <div class="cwv-card">
+        <div class="cwv-name">INP</div>
+        <div class="cwv-value good">&lt; 200ms</div>
+        <div class="cwv-label">Interaction to Next Paint</div>
+        <div class="cwv-bar-wrap"><div class="cwv-bar green" style="width:100%"></div></div>
+      </div>
+      <div class="cwv-card">
+        <div class="cwv-name">CLS</div>
+        <div class="cwv-value good">&lt; 0.1</div>
+        <div class="cwv-label">Cumulative Layout Shift</div>
+        <div class="cwv-bar-wrap"><div class="cwv-bar green" style="width:100%"></div></div>
+      </div>
+    </div>
+
+    <div class="keypoints">
+      <div class="kp"><div class="kp-dot"></div><div><strong>LCP — Largest Contentful Paint (Target: &lt;2.5s):</strong> Measures how long until the largest visible element fully loads — usually your hero image or main heading. The #1 cause of poor LCP is an unoptimised hero image. Fix: convert to WebP, compress below 100KB, add <code>fetchpriority="high"</code> and explicit <code>width</code>/<code>height</code> attributes, use a CDN.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>INP — Interaction to Next Paint (Target: &lt;200ms):</strong> Replaced FID in March 2024. Measures how quickly a page responds to user interactions (clicks, taps, typing). Poor INP causes: heavy JavaScript execution blocking the main thread, excessive third-party scripts (chat widgets, ad networks, analytics). Fix: defer non-critical JS, remove unused third-party scripts.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>CLS — Cumulative Layout Shift (Target: &lt;0.1):</strong> Measures visual stability — how much page elements move around during loading. The #1 frustration signal: a user is about to click a button, the layout shifts, and they click the wrong thing. Cause: images and ads without defined dimensions, web fonts causing text reflow. Fix: always specify width/height on images, reserve space for ads.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Field Data vs Lab Data:</strong> PageSpeed Insights shows both. Lab data (Lighthouse simulation) is useful for debugging specific issues. Field data (Chrome User Experience Report — real Chrome user measurements) is what Google actually uses for ranking signals. A site can score 30 in lab but have Good field data if its real users have fast connections.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Speed Budget by Element:</strong> Images typically account for 60–70% of page weight. The fastest speed wins come from image optimisation first, then render-blocking resources (CSS/JS), then server response time (TTFB). Follow this order of priority — don't optimise JavaScript before images.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Hosting & TTFB (Time to First Byte):</strong> Even perfect front-end optimisation won't overcome a slow server. Target TTFB under 800ms. Causes of slow TTFB: shared hosting overloaded, no CDN, database queries not cached, no page caching plugin (WordPress). Fix: upgrade hosting or add a caching layer (WP Rocket, Cloudflare).</div></div>
+    </div>
+
+    <div class="block-grid">
+      <div class="info-block block-example">
+        <div class="block-label">📖 Real Impact Case Study</div>
+        <p>An e-commerce site had an LCP of 8.4s due to a 4.2MB uncompressed hero image. Fixes applied in order:</p>
+        <ol style="padding-left:16px;margin-top:8px">
+          <li>Converted JPEG to WebP — saved 78% file size</li>
+          <li>Added <code>fetchpriority="high"</code> + explicit dimensions</li>
+          <li>Moved image to CDN (Cloudflare)</li>
+        </ol>
+        <p style="margin-top:8px"><strong>Result:</strong> LCP 8.4s → 1.6s. Mobile PageSpeed 28 → 91. Organic mobile traffic +34% in 3 months. Checkout conversion rate +12%. <em>One image fix outperformed 6 months of content creation.</em></p>
+      </div>
+      <div class="info-block block-task">
+        <div class="block-label">✅ Your Tasks</div>
+        <div class="task-list">
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Run <strong>PageSpeed Insights</strong> on 5 websites including 2 competitors. Record mobile LCP, INP, CLS, and overall score for each.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Take the <strong>slowest site you found</strong> and list the top 5 specific improvement recommendations from PageSpeed Insights. Estimate the potential score improvement for each.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Check <strong>Google Search Console → Experience → Core Web Vitals</strong>. How many URLs are Poor / Needs Improvement / Good? Screenshot the report.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Test any slow page on <strong>GTmetrix</strong>. Find the waterfall chart — identify the 3 largest resources causing the slowest load. Document what they are.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Run <strong>WebPageTest</strong> on any site from an Indian server location. Compare the results to a US-based test — observe the TTFB difference and what it reveals about hosting.</span></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="resources-block">
+      <div class="res-title">📚 Learning Resources</div>
+      <div class="res-links">
+        <a class="res-link" href="https://pagespeed.web.dev" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>PageSpeed Insights (Google)</strong><span>Official CWV testing tool. Shows lab and field data, Core Web Vitals diagnosis, and prioritised improvement recommendations.</span></div><span class="res-badge res-free">FREE TOOL</span></a>
+        <a class="res-link" href="https://gtmetrix.com" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>GTmetrix</strong><span>Detailed waterfall analysis showing every resource, its load time, and its impact. Essential for pinpointing slow elements.</span></div><span class="res-badge res-free">FREE</span></a>
+        <a class="res-link" href="https://www.webpagetest.org" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>WebPageTest</strong><span>Advanced speed testing from global server locations. Most powerful free speed tool — filmstrip view shows loading visually.</span></div><span class="res-badge res-free">FREE TOOL</span></a>
+        <a class="res-link" href="https://web.dev/articles/lcp" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>web.dev — LCP Optimisation Guide (Google)</strong><span>Official guide with code examples for improving LCP. The most impactful CWV metric to fix first.</span></div><span class="res-badge res-official">OFFICIAL</span></a>
+        <a class="res-link" href="https://web.dev/articles/vitals" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>web.dev — Core Web Vitals Overview</strong><span>Google's authoritative documentation on all three CWV metrics, thresholds, tools, and improvement guides.</span></div><span class="res-badge res-official">OFFICIAL</span></a>
+      </div>
+    </div>
+
+    <div class="topic-note">
+      <div class="note-header">📌 Quick Reference — Site Speed & Core Web Vitals</div>
+      <div class="note-grid">
+        <div class="note-cell">
+          <div class="note-cell-label">✅ Why Use</div>
+          <p>CWV are <strong>direct Google ranking factors</strong> since 2021. Slow pages get demoted in mobile results. Speed also directly improves conversion rates — every 1s improvement in LCP increases conversions by ~7%.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">📍 Where Use</div>
+          <p>Every page, but prioritise your <strong>highest-traffic pages</strong> and pages with commercial intent first. Use GSC Core Web Vitals report to identify which specific URL groups have failures.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">⚙️ How Use</div>
+          <p>Run PageSpeed Insights → fix largest images first → move to render-blocking resources → address TTFB if needed. Use Cloudflare free CDN + WP Rocket (WordPress) for the fastest all-in-one solution.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">⏱ When Use</div>
+          <p>Before launching any new site or page. Check <strong>monthly</strong> via GSC CWV report. Run PageSpeed on any page you're about to actively promote or build links to — ensure it passes before investing link-building effort.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ TOPIC 4.2 ════════════ -->
+<div class="topic-item" id="t4-2">
+  <div class="topic-header" onclick="toggleTopic(this)">
+    <span class="topic-num">4.2</span>
+    <h3>XML Sitemaps, Canonical Tags & Duplicate Content</h3>
+    <span class="topic-difficulty diff-intermediate">Intermediate</span>
+    <span class="topic-chevron">▼</span>
+  </div>
+  <div class="topic-body">
+    <div class="topic-intro">
+      XML sitemaps, canonical tags, and duplicate content management form your site's <strong>indexing strategy</strong> — telling Google precisely which pages to crawl, which version is "official," and preventing your own pages from competing against each other. These three elements are deeply interconnected: a poorly managed sitemap allows duplicate URLs to be indexed; missing canonical tags let those duplicates split ranking power; and together they can quietly destroy months of SEO work. Getting this right is foundational for any site above 50 pages.
+    </div>
+
+    <div class="keypoints">
+      <div class="kp"><div class="kp-dot"></div><div><strong>XML Sitemap — Your crawl priority blueprint:</strong> A structured file at <code>yoursite.com/sitemap.xml</code> listing every URL you want Google to crawl and index. Include: canonical pages, last-modified dates. Exclude: 404 pages, noindexed pages, redirect URLs, duplicate content pages, thin content (&lt;300 words), admin/login pages. Submit in GSC → Sitemaps for priority crawling. Large sites should use a sitemap index (a sitemap of sitemaps).</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Canonical Tag — Solving the "which version?" problem:</strong> <code>&lt;link rel="canonical" href="https://example.com/preferred-url/"&gt;</code> in the <code>&lt;head&gt;</code> tells Google "this is the authoritative version — consolidate all signals here." Critical for e-commerce sites where product filters create hundreds of URL variants (<code>/shoes?color=red&size=10&brand=nike</code>) that are technically "different" URLs but show the same products.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Duplicate Content — The silent ranking killer:</strong> When the same content is accessible at multiple URLs, Google must decide which to rank. It usually picks neither well. Common sources: HTTP vs HTTPS, www vs non-www, trailing slash vs none, URL parameters from analytics or session tracking, pagination, printer-friendly versions, syndicated content. None of these require the same content to rank well independently.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Pagination — rel="next" and rel="prev" (deprecated) → canonical to "View All":</strong> Google deprecated pagination rel attributes in 2019. Modern approach: either use a "View All" canonical page or ensure pagination pages have unique enough content (different products shown) to stand alone. Never block paginated pages in robots.txt — they carry link equity from product pages.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>URL Parameter Handling:</strong> Use Google Search Console → Legacy tools → URL Parameters (or simply canonical tags) to tell Google which parameters change content (<code>?sort=price</code>) vs which are tracking only (<code>?utm_source=newsletter</code>). Tracking parameters should be canonicalised to the clean URL to avoid splitting signals.</div></div>
+    </div>
+
+    <div class="block-grid">
+      <div class="info-block block-example">
+        <div class="block-label">📖 Real Case Study — Canonicals</div>
+        <p>An e-commerce site's <code>/blue-running-shoes</code> page was accessible at 4 versions: HTTP, HTTPS, www, non-www. Plus faceted navigation created 500+ filter URL variants. Google was splitting authority across 500+ "different" pages — the main page received only 0.2% of its potential link equity.</p>
+        <p style="margin-top:8px">After implementing canonical tags pointing all variants to the primary HTTPS/www URL and blocking parameter URLs via robots.txt, main product pages jumped an <strong>average of 8 positions</strong> within 60 days. Zero new content or backlinks needed.</p>
+      </div>
+      <div class="info-block block-task">
+        <div class="block-label">✅ Your Tasks</div>
+        <div class="task-list">
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Visit <code>amazon.com/sitemap.xml</code> and a small blog's sitemap. Compare structure, URL count, and what categories of pages are included vs excluded.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Use Screaming Frog to crawl any 50+ page website. Export canonical tags. Check: are they correct? Are any pages self-canonicalised incorrectly?</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Run <code>site:yoursite.com</code> in Google. Compare the result count against your sitemap's URL count. Investigate significant discrepancies.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Generate a proper XML sitemap for any site using <strong>xml-sitemaps.com</strong>. Submit it to Google Search Console. Note the "Discovered" vs "Indexed" count difference.</span></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="resources-block">
+      <div class="res-title">📚 Learning Resources</div>
+      <div class="res-links">
+        <a class="res-link" href="https://www.xml-sitemaps.com" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>XML-Sitemaps.com Generator</strong><span>Free sitemap generator. Enter domain, it crawls and builds a properly formatted XML sitemap instantly.</span></div><span class="res-badge res-free">FREE TOOL</span></a>
+        <a class="res-link" href="https://ahrefs.com/blog/canonical-tags/" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Ahrefs — Canonical Tags: A Simple Guide</strong><span>The clearest explanation of canonical tags with implementation examples and every common mistake explained.</span></div><span class="res-badge res-blog">GUIDE</span></a>
+        <a class="res-link" href="https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Google — Build and Submit a Sitemap</strong><span>Official documentation: sitemap formats, size limits (50,000 URLs/50MB), submission in GSC, best practices.</span></div><span class="res-badge res-official">OFFICIAL</span></a>
+        <a class="res-link" href="https://moz.com/learn/seo/duplicate-content" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Moz — Duplicate Content Guide</strong><span>Comprehensive guide to identifying, diagnosing and resolving all forms of duplicate content.</span></div><span class="res-badge res-blog">GUIDE</span></a>
+      </div>
+    </div>
+
+    <div class="topic-note">
+      <div class="note-header">📌 Quick Reference — Sitemaps, Canonicals & Duplicates</div>
+      <div class="note-grid">
+        <div class="note-cell">
+          <div class="note-cell-label">✅ Why Use</div>
+          <p>Without sitemaps, Google may never discover important pages. Without canonicals, duplicate content splits your ranking signals — meaning <strong>none of your pages rank well</strong> even with backlinks pointing to them.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">📍 Where Use</div>
+          <p>Every site needs a sitemap. Canonicals are critical for <strong>e-commerce sites</strong> with filter/sort navigation, sites with print-friendly pages, and any site accessible at multiple URL variations (HTTP/HTTPS, www/non-www).</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">⚙️ How Use</div>
+          <p>Sitemap: generate with xml-sitemaps.com or Yoast/Rank Math auto-generation. Canonical: add <code>&lt;link rel="canonical"&gt;</code> via SEO plugin. Duplicates: diagnose with Screaming Frog's "Duplicate Content" filter, fix with canonicals or 301 redirects.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">⏱ When Use</div>
+          <p>Set up sitemap on day one of any new site. Audit canonicals <strong>whenever significant site structure changes</strong> occur (platform migration, adding filters, launching new categories). Run Screaming Frog duplicate content check quarterly.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ TOPIC 4.3 ════════════ -->
+<div class="topic-item" id="t4-3">
+  <div class="topic-header" onclick="toggleTopic(this)">
+    <span class="topic-num">4.3</span>
+    <h3>Redirects, HTTPS, Mobile-First Indexing & Site Architecture</h3>
+    <span class="topic-difficulty diff-advanced">Advanced</span>
+    <span class="topic-chevron">▼</span>
+  </div>
+  <div class="topic-body">
+    <div class="topic-intro">
+      These four technical elements form the architectural skeleton of a healthy, well-ranking website. Unlike content, which produces gradual compounding gains, errors in any of these four areas can <strong>silently drain ranking potential for months</strong> without clear symptoms — making them some of the most dangerous and underdiagnosed technical SEO issues. Mastering them separates junior SEOs from technical professionals.
+    </div>
+
+    <div class="keypoints">
+      <div class="kp"><div class="kp-dot"></div><div><strong>301 vs 302 Redirects — Choose correctly every time:</strong> 301 = Permanent redirect. Passes ~99% of link equity to the destination. Use when: permanently moving a URL, consolidating duplicate URLs, domain migrations, deleting pages (redirect to the most relevant alternative). 302 = Temporary redirect. Google typically does NOT transfer full link equity. Use only when a redirect is genuinely temporary (e.g., A/B testing, seasonal content temporarily moved).</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Redirect Chains — The hidden link equity drain:</strong> When A → B → C → D, each hop loses a fraction of link equity. After 3+ hops, the loss becomes measurable. Any site that has migrated platforms, rebranded, or changed URL structures multiple times likely has chains. Audit with Screaming Frog → Reports → Redirects → Chains. Fix to direct A → D.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>HTTPS — Non-negotiable since 2014:</strong> Every new site must launch with HTTPS. Google shows a "Not Secure" warning in Chrome for HTTP sites, destroying user trust. HTTP→HTTPS migration checklist: (1) Install SSL certificate, (2) 301-redirect every HTTP URL to HTTPS, (3) update all internal links, (4) update sitemap to HTTPS URLs, (5) add new HTTPS property in Google Search Console, (6) update Google Analytics property.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Mobile-First Indexing — Since 2023, all sites are mobile-first:</strong> Google uses your site's mobile version as the primary version for indexing AND ranking — including for desktop searches. If your mobile version has less content than desktop (hidden content, truncated text, missing images), your rankings suffer on all devices. Test with Google's Mobile-Friendly Test. Ensure responsive design (not separate m.site.com).</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Site Architecture & Crawl Depth:</strong> Every page should be reachable within 3 clicks from the homepage. Pages at click depth 4+ receive proportionally less crawl budget and link equity. Flat architecture: Homepage → Category → Page (depth 2) is ideal. Deep architecture: Homepage → Category → Subcategory → Sub-subcategory → Page (depth 4+) starves deep pages of crawl and authority.</div></div>
+    </div>
+
+    <div class="block-grid">
+      <div class="info-block block-warning">
+        <div class="block-label">⚠️ Redirect Chain Disaster — Real Case</div>
+        <p>A site migrated domains 3 times over 5 years: <code>domain-A → domain-B → domain-C → domain-D</code>. Result: a 4-hop chain for every backlink pointing to the original domain.</p>
+        <p style="margin-top:8px">Their 4,000 backlinks were passing only ~70% of potential link equity by the final destination. After consolidating all chains to direct 301s (A→D, B→D, C→D), rankings recovered measurably within 60 days with <strong>zero new content or backlinks</strong>.</p>
+        <p style="margin-top:8px"><strong>Lesson:</strong> Any site that has changed its URL structure or domain in the past 5 years should run an immediate redirect chain audit. The equity loss accumulates silently.</p>
+      </div>
+      <div class="info-block block-task">
+        <div class="block-label">✅ Your Tasks</div>
+        <div class="task-list">
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Use <strong>Redirect Checker</strong> (redirect-checker.org) on 10 URLs from any website. Identify any redirect chains (2+ hops). Document the full chain and proposed fix.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Test 5 websites on <strong>Google's Mobile-Friendly Test</strong>. Document which elements fail and what Google's specific recommendations are for each.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Map the click-depth structure of any website with 20+ pages. Draw a hierarchy showing how many clicks each page type takes from the homepage. Identify any pages at depth 4+.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Create a complete HTTP→HTTPS migration checklist for a hypothetical site. List every step in order including what to update in GSC, GA, and all internal links.</span></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="resources-block">
+      <div class="res-title">📚 Learning Resources</div>
+      <div class="res-links">
+        <a class="res-link" href="https://search.google.com/test/mobile-friendly" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>Google Mobile-Friendly Test</strong><span>Official tool. Tests any URL for mobile usability issues. Shows specific problems affecting experience and rankings.</span></div><span class="res-badge res-free">FREE TOOL</span></a>
+        <a class="res-link" href="https://www.redirect-checker.org" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>Redirect Checker</strong><span>Free tool to trace every redirect hop for any URL. Shows HTTP status codes at each step of the chain.</span></div><span class="res-badge res-free">FREE TOOL</span></a>
+        <a class="res-link" href="https://ahrefs.com/blog/technical-seo-audit/" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Ahrefs — Technical SEO Audit: Step-By-Step Guide</strong><span>The most comprehensive technical audit guide available. Covers redirects, architecture, CWV, indexability and more.</span></div><span class="res-badge res-blog">GUIDE</span></a>
+        <a class="res-link" href="https://developers.google.com/search/docs/crawling-indexing/mobile/mobile-sites-mobile-first-indexing" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Google — Mobile-First Indexing Best Practices</strong><span>Official documentation on what mobile-first indexing means and the specific requirements for your site to pass.</span></div><span class="res-badge res-official">OFFICIAL</span></a>
+      </div>
+    </div>
+
+    <div class="topic-note">
+      <div class="note-header">📌 Quick Reference — Redirects, HTTPS, Mobile & Architecture</div>
+      <div class="note-grid">
+        <div class="note-cell">
+          <div class="note-cell-label">✅ Why Use</div>
+          <p>301 redirects preserve link equity during URL changes. HTTPS is a ranking signal and trust requirement. Mobile-first indexing means your mobile site IS your ranking site. Architecture determines how much crawl budget and equity every page receives.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">📍 Where Use</div>
+          <p>301s: every URL change, page deletion, or domain migration. HTTPS: every site, no exceptions. Mobile optimisation: every page, tested and verified. Architecture: assessed at site planning stage and re-evaluated when adding major new content sections.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">⚙️ How Use</div>
+          <p>301 redirects: via .htaccess (Apache), nginx config, or plugin (Redirection for WordPress). HTTPS: Let's Encrypt free SSL via hosting panel. Mobile: use responsive design only (no separate mobile subdomain). Architecture: design a flat URL hierarchy before building.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">⏱ When Use</div>
+          <p>Redirect audit: immediately before and after any URL restructuring. HTTPS: before first page is indexed. Mobile check: at launch and after any theme/template changes. Architecture review: when adding 50+ new pages or restructuring categories.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ TOPIC 4.4 ════════════ -->
+<div class="topic-item" id="t4-4">
+  <div class="topic-header" onclick="toggleTopic(this)">
+    <span class="topic-num">4.4</span>
+    <h3>Crawl Budget, robots.txt & Log File Analysis</h3>
+    <span class="topic-difficulty diff-advanced">Advanced</span>
+    <span class="topic-chevron">▼</span>
+  </div>
+  <div class="topic-body">
+    <div class="topic-intro">
+      Crawl budget is the number of pages Google's crawler (Googlebot) will crawl and index on your site within a given timeframe. For small sites (&lt;500 pages), crawl budget is rarely a concern. For large sites (10,000+ pages), it's critical — Googlebot may never reach your most important content if it wastes crawl quota on low-value pages. robots.txt is your primary lever to direct that budget. Log file analysis is how you see exactly what Googlebot is doing on your site — the most powerful and most underused technical SEO technique.
+    </div>
+
+    <div class="keypoints">
+      <div class="kp"><div class="kp-dot"></div><div><strong>Crawl Budget — What determines it:</strong> Crawl Rate (how fast Googlebot can crawl without overloading your server) × Crawl Demand (how often Google wants to recrawl based on popularity and freshness). Googlebot crawls high-authority, fast, well-linked sites more frequently. A slow server literally reduces how many pages Google will crawl per day.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>robots.txt — Directing the crawl:</strong> Located at <code>yoursite.com/robots.txt</code>. Tells crawlers which paths are allowed or disallowed. IMPORTANT: Blocking a URL in robots.txt does NOT remove it from the index — it just stops Googlebot from recrawling it. To block pages from the index, use a <code>noindex</code> meta tag (but allow Googlebot to crawl the page to see the noindex).</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>What to Block in robots.txt:</strong> Admin areas (<code>/wp-admin/</code>), staging environments, search result pages (<code>/search?q=</code>), infinite pagination (?page=500+), duplicate URL parameter variants, checkout/cart pages, internal search. This frees budget for pages that should rank.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Log File Analysis — The ground truth:</strong> Your web server logs every single request — including every Googlebot visit. Log analysis reveals: which pages Google crawls most often (crawl frequency), which pages are never crawled (orphans or architecture issues), which return errors during crawling (404, 500s), and how Googlebot's visit frequency compares to your publishing frequency. Tool: Screaming Frog Log File Analyser.</div></div>
+    </div>
+
+    <div class="block-grid">
+      <div class="info-block block-code">
+        <div class="block-label">💻 robots.txt Example</div>
+        <pre>User-agent: *
+Disallow: /wp-admin/
+Disallow: /search/
+Disallow: /cart/
+Disallow: /checkout/
+Disallow: /*?sort=
+Disallow: /*?filter=
+Disallow: /tag/
+Allow: /wp-admin/admin-ajax.php
+
+Sitemap: https://example.com/sitemap.xml</pre>
+        <p style="margin-top:8px;font-size:.82em;color:var(--text2)">⚠️ Never disallow your CSS and JS files — Googlebot needs them to render pages correctly. Always include your sitemap URL at the bottom.</p>
+      </div>
+      <div class="info-block block-task">
+        <div class="block-label">✅ Your Tasks</div>
+        <div class="task-list">
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Visit <code>robots.txt</code> on 5 major websites (amazon.com, bbc.co.uk, any large news site). Note what they block and why. What patterns do you observe?</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Use <strong>Google's robots.txt Tester</strong> in Search Console to test whether your important pages are accidentally blocked.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Write a robots.txt file for a hypothetical WordPress e-commerce site. Include: block admin, block sort/filter parameters, block search results, block cart/checkout. Include sitemap reference.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Check <strong>GSC → Settings → Crawl Stats</strong> for any site. Review: total crawl requests by day, breakdown by file type, average response time. What does this tell you about how Google sees the site?</span></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="resources-block">
+      <div class="res-title">📚 Learning Resources</div>
+      <div class="res-links">
+        <a class="res-link" href="https://developers.google.com/search/docs/crawling-indexing/robots/intro" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Google — robots.txt Introduction</strong><span>Official documentation on how robots.txt works, syntax rules, and common mistakes that cause accidental crawl blocking.</span></div><span class="res-badge res-official">OFFICIAL</span></a>
+        <a class="res-link" href="https://www.screamingfrog.co.uk/log-file-analyser/" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>Screaming Frog Log File Analyser</strong><span>Analyses raw server log files to visualise exactly what Googlebot has been crawling, when, and how often.</span></div><span class="res-badge res-free">FREE (1000 lines)</span></a>
+        <a class="res-link" href="https://ahrefs.com/blog/crawl-budget/" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Ahrefs — Crawl Budget: What It Is & Why It Matters</strong><span>The definitive guide to crawl budget — how it works, when it matters, and practical steps to optimise it.</span></div><span class="res-badge res-blog">GUIDE</span></a>
+        <a class="res-link" href="https://www.deepcrawl.com/blog/best-practice/log-file-analysis-seo/" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Deepcrawl — Log File Analysis for SEO</strong><span>Step-by-step guide to using log file data for SEO insights — what to look for and what the data reveals.</span></div><span class="res-badge res-blog">BLOG</span></a>
+      </div>
+    </div>
+
+    <div class="topic-note">
+      <div class="note-header">📌 Quick Reference — Crawl Budget, robots.txt & Log Analysis</div>
+      <div class="note-grid">
+        <div class="note-cell">
+          <div class="note-cell-label">✅ Why Use</div>
+          <p>For large sites, wasted crawl budget means important pages never get indexed. robots.txt focuses Google's attention on pages that matter. Log analysis gives you the only view of what Google is actually doing — not what you think it's doing.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">📍 Where Use</div>
+          <p>Critical for sites with <strong>10,000+ pages</strong>, e-commerce sites with faceted navigation, news sites with archive depth, and any site that notices important pages not being indexed despite good content.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">⚙️ How Use</div>
+          <p>robots.txt: edit directly via FTP or hosting file manager. Test changes in GSC robots.txt Tester before deploying. Log files: download from hosting cPanel → access_log → analyse in Screaming Frog Log Analyser.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">⏱ When Use</div>
+          <p>robots.txt: set on day one, review quarterly. Log analysis: essential when pages aren't indexing despite good setup, after any major site change, or when rankings suddenly drop for no obvious reason. Treat log data as ground truth.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ TOPIC 4.5 ════════════ -->
+<div class="topic-item" id="t4-5">
+  <div class="topic-header" onclick="toggleTopic(this)">
+    <span class="topic-num">4.5</span>
+    <h3>JavaScript SEO & Structured Data Deep Dive</h3>
+    <span class="topic-difficulty diff-advanced">Advanced</span>
+    <span class="topic-chevron">▼</span>
+  </div>
+  <div class="topic-body">
+    <div class="topic-intro">
+      JavaScript SEO is one of the most misunderstood and dangerous technical SEO areas. Modern websites rely heavily on JavaScript for rendering content — but Googlebot processes JavaScript differently from how a browser does, and critically, it can introduce significant <strong>indexing delays of days or weeks</strong>. Structured data (schema markup) connects to JS SEO because it's often injected via JavaScript — meaning if Googlebot can't render the JS, it can't see the schema either.
+    </div>
+
+    <div class="keypoints">
+      <div class="kp"><div class="kp-dot"></div><div><strong>How Googlebot Handles JavaScript (2024):</strong> Googlebot renders JavaScript, but in a two-stage process: (1) First crawl: HTML only, without rendering JS. (2) Second pass: JS rendering queue — this can take days to weeks. Content that only exists after JS execution (SPA apps, infinite scroll, JS-injected text) may be invisible or significantly delayed in indexing.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Server-Side Rendering (SSR) vs Client-Side Rendering (CSR):</strong> SSR sends complete HTML to Google (fast indexing, no delays). CSR sends a bare HTML shell then renders content via JS (indexing delays, potential content invisibility). For SEO-critical pages (product pages, blog posts, category pages), SSR or Static Site Generation (SSG) is strongly preferred.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Diagnosing JavaScript Issues:</strong> Use "Inspect URL" in Google Search Console to see what Googlebot sees. The screenshot shows the rendered page — if your content appears there, it's indexed. If the screenshot shows a blank or incomplete page, you have a JS rendering problem. Also check: "View Source" vs browser DevTools Elements — if content is in Elements but not Source, it's JS-rendered.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Structured Data (Schema) Best Practices:</strong> Always implement schema as JSON-LD (not Microdata or RDFa) — Google officially recommends it, it's cleaner, and it's independent of HTML structure. Validate every schema implementation in the Rich Results Test before deploying. Common eligible types for rich results: FAQ, HowTo, Recipe, Product, Review, Event, JobPosting, Article, BreadcrumbList.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Dynamic vs Static Schema:</strong> If you use a headless CMS or React/Vue/Next.js, inject JSON-LD schema in the &lt;head&gt; server-side (or in Next.js's next/head component) to ensure it's present in the initial HTML response — never rely on client-side JS injection for schema markup on SEO-critical pages.</div></div>
+    </div>
+
+    <div class="block-grid">
+      <div class="info-block block-insight">
+        <div class="block-label">💡 JS SEO Diagnostic Steps</div>
+        <ol style="padding-left:16px;color:var(--text2)">
+          <li style="margin-bottom:6px">Open page in Chrome. Press Ctrl+U (View Source). Search for your main content. Is it in the raw HTML?</li>
+          <li style="margin-bottom:6px">If NO → content is JS-rendered. Check if Google sees it via GSC Inspect URL → "Test Live URL" → screenshot.</li>
+          <li style="margin-bottom:6px">In GSC, check Coverage report → "Crawled but not indexed." JS rendering issues often show as this status.</li>
+          <li style="margin-bottom:6px">Use <strong>Fetch as Google</strong> (GSC → URL Inspection → Request Indexing) to force a re-render and see if the issue resolves.</li>
+          <li>If persistent: implement SSR or pre-rendering for the affected pages. Consider using a service like Prerender.io for SPAs.</li>
+        </ol>
+      </div>
+      <div class="info-block block-task">
+        <div class="block-label">✅ Your Tasks</div>
+        <div class="task-list">
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Use <strong>View Source</strong> on 3 modern web apps (React/Vue-based sites). Find content that is in the Elements panel but NOT in View Source — this confirms JS rendering.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">In Google Search Console, use <strong>URL Inspection → Live Test</strong> on 5 pages. Compare the rendered screenshot with what you see in the browser. Note any differences.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Generate and validate schema markup for 3 different schema types (FAQ, Article, Product) using <strong>schema.org</strong> and the <strong>Rich Results Test</strong>.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Find a Next.js or React-based website. Use GSC Inspect URL to verify Google is successfully rendering and indexing its JS-rendered content.</span></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="resources-block">
+      <div class="res-title">📚 Learning Resources</div>
+      <div class="res-links">
+        <a class="res-link" href="https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Google — JavaScript SEO Basics</strong><span>Official documentation explaining exactly how Googlebot processes JavaScript and best practices for JS-heavy sites.</span></div><span class="res-badge res-official">OFFICIAL</span></a>
+        <a class="res-link" href="https://search.google.com/test/rich-results" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>Google Rich Results Test</strong><span>Validates structured data on any URL and previews how rich results would appear in search results.</span></div><span class="res-badge res-free">FREE TOOL</span></a>
+        <a class="res-link" href="https://ahrefs.com/blog/javascript-seo/" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Ahrefs — JavaScript SEO: What You Need to Know</strong><span>Comprehensive practical guide covering how Googlebot renders JS, common problems, and solutions for React/Angular/Vue sites.</span></div><span class="res-badge res-blog">GUIDE</span></a>
+        <a class="res-link" href="https://schema.org/" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Schema.org — Official Schema Reference</strong><span>Complete reference for every supported schema type. Use to find the right schema for any content type you want to mark up.</span></div><span class="res-badge res-official">OFFICIAL</span></a>
+      </div>
+    </div>
+
+    <div class="topic-note">
+      <div class="note-header">📌 Quick Reference — JavaScript SEO & Structured Data</div>
+      <div class="note-grid">
+        <div class="note-cell">
+          <div class="note-cell-label">✅ Why Use</div>
+          <p>JS rendering delays can cause days-to-weeks indexing lag for critical content. SSR eliminates this. Structured data unlocks rich results that can 2–3× CTR — these are "free" traffic increases from existing rankings.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">📍 Where Use</div>
+          <p>JS SEO: any site built with React, Angular, Vue, or Next.js. Structured data: every page eligible for rich results — especially FAQ pages, product pages, how-to articles, review pages, and local business pages.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">⚙️ How Use</div>
+          <p>Diagnose JS issues with GSC URL Inspection. Fix with SSR (Next.js, Nuxt.js) or pre-rendering (Prerender.io). Schema: implement as JSON-LD in <code>&lt;head&gt;</code>, validate with Rich Results Test, monitor for errors in GSC → Enhancements.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">⏱ When Use</div>
+          <p>Assess JS rendering on day one for any modern framework site. Check GSC Enhancements tab weekly for schema errors after deploying. Review structured data opportunities when launching new page types or content formats.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ TOPIC 4.6 ════════════ -->
+<div class="topic-item" id="t4-6">
+  <div class="topic-header" onclick="toggleTopic(this)">
+    <span class="topic-num">4.6</span>
+    <h3>Full Technical SEO Audit — Professional Workflow</h3>
+    <span class="topic-difficulty diff-advanced">Advanced</span>
+    <span class="topic-chevron">▼</span>
+  </div>
+  <div class="topic-body">
+    <div class="topic-intro">
+      A technical SEO audit is a comprehensive health-check of a website's technical infrastructure — and it is the single most valuable deliverable you can offer as a freelance SEO professional. A well-executed technical audit: identifies every issue blocking rankings, provides clear prioritised action items, demonstrates measurable before/after improvement, and serves as proof of skill when pitching clients. This topic gives you the complete professional workflow to conduct one.
+    </div>
+
+    <div class="keypoints">
+      <div class="kp"><div class="kp-dot"></div><div><strong>Phase 1 — Crawl & Data Collection:</strong> Run Screaming Frog on the full site (or sample 1,000 URLs for large sites). Collect: all status codes, titles, meta, H1s, word counts, canonical tags, hreflang, internal links, image alt text, page speed (via PSI API integration), redirect chains. Simultaneously run Ahrefs Site Audit and GSC Coverage report for additional signal layers.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Phase 2 — Categorise Issues by Severity:</strong> Critical (blocking indexing): 5xx server errors on important pages, incorrectly blocked robots.txt, noindex on key pages, missing canonical tags on paginated content. High (significantly impacting rankings): redirect chains 3+ hops, slow CWV scores (&gt;4s LCP), duplicate H1/title tags, thin content on indexable pages. Medium (incremental impact): missing meta descriptions, images without alt text, missing schema on eligible pages.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Phase 3 — Prioritise by Traffic Impact:</strong> Sort all affected pages by their organic traffic in GSC. Fix issues on high-traffic pages first — the same fix on a 10,000-visit/month page delivers 100× the value of fixing it on a 100-visit/month page. This is what clients pay for: ROI-focused prioritisation, not just a list of issues.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Phase 4 — Implement & Measure:</strong> Record the date of every fix in a change log. Wait 4–8 weeks (Google's re-indexing cycle). Compare before/after in GSC: impressions, clicks, average position for affected pages. This is your case study — screenshot everything before you start.</div></div>
+    </div>
+
+    <div class="block-grid">
+      <div class="info-block block-example">
+        <div class="block-label">📖 Audit Deliverable Structure</div>
+        <p>A professional technical audit report contains:</p>
+        <ol style="padding-left:16px;margin-top:8px">
+          <li><strong>Executive Summary</strong> — 1 page, key findings, overall health score</li>
+          <li><strong>Critical Issues</strong> — Each with: what, why it matters, how to fix, priority score</li>
+          <li><strong>High Priority Issues</strong> — Same format</li>
+          <li><strong>Medium/Low Issues</strong> — Summary format</li>
+          <li><strong>Implementation Roadmap</strong> — Week 1, Week 2–4, Month 2–3 plan</li>
+          <li><strong>Before/After Baseline</strong> — GSC screenshots, crawl data export</li>
+        </ol>
+        <p style="margin-top:8px;font-size:.83em;color:var(--text2)">This format justifies a ₹15,000–₹50,000 one-time audit fee. The roadmap shows ongoing retainer potential.</p>
+      </div>
+      <div class="info-block block-task">
+        <div class="block-label">✅ Your Tasks</div>
+        <div class="task-list">
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Run a complete Screaming Frog crawl on any real website. Export and document every issue by severity. Present findings in a prioritised spreadsheet.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Cross-reference your Screaming Frog findings with <strong>Ahrefs Site Audit</strong> (free 100 pages) and GSC Coverage. List which issues appear in all three tools — these are highest priority.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Create a professional <strong>technical audit report template</strong> based on the structure above. This is your reusable freelance deliverable — fill it in for a real site.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Implement 3 fixes from your audit on a real site. Record the exact date. Set a GSC reminder to check position and impressions data in 6 weeks. Document your case study.</span></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="resources-block">
+      <div class="res-title">📚 Learning Resources</div>
+      <div class="res-links">
+        <a class="res-link" href="https://www.screamingfrog.co.uk/seo-spider/" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>Screaming Frog SEO Spider</strong><span>The industry-standard technical crawl tool. Free for up to 500 URLs. The first tool any technical SEO must master.</span></div><span class="res-badge res-free">FREE (500 URLs)</span></a>
+        <a class="res-link" href="https://ahrefs.com/site-audit" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>Ahrefs Site Audit</strong><span>Automated technical SEO audit with health score, issue categorisation, and trend tracking over time.</span></div><span class="res-badge res-tool">TOOL</span></a>
+        <a class="res-link" href="https://ahrefs.com/blog/technical-seo-audit/" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Ahrefs — Technical SEO Audit Guide (with checklist)</strong><span>The most thorough step-by-step technical audit guide. Downloadable checklist. Real screenshots throughout.</span></div><span class="res-badge res-blog">GUIDE</span></a>
+        <a class="res-link" href="https://search.google.com/search-console" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>Google Search Console</strong><span>Free. Essential source for coverage issues, CWV data, indexing problems, and actual ranking performance.</span></div><span class="res-badge res-free">FREE</span></a>
+        <a class="res-link" href="https://www.semrush.com/features/site-audit/" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>SEMrush Site Audit</strong><span>Automated audit with 130+ technical checks, visualised site health score, and comparison over time.</span></div><span class="res-badge res-tool">TOOL</span></a>
+      </div>
+    </div>
+
+    <div class="topic-note">
+      <div class="note-header">📌 Quick Reference — Technical SEO Audit</div>
+      <div class="note-grid">
+        <div class="note-cell">
+          <div class="note-cell-label">✅ Why Use</div>
+          <p>A technical audit is the <strong>most monetisable SEO skill</strong>. Clients pay ₹15,000–₹1,00,000+ for a thorough audit. It creates the baseline for every future improvement and is the most concrete evidence of SEO expertise you can show a prospect.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">📍 Where Use</div>
+          <p>Every site you take on as a new client. Every site after a major redesign or platform migration. Any site whose rankings drop unexpectedly. Your own portfolio sites — showing before/after audit results is the strongest portfolio piece you can have.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">⚙️ How Use</div>
+          <p>Crawl → Screaming Frog. Cross-check → GSC Coverage + Ahrefs Site Audit. Prioritise → by organic traffic impact. Report → executive summary + issue table + implementation timeline. Present to client as a fixed-fee deliverable.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">⏱ When Use</div>
+          <p>Onboarding audit: first 2 weeks with any new client. Maintenance audit: <strong>quarterly</strong> for all managed sites. Emergency audit: immediately after any significant ranking drop. Pre-launch audit: before any new site goes live.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ INTERACTIVE AUDIT CHECKLIST ════════════ -->
+<div class="section-divider" id="audit-checklist"><span>◈ Technical Audit Checklist</span></div>
+
+<div style="background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:30px">
+  <div style="padding:18px 20px;background:var(--bg2);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between">
+    <div>
+      <h3 style="font-family:'Fraunces',serif;font-size:1.1em;color:var(--white);margin-bottom:3px">📋 Technical SEO Audit Checklist</h3>
+      <p style="font-size:.78em;color:var(--muted)">Check off each item as you audit a real site. Progress saves automatically.</p>
+    </div>
+    <div style="font-family:'Fira Code',monospace;font-size:.8em;color:var(--blue2)" id="audit-progress-label">0 / 20</div>
+  </div>
+  <div style="padding:8px 6px">
+    <div style="padding:6px 14px;font-size:.64em;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--rose2)">🚨 Critical</div>
+    <div class="audit-list">
+      <label class="audit-item" onclick="toggleAudit(this)"><input type="checkbox"><span class="audit-box">✓</span><span class="audit-text">No critical pages accidentally blocked by robots.txt — verified using GSC robots.txt Tester</span><span class="audit-tag tag-critical">Critical</span></label>
+      <label class="audit-item" onclick="toggleAudit(this)"><input type="checkbox"><span class="audit-box">✓</span><span class="audit-text">No important pages with noindex tag that should rank (check GSC Coverage → Excluded → "Excluded by noindex tag")</span><span class="audit-tag tag-critical">Critical</span></label>
+      <label class="audit-item" onclick="toggleAudit(this)"><input type="checkbox"><span class="audit-box">✓</span><span class="audit-text">No 5xx server errors on important pages — verified in GSC Coverage and Screaming Frog crawl</span><span class="audit-tag tag-critical">Critical</span></label>
+      <label class="audit-item" onclick="toggleAudit(this)"><input type="checkbox"><span class="audit-box">✓</span><span class="audit-text">Site is fully on HTTPS — every URL redirects from HTTP to HTTPS with 301</span><span class="audit-tag tag-critical">Critical</span></label>
+    </div>
+    <div style="padding:6px 14px;font-size:.64em;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--amber)">⚠️ High Priority</div>
+    <div class="audit-list">
+      <label class="audit-item" onclick="toggleAudit(this)"><input type="checkbox"><span class="audit-box">✓</span><span class="audit-text">No redirect chains (3+ hops) — all redirects go directly to final destination</span><span class="audit-tag tag-high">High</span></label>
+      <label class="audit-item" onclick="toggleAudit(this)"><input type="checkbox"><span class="audit-box">✓</span><span class="audit-text">Mobile LCP under 2.5s on all key landing pages — verified in PageSpeed Insights</span><span class="audit-tag tag-high">High</span></label>
+      <label class="audit-item" onclick="toggleAudit(this)"><input type="checkbox"><span class="audit-box">✓</span><span class="audit-text">CLS score under 0.1 — all images have explicit width/height attributes</span><span class="audit-tag tag-high">High</span></label>
+      <label class="audit-item" onclick="toggleAudit(this)"><input type="checkbox"><span class="audit-box">✓</span><span class="audit-text">No duplicate title tags or H1 tags — verified in Screaming Frog bulk export</span><span class="audit-tag tag-high">High</span></label>
+      <label class="audit-item" onclick="toggleAudit(this)"><input type="checkbox"><span class="audit-box">✓</span><span class="audit-text">Canonical tags correctly implemented — no wrong self-canonicals, no canonicals pointing to noindexed pages</span><span class="audit-tag tag-high">High</span></label>
+      <label class="audit-item" onclick="toggleAudit(this)"><input type="checkbox"><span class="audit-box">✓</span><span class="audit-text">XML sitemap exists, is submitted in GSC, contains only indexable canonical URLs (no redirects, noindexed pages)</span><span class="audit-tag tag-high">High</span></label>
+      <label class="audit-item" onclick="toggleAudit(this)"><input type="checkbox"><span class="audit-box">✓</span><span class="audit-text">No orphan pages (pages with zero internal links) — checked via Screaming Frog inlinks report</span><span class="audit-tag tag-high">High</span></label>
+      <label class="audit-item" onclick="toggleAudit(this)"><input type="checkbox"><span class="audit-box">✓</span><span class="audit-text">Site passes Google Mobile-Friendly Test — no mobile usability errors in GSC</span><span class="audit-tag tag-high">High</span></label>
+    </div>
+    <div style="padding:6px 14px;font-size:.64em;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--blue2)">🔵 Medium Priority</div>
+    <div class="audit-list">
+      <label class="audit-item" onclick="toggleAudit(this)"><input type="checkbox"><span class="audit-box">✓</span><span class="audit-text">All images have descriptive, keyword-relevant alt text</span><span class="audit-tag tag-medium">Medium</span></label>
+      <label class="audit-item" onclick="toggleAudit(this)"><input type="checkbox"><span class="audit-box">✓</span><span class="audit-text">All images under 150KB, converted to WebP format</span><span class="audit-tag tag-medium">Medium</span></label>
+      <label class="audit-item" onclick="toggleAudit(this)"><input type="checkbox"><span class="audit-box">✓</span><span class="audit-text">Meta descriptions present on all high-traffic pages (150–160 chars, unique)</span><span class="audit-tag tag-medium">Medium</span></label>
+      <label class="audit-item" onclick="toggleAudit(this)"><input type="checkbox"><span class="audit-box">✓</span><span class="audit-text">Schema markup implemented on all eligible pages (FAQ, Product, Article, LocalBusiness)</span><span class="audit-tag tag-medium">Medium</span></label>
+      <label class="audit-item" onclick="toggleAudit(this)"><input type="checkbox"><span class="audit-box">✓</span><span class="audit-text">All pages reachable within 3 clicks from homepage (click depth ≤ 3)</span><span class="audit-tag tag-medium">Medium</span></label>
+      <label class="audit-item" onclick="toggleAudit(this)"><input type="checkbox"><span class="audit-box">✓</span><span class="audit-text">TTFB (Time to First Byte) under 800ms — server response time acceptable</span><span class="audit-tag tag-medium">Medium</span></label>
+      <label class="audit-item" onclick="toggleAudit(this)"><input type="checkbox"><span class="audit-box">✓</span><span class="audit-text">No thin content pages (&lt;300 words) indexed — either expanded, consolidated, or noindexed</span><span class="audit-tag tag-medium">Medium</span></label>
+      <label class="audit-item" onclick="toggleAudit(this)"><input type="checkbox"><span class="audit-box">✓</span><span class="audit-text">URL slugs are clean, lowercase, hyphenated, and keyword-rich on all key pages</span><span class="audit-tag tag-medium">Medium</span></label>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ TOOL STACK ════════════ -->
+<div class="section-divider" id="tools-section"><span>◈ Essential Tools</span></div>
+
+<div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:24px">
+  <h3 style="font-family:'Fraunces',serif;font-size:1.25em;color:var(--white);margin-bottom:6px">🔧 Module 4 Tool Stack</h3>
+  <p style="font-size:.87em;color:var(--text2);margin-bottom:18px">Every tool you need to execute technical SEO professionally. All verified and clickable.</p>
+  <div class="tools-chips">
+    <a class="tool-chip" href="https://www.screamingfrog.co.uk/seo-spider/" target="_blank" rel="noopener">Screaming Frog</a>
+    <a class="tool-chip" href="https://pagespeed.web.dev" target="_blank" rel="noopener">PageSpeed Insights</a>
+    <a class="tool-chip" href="https://gtmetrix.com" target="_blank" rel="noopener">GTmetrix</a>
+    <a class="tool-chip" href="https://www.webpagetest.org" target="_blank" rel="noopener">WebPageTest</a>
+    <a class="tool-chip" href="https://search.google.com/search-console" target="_blank" rel="noopener">Google Search Console</a>
+    <a class="tool-chip" href="https://search.google.com/test/mobile-friendly" target="_blank" rel="noopener">Mobile-Friendly Test</a>
+    <a class="tool-chip" href="https://www.redirect-checker.org" target="_blank" rel="noopener">Redirect Checker</a>
+    <a class="tool-chip" href="https://www.xml-sitemaps.com" target="_blank" rel="noopener">XML Sitemap Generator</a>
+    <a class="tool-chip" href="https://search.google.com/test/rich-results" target="_blank" rel="noopener">Rich Results Test</a>
+    <a class="tool-chip" href="https://technicalseo.com/tools/schema-markup-generator/" target="_blank" rel="noopener">Schema Generator</a>
+    <a class="tool-chip" href="https://ahrefs.com/site-audit" target="_blank" rel="noopener">Ahrefs Site Audit</a>
+    <a class="tool-chip" href="https://www.semrush.com/features/site-audit/" target="_blank" rel="noopener">SEMrush Site Audit</a>
+    <a class="tool-chip" href="https://squoosh.app" target="_blank" rel="noopener">Squoosh (Images)</a>
+    <a class="tool-chip" href="https://web.dev/measure/" target="_blank" rel="noopener">web.dev Measure</a>
+    <a class="tool-chip" href="https://www.cloudflare.com/en-gb/application-services/products/cdn/" target="_blank" rel="noopener">Cloudflare CDN (Free)</a>
+    <a class="tool-chip" href="https://validator.w3.org/" target="_blank" rel="noopener">W3C HTML Validator</a>
+  </div>
+</div>
+
+<!-- BLOG POSTS -->
+<div class="blog-section">
+  <div class="blog-header">✍️ Recommended Reading — Technical SEO</div>
+  <a class="blog-item" href="https://ahrefs.com/blog/technical-seo/" target="_blank" rel="noopener">
+    <span class="blog-icon">📝</span>
+    <div class="blog-text"><strong>Ahrefs — Technical SEO: The Beginner's Guide</strong><span>Complete introduction to technical SEO covering every major area with clear explanations and actionable advice.</span></div>
+    <div class="blog-meta"><span class="res-badge res-blog">GUIDE</span></div>
+  </a>
+  <a class="blog-item" href="https://backlinko.com/technical-seo-guide" target="_blank" rel="noopener">
+    <span class="blog-icon">📝</span>
+    <div class="blog-text"><strong>Backlinko — Technical SEO Guide</strong><span>Brian Dean's in-depth technical SEO guide with visual diagrams and step-by-step walkthroughs of every major concept.</span></div>
+    <div class="blog-meta"><span class="res-badge res-blog">BLOG</span></div>
+  </a>
+  <a class="blog-item" href="https://www.searchenginejournal.com/technical-seo/" target="_blank" rel="noopener">
+    <span class="blog-icon">📝</span>
+    <div class="blog-text"><strong>Search Engine Journal — Technical SEO Hub</strong><span>Comprehensive library of technical SEO articles covering advanced topics from crawl budgets to JS rendering and hreflang.</span></div>
+    <div class="blog-meta"><span class="res-badge res-blog">BLOG</span></div>
+  </a>
+  <a class="blog-item" href="https://www.deepcrawl.com/blog/" target="_blank" rel="noopener">
+    <span class="blog-icon">📝</span>
+    <div class="blog-text"><strong>Deepcrawl Blog — Advanced Technical SEO</strong><span>Enterprise-level technical SEO insights from crawl specialists. Go-to resource for complex crawl, indexing, and rendering challenges.</span></div>
+    <div class="blog-meta"><span class="res-badge res-blog">BLOG</span></div>
+  </a>
+  <a class="blog-item" href="https://developers.google.com/search/blog" target="_blank" rel="noopener">
+    <span class="blog-icon">📄</span>
+    <div class="blog-text"><strong>Google Search Central Blog (Official)</strong><span>Direct updates from Google's Search team on algorithm changes, new features in GSC, and best practices for technical SEO.</span></div>
+    <div class="blog-meta"><span class="res-badge res-official">OFFICIAL</span></div>
+  </a>
+  <a class="blog-item" href="https://www.youtube.com/watch?v=zFsLqeKABXE" target="_blank" rel="noopener">
+    <span class="blog-icon">▶️</span>
+    <div class="blog-text"><strong>Ahrefs YouTube — Technical SEO Full Course (Free)</strong><span>Complete technical SEO video course. Covers all topics in this module with live demonstrations on real websites.</span></div>
+    <div class="blog-meta"><span class="res-badge res-video">VIDEO</span></div>
+  </a>
+</div>
+
+<!-- ════════════ QUIZ ════════════ -->
+<div class="section-divider" id="quiz-section"><span>◈ Test Your Knowledge</span></div>
+
+<div class="quiz-block">
+  <div class="quiz-header">🎯 Module 4 Quiz — Technical SEO</div>
+
+  <div class="quiz-q" id="q1">
+    <p>1. What is the target LCP score for a "Good" Core Web Vitals rating?</p>
+    <div class="quiz-options">
+      <div class="quiz-opt" onclick="answerQuiz('q1','a','b')"><span class="quiz-opt-letter">A</span>Under 1.0 second</div>
+      <div class="quiz-opt" onclick="answerQuiz('q1','b','b')"><span class="quiz-opt-letter">B</span>Under 2.5 seconds</div>
+      <div class="quiz-opt" onclick="answerQuiz('q1','c','b')"><span class="quiz-opt-letter">C</span>Under 4.0 seconds</div>
+      <div class="quiz-opt" onclick="answerQuiz('q1','d','b')"><span class="quiz-opt-letter">D</span>Under 6.0 seconds</div>
+    </div>
+    <div class="quiz-feedback ok" id="q1-ok">✅ Correct! LCP under 2.5s = Good. 2.5–4s = Needs Improvement. Over 4s = Poor (ranking penalty risk on mobile). LCP is the most impactful CWV metric to fix first.</div>
+    <div class="quiz-feedback no" id="q1-no">❌ The correct answer is <strong>under 2.5 seconds</strong>. This is Google's "Good" threshold for LCP. Anything over 4s triggers the "Poor" classification and can result in ranking penalties on mobile.</div>
+  </div>
+
+  <div class="quiz-q" id="q2">
+    <p>2. A page is blocked in robots.txt. What happens to it in Google's search results?</p>
+    <div class="quiz-options">
+      <div class="quiz-opt" onclick="answerQuiz('q2','a','b')"><span class="quiz-opt-letter">A</span>It is immediately removed from the index</div>
+      <div class="quiz-opt" onclick="answerQuiz('q2','b','b')"><span class="quiz-opt-letter">B</span>It may still be indexed if other sites link to it — but Google can't see its content</div>
+      <div class="quiz-opt" onclick="answerQuiz('q2','c','b')"><span class="quiz-opt-letter">C</span>It is permanently de-indexed</div>
+      <div class="quiz-opt" onclick="answerQuiz('q2','d','b')"><span class="quiz-opt-letter">D</span>Nothing — robots.txt has no effect on Google</div>
+    </div>
+    <div class="quiz-feedback ok" id="q2-ok">✅ Correct! Robots.txt blocks crawling, NOT indexing. A blocked page can still appear in search results if other sites link to it — Google will show the URL without a snippet ("No information is available for this page.") To prevent indexing, use a noindex meta tag instead.</div>
+    <div class="quiz-feedback no" id="q2-no">❌ Robots.txt blocks <strong>crawling, not indexing</strong>. A blocked page can still be indexed via external links — Google just can't read its content. To truly de-index a page, use a <code>noindex</code> meta tag (and allow Googlebot to crawl it to see the tag).</div>
+  </div>
+
+  <div class="quiz-q" id="q3">
+    <p>3. You need to permanently move a URL. Which redirect type should you use?</p>
+    <div class="quiz-options">
+      <div class="quiz-opt" onclick="answerQuiz('q3','a','a')"><span class="quiz-opt-letter">A</span>301 — Permanent redirect (passes ~99% link equity)</div>
+      <div class="quiz-opt" onclick="answerQuiz('q3','b','a')"><span class="quiz-opt-letter">B</span>302 — Temporary redirect</div>
+      <div class="quiz-opt" onclick="answerQuiz('q3','c','a')"><span class="quiz-opt-letter">C</span>307 — Temporary redirect (HTTP/1.1)</div>
+      <div class="quiz-opt" onclick="answerQuiz('q3','d','a')"><span class="quiz-opt-letter">D</span>Meta refresh redirect</div>
+    </div>
+    <div class="quiz-feedback ok" id="q3-ok">✅ Correct! A 301 redirect signals a permanent move to Google and passes approximately 99% of the original page's link equity to the destination. Using a 302 for a permanent move risks Google not fully transferring the authority.</div>
+    <div class="quiz-feedback no" id="q3-no">❌ For permanent URL moves, always use a <strong>301 redirect</strong>. It signals permanence to Google and transfers ~99% of link equity. A 302 is for temporary redirects only and may not fully pass authority.</div>
+  </div>
+
+  <div class="quiz-q" id="q4">
+    <p>4. What does a canonical tag do?</p>
+    <div class="quiz-options">
+      <div class="quiz-opt" onclick="answerQuiz('q4','a','b')"><span class="quiz-opt-letter">A</span>Permanently redirects the page to another URL</div>
+      <div class="quiz-opt" onclick="answerQuiz('q4','b','b')"><span class="quiz-opt-letter">B</span>Tells Google which version of a page is the "official" one to consolidate signals toward</div>
+      <div class="quiz-opt" onclick="answerQuiz('q4','c','b')"><span class="quiz-opt-letter">C</span>Blocks the page from being crawled</div>
+      <div class="quiz-opt" onclick="answerQuiz('q4','d','b')"><span class="quiz-opt-letter">D</span>Removes the page from the index</div>
+    </div>
+    <div class="quiz-feedback ok" id="q4-ok">✅ Correct! A canonical tag (<code>&lt;link rel="canonical"&gt;</code>) tells Google "this is the preferred URL — consolidate all signals (backlinks, ranking data) to this version." It doesn't redirect users, it doesn't block crawling — it instructs Google which version to rank when duplicates exist.</div>
+    <div class="quiz-feedback no" id="q4-no">❌ A canonical tag tells Google which URL is the "authoritative" version when duplicates exist. It consolidates all ranking signals to the canonical URL without redirecting users. It's different from a redirect (user movement) or noindex (removal from search).</div>
+  </div>
+
+  <div class="quiz-q" id="q5">
+    <p>5. Google now uses which version of your site for indexing and ranking?</p>
+    <div class="quiz-options">
+      <div class="quiz-opt" onclick="answerQuiz('q5','a','b')"><span class="quiz-opt-letter">A</span>The desktop version</div>
+      <div class="quiz-opt" onclick="answerQuiz('q5','b','b')"><span class="quiz-opt-letter">B</span>The mobile version (mobile-first indexing)</div>
+      <div class="quiz-opt" onclick="answerQuiz('q5','c','b')"><span class="quiz-opt-letter">C</span>Whichever version loads fastest</div>
+      <div class="quiz-opt" onclick="answerQuiz('q5','d','b')"><span class="quiz-opt-letter">D</span>Both versions equally</div>
+    </div>
+    <div class="quiz-feedback ok" id="q5-ok">✅ Correct! Since 2023, all sites use mobile-first indexing by default. Google crawls and indexes the mobile version of your site. This means if your mobile version has less content than desktop, your rankings on ALL devices suffer.</div>
+    <div class="quiz-feedback no" id="q5-no">❌ Google uses <strong>mobile-first indexing</strong> for all sites. The mobile version is used for both indexing and ranking — even for desktop searches. If your mobile site has stripped content vs your desktop, all your rankings suffer.</div>
+  </div>
+</div>
+
+<!-- ════════════ FLASHCARDS ════════════ -->
+<div class="section-divider" id="flashcard-section"><span>◈ Flashcards</span></div>
+
+<div class="flashcard-block">
+  <div class="flashcard-header">🃏 Module 4 Flashcards — Click Card to Flip</div>
+  <div class="flashcard-inner">
+    <div class="flashcard" id="fc" onclick="flipCard()">
+      <div class="flashcard-face fc-front" id="fc-front">Loading...</div>
+      <div class="flashcard-face fc-back" id="fc-back">Loading...</div>
+    </div>
+    <div class="fc-nav">
+      <button class="fc-btn" onclick="prevCard()">← Prev</button>
+      <span class="fc-counter" id="fc-counter">1 / 10</span>
+      <button class="fc-btn" onclick="nextCard()">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODULE NAVIGATION -->
+<div class="mod-nav">
+  <a href="module-3.html" class="mod-nav-btn prev">
+    <span class="mod-nav-arrow">←</span>
+    <div>
+      <div class="mod-nav-label">Previous Module</div>
+      <div class="mod-nav-title">Module 3 — On-Page SEO</div>
+    </div>
+  </a>
+  <a href="module-5.html" class="mod-nav-btn next">
+    <span class="mod-nav-arrow">→</span>
+    <div>
+      <div class="mod-nav-label">Next Module</div>
+      <div class="mod-nav-title">Module 5 — Content Strategy</div>
+    </div>
+  </a>
+</div>
+
+</div><!-- /content-area -->
+
+</div><!-- /main -->
+</div><!-- /shell -->
+
+<script>
+/* ─── THEME ─────────────────────────── */
+function toggleTheme() {
+  const html = document.documentElement;
+  const isDark = html.dataset.theme === 'dark';
+  html.dataset.theme = isDark ? 'light' : 'dark';
+  document.getElementById('theme-btn').textContent = isDark ? '🌙 Dark Mode' : '☀️ Light Mode';
+  localStorage.setItem('seo-theme', html.dataset.theme);
+}
+(function(){
+  const saved = localStorage.getItem('seo-theme');
+  if (saved) {
+    document.documentElement.dataset.theme = saved;
+    document.getElementById('theme-btn').textContent = saved === 'light' ? '🌙 Dark Mode' : '☀️ Light Mode';
+  }
+})();
+
+/* ─── SIDEBAR ───────────────────────── */
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('sb-overlay').classList.toggle('show');
+}
+function closeSidebar() {
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('sb-overlay').classList.remove('show');
+}
+
+/* ─── TOPIC ACCORDION ───────────────── */
+function toggleTopic(header) {
+  const item = header.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.topic-item.open').forEach(el => el.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+/* ─── TASK CHECKBOXES ───────────────── */
+function toggleTask(el) {
+  el.classList.toggle('checked');
+  updateProgress();
+  saveTasks();
+}
+
+/* ─── AUDIT CHECKLIST ───────────────── */
+function toggleAudit(el) {
+  el.classList.toggle('checked');
+  updateAuditProgress();
+  saveTasks();
+}
+
+function updateAuditProgress() {
+  const total = document.querySelectorAll('.audit-item').length;
+  const done  = document.querySelectorAll('.audit-item.checked').length;
+  const label = document.getElementById('audit-progress-label');
+  if (label) label.textContent = done + ' / ' + total;
+}
+
+/* ─── PROGRESS ──────────────────────── */
+function updateProgress() {
+  const total = document.querySelectorAll('.task-check-item').length;
+  const done  = document.querySelectorAll('.task-check-item.checked').length;
+  const pct   = total > 0 ? Math.round((done / total) * 100) : 0;
+  document.getElementById('prog-pct').textContent = pct + '%';
+  document.getElementById('prog-bar').style.width  = pct + '%';
+
+  document.querySelectorAll('.topic-item').forEach(item => {
+    const id = item.id;
+    const navLink = document.querySelector(`.nav-link[href="#${id}"]`);
+    const tasks   = item.querySelectorAll('.task-check-item').length;
+    const checked = item.querySelectorAll('.task-check-item.checked').length;
+    if (navLink && tasks > 0 && checked === tasks) navLink.classList.add('completed');
+    else if (navLink) navLink.classList.remove('completed');
+  });
+}
+
+function saveTasks() {
+  const taskState = {};
+  document.querySelectorAll('.task-check-item').forEach((el, i) => { taskState['t'+i] = el.classList.contains('checked'); });
+  const auditState = {};
+  document.querySelectorAll('.audit-item').forEach((el, i) => { auditState['a'+i] = el.classList.contains('checked'); });
+  try { localStorage.setItem('seo-m4-tasks', JSON.stringify({...taskState, ...auditState})); } catch(e){}
+}
+
+function loadTasks() {
+  try {
+    const state = JSON.parse(localStorage.getItem('seo-m4-tasks') || '{}');
+    document.querySelectorAll('.task-check-item').forEach((el, i) => { if (state['t'+i]) el.classList.add('checked'); });
+    document.querySelectorAll('.audit-item').forEach((el, i) => { if (state['a'+i]) el.classList.add('checked'); });
+    updateProgress();
+    updateAuditProgress();
+  } catch(e){}
+}
+
+/* ─── ACTIVE NAV HIGHLIGHT ──────────── */
+const navLinks = document.querySelectorAll('.nav-link[data-target]');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id;
+      navLinks.forEach(link => link.classList.toggle('active', link.dataset.target === id));
+    }
+  });
+}, { threshold: 0.15, rootMargin: '-80px 0px -80px 0px' });
+
+document.querySelectorAll('[id]').forEach(el => observer.observe(el));
+
+navLinks.forEach(link => {
+  link.addEventListener('click', () => { if (window.innerWidth <= 900) closeSidebar(); });
+});
+
+/* ─── QUIZ ──────────────────────────── */
+function answerQuiz(qId, chosen, correct) {
+  const qEl = document.getElementById(qId);
+  if (qEl.dataset.answered) return;
+  qEl.dataset.answered = '1';
+  const opts    = qEl.querySelectorAll('.quiz-opt');
+  const letters = ['a','b','c','d','e'];
+  opts.forEach((opt, i) => {
+    if (letters[i] === correct) opt.classList.add('correct');
+    else if (letters[i] === chosen && chosen !== correct) opt.classList.add('wrong');
+    opt.style.pointerEvents = 'none';
+  });
+  const isOk = chosen === correct;
+  document.getElementById(qId + '-ok').classList.toggle('show', isOk);
+  document.getElementById(qId + '-no').classList.toggle('show', !isOk);
+}
+
+/* ─── FLASHCARDS ────────────────────── */
+const cards = [
+  { q: 'What does LCP stand for and what is its "Good" threshold?', a: 'Largest Contentful Paint. Target: under 2.5 seconds. Measures how long until the page\'s largest visible element (usually a hero image or headline) fully loads.' },
+  { q: 'What does CLS measure and what is its target score?', a: 'Cumulative Layout Shift. Target: under 0.1. Measures visual stability — how much page elements shift around during loading. Caused by images without width/height attributes, dynamic ads, and web fonts.' },
+  { q: 'What is the difference between a 301 and 302 redirect?', a: '301 = Permanent redirect. Passes ~99% of link equity. Use when permanently moving a URL. 302 = Temporary redirect. Does not reliably transfer link equity. Only use when the redirect is genuinely temporary.' },
+  { q: 'What does robots.txt do — and what does it NOT do?', a: 'robots.txt tells crawlers which paths to avoid (disallow). It DOES NOT remove pages from the index. A disallowed page can still be indexed if external sites link to it. Use noindex meta tag to prevent indexing.' },
+  { q: 'What is a canonical tag and when do you use it?', a: '<link rel="canonical"> tells Google which URL is the "official" version when duplicate or near-duplicate content exists at multiple URLs. Critical for e-commerce sites with filter/sort navigation creating URL variants.' },
+  { q: 'What is mobile-first indexing?', a: 'Since 2023, Google uses the mobile version of your site as its primary version for both indexing AND ranking — including for desktop searches. If your mobile site has less content than desktop, all your rankings suffer.' },
+  { q: 'What is crawl budget and when does it matter?', a: 'Crawl budget is the number of pages Google will crawl within a timeframe. Irrelevant for small sites (<500 pages). Critical for large sites (10,000+ pages) where Google may waste budget on low-value pages, never reaching important content.' },
+  { q: 'What is a redirect chain and why is it harmful?', a: 'A redirect chain occurs when URL A redirects to B, which redirects to C (2+ hops). Each hop loses a fraction of link equity. Fix by pointing all source URLs directly to the final destination.' },
+  { q: 'Why should schema markup be implemented as JSON-LD?', a: 'JSON-LD is Google\'s recommended format. It\'s independent of HTML structure, easier to manage, easier to validate, and can be placed in the <head> separately from content. It\'s cleaner than Microdata or RDFa.' },
+  { q: 'What is the difference between field data and lab data in PageSpeed Insights?', a: 'Lab data = Lighthouse simulation of page load (useful for debugging). Field data = real Chrome User Experience Report data from actual users. Google uses field data for ranking signals, not lab data.' },
+];
+
+let current = 0, flipped = false;
+
+function showCard(i) {
+  const fc = document.getElementById('fc');
+  fc.classList.remove('flipped');
+  flipped = false;
+  document.getElementById('fc-front').textContent = cards[i].q;
+  document.getElementById('fc-back').textContent  = cards[i].a;
+  document.getElementById('fc-counter').textContent = (i+1) + ' / ' + cards.length;
+  setTimeout(() => {
+    const front = document.getElementById('fc-front');
+    const back  = document.getElementById('fc-back');
+    const h = Math.max(front.scrollHeight, back.scrollHeight, 110);
+    fc.style.height = h + 'px';
+    front.style.minHeight = h + 'px';
+    back.style.minHeight  = h + 'px';
+  }, 10);
+}
+function flipCard() { flipped = !flipped; document.getElementById('fc').classList.toggle('flipped', flipped); }
+function nextCard() { current = (current + 1) % cards.length; showCard(current); }
+function prevCard() { current = (current - 1 + cards.length) % cards.length; showCard(current); }
+
+/* ─── INIT ──────────────────────────── */
+document.addEventListener('DOMContentLoaded', () => { loadTasks(); showCard(0); });
+</script>
+</body>
+</html>

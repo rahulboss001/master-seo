@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 9 — SEO Analytics & Reporting | SEO Mastery Roadmap 2025</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,700;0,900;1,300&family=Syne:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+[data-theme="dark"]{
+  --bg:#08100f;--bg1:#0a1512;--bg2:#0e1d1b;--bg3:#122421;
+  --card:#0a1410;--card2:#0f1c18;--border:#162a25;--border2:#1e3d36;
+  --cyan:#06b6d4;--cyan2:#22d3ee;
+  --teal:#14b8a6;--teal2:#2dd4bf;
+  --emerald:#10b981;--emerald2:#34d399;
+  --amber:#f59e0b;--amber2:#fbbf24;
+  --rose:#f43f5e;--rose2:#fb7185;
+  --violet:#8b5cf6;--violet2:#a78bfa;
+  --text:#d4f0ec;--text2:#7ebfb5;--muted:#3d7a70;--white:#e8faf7;
+  --shadow:rgba(0,0,0,.65);--glow:rgba(6,182,212,.12);
+  --sidebar-bg:#0a1512;--header-bg:#08100f;
+  --note-bg:rgba(6,182,212,.05);
+  --accent:var(--cyan);--accent2:var(--cyan2);
+}
+[data-theme="light"]{
+  --bg:#f0fbfa;--bg1:#e0f7f4;--bg2:#ccf2ee;--bg3:#b5ebe5;
+  --card:#ffffff;--card2:#f5fffe;--border:#9ee0d8;--border2:#6dcdc2;
+  --cyan:#0891b2;--cyan2:#0e7490;
+  --teal:#0f766e;--teal2:#0d6b64;
+  --emerald:#059669;--emerald2:#047857;
+  --amber:#d97706;--amber2:#b45309;
+  --rose:#e11d48;--rose2:#be123c;
+  --violet:#7c3aed;--violet2:#6d28d9;
+  --text:#0d2926;--text2:#1a4f49;--muted:#3d7a70;--white:#03100e;
+  --shadow:rgba(0,0,0,.1);--glow:rgba(6,182,212,.08);
+  --sidebar-bg:#e0f7f4;--header-bg:#f0fbfa;
+  --note-bg:rgba(6,182,212,.06);
+  --accent:var(--cyan);--accent2:var(--cyan2);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:15px}
+body{font-family:'Syne',sans-serif;background:var(--bg);color:var(--text);line-height:1.75;overflow-x:hidden;transition:background .3s,color .3s}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--cyan);border-radius:10px}
+
+.shell{display:flex;min-height:100vh}
+
+/* SIDEBAR */
+.sidebar{width:272px;min-width:272px;background:var(--sidebar-bg);border-right:1px solid var(--border);position:fixed;top:0;left:0;bottom:0;overflow-y:auto;z-index:200;display:flex;flex-direction:column;transition:transform .3s,background .3s}
+.sidebar::-webkit-scrollbar{width:3px}.sidebar::-webkit-scrollbar-thumb{background:var(--border2)}
+.sb-brand{padding:24px 20px 18px;border-bottom:1px solid var(--border)}
+.sb-back{display:inline-flex;align-items:center;gap:7px;font-size:.75em;font-weight:700;color:var(--muted);text-decoration:none;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;transition:color .15s}
+.sb-back:hover{color:var(--cyan2)}
+.sb-mod-badge{display:inline-block;font-family:'Fira Code',monospace;font-size:.65em;font-weight:700;background:var(--cyan);color:#fff;padding:3px 9px;border-radius:6px;margin-bottom:10px}
+.sb-brand h2{font-family:'Fraunces',serif;font-size:1.02em;font-weight:700;color:var(--white);line-height:1.35}
+.sb-brand p{font-size:.72em;color:var(--muted);margin-top:4px}
+.sb-progress{padding:14px 20px;border-bottom:1px solid var(--border)}
+.prog-label{display:flex;justify-content:space-between;font-size:.68em;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:7px}
+.prog-label span:last-child{color:var(--cyan2);font-family:'Fira Code',monospace}
+.prog-bg{height:4px;background:var(--border);border-radius:2px;overflow:hidden}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--cyan),var(--teal2));width:0%;transition:width .4s ease}
+.sb-nav{padding:10px 0;flex:1}
+.sb-section-label{padding:10px 20px 4px;font-size:.63em;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted)}
+.nav-link{display:flex;align-items:center;gap:10px;padding:9px 20px;text-decoration:none;color:var(--muted);font-size:.8em;font-weight:500;transition:all .15s;border-left:2px solid transparent;cursor:pointer}
+.nav-link:hover{color:var(--text);background:var(--bg2)}
+.nav-link.active{color:var(--cyan2);border-left-color:var(--cyan);background:rgba(6,182,212,.07)}
+.nav-num{font-family:'Fira Code',monospace;font-size:.72em;color:var(--border2);min-width:28px}
+.nav-link.active .nav-num{color:var(--cyan2)}
+.nav-done{margin-left:auto;font-size:.8em;color:var(--emerald);opacity:0;transition:opacity .2s}
+.nav-link.completed .nav-done{opacity:1}
+.sb-footer{padding:14px 20px;border-top:1px solid var(--border)}
+.sb-footer p{font-size:.7em;color:var(--muted);line-height:1.5}
+
+.main{margin-left:272px;flex:1;min-width:0}
+.topbar{position:sticky;top:0;z-index:100;background:var(--header-bg);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;padding:12px 40px;transition:background .3s}
+.topbar-breadcrumb{font-size:.78em;color:var(--muted);display:flex;align-items:center;gap:6px;flex:1;flex-wrap:wrap}
+.topbar-breadcrumb a{color:var(--muted);text-decoration:none;transition:color .15s}
+.topbar-breadcrumb a:hover{color:var(--cyan2)}
+.topbar-breadcrumb span{color:var(--text2);font-weight:600}
+.theme-btn{display:flex;align-items:center;gap:7px;background:var(--card);border:1px solid var(--border2);border-radius:50px;padding:7px 14px;cursor:pointer;font-size:.76em;font-weight:600;color:var(--text2);transition:all .2s;font-family:'Syne',sans-serif;white-space:nowrap}
+.theme-btn:hover{border-color:var(--cyan2);color:var(--cyan2)}
+.hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:4px;background:none;border:none}
+.hamburger span{display:block;width:20px;height:2px;background:var(--text2);border-radius:2px}
+
+/* HERO */
+.mod-hero{background:var(--bg1);border-bottom:1px solid var(--border);padding:56px 56px 44px;position:relative;overflow:hidden}
+.mod-hero-bg{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 700px 500px at 80% -15%,rgba(6,182,212,.12) 0%,transparent 60%),radial-gradient(ellipse 500px 400px at -5% 100%,rgba(20,184,166,.07) 0%,transparent 60%),radial-gradient(ellipse 400px 300px at 50% 110%,rgba(34,211,238,.05) 0%,transparent 60%)}
+.mod-hero-grid{position:absolute;inset:0;pointer-events:none;opacity:.025;background-image:linear-gradient(var(--border2) 1px,transparent 1px),linear-gradient(90deg,var(--border2) 1px,transparent 1px);background-size:44px 44px}
+.mod-hero-inner{max-width:820px;position:relative}
+.mod-number-tag{font-family:'Fira Code',monospace;font-size:.68em;font-weight:700;color:#fff;background:var(--cyan);padding:4px 12px;border-radius:6px;display:inline-block;margin-bottom:16px}
+.mod-hero h1{font-family:'Fraunces',serif;font-size:clamp(1.9em,4vw,3em);font-weight:900;color:var(--white);line-height:1.08;margin-bottom:10px}
+.mod-hero h1 em{font-style:italic;background:linear-gradient(135deg,var(--cyan2) 0%,var(--teal2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.mod-hero p{color:var(--text2);font-size:.96em;max-width:700px;margin-bottom:22px;line-height:1.8}
+.mod-tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:28px}
+.mtag{font-size:.67em;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding:3px 10px;border-radius:4px}
+.mtag-amber{background:rgba(245,158,11,.1);color:var(--amber);border:1px solid rgba(245,158,11,.25)}
+.mtag-cyan{background:rgba(6,182,212,.1);color:var(--cyan2);border:1px solid rgba(6,182,212,.25)}
+.mtag-teal{background:rgba(20,184,166,.1);color:var(--teal2);border:1px solid rgba(20,184,166,.25)}
+.mtag-emerald{background:rgba(16,185,129,.1);color:var(--emerald2);border:1px solid rgba(16,185,129,.25)}
+.mtag-blue{background:rgba(59,130,246,.1);color:#93c5fd;border:1px solid rgba(59,130,246,.25)}
+.hero-stats{display:grid;grid-template-columns:repeat(4,auto);width:fit-content;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.stat-box{background:var(--bg2);padding:16px 20px;text-align:center}
+.stat-n{font-family:'Fraunces',serif;font-size:1.7em;font-weight:700;color:var(--cyan2);line-height:1;margin-bottom:3px}
+.stat-l{font-size:.65em;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.8px}
+
+.content-area{max-width:840px;margin:0 auto;padding:44px 56px 100px}
+
+/* SECTION HEADER */
+.section-header{display:flex;align-items:center;gap:14px;margin-bottom:20px;margin-top:40px}
+.section-header:first-child{margin-top:0}
+.section-header h2{font-family:'Fraunces',serif;font-size:1.35em;font-weight:700;color:var(--white)}
+.section-divider{flex:1;height:1px;background:var(--border)}
+
+/* TOPIC */
+.topic-item{border:1px solid var(--border);border-radius:14px;margin-bottom:14px;overflow:hidden;background:var(--card);transition:border-color .2s,box-shadow .2s}
+.topic-item:hover{border-color:var(--border2);box-shadow:0 4px 28px var(--shadow)}
+.topic-item.open{border-color:rgba(6,182,212,.4);box-shadow:0 0 0 1px rgba(6,182,212,.1)}
+.topic-header{display:flex;align-items:center;gap:12px;padding:17px 20px;cursor:pointer;user-select:none;transition:background .15s}
+.topic-header:hover{background:var(--bg2)}
+.topic-num{font-family:'Fira Code',monospace;font-size:.7em;font-weight:700;color:var(--cyan2);background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.2);padding:3px 8px;border-radius:5px;white-space:nowrap}
+.topic-header h3{font-size:.95em;font-weight:700;color:var(--white);flex:1;line-height:1.35}
+.topic-difficulty{font-size:.63em;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:2px 7px;border-radius:4px;flex-shrink:0}
+.diff-beginner{background:rgba(34,197,94,.1);color:#4ade80}
+.diff-intermediate{background:rgba(6,182,212,.1);color:var(--cyan2)}
+.diff-advanced{background:rgba(244,63,94,.1);color:#fb7185}
+.topic-chevron{color:var(--muted);font-size:.75em;transition:transform .25s;flex-shrink:0}
+.topic-item.open .topic-chevron{transform:rotate(180deg);color:var(--cyan2)}
+.topic-body{display:none;padding:0 20px 24px;border-top:1px solid var(--border)}
+.topic-item.open .topic-body{display:block}
+.topic-intro{padding:18px 0 14px;color:var(--text2);font-size:.92em;line-height:1.85}
+
+/* KEYPOINTS */
+.keypoints{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+.kp{display:flex;align-items:flex-start;gap:10px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-size:.89em;color:var(--text2)}
+.kp-dot{width:6px;height:6px;border-radius:50%;background:var(--cyan);flex-shrink:0;margin-top:7px}
+.kp strong{color:var(--white)}
+code{font-family:'Fira Code',monospace;font-size:.83em;background:rgba(6,182,212,.08);color:var(--cyan2);padding:2px 6px;border-radius:4px}
+[data-theme="light"] code{background:rgba(6,182,212,.1);color:var(--cyan)}
+
+/* BLOCKS */
+.block-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}
+.info-block{border-radius:10px;padding:16px;font-size:.87em}
+.info-block .block-label{display:flex;align-items:center;gap:6px;font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px}
+.block-example{background:rgba(6,182,212,.05);border:1px solid rgba(6,182,212,.18);border-left:3px solid var(--cyan)}
+.block-example .block-label{color:var(--cyan2)}
+.block-task{background:rgba(245,158,11,.05);border:1px solid rgba(245,158,11,.18);border-left:3px solid var(--amber)}
+.block-task .block-label{color:var(--amber)}
+.block-insight{background:rgba(20,184,166,.05);border:1px solid rgba(20,184,166,.18);border-left:3px solid var(--teal)}
+.block-insight .block-label{color:var(--teal2)}
+.block-warning{background:rgba(244,63,94,.05);border:1px solid rgba(244,63,94,.18);border-left:3px solid var(--rose)}
+.block-warning .block-label{color:var(--rose2)}
+.info-block p{color:var(--text2);line-height:1.7;margin-bottom:8px}
+.info-block p:last-child{margin-bottom:0}
+.info-block strong{color:var(--white)}
+.info-block ul,.info-block ol{padding-left:16px;color:var(--text2)}
+.info-block li{margin-bottom:5px;line-height:1.65}
+
+/* TASKS */
+.task-list{display:flex;flex-direction:column;gap:7px}
+.task-check-item{display:flex;align-items:flex-start;gap:10px;cursor:pointer}
+.task-check-item input[type="checkbox"]{display:none}
+.check-box{width:18px;height:18px;border-radius:4px;flex-shrink:0;border:1.5px solid rgba(6,182,212,.4);background:transparent;display:flex;align-items:center;justify-content:center;margin-top:2px;transition:all .15s;font-size:.6em;color:transparent}
+.task-check-item.checked .check-box{background:var(--cyan);border-color:var(--cyan);color:#fff;font-size:.65em}
+.task-text{font-size:.86em;color:var(--text2);line-height:1.6;transition:color .15s}
+.task-check-item.checked .task-text{color:var(--muted);text-decoration:line-through}
+
+/* RESOURCES */
+.resources-block{margin-top:18px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.res-title{padding:11px 16px;background:var(--bg3);border-bottom:1px solid var(--border);font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--cyan2);display:flex;align-items:center;gap:6px}
+.res-links{display:flex;flex-direction:column}
+.res-link{display:flex;align-items:flex-start;gap:12px;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;transition:background .15s}
+.res-link:last-child{border-bottom:none}
+.res-link:hover{background:rgba(6,182,212,.04)}
+.res-icon{font-size:1.1em;flex-shrink:0;margin-top:1px}
+.res-text{flex:1}
+.res-text strong{display:block;font-size:.85em;font-weight:600;color:var(--cyan2);margin-bottom:2px}
+.res-link:hover .res-text strong{color:var(--teal2)}
+.res-text span{font-size:.77em;color:var(--muted);line-height:1.4}
+.res-badge{font-size:.62em;font-weight:700;text-transform:uppercase;padding:2px 7px;border-radius:3px;flex-shrink:0;margin-top:2px;letter-spacing:.5px}
+.res-free{background:rgba(34,197,94,.1);color:#4ade80;border:1px solid rgba(34,197,94,.2)}
+.res-blog{background:rgba(6,182,212,.1);color:var(--cyan2);border:1px solid rgba(6,182,212,.2)}
+.res-video{background:rgba(244,63,94,.15);color:#ff8080;border:1px solid rgba(244,63,94,.3)}
+.res-tool{background:rgba(20,184,166,.1);color:var(--teal2);border:1px solid rgba(20,184,166,.2)}
+.res-official{background:rgba(245,158,11,.1);color:var(--amber);border:1px solid rgba(245,158,11,.2)}
+
+/* WHY/WHERE/HOW/WHEN NOTE */
+.topic-note{margin-top:18px;border-radius:12px;overflow:hidden;border:1px solid rgba(6,182,212,.25);background:var(--note-bg)}
+.note-header{display:flex;align-items:center;gap:8px;padding:10px 16px;background:rgba(6,182,212,.1);border-bottom:1px solid rgba(6,182,212,.18);font-size:.7em;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--cyan2)}
+.note-grid{display:grid;grid-template-columns:1fr 1fr}
+.note-cell{padding:13px 16px;border-right:1px solid rgba(6,182,212,.12);border-bottom:1px solid rgba(6,182,212,.12)}
+.note-cell:nth-child(2n){border-right:none}
+.note-cell:nth-child(3),.note-cell:nth-child(4){border-bottom:none}
+.note-cell-label{font-size:.64em;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;color:var(--cyan2);margin-bottom:5px}
+.note-cell p{font-size:.82em;color:var(--text2);line-height:1.6}
+.note-cell strong{color:var(--white)}
+
+/* TOOLS GRID */
+.tools-grid{display:flex;flex-wrap:wrap;gap:7px;margin:14px 0}
+.tool-chip{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;background:var(--bg2);border:1px solid var(--border2);border-radius:20px;font-size:.76em;font-weight:600;color:var(--text2);text-decoration:none;transition:all .15s}
+.tool-chip:hover{background:rgba(6,182,212,.08);border-color:var(--cyan);color:var(--cyan2);transform:translateY(-1px)}
+.tool-chip span{font-size:.85em}
+
+/* QUIZ */
+.quiz-section{margin-top:32px;background:var(--bg2);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+.quiz-header{padding:14px 20px;background:var(--bg3);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.quiz-header h3{font-family:'Fraunces',serif;font-size:1em;font-weight:700;color:var(--white);display:flex;align-items:center;gap:8px}
+.quiz-score{font-family:'Fira Code',monospace;font-size:.76em;color:var(--cyan2);background:rgba(6,182,212,.08);padding:4px 12px;border-radius:20px;border:1px solid rgba(6,182,212,.2)}
+.quiz-body{padding:20px}
+.quiz-q{display:none}
+.quiz-q.active{display:block}
+.quiz-question{font-size:.92em;font-weight:600;color:var(--white);margin-bottom:14px;line-height:1.5}
+.quiz-qnum{display:inline-block;font-family:'Fira Code',monospace;font-size:.65em;color:var(--cyan2);background:rgba(6,182,212,.08);padding:2px 7px;border-radius:4px;margin-bottom:8px}
+.quiz-opts{display:flex;flex-direction:column;gap:7px}
+.quiz-opt{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;background:var(--card);border:1.5px solid var(--border);border-radius:8px;cursor:pointer;transition:all .15s;font-size:.88em;color:var(--text2)}
+.quiz-opt:hover:not(.disabled){background:rgba(6,182,212,.04);border-color:var(--cyan);color:var(--white)}
+.quiz-opt.correct{background:rgba(16,185,129,.08);border-color:var(--emerald);color:var(--white)}
+.quiz-opt.wrong{background:rgba(244,63,94,.08);border-color:var(--rose);color:var(--text2)}
+.quiz-opt.disabled{cursor:default}
+.opt-letter{font-family:'Fira Code',monospace;font-size:.75em;font-weight:700;color:var(--cyan2);background:rgba(6,182,212,.08);width:22px;height:22px;border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.quiz-opt.correct .opt-letter{background:rgba(16,185,129,.2);color:var(--emerald2)}
+.quiz-opt.wrong .opt-letter{background:rgba(244,63,94,.15);color:var(--rose2)}
+.quiz-feedback{margin-top:12px;padding:10px 14px;border-radius:8px;font-size:.84em;display:none}
+.quiz-feedback.show{display:block}
+.quiz-feedback.correct{background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.2);color:var(--emerald2)}
+.quiz-feedback.wrong{background:rgba(244,63,94,.08);border:1px solid rgba(244,63,94,.2);color:var(--rose2)}
+.quiz-nav{display:flex;align-items:center;justify-content:space-between;margin-top:16px;padding-top:14px;border-top:1px solid var(--border)}
+.quiz-btn{padding:8px 18px;border-radius:7px;border:none;font-family:'Syne',sans-serif;font-size:.82em;font-weight:700;cursor:pointer;transition:all .15s}
+.quiz-btn-sec{background:var(--bg3);color:var(--muted)}
+.quiz-btn-sec:hover{color:var(--text);background:var(--border)}
+.quiz-btn-pri{background:var(--cyan);color:#fff}
+.quiz-btn-pri:hover{background:var(--cyan2);transform:translateY(-1px)}
+.quiz-progress-dots{display:flex;gap:5px}
+.qdot{width:7px;height:7px;border-radius:50%;background:var(--border);transition:.2s}
+.qdot.done{background:var(--emerald)}
+.qdot.active{background:var(--cyan)}
+
+/* FLASHCARDS */
+.flashcard-section{margin-top:32px}
+.flash-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.flash-header h3{font-family:'Fraunces',serif;font-size:1em;font-weight:700;color:var(--white);display:flex;align-items:center;gap:8px}
+.flash-counter{font-family:'Fira Code',monospace;font-size:.76em;color:var(--cyan2)}
+.flashcard-wrap{perspective:1000px;height:180px;margin-bottom:12px;cursor:pointer}
+.flashcard{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .5s ease}
+.flashcard.flipped{transform:rotateY(180deg)}
+.fc-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center}
+.fc-front{background:var(--bg2);border:1.5px solid rgba(6,182,212,.3)}
+.fc-back{background:linear-gradient(135deg,rgba(6,182,212,.08),rgba(20,184,166,.06));border:1.5px solid rgba(6,182,212,.4);transform:rotateY(180deg)}
+.fc-label{font-size:.62em;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px}
+.fc-front .fc-label{color:var(--muted)}
+.fc-back .fc-label{color:var(--cyan2)}
+.fc-text{font-size:.95em;font-weight:600;color:var(--white);line-height:1.5}
+.fc-hint{font-size:.72em;color:var(--muted);margin-top:8px}
+.flash-controls{display:flex;align-items:center;justify-content:center;gap:10px}
+.flash-btn{padding:7px 18px;border-radius:7px;border:1px solid var(--border2);background:var(--bg2);color:var(--text2);font-family:'Syne',sans-serif;font-size:.8em;font-weight:600;cursor:pointer;transition:all .15s}
+.flash-btn:hover{border-color:var(--cyan);color:var(--cyan2)}
+.flash-btn:disabled{opacity:.35;cursor:default}
+
+/* AUDIT CHECKLIST */
+.audit-section{margin-top:32px;background:var(--bg2);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+.audit-header{padding:14px 20px;background:var(--bg3);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.audit-header h3{font-family:'Fraunces',serif;font-size:1em;font-weight:700;color:var(--white);display:flex;align-items:center;gap:8px}
+.audit-progress{font-family:'Fira Code',monospace;font-size:.76em;color:var(--cyan2)}
+.audit-tier{padding:12px 20px;border-bottom:1px solid var(--border)}
+.audit-tier:last-child{border-bottom:none}
+.audit-tier-label{font-size:.67em;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:9px;display:flex;align-items:center;gap:7px}
+.tier-critical .audit-tier-label{color:var(--rose2)}
+.tier-high .audit-tier-label{color:var(--amber)}
+.tier-medium .audit-tier-label{color:var(--cyan2)}
+.audit-items{display:flex;flex-direction:column;gap:6px}
+.audit-item{display:flex;align-items:center;gap:9px;padding:8px 12px;border-radius:7px;background:var(--card);border:1px solid var(--border);cursor:pointer;transition:all .15s}
+.audit-item:hover{border-color:var(--border2)}
+.audit-item.checked-audit{background:rgba(6,182,212,.04);border-color:rgba(6,182,212,.2)}
+.audit-item.checked-audit .audit-check{background:var(--cyan);border-color:var(--cyan);color:#fff;font-size:.6em}
+.audit-item.checked-audit .audit-text{color:var(--muted);text-decoration:line-through}
+.audit-check{width:17px;height:17px;border-radius:3px;border:1.5px solid var(--border2);flex-shrink:0;display:flex;align-items:center;justify-content:center;color:transparent;font-size:.5em}
+.audit-text{font-size:.84em;color:var(--text2)}
+
+/* DASHBOARD BUILDER */
+.dashboard-builder{margin-top:32px;background:var(--bg2);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+.db-header{padding:14px 20px;background:var(--bg3);border-bottom:1px solid var(--border)}
+.db-header h3{font-family:'Fraunces',serif;font-size:1em;font-weight:700;color:var(--white);display:flex;align-items:center;gap:8px}
+.db-header p{font-size:.78em;color:var(--muted);margin-top:4px}
+.db-body{padding:20px;display:flex;flex-direction:column;gap:14px}
+.db-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.db-field{display:flex;flex-direction:column;gap:5px}
+.db-field label{font-size:.72em;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:.8px}
+.db-field input,.db-field select,.db-field textarea{background:var(--card);border:1px solid var(--border2);border-radius:8px;padding:8px 12px;color:var(--text);font-family:'Syne',sans-serif;font-size:.85em;outline:none;transition:border-color .15s;width:100%}
+.db-field input:focus,.db-field select:focus,.db-field textarea:focus{border-color:var(--cyan)}
+.db-field select option{background:var(--bg2)}
+.db-field textarea{resize:vertical;min-height:60px}
+.db-submit{padding:10px 20px;background:var(--cyan);color:#fff;border:none;border-radius:8px;font-family:'Syne',sans-serif;font-size:.86em;font-weight:700;cursor:pointer;transition:all .2s;align-self:flex-start}
+.db-submit:hover{background:var(--cyan2);transform:translateY(-1px)}
+.db-output{display:none;background:var(--card);border:1px solid rgba(6,182,212,.3);border-radius:10px;padding:20px}
+.db-output.show{display:block}
+.db-output h4{font-family:'Fraunces',serif;font-size:1em;font-weight:700;color:var(--cyan2);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.db-report-section{margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--border)}
+.db-report-section:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.db-report-section h5{font-size:.78em;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--teal2);margin-bottom:8px}
+.db-report-section ul{list-style:none;padding:0;display:flex;flex-direction:column;gap:5px}
+.db-report-section li{font-size:.84em;color:var(--text2);padding-left:16px;position:relative;line-height:1.5}
+.db-report-section li::before{content:'→';position:absolute;left:0;color:var(--cyan2);font-size:.85em}
+.db-report-section p{font-size:.84em;color:var(--text2);line-height:1.6}
+
+/* MODULE NAV */
+.module-nav{display:flex;justify-content:space-between;gap:12px;padding:32px 0 0;border-top:1px solid var(--border);margin-top:44px}
+.mod-nav-btn{display:flex;align-items:center;gap:10px;padding:12px 20px;background:var(--card);border:1px solid var(--border);border-radius:10px;text-decoration:none;color:var(--text2);transition:all .15s;flex:1;max-width:280px}
+.mod-nav-btn:hover{border-color:var(--cyan);color:var(--cyan2)}
+.mod-nav-btn.prev{justify-content:flex-start}
+.mod-nav-btn.next{justify-content:flex-end;margin-left:auto}
+.nav-arrow{font-size:1.1em;color:var(--cyan)}
+.nav-btn-label{font-size:.65em;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);display:block;margin-bottom:2px}
+.nav-btn-title{font-size:.82em;font-weight:600;line-height:1.3}
+
+/* BLOG POSTS */
+.blogs-grid{display:flex;flex-direction:column;gap:10px;margin-top:14px}
+.blog-card{display:flex;align-items:flex-start;gap:14px;padding:14px 16px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;text-decoration:none;transition:all .15s}
+.blog-card:hover{border-color:var(--cyan);background:rgba(6,182,212,.04)}
+.blog-num{font-family:'Fira Code',monospace;font-size:.7em;font-weight:700;color:var(--muted);min-width:22px}
+.blog-info{flex:1}
+.blog-info strong{display:block;font-size:.88em;font-weight:600;color:var(--cyan2);margin-bottom:3px;line-height:1.3}
+.blog-card:hover .blog-info strong{color:var(--teal2)}
+.blog-info span{font-size:.77em;color:var(--muted);line-height:1.4}
+.blog-type{font-size:.62em;font-weight:700;text-transform:uppercase;padding:2px 7px;border-radius:3px;flex-shrink:0;letter-spacing:.5px;background:rgba(6,182,212,.1);color:var(--cyan2);border:1px solid rgba(6,182,212,.2)}
+
+/* SIDEBAR OVERLAY */
+.sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:150}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .sidebar{transform:translateX(-100%);z-index:300}
+  .sidebar.open{transform:translateX(0)}
+  .sidebar-overlay.show{display:block}
+  .main{margin-left:0}
+  .topbar{padding:12px 20px}
+  .hamburger{display:flex}
+  .mod-hero{padding:36px 24px 28px}
+  .content-area{padding:28px 20px 80px}
+  .hero-stats{grid-template-columns:repeat(2,1fr);width:100%}
+  .block-grid{grid-template-columns:1fr}
+  .note-grid{grid-template-columns:1fr}
+  .note-cell:nth-child(2n){border-right:1px solid rgba(6,182,212,.12)}
+  .note-cell:nth-child(2),.note-cell:nth-child(3),.note-cell:nth-child(4){border-bottom:1px solid rgba(6,182,212,.12)}
+  .note-cell:last-child{border-bottom:none}
+  .db-row{grid-template-columns:1fr}
+}
+@media(max-width:500px){
+  .mod-hero h1{font-size:1.6em}
+  .hero-stats{grid-template-columns:1fr 1fr}
+  .module-nav{flex-direction:column}
+  .mod-nav-btn.next{margin-left:0}
+}
+</style>
+</head>
+<body>
+<div class="shell">
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+  <div class="sb-brand">
+    <a href="seo_complete_roadmap_v3.html" class="sb-back">← All Modules</a>
+    <div class="sb-mod-badge">MODULE 09</div>
+    <h2>SEO Analytics & Reporting</h2>
+    <p>Proving ROI with Data</p>
+  </div>
+  <div class="sb-progress">
+    <div class="prog-label"><span>Progress</span><span id="prog-pct">0%</span></div>
+    <div class="prog-bg"><div class="prog-fill" id="prog-fill"></div></div>
+  </div>
+  <nav class="sb-nav">
+    <div class="sb-section-label">Topics</div>
+    <a class="nav-link" onclick="scrollTo('t9-1')" href="#t9-1"><span class="nav-num">9.1</span>GSC & GA4 Mastery<span class="nav-done">✓</span></a>
+    <a class="nav-link" onclick="scrollTo('t9-2')" href="#t9-2"><span class="nav-num">9.2</span>SEO KPIs & Metrics<span class="nav-done">✓</span></a>
+    <a class="nav-link" onclick="scrollTo('t9-3')" href="#t9-3"><span class="nav-num">9.3</span>Rank Tracking<span class="nav-done">✓</span></a>
+    <a class="nav-link" onclick="scrollTo('t9-4')" href="#t9-4"><span class="nav-num">9.4</span>Client Reporting<span class="nav-done">✓</span></a>
+    <a class="nav-link" onclick="scrollTo('t9-5')" href="#t9-5"><span class="nav-num">9.5</span>Attribution & ROI<span class="nav-done">✓</span></a>
+    <a class="nav-link" onclick="scrollTo('t9-6')" href="#t9-6"><span class="nav-num">9.6</span>Analytics Audit Checklist<span class="nav-done">✓</span></a>
+    <div class="sb-section-label" style="margin-top:10px">Practice</div>
+    <a class="nav-link" onclick="scrollTo('quiz-sec')" href="#quiz-sec"><span class="nav-num">🎯</span>Knowledge Quiz</a>
+    <a class="nav-link" onclick="scrollTo('flash-sec')" href="#flash-sec"><span class="nav-num">🃏</span>Flashcards</a>
+    <a class="nav-link" onclick="scrollTo('audit-sec')" href="#audit-sec"><span class="nav-num">📋</span>Audit Checklist</a>
+    <a class="nav-link" onclick="scrollTo('report-builder')" href="#report-builder"><span class="nav-num">📊</span>Report Builder</a>
+  </nav>
+  <div class="sb-footer">
+    <p>SEO Mastery Roadmap 2025<br>Module 9 of 12</p>
+  </div>
+</aside>
+<div class="sidebar-overlay" id="overlay" onclick="closeSidebar()"></div>
+
+<!-- MAIN -->
+<main class="main">
+  <div class="topbar">
+    <button class="hamburger" onclick="openSidebar()"><span></span><span></span><span></span></button>
+    <div class="topbar-breadcrumb">
+      <a href="seo_complete_roadmap_v3.html">SEO Mastery 2025</a> › <span>Module 9 — Analytics & Reporting</span>
+    </div>
+    <button class="theme-btn" onclick="toggleTheme()" id="theme-btn">🌙 Dark Mode</button>
+  </div>
+
+  <!-- HERO -->
+  <div class="mod-hero">
+    <div class="mod-hero-bg"></div>
+    <div class="mod-hero-grid"></div>
+    <div class="mod-hero-inner">
+      <div class="mod-number-tag">MODULE 09 — ANALYTICS</div>
+      <h1>SEO Analytics<br><em>&amp; Reporting</em></h1>
+      <p>Measuring SEO separates professionals from amateurs. Learn to use data to prove value, find opportunities invisible to competitors, and communicate results that clients and employers understand immediately.</p>
+      <div class="mod-tags">
+        <span class="mtag mtag-cyan">Data-Driven</span>
+        <span class="mtag mtag-amber">Client Skills</span>
+        <span class="mtag mtag-teal">Essential</span>
+        <span class="mtag mtag-emerald">ROI Focused</span>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-box"><div class="stat-n">6</div><div class="stat-l">Topics</div></div>
+        <div class="stat-box"><div class="stat-n">24</div><div class="stat-l">Tasks</div></div>
+        <div class="stat-box"><div class="stat-n">20</div><div class="stat-l">Resources</div></div>
+        <div class="stat-box"><div class="stat-n">2–3h</div><div class="stat-l">Est. Time</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-area">
+
+    <!-- ═══ TOPIC 9.1 ═══ -->
+    <div class="topic-item open" id="t9-1">
+      <div class="topic-header" onclick="toggleTopic(this)">
+        <span class="topic-num">9.1</span>
+        <h3>Google Search Console Mastery & GA4 for SEO</h3>
+        <span class="topic-difficulty diff-intermediate">Intermediate</span>
+        <span class="topic-chevron">▼</span>
+      </div>
+      <div class="topic-body">
+        <div class="topic-intro">Google Search Console (GSC) and Google Analytics 4 (GA4) are the two essential free tools every SEO professional must master. GSC shows you how Google sees your site — queries, rankings, indexing status, technical issues. GA4 shows how users behave after arriving — what they do, where they drop off, which pages convert. Used together, they give you the complete picture of SEO performance and opportunity that no paid tool can replace.</div>
+        <div class="keypoints">
+          <div class="kp"><div class="kp-dot"></div><div><strong>GSC Performance Report — The Goldmine:</strong> Filter by "Position: 8–20" to find your "quick win" keywords. These are queries where you almost rank on page 1. Small optimisations — update title tag, add a relevant section, add internal links — can move them to top 7, often doubling or tripling their traffic. One GSC filter can reveal more opportunity than weeks of keyword research.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>High Impressions / Low CTR Pages:</strong> In GSC Performance, sort by Impressions descending, then filter for CTR below 5%. These pages appear in search results frequently but nobody clicks — meaning your title tags or meta descriptions are weak. Rewriting these is one of the highest-ROI activities in SEO with zero content creation required.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>GA4 for Organic SEO Reporting:</strong> Navigate to Acquisition → Traffic Acquisition → filter by Organic Search. Key reports: Landing Pages (which pages drive organic traffic and which convert), User engagement (bounce rate, scroll depth, session duration per organic page), and Conversions (which organic pages produce leads/sales). Create a dedicated "Organic Search" comparison segment.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Connecting GSC + GA4:</strong> Link both accounts in GA4 → Admin → Property Settings → Search Console Links. Once linked, GA4's "Queries" report shows which keywords send users to which landing pages and whether those users convert — the missing link between search rankings and business outcomes.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Looker Studio Dashboards:</strong> Connect GSC + GA4 to Google Looker Studio (free) to build automated visual dashboards. Share a live dashboard link with clients instead of sending manual PDF reports — professional, always-current, and clients can check any time without needing help. Your dashboard becomes a trust-building asset that clients check daily.</div></div>
+        </div>
+        <div class="block-grid">
+          <div class="info-block block-example">
+            <div class="block-label">📖 Real Example</div>
+            <p>An SEO analyst filtered GSC Performance for keywords at positions 8–20. Found 47 keywords where the site was "almost page 1." For each, they identified the ranking page and made targeted improvements: better title tags (23 pages), added FAQ sections (12 pages), added 2–3 internal links from higher-authority pages (all 47 pages). Cost: 2 weeks of work. Result: 23 keywords moved to positions 1–7 within 8 weeks. Additional organic traffic: <strong>+11,400 visits/month</strong>. Zero new content created. Zero new backlinks built.</p>
+          </div>
+          <div class="info-block block-task">
+            <div class="block-label">✅ Your Tasks</div>
+            <div class="task-list">
+              <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Set up both <strong>GSC and GA4</strong> for any website. Connect them to each other in GA4 settings. Verify data is flowing correctly in both tools.</span></label>
+              <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">In GSC Performance, filter for positions 8–20. List the top 10 keyword opportunities and the specific improvements you'd make to each ranking page.</span></label>
+              <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Build a basic <strong>Looker Studio SEO Dashboard</strong> with: organic sessions trend, top keywords, average position, CTR, and impressions. Share as a live link.</span></label>
+              <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Find 5 pages with high impressions and below 3% CTR. Rewrite their title tags and meta descriptions to boost clicks. Document the "before" for comparison.</span></label>
+            </div>
+          </div>
+        </div>
+        <div class="resources-block">
+          <div class="res-title">📚 Resources</div>
+          <div class="res-links">
+            <a class="res-link" href="https://search.google.com/search-console" target="_blank"><span class="res-icon">🔧</span><div class="res-text"><strong>Google Search Console</strong><span>The #1 free SEO tool. Search performance, indexing status, Core Web Vitals, manual actions, structured data testing.</span></div><span class="res-badge res-free">FREE TOOL</span></a>
+            <a class="res-link" href="https://analytics.google.com" target="_blank"><span class="res-icon">🔧</span><div class="res-text"><strong>Google Analytics 4</strong><span>Track user behaviour, conversions, traffic sources, and revenue. Connect with GSC for the complete organic performance picture.</span></div><span class="res-badge res-free">FREE TOOL</span></a>
+            <a class="res-link" href="https://lookerstudio.google.com" target="_blank"><span class="res-icon">🔧</span><div class="res-text"><strong>Google Looker Studio</strong><span>Free data visualisation. Connect to GSC, GA4, Google Ads, and 800+ data sources to build professional client-ready dashboards.</span></div><span class="res-badge res-free">FREE TOOL</span></a>
+            <a class="res-link" href="https://ahrefs.com/blog/google-search-console/" target="_blank"><span class="res-icon">🔗</span><div class="res-text"><strong>Ahrefs — How to Use Google Search Console to Improve SEO</strong><span>Step-by-step guide to extracting every useful insight from Google Search Console's reports — with screenshots.</span></div><span class="res-badge res-blog">GUIDE</span></a>
+          </div>
+        </div>
+        <div class="topic-note">
+          <div class="note-header">📌 Why / Where / How / When</div>
+          <div class="note-grid">
+            <div class="note-cell"><div class="note-cell-label">🎯 Why Use It</div><p>GSC + GA4 tell you <strong>exactly what's working</strong>, what isn't, and where to focus your limited time. Without data, SEO is guesswork — and clients won't pay for guesswork.</p></div>
+            <div class="note-cell"><div class="note-cell-label">📍 Where to Use It</div><p>Every client website and every personal project. Set up <strong>on Day 1</strong> — you need historical baseline data before you can measure improvement.</p></div>
+            <div class="note-cell"><div class="note-cell-label">🔧 How to Use It</div><p>Weekly: check Coverage errors and new keyword opportunities. Monthly: compare performance, update rankings, prepare client report. Quarterly: full strategic review.</p></div>
+            <div class="note-cell"><div class="note-cell-label">⏰ When to Prioritise</div><p>Immediately on every new client engagement. Build your Looker Studio dashboard <strong>before</strong> the first strategy meeting — it shows professionalism and creates a baseline.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ TOPIC 9.2 ═══ -->
+    <div class="topic-item" id="t9-2">
+      <div class="topic-header" onclick="toggleTopic(this)">
+        <span class="topic-num">9.2</span>
+        <h3>SEO KPIs, Metrics That Matter & Vanity Metrics to Avoid</h3>
+        <span class="topic-difficulty diff-intermediate">Intermediate</span>
+        <span class="topic-chevron">▼</span>
+      </div>
+      <div class="topic-body">
+        <div class="topic-intro">The most common mistake in SEO reporting is measuring the wrong things — or too many things. Clients don't care about Domain Authority or keyword count. They care about revenue, leads, and customers. Your job as an SEO professional is to bridge the gap between SEO metrics and business outcomes. Choose 3–5 KPIs that directly connect to client goals, and report only those consistently.</div>
+        <div class="keypoints">
+          <div class="kp"><div class="kp-dot"></div><div><strong>Primary Business KPIs:</strong> Organic traffic revenue (GA4: Conversions from Organic channel), lead volume from organic search, organic conversion rate (organic sessions ÷ conversions), cost-per-organic-lead (client's ad spend equivalent). These are the metrics that justify your retainer.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>SEO Health KPIs:</strong> Organic sessions (month-over-month + year-over-year), average position for target keywords (GSC), number of keywords on page 1 (positions 1–10), organic click-through rate, Core Web Vitals pass/fail status. Report these alongside business KPIs to show the work behind the results.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Opportunity Metrics:</strong> Keywords at positions 8–20 (quick wins), pages with high impressions and low CTR (title tag opportunities), indexed vs submitted pages ratio (indexation health), backlinks gained this period. These show forward momentum and planned next steps.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Vanity Metrics to Avoid Reporting:</strong> Domain Authority (Moz's proprietary score — not a Google ranking signal), total backlinks count (quality matters, not volume), keyword rankings for 1 keyword without trend context, social shares. Reporting vanity metrics erodes client trust when they don't correlate with business results.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Attribution Windows &amp; Seasonality:</strong> Always compare YoY (year-over-year), not just MoM (month-over-month) for businesses with seasonal demand. A December traffic drop for a Christmas gift shop isn't a failure — it's seasonality. Set expectations in Month 1 by establishing baseline and defining seasonal patterns together with the client.</div></div>
+        </div>
+        <div class="block-grid">
+          <div class="info-block block-insight">
+            <div class="block-label">💡 Pro Framework</div>
+            <p><strong>The 3-Layer KPI Stack:</strong></p>
+            <ul>
+              <li><strong>Layer 1 — Business:</strong> Revenue, leads, transactions from organic</li>
+              <li><strong>Layer 2 — SEO Health:</strong> Organic traffic, keyword rankings, CTR</li>
+              <li><strong>Layer 3 — Activity:</strong> Pages optimised, links built, content published</li>
+            </ul>
+            <p style="margin-top:8px">Report all 3 layers every month. Layer 1 shows <em>impact</em>. Layer 2 shows <em>progress</em>. Layer 3 shows <em>effort</em>. Together they tell the full story.</p>
+          </div>
+          <div class="info-block block-task">
+            <div class="block-label">✅ Your Tasks</div>
+            <div class="task-list">
+              <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">For a real or fictional business, define <strong>5 specific KPIs</strong> — 2 business outcomes, 2 SEO health metrics, 1 opportunity metric. Justify each choice.</span></label>
+              <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Set up a GA4 conversion event for "Contact Form Submit" or "Purchase". Verify it's firing correctly. Test in GA4 Debug View.</span></label>
+              <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Pull 12 months of GSC data for any site. Create a YoY comparison chart showing organic impressions, clicks, and average position. Identify seasonal patterns.</span></label>
+            </div>
+          </div>
+        </div>
+        <div class="resources-block">
+          <div class="res-title">📚 Resources</div>
+          <div class="res-links">
+            <a class="res-link" href="https://backlinko.com/seo-metrics" target="_blank"><span class="res-icon">🔗</span><div class="res-text"><strong>Backlinko — SEO Metrics That Actually Matter</strong><span>Data-driven guide to measuring SEO performance — what to track, what to ignore, and how to present results to clients.</span></div><span class="res-badge res-blog">GUIDE</span></a>
+            <a class="res-link" href="https://www.semrush.com/blog/seo-kpis/" target="_blank"><span class="res-icon">🔗</span><div class="res-text"><strong>SEMrush — SEO KPIs: How to Track What Actually Matters</strong><span>Framework for choosing and tracking KPIs aligned with business goals, not just SEO vanity metrics.</span></div><span class="res-badge res-blog">BLOG</span></a>
+          </div>
+        </div>
+        <div class="topic-note">
+          <div class="note-header">📌 Why / Where / How / When</div>
+          <div class="note-grid">
+            <div class="note-cell"><div class="note-cell-label">🎯 Why Use It</div><p>Clear KPIs <strong>protect your retainer</strong>. When clients can see their money producing measurable business results, churn drops dramatically. KPIs make success visible.</p></div>
+            <div class="note-cell"><div class="note-cell-label">📍 Where to Use It</div><p>In every client proposal (agree KPIs before work starts), in every monthly report, and in every strategy review meeting. Define success <strong>jointly</strong> with the client.</p></div>
+            <div class="note-cell"><div class="note-cell-label">🔧 How to Use It</div><p>Map each KPI to a specific report in GSC or GA4. Automate data collection with Looker Studio. Set monthly targets in the first month using baseline data.</p></div>
+            <div class="note-cell"><div class="note-cell-label">⏰ When to Prioritise</div><p>Define KPIs in Month 1. Review and revise quarterly. If a KPI stops being relevant (e.g. after rebranding), update it <strong>proactively</strong> — not in reaction to client complaints.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ TOPIC 9.3 ═══ -->
+    <div class="topic-item" id="t9-3">
+      <div class="topic-header" onclick="toggleTopic(this)">
+        <span class="topic-num">9.3</span>
+        <h3>Rank Tracking — Setting Up, Reading & Acting on Data</h3>
+        <span class="topic-difficulty diff-beginner">Beginner</span>
+        <span class="topic-chevron">▼</span>
+      </div>
+      <div class="topic-body">
+        <div class="topic-intro">Keyword rank tracking is the pulse-check of every SEO campaign. While GSC gives you average positions across all queries, dedicated rank tracking tools give you exact, daily positions for your specific target keywords — with historical trends, competitor comparison, and SERP feature tracking. Used correctly, rank tracking tells you what to work on next and proves momentum to clients who can't see traffic data directly.</div>
+        <div class="keypoints">
+          <div class="kp"><div class="kp-dot"></div><div><strong>What to Track:</strong> Limit to 20–50 primary keywords per client (not hundreds). Include: your 10 highest-priority money keywords, 10 medium-competition keywords you're actively targeting, 5 branded keywords, 5 competitor-comparison keywords. More isn't better — focused tracking keeps strategy clear.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Tools for Rank Tracking:</strong> <strong>Google Search Console</strong> (free, shows average position but no daily tracking). <strong>Ahrefs Rank Tracker</strong> (weekly updates on Free plan, daily on paid). <strong>SEMrush Position Tracking</strong> (daily updates, SERP features, local tracking). <strong>SERPWatcher by Mangools</strong> (affordable, daily tracking, clean interface). For clients on tight budgets, GSC + free rank checker tools work adequately.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Local Rank Tracking:</strong> Google shows different results based on location. For local businesses, track rankings by city or even postcode. A "dentist Delhi" search produces different results in South Delhi vs North Delhi. Tools like BrightLocal or SEMrush's local tracking feature handle geo-specific rank tracking.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>SERP Features Tracking:</strong> Beyond blue links, track whether you appear in Featured Snippets, People Also Ask, Knowledge Panels, Local Pack, or Image Packs for target queries. Each SERP feature has different traffic implications — a Featured Snippet may dramatically outperform a position 1 blue link for the same query.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Reading Rank Data Correctly:</strong> Day-to-day fluctuations of 1–3 positions are normal Google algorithm noise. Look for 2+ week trends. Drops of 5+ positions sustained for 2+ weeks need investigation. Gains of 5+ positions sustained for 2+ weeks are real wins worth noting in client reports. Always compare to the date of major content updates or technical changes.</div></div>
+        </div>
+        <div class="block-grid">
+          <div class="info-block block-example">
+            <div class="block-label">📖 Real Example</div>
+            <p>A law firm was tracking 200 keywords, spending hours weekly analysing rank data. The SEO consultant reduced this to 35 core keywords: 15 practice area keywords, 10 location-based keywords, 5 branded, 5 competitor terms. With focused tracking, they noticed that 8 keywords dropped 7+ positions after a site redesign — quickly identifying that canonical tags were incorrectly redirecting old URLs. Fixed in 3 days. Without focused rank tracking, the issue would have gone undetected for weeks.</p>
+          </div>
+          <div class="info-block block-task">
+            <div class="block-label">✅ Your Tasks</div>
+            <div class="task-list">
+              <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Set up rank tracking for a real or demo site. Choose 20 target keywords. Use GSC or a free rank tracking tool to establish baseline positions.</span></label>
+              <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Compare SERP features for 10 keywords in your niche. Note which have featured snippets, local packs, or PAA boxes. Which represent the biggest opportunity?</span></label>
+              <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Create a <strong>rank tracking spreadsheet</strong> documenting position at Week 1, Week 4, Week 8, Week 12 for 20 keywords. Calculate overall ranking trend score.</span></label>
+            </div>
+          </div>
+        </div>
+        <div class="resources-block">
+          <div class="res-title">📚 Resources</div>
+          <div class="res-links">
+            <a class="res-link" href="https://mangools.com/serpwatcher" target="_blank"><span class="res-icon">🔧</span><div class="res-text"><strong>SERPWatcher by Mangools</strong><span>Affordable daily rank tracking with clean UI. Best value paid rank tracker for freelancers and small agencies.</span></div><span class="res-badge res-tool">TOOL</span></a>
+            <a class="res-link" href="https://www.semrush.com/position-tracking/" target="_blank"><span class="res-icon">🔧</span><div class="res-text"><strong>SEMrush Position Tracking</strong><span>Daily rank tracking, SERP feature detection, local tracking, and competitor comparison. Industry standard.</span></div><span class="res-badge res-tool">TOOL</span></a>
+            <a class="res-link" href="https://ahrefs.com/rank-tracker" target="_blank"><span class="res-icon">🔧</span><div class="res-text"><strong>Ahrefs Rank Tracker</strong><span>Track rankings across desktop and mobile with SERP history and visibility score trends.</span></div><span class="res-badge res-tool">TOOL</span></a>
+            <a class="res-link" href="https://brightlocal.com/learn/local-rank-tracking-guide/" target="_blank"><span class="res-icon">🔗</span><div class="res-text"><strong>BrightLocal — Local Rank Tracking Guide</strong><span>Complete guide to tracking local keyword rankings with geo-specific accuracy for local SEO clients.</span></div><span class="res-badge res-blog">GUIDE</span></a>
+          </div>
+        </div>
+        <div class="topic-note">
+          <div class="note-header">📌 Why / Where / How / When</div>
+          <div class="note-grid">
+            <div class="note-cell"><div class="note-cell-label">🎯 Why Use It</div><p>Rank tracking shows <strong>momentum before traffic increases</strong>. Rankings improve before traffic increases — it's the early warning system that justifies continued investment.</p></div>
+            <div class="note-cell"><div class="note-cell-label">📍 Where to Use It</div><p>Every client campaign. Track a focused list of 20–50 keywords per client maximum. For local businesses, track with geo-targeting set to their specific city.</p></div>
+            <div class="note-cell"><div class="note-cell-label">🔧 How to Use It</div><p>Review weekly for significant drops (5+ positions). Include monthly snapshot in client reports. Use for content prioritisation — identify stuck keywords for active optimisation.</p></div>
+            <div class="note-cell"><div class="note-cell-label">⏰ When to Prioritise</div><p>Set up in Week 1 of every engagement. Review after every major site change (redesign, migration, plugin update). Flag any sustained drops for <strong>immediate investigation</strong>.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ TOPIC 9.4 ═══ -->
+    <div class="topic-item" id="t9-4">
+      <div class="topic-header" onclick="toggleTopic(this)">
+        <span class="topic-num">9.4</span>
+        <h3>Client Reporting — Structure, Storytelling & Communication</h3>
+        <span class="topic-difficulty diff-intermediate">Intermediate</span>
+        <span class="topic-chevron">▼</span>
+      </div>
+      <div class="topic-body">
+        <div class="topic-intro">The ability to communicate SEO results clearly is as valuable as the ability to produce those results. Many technically excellent SEOs lose clients because they report confusing data instead of clear business impact. A great SEO report tells a story: what happened, why it happened, what it means for the business, and what happens next. Master this and your client retention rate will be dramatically higher than your competitors.</div>
+        <div class="keypoints">
+          <div class="kp"><div class="kp-dot"></div><div><strong>Report Structure (5-Section Formula):</strong> 1) Executive Summary (3 bullet wins, 1 challenge, 1 next priority — this is what decision-makers read), 2) Traffic & Rankings (charts showing trends), 3) Conversions & Business Impact (the numbers that justify the retainer), 4) Work Completed This Month (specific activities done), 5) Next Month's Plan (builds confidence in strategic direction).</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Visual First:</strong> Clients retain information from charts 65% better than tables. Use Looker Studio to show: organic sessions trend line, keyword position movement chart, top 10 landing pages by organic traffic, conversion funnel. Every data point should have a visual representation alongside the number.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Business Language, Not SEO Jargon:</strong> Never say "we improved your average position by 2.3 points." Say "12 more customers found you through Google this month compared to last month." Never say "we fixed your canonical issues." Say "we fixed a technical problem that was preventing Google from indexing 40% of your product pages." Translate everything into business impact.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Handling Bad Months:</strong> Never hide bad results — it destroys trust when clients notice later. Acknowledge the drop, explain the cause (algorithm update, seasonal dip, technical issue), show what you're doing to address it, and give a timeline for recovery. Clients respect honesty and proactive problem-solving far more than fake optimism.</div></div>
+        </div>
+        <div class="block-grid">
+          <div class="info-block block-example">
+            <div class="block-label">📖 Real Example</div>
+            <p>An SEO freelancer was sending 12-page PDF reports full of charts, tables, and technical metrics. Clients weren't reading them and retention was poor. They switched to a 1-page visual dashboard (Looker Studio) + 3-bullet email summary: "✅ Organic traffic up 18% vs last month. ✅ Target keyword 'accountant Delhi' moved from position 14 to position 6. ✅ 8 contact form submissions from organic search this month (up from 3)." Client retention improved dramatically — clients finally understood what they were paying for.</p>
+          </div>
+          <div class="info-block block-task">
+            <div class="block-label">✅ Your Tasks</div>
+            <div class="task-list">
+              <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Write a <strong>complete monthly SEO report</strong> for a fictional client — include executive summary, traffic change, keyword movements, 3 wins, and next month's plan.</span></label>
+              <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Build a <strong>Looker Studio client dashboard</strong> using free GSC connector. Include: organic click trend, top keywords table, impression vs click chart. Share the link.</span></label>
+              <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Translate 5 SEO metrics into plain business language. E.g. "Average position improved by 4" → what does this mean in real customer terms?</span></label>
+              <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Write a <strong>"bad news" email</strong> to a client explaining that traffic dropped 20% due to a Google algorithm update. Include: cause, impact, plan, and realistic timeline.</span></label>
+            </div>
+          </div>
+        </div>
+        <div class="resources-block">
+          <div class="res-title">📚 Resources</div>
+          <div class="res-links">
+            <a class="res-link" href="https://lookerstudio.google.com/gallery" target="_blank"><span class="res-icon">🔧</span><div class="res-text"><strong>Looker Studio Report Gallery</strong><span>Free SEO report templates you can copy and connect to your own GSC + GA4 data instantly.</span></div><span class="res-badge res-free">FREE TOOL</span></a>
+            <a class="res-link" href="https://ahrefs.com/blog/seo-reporting/" target="_blank"><span class="res-icon">🔗</span><div class="res-text"><strong>Ahrefs — How to Create an SEO Report Clients Will Actually Read</strong><span>Practical guide to structuring SEO reports that retain clients and communicate value effectively.</span></div><span class="res-badge res-blog">GUIDE</span></a>
+            <a class="res-link" href="https://www.semrush.com/blog/seo-reporting/" target="_blank"><span class="res-icon">🔗</span><div class="res-text"><strong>SEMrush — SEO Reporting Guide with Templates</strong><span>Complete framework for monthly SEO reporting with downloadable templates for agencies and freelancers.</span></div><span class="res-badge res-blog">BLOG</span></a>
+          </div>
+        </div>
+        <div class="topic-note">
+          <div class="note-header">📌 Why / Where / How / When</div>
+          <div class="note-grid">
+            <div class="note-cell"><div class="note-cell-label">🎯 Why Use It</div><p>Clear reporting is a <strong>retention strategy</strong>. Clients who understand what they're getting don't churn. Your reporting ability is as valuable as your SEO ability — often more so.</p></div>
+            <div class="note-cell"><div class="note-cell-label">📍 Where to Use It</div><p>Monthly for all retained clients. Quarterly for performance reviews. Ad-hoc for major events (algorithm updates, traffic spikes, technical issues). Always proactively.</p></div>
+            <div class="note-cell"><div class="note-cell-label">🔧 How to Use It</div><p>Build a Looker Studio template once and reuse for all clients (adjust data connections). Write executive summary email in 15 minutes. Schedule monthly check-in calls.</p></div>
+            <div class="note-cell"><div class="note-cell-label">⏰ When to Prioritise</div><p>First report due in Month 1 (even if it's just baseline data). Don't wait for "results" — report <strong>activity and momentum</strong> from Day 1 to build confidence.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ TOPIC 9.5 ═══ -->
+    <div class="topic-item" id="t9-5">
+      <div class="topic-header" onclick="toggleTopic(this)">
+        <span class="topic-num">9.5</span>
+        <h3>SEO Attribution, Revenue Tracking & Proving ROI</h3>
+        <span class="topic-difficulty diff-advanced">Advanced</span>
+        <span class="topic-chevron">▼</span>
+      </div>
+      <div class="topic-body">
+        <div class="topic-intro">The most sophisticated SEO skill — and the one that commands the highest rates — is proving that SEO directly produces revenue and business results. This requires proper conversion tracking setup, understanding attribution models, and knowing how to calculate the financial value of organic traffic. SEOs who can show £1 spent on SEO produces £5–10 in revenue are never out of work.</div>
+        <div class="keypoints">
+          <div class="kp"><div class="kp-dot"></div><div><strong>GA4 Conversion Setup:</strong> Tag every business-valuable action: contact form submissions, phone click tracking, email link clicks, product purchases, appointment bookings, file downloads, video plays. Each requires a GA4 conversion event (some auto-detected, others need Google Tag Manager custom events). Without conversion tracking, you're flying blind on business impact.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Attribution Models:</strong> GA4's default is "Data-Driven" attribution (distributes credit across the conversion journey using ML). For SEO purposes, also check "Last Click" (where organic search often wins for informational-to-commercial journeys) and "First Click" (where organic often initiates the journey for brand-new customers). Understanding attribution models helps you argue for SEO's contribution correctly.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Organic Traffic Value Calculation:</strong> Method 1: Look up the CPC (cost-per-click) of your organic keywords in Google Ads Keyword Planner. Multiply CPC × monthly organic clicks = "equivalent PPC value" of your organic traffic. This is a powerful client communication tool. Method 2: Organic conversions × average order value = organic revenue.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Call Tracking for Local SEO:</strong> Google Business Profile calls don't appear in GA4. Use call tracking tools (CallRail, Google's built-in call tracking) to measure phone calls driven by organic and Maps rankings. For local businesses where phone calls are the primary conversion action, this is the most important metric of all.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>SEO ROI Formula:</strong> ROI = (Organic Revenue − SEO Investment) ÷ SEO Investment × 100. Example: Organic revenue ₹4,00,000/month, SEO retainer ₹25,000/month, ROI = (₹4,00,000 − ₹25,000) ÷ ₹25,000 × 100 = 1,500% ROI. Present this number clearly and your retainer is never questioned.</div></div>
+        </div>
+        <div class="block-grid">
+          <div class="info-block block-example">
+            <div class="block-label">📖 Real Example</div>
+            <p>An e-commerce SEO consultant tracked organic revenue via GA4 + enhanced e-commerce. After 6 months: organic sessions up 80% but client was considering cancelling due to "not seeing results." The consultant pulled GA4's e-commerce revenue by channel report. Organic search: ₹8.2 lakh/month in direct sales attribution. Previous period: ₹3.1 lakh/month. That's ₹5.1 lakh additional monthly revenue from a ₹40,000/month retainer — 12.75x ROI. Client signed a 12-month extension immediately.</p>
+          </div>
+          <div class="info-block block-task">
+            <div class="block-label">✅ Your Tasks</div>
+            <div class="task-list">
+              <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Set up a <strong>GA4 conversion event</strong> for a contact form submission using Google Tag Manager. Verify it fires correctly in GTM's Preview mode.</span></label>
+              <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Calculate the <strong>PPC equivalent value</strong> of organic traffic for any site using Google Ads Keyword Planner CPCs and GSC click data.</span></label>
+              <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Build a simple <strong>SEO ROI calculator</strong> in a spreadsheet: inputs = monthly retainer fee, organic conversions, average conversion value. Output = monthly ROI %.</span></label>
+            </div>
+          </div>
+        </div>
+        <div class="resources-block">
+          <div class="res-title">📚 Resources</div>
+          <div class="res-links">
+            <a class="res-link" href="https://tagmanager.google.com" target="_blank"><span class="res-icon">🔧</span><div class="res-text"><strong>Google Tag Manager</strong><span>Free tag management for setting up GA4 conversion tracking, enhanced e-commerce, call tracking, and custom events without developer help.</span></div><span class="res-badge res-free">FREE TOOL</span></a>
+            <a class="res-link" href="https://callrail.com" target="_blank"><span class="res-icon">🔧</span><div class="res-text"><strong>CallRail</strong><span>Call tracking and analytics. Essential for local businesses where phone calls are the primary conversion action from organic search.</span></div><span class="res-badge res-tool">TOOL</span></a>
+            <a class="res-link" href="https://www.semrush.com/blog/seo-roi/" target="_blank"><span class="res-icon">🔗</span><div class="res-text"><strong>SEMrush — How to Calculate & Prove SEO ROI</strong><span>Complete framework for calculating, presenting, and defending SEO return on investment to clients.</span></div><span class="res-badge res-blog">GUIDE</span></a>
+          </div>
+        </div>
+        <div class="topic-note">
+          <div class="note-header">📌 Why / Where / How / When</div>
+          <div class="note-grid">
+            <div class="note-cell"><div class="note-cell-label">🎯 Why Use It</div><p>Revenue attribution is the <strong>ultimate retainer protection</strong>. A client who knows SEO generates 12x ROI doesn't shop around for cheaper alternatives. It's the single most important skill for long-term freelance success.</p></div>
+            <div class="note-cell"><div class="note-cell-label">📍 Where to Use It</div><p>E-commerce sites (direct revenue tracking), lead-gen businesses (conversion value × close rate), local businesses (call tracking + GBP insights). Every business type has measurable outcomes.</p></div>
+            <div class="note-cell"><div class="note-cell-label">🔧 How to Use It</div><p>Set up conversion tracking in Month 1. Calculate traffic value quarterly using CPC data. Include revenue attribution in every report. Use ROI calculation in renewal conversations.</p></div>
+            <div class="note-cell"><div class="note-cell-label">⏰ When to Prioritise</div><p>Set up conversion tracking <strong>before starting any SEO work</strong>. You need baseline conversion data from the start to prove before/after impact. This is non-negotiable.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ TOPIC 9.6 ═══ -->
+    <div class="topic-item" id="t9-6">
+      <div class="topic-header" onclick="toggleTopic(this)">
+        <span class="topic-num">9.6</span>
+        <h3>Analytics Audit Workflow — Verifying Data Accuracy</h3>
+        <span class="topic-difficulty diff-intermediate">Intermediate</span>
+        <span class="topic-chevron">▼</span>
+      </div>
+      <div class="topic-body">
+        <div class="topic-intro">Bad analytics data leads to bad decisions. Many websites have GA4 set up incorrectly — duplicate tracking, missing conversions, bot traffic inflating numbers, or sessions being misattributed. Before trusting any data, run a full analytics audit. An analytics audit is also an excellent service to offer clients — finding and fixing data quality issues is immediately valuable and often reveals why previous campaigns appeared to underperform.</div>
+        <div class="keypoints">
+          <div class="kp"><div class="kp-dot"></div><div><strong>Check for Duplicate Tracking:</strong> The most common GA4 error. If the GA4 tag fires twice (via direct code AND via GTM), session counts are doubled. In GA4 → Admin → Data Streams → Check Measurement ID is only implemented once. Compare sessions to server log data if available. Duplicate tracking is more common than you'd think, especially on sites that have changed developers.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Verify Conversion Events:</strong> Go to GA4 → Configure → Events. Ensure each conversion event is: firing on the correct action, not inflated by bot traffic, correctly attributed (not firing on page load instead of form submit). Use GA4's Debug View to test each conversion event in real time.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Bot Traffic &amp; Spam Filtering:</strong> GA4 automatically filters known bots. But check: are there sessions with 0-second duration and 0 events? These are likely bots. Check for suspiciously high traffic from single cities or countries unrelated to your business. Enabling "Google signals" helps with cross-device tracking accuracy.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>GSC vs GA4 Traffic Discrepancy:</strong> GSC clicks will always be higher than GA4 organic sessions — this is normal and expected. GA4 sessions exclude: bots, users who quickly bounce before GA4 tag fires, users with JavaScript disabled. A 10–20% discrepancy is normal. Over 30% discrepancy suggests a tracking issue worth investigating.</div></div>
+        </div>
+        <div class="block-grid">
+          <div class="info-block block-warning">
+            <div class="block-label">⚠️ Common Analytics Mistakes</div>
+            <ul>
+              <li>Tracking "Thank You" page view instead of form submission event</li>
+              <li>Not excluding internal company IP addresses (staff visits inflate traffic)</li>
+              <li>Using UA (Universal Analytics) data benchmarks with GA4 — they're measured differently</li>
+              <li>Forgetting to set the correct time zone and currency in GA4 property settings</li>
+              <li>Not filtering out the development/staging site URL</li>
+            </ul>
+          </div>
+          <div class="info-block block-task">
+            <div class="block-label">✅ Your Tasks</div>
+            <div class="task-list">
+              <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Run a full <strong>GA4 analytics audit</strong> on any website. Check for: duplicate tracking, working conversions, bot traffic, correct attribution settings, property time zone.</span></label>
+              <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Compare <strong>GSC click data vs GA4 organic sessions</strong> for the same date range. Document the % discrepancy and identify potential causes.</span></label>
+              <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Create an <strong>Analytics Audit Checklist</strong> of 20 items you would check on every new client's GA4 account. This becomes a reusable client onboarding document.</span></label>
+            </div>
+          </div>
+        </div>
+        <div class="resources-block">
+          <div class="res-title">📚 Resources</div>
+          <div class="res-links">
+            <a class="res-link" href="https://support.google.com/analytics/answer/9304153" target="_blank"><span class="res-icon">🔗</span><div class="res-text"><strong>Google — GA4 Measurement Protocol Guide</strong><span>Official documentation for GA4 events, conversion setup, and correct implementation practices.</span></div><span class="res-badge res-official">OFFICIAL</span></a>
+            <a class="res-link" href="https://measureschool.com/ga4-audit/" target="_blank"><span class="res-icon">🔗</span><div class="res-text"><strong>MeasureSchool — GA4 Audit Guide</strong><span>Comprehensive guide to auditing GA4 implementations, finding errors, and ensuring data accuracy before reporting.</span></div><span class="res-badge res-blog">GUIDE</span></a>
+            <a class="res-link" href="https://www.youtube.com/@measureschool" target="_blank"><span class="res-icon">▶️</span><div class="res-text"><strong>MeasureSchool YouTube</strong><span>The best free resource for GA4, GTM, and analytics implementation tutorials. Highly practical with real examples.</span></div><span class="res-badge res-video">VIDEO</span></a>
+          </div>
+        </div>
+        <div class="topic-note">
+          <div class="note-header">📌 Why / Where / How / When</div>
+          <div class="note-grid">
+            <div class="note-cell"><div class="note-cell-label">🎯 Why Use It</div><p>Data you can't trust <strong>destroys your credibility</strong>. If you build strategy on bad data and clients notice the inconsistencies, you lose the relationship. Clean data is the foundation of everything.</p></div>
+            <div class="note-cell"><div class="note-cell-label">📍 Where to Use It</div><p>Every new client site onboarding. Also offer as a standalone "Analytics Audit" service (₹10,000–₹25,000) — many businesses pay willingly for this clarity.</p></div>
+            <div class="note-cell"><div class="note-cell-label">🔧 How to Use It</div><p>Use your Analytics Audit Checklist systematically. Fix issues before starting SEO work. Document all changes made so the client has a clear record of improvements.</p></div>
+            <div class="note-cell"><div class="note-cell-label">⏰ When to Prioritise</div><p>Week 1 of every new client engagement — before touching any SEO strategy. An accurate baseline is more valuable than an early quick-win if the data behind it is wrong.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOOLS -->
+    <div class="section-header" style="margin-top:36px">
+      <h2>🔧 Essential Analytics Tools</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="tools-grid">
+      <a class="tool-chip" href="https://search.google.com/search-console" target="_blank"><span>🔍</span>Google Search Console</a>
+      <a class="tool-chip" href="https://analytics.google.com" target="_blank"><span>📊</span>Google Analytics 4</a>
+      <a class="tool-chip" href="https://lookerstudio.google.com" target="_blank"><span>📈</span>Looker Studio</a>
+      <a class="tool-chip" href="https://tagmanager.google.com" target="_blank"><span>🏷️</span>Google Tag Manager</a>
+      <a class="tool-chip" href="https://www.semrush.com/position-tracking/" target="_blank"><span>📍</span>SEMrush Rank Tracker</a>
+      <a class="tool-chip" href="https://ahrefs.com/rank-tracker" target="_blank"><span>📉</span>Ahrefs Rank Tracker</a>
+      <a class="tool-chip" href="https://mangools.com/serpwatcher" target="_blank"><span>🎯</span>SERPWatcher</a>
+      <a class="tool-chip" href="https://callrail.com" target="_blank"><span>📞</span>CallRail</a>
+      <a class="tool-chip" href="https://ads.google.com/home/tools/keyword-planner/" target="_blank"><span>💰</span>Keyword Planner (CPC)</a>
+      <a class="tool-chip" href="https://www.brightlocal.com" target="_blank"><span>📍</span>BrightLocal</a>
+      <a class="tool-chip" href="https://www.google.com/webmasters/tools/robots-testing-tool" target="_blank"><span>🤖</span>GSC URL Inspector</a>
+      <a class="tool-chip" href="https://web.dev/measure/" target="_blank"><span>⚡</span>web.dev Measure</a>
+    </div>
+
+    <!-- CURATED BLOG POSTS -->
+    <div class="section-header" style="margin-top:36px">
+      <h2>📝 Must-Read Resources</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="blogs-grid">
+      <a class="blog-card" href="https://ahrefs.com/blog/google-search-console/" target="_blank">
+        <span class="blog-num">01</span>
+        <div class="blog-info"><strong>Ahrefs — The Definitive Guide to Google Search Console</strong><span>Complete walkthrough of every GSC report with actionable advice for each section. The best free GSC guide available.</span></div>
+        <span class="blog-type">GUIDE</span>
+      </a>
+      <a class="blog-card" href="https://backlinko.com/ga4-guide" target="_blank">
+        <span class="blog-num">02</span>
+        <div class="blog-info"><strong>Backlinko — GA4 for SEO: The Complete Guide</strong><span>Step-by-step guide specifically on using Google Analytics 4 for SEO performance measurement and reporting.</span></div>
+        <span class="blog-type">GUIDE</span>
+      </a>
+      <a class="blog-card" href="https://www.semrush.com/blog/seo-reporting/" target="_blank">
+        <span class="blog-num">03</span>
+        <div class="blog-info"><strong>SEMrush — SEO Reporting: How to Create Reports That Impress</strong><span>Practical client reporting guide with templates, KPI selection, and storytelling frameworks.</span></div>
+        <span class="blog-type">BLOG</span>
+      </a>
+      <a class="blog-card" href="https://www.semrush.com/blog/seo-roi/" target="_blank">
+        <span class="blog-num">04</span>
+        <div class="blog-info"><strong>SEMrush — How to Calculate SEO ROI (With Formula)</strong><span>Complete framework for calculating, communicating, and defending SEO return on investment to business stakeholders.</span></div>
+        <span class="blog-type">STRATEGY</span>
+      </a>
+      <a class="blog-card" href="https://www.youtube.com/@measureschool" target="_blank">
+        <span class="blog-num">05</span>
+        <div class="blog-info"><strong>MeasureSchool YouTube — GA4 & GTM Tutorials</strong><span>Best free video resource for GA4 setup, GTM implementation, conversion tracking, and analytics troubleshooting.</span></div>
+        <span class="blog-type">VIDEO</span>
+      </a>
+      <a class="blog-card" href="https://support.google.com/analytics" target="_blank">
+        <span class="blog-num">06</span>
+        <div class="blog-info"><strong>Google Analytics Help Center</strong><span>Official documentation for all GA4 features, report explanations, and troubleshooting. Always the authoritative source.</span></div>
+        <span class="blog-type">OFFICIAL</span>
+      </a>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="quiz-section" id="quiz-sec">
+      <div class="quiz-header">
+        <h3>🎯 Knowledge Quiz — Module 9</h3>
+        <div class="quiz-score" id="quiz-score">0 / 5</div>
+      </div>
+      <div class="quiz-body">
+        <!-- Q1 -->
+        <div class="quiz-q active" data-q="0">
+          <div class="quiz-qnum">Question 1 of 5</div>
+          <div class="quiz-question">In Google Search Console, which position filter reveals the highest-value "quick win" keyword opportunities?</div>
+          <div class="quiz-opts">
+            <div class="quiz-opt" onclick="answerQ(this,false,0)"><span class="opt-letter">A</span>Positions 1–3 (top rankings)</div>
+            <div class="quiz-opt" onclick="answerQ(this,true,0)"><span class="opt-letter">B</span>Positions 8–20 (almost page 1)</div>
+            <div class="quiz-opt" onclick="answerQ(this,false,0)"><span class="opt-letter">C</span>Positions 50–100 (buried results)</div>
+            <div class="quiz-opt" onclick="answerQ(this,false,0)"><span class="opt-letter">D</span>Positions 21–30 (page 2)</div>
+          </div>
+          <div class="quiz-feedback" id="fb-0">✅ Correct! Positions 8–20 are "almost page 1" — small optimisations can push these to top 7 and dramatically increase clicks with minimal work.</div>
+        </div>
+        <!-- Q2 -->
+        <div class="quiz-q" data-q="1">
+          <div class="quiz-qnum">Question 2 of 5</div>
+          <div class="quiz-question">A page has 280,000 monthly GSC impressions but only 2.1% CTR. What is the most likely cause and fix?</div>
+          <div class="quiz-opts">
+            <div class="quiz-opt" onclick="answerQ(this,false,1)"><span class="opt-letter">A</span>The page ranks too low — focus on building backlinks</div>
+            <div class="quiz-opt" onclick="answerQ(this,true,1)"><span class="opt-letter">B</span>Weak title tag or meta description — rewrite to be more compelling and keyword-relevant</div>
+            <div class="quiz-opt" onclick="answerQ(this,false,1)"><span class="opt-letter">C</span>The content is too thin — add more words to the page</div>
+            <div class="quiz-opt" onclick="answerQ(this,false,1)"><span class="opt-letter">D</span>The site has a technical issue preventing indexing</div>
+          </div>
+          <div class="quiz-feedback" id="fb-1">✅ Correct! High impressions + low CTR = the page appears in results but searchers don't click. This is almost always a title tag/meta description problem. Rewriting them to match search intent and be more compelling is the fix.</div>
+        </div>
+        <!-- Q3 -->
+        <div class="quiz-q" data-q="2">
+          <div class="quiz-qnum">Question 3 of 5</div>
+          <div class="quiz-question">Which of these is considered a "vanity metric" that should NOT be the primary focus of client SEO reports?</div>
+          <div class="quiz-opts">
+            <div class="quiz-opt" onclick="answerQ(this,false,2)"><span class="opt-letter">A</span>Organic leads generated per month</div>
+            <div class="quiz-opt" onclick="answerQ(this,false,2)"><span class="opt-letter">B</span>Revenue attributed to organic search</div>
+            <div class="quiz-opt" onclick="answerQ(this,true,2)"><span class="opt-letter">C</span>Domain Authority score (Moz proprietary metric)</div>
+            <div class="quiz-opt" onclick="answerQ(this,false,2)"><span class="opt-letter">D</span>Number of keywords ranking on page 1</div>
+          </div>
+          <div class="quiz-feedback" id="fb-2">✅ Correct! Domain Authority is Moz's proprietary metric — it's NOT a Google ranking signal. Reporting it as a primary KPI misleads clients into thinking it directly impacts their rankings when it doesn't.</div>
+        </div>
+        <!-- Q4 -->
+        <div class="quiz-q" data-q="3">
+          <div class="quiz-qnum">Question 4 of 5</div>
+          <div class="quiz-question">GSC shows 10,000 clicks this month but GA4 only shows 7,800 organic sessions. This 22% discrepancy is:</div>
+          <div class="quiz-opts">
+            <div class="quiz-opt" onclick="answerQ(this,false,3)"><span class="opt-letter">A</span>A serious tracking error that must be fixed immediately</div>
+            <div class="quiz-opt" onclick="answerQ(this,false,3)"><span class="opt-letter">B</span>Proof that GA4 is incorrectly configured</div>
+            <div class="quiz-opt" onclick="answerQ(this,true,3)"><span class="opt-letter">C</span>Normal — GA4 filters bots, quick bounces, and JS-disabled users that GSC counts as clicks</div>
+            <div class="quiz-opt" onclick="answerQ(this,false,3)"><span class="opt-letter">D</span>A sign of duplicate tracking inflating GSC numbers</div>
+          </div>
+          <div class="quiz-feedback" id="fb-3">✅ Correct! A 10–20% discrepancy between GSC clicks and GA4 sessions is completely normal. GA4 doesn't count bots, users who leave before the GA4 tag fires, and users with JavaScript disabled. Only investigate if discrepancy exceeds 30%.</div>
+        </div>
+        <!-- Q5 -->
+        <div class="quiz-q" data-q="4">
+          <div class="quiz-qnum">Question 5 of 5</div>
+          <div class="quiz-question">A client says "I don't see any results — we're cancelling." You pull GA4 and find organic conversions increased from 3 to 18/month. What's the best response strategy?</div>
+          <div class="quiz-opts">
+            <div class="quiz-opt" onclick="answerQ(this,false,4)"><span class="opt-letter">A</span>Apologise and offer a discount on next month's retainer</div>
+            <div class="quiz-opt" onclick="answerQ(this,false,4)"><span class="opt-letter">B</span>Send them a detailed technical report explaining all the changes made</div>
+            <div class="quiz-opt" onclick="answerQ(this,true,4)"><span class="opt-letter">C</span>Present the ROI data clearly: "You received 18 leads from Google this month vs 3 before. At your close rate, that's 5 new clients worth ₹X — from a ₹Y retainer."</div>
+            <div class="quiz-opt" onclick="answerQ(this,false,4)"><span class="opt-letter">D</span>Ask them to wait another 3 months for organic traffic to grow further</div>
+          </div>
+          <div class="quiz-feedback" id="fb-4">✅ Correct! Translate SEO metrics into business language immediately. The client doesn't care about "organic conversions" — they care about leads and customers. Present the ROI in the clearest business terms possible.</div>
+        </div>
+        <div class="quiz-nav">
+          <button class="quiz-btn quiz-btn-sec" onclick="prevQ()" id="q-prev" disabled>← Prev</button>
+          <div class="quiz-progress-dots" id="q-dots"></div>
+          <button class="quiz-btn quiz-btn-pri" onclick="nextQ()" id="q-next">Next →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- FLASHCARDS -->
+    <div class="flashcard-section" id="flash-sec">
+      <div class="flash-header">
+        <h3>🃏 Flashcards — Module 9</h3>
+        <span class="flash-counter" id="fc-counter">1 / 10</span>
+      </div>
+      <div class="flashcard-wrap" onclick="flipCard()">
+        <div class="flashcard" id="flashcard">
+          <div class="fc-face fc-front">
+            <div class="fc-label">Term / Concept</div>
+            <div class="fc-text" id="fc-front-text">Loading...</div>
+            <div class="fc-hint">Tap to reveal answer</div>
+          </div>
+          <div class="fc-face fc-back">
+            <div class="fc-label">Answer</div>
+            <div class="fc-text" id="fc-back-text">Loading...</div>
+          </div>
+        </div>
+      </div>
+      <div class="flash-controls">
+        <button class="flash-btn" onclick="prevCard()" id="fc-prev" disabled>← Prev</button>
+        <button class="flash-btn" onclick="flipCard()">Flip Card</button>
+        <button class="flash-btn" onclick="nextCard()" id="fc-next">Next →</button>
+      </div>
+    </div>
+
+    <!-- AUDIT CHECKLIST -->
+    <div class="audit-section" id="audit-sec">
+      <div class="audit-header">
+        <h3>📋 Analytics Setup & Reporting Checklist</h3>
+        <div class="audit-progress" id="audit-prog">0 / 18 complete</div>
+      </div>
+      <!-- Critical -->
+      <div class="audit-tier tier-critical">
+        <div class="audit-tier-label">🔴 Critical — Analytics Foundation</div>
+        <div class="audit-items">
+          <div class="audit-item" onclick="toggleAudit(this)"><span class="audit-check">✓</span><span class="audit-text">GA4 property created and tracking code installed on every page</span></div>
+          <div class="audit-item" onclick="toggleAudit(this)"><span class="audit-check">✓</span><span class="audit-text">Google Search Console verified and connected to GA4</span></div>
+          <div class="audit-item" onclick="toggleAudit(this)"><span class="audit-check">✓</span><span class="audit-text">No duplicate GA4 tracking (check via GTM and direct code)</span></div>
+          <div class="audit-item" onclick="toggleAudit(this)"><span class="audit-check">✓</span><span class="audit-text">At least one conversion event set up and verified in GA4</span></div>
+          <div class="audit-item" onclick="toggleAudit(this)"><span class="audit-check">✓</span><span class="audit-text">GSC sitemap submitted and all key pages indexed</span></div>
+        </div>
+      </div>
+      <!-- High -->
+      <div class="audit-tier tier-high">
+        <div class="audit-tier-label">🟠 High Priority — Reporting Setup</div>
+        <div class="audit-items">
+          <div class="audit-item" onclick="toggleAudit(this)"><span class="audit-check">✓</span><span class="audit-text">Looker Studio dashboard created with GSC + GA4 connected</span></div>
+          <div class="audit-item" onclick="toggleAudit(this)"><span class="audit-check">✓</span><span class="audit-text">Target keywords added to rank tracking tool (20–50 keywords)</span></div>
+          <div class="audit-item" onclick="toggleAudit(this)"><span class="audit-check">✓</span><span class="audit-text">Organic Search segment created in GA4 for channel filtering</span></div>
+          <div class="audit-item" onclick="toggleAudit(this)"><span class="audit-check">✓</span><span class="audit-text">Client KPIs defined and baseline data documented</span></div>
+          <div class="audit-item" onclick="toggleAudit(this)"><span class="audit-check">✓</span><span class="audit-text">Monthly report template prepared with all KPI sections</span></div>
+          <div class="audit-item" onclick="toggleAudit(this)"><span class="audit-check">✓</span><span class="audit-text">GA4 property time zone and currency set correctly</span></div>
+        </div>
+      </div>
+      <!-- Medium -->
+      <div class="audit-tier tier-medium">
+        <div class="audit-tier-label">🔵 Medium Priority — Advanced Tracking</div>
+        <div class="audit-items">
+          <div class="audit-item" onclick="toggleAudit(this)"><span class="audit-check">✓</span><span class="audit-text">Internal company IP addresses excluded from GA4 data</span></div>
+          <div class="audit-item" onclick="toggleAudit(this)"><span class="audit-check">✓</span><span class="audit-text">Call tracking implemented for local businesses (CallRail or similar)</span></div>
+          <div class="audit-item" onclick="toggleAudit(this)"><span class="audit-check">✓</span><span class="audit-text">GSC vs GA4 discrepancy checked and within 25%</span></div>
+          <div class="audit-item" onclick="toggleAudit(this)"><span class="audit-check">✓</span><span class="audit-text">E-commerce tracking enabled for product/shopping sites</span></div>
+          <div class="audit-item" onclick="toggleAudit(this)"><span class="audit-check">✓</span><span class="audit-text">Year-over-year comparison period set in reports</span></div>
+          <div class="audit-item" onclick="toggleAudit(this)"><span class="audit-check">✓</span><span class="audit-text">PPC equivalent value of organic traffic calculated for ROI report</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- REPORT BUILDER -->
+    <div class="dashboard-builder" id="report-builder">
+      <div class="db-header">
+        <h3>📊 Monthly SEO Report Generator</h3>
+        <p>Fill in your client's data to auto-generate a structured monthly report summary</p>
+      </div>
+      <div class="db-body">
+        <div class="db-row">
+          <div class="db-field"><label>Client / Business Name</label><input type="text" id="rpt-client" placeholder="e.g. Sharma Dental Clinic"></div>
+          <div class="db-field"><label>Report Month</label><input type="text" id="rpt-month" placeholder="e.g. February 2025"></div>
+        </div>
+        <div class="db-row">
+          <div class="db-field"><label>Organic Sessions This Month</label><input type="number" id="rpt-traffic-now" placeholder="e.g. 1850"></div>
+          <div class="db-field"><label>Organic Sessions Last Month</label><input type="number" id="rpt-traffic-prev" placeholder="e.g. 1420"></div>
+        </div>
+        <div class="db-row">
+          <div class="db-field"><label>Organic Conversions This Month</label><input type="number" id="rpt-conv-now" placeholder="e.g. 24"></div>
+          <div class="db-field"><label>Organic Conversions Last Month</label><input type="number" id="rpt-conv-prev" placeholder="e.g. 14"></div>
+        </div>
+        <div class="db-row">
+          <div class="db-field"><label>Top Keyword Win This Month</label><input type="text" id="rpt-kw" placeholder='e.g. "dentist Delhi" pos 18 → pos 5'></div>
+          <div class="db-field"><label>Number of Page-1 Keywords</label><input type="number" id="rpt-p1" placeholder="e.g. 14"></div>
+        </div>
+        <div class="db-field">
+          <label>3 Key Activities Completed This Month</label>
+          <textarea id="rpt-activities" placeholder="e.g. Optimised 12 title tags, built 4 high-quality backlinks, published 2 new pillar articles..."></textarea>
+        </div>
+        <div class="db-field">
+          <label>Next Month's Priority</label>
+          <input type="text" id="rpt-next" placeholder="e.g. Focus on local landing pages for 3 clinic locations">
+        </div>
+        <button class="db-submit" onclick="generateReport()">Generate Report Summary →</button>
+        <div class="db-output" id="report-output">
+          <h4>📋 Monthly SEO Report — <span id="out-month"></span></h4>
+          <div class="db-report-section">
+            <h5>🏆 Executive Summary</h5>
+            <ul id="out-summary"></ul>
+          </div>
+          <div class="db-report-section">
+            <h5>📈 Traffic & Conversions</h5>
+            <p id="out-traffic"></p>
+          </div>
+          <div class="db-report-section">
+            <h5>🔑 Keyword Highlights</h5>
+            <p id="out-keywords"></p>
+          </div>
+          <div class="db-report-section">
+            <h5>✅ Work Completed</h5>
+            <p id="out-activities"></p>
+          </div>
+          <div class="db-report-section">
+            <h5>🚀 Next Month Focus</h5>
+            <p id="out-next"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODULE NAV -->
+    <div class="module-nav">
+      <a href="module-8.html" class="mod-nav-btn prev">
+        <span class="nav-arrow">←</span>
+        <div><span class="nav-btn-label">Previous Module</span><span class="nav-btn-title">Module 8 — E-commerce SEO</span></div>
+      </a>
+      <a href="module-10.html" class="mod-nav-btn next">
+        <div style="text-align:right"><span class="nav-btn-label">Next Module</span><span class="nav-btn-title">Module 10 — Advanced SEO</span></div>
+        <span class="nav-arrow">→</span>
+      </a>
+    </div>
+
+  </div><!-- /content-area -->
+</main>
+</div><!-- /shell -->
+
+<script>
+// ── THEME ──
+const saved = localStorage.getItem('seo-theme') || 'dark';
+document.documentElement.setAttribute('data-theme', saved);
+document.getElementById('theme-btn').textContent = saved === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
+function toggleTheme(){
+  const t = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', t);
+  localStorage.setItem('seo-theme', t);
+  document.getElementById('theme-btn').textContent = t === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
+}
+
+// ── SIDEBAR ──
+function openSidebar(){document.getElementById('sidebar').classList.add('open');document.getElementById('overlay').classList.add('show')}
+function closeSidebar(){document.getElementById('sidebar').classList.remove('open');document.getElementById('overlay').classList.remove('show')}
+
+// ── TOPICS ──
+function toggleTopic(header){
+  const item = header.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.topic-item.open').forEach(el => el.classList.remove('open'));
+  if(!isOpen) item.classList.add('open');
+}
+
+// ── TASKS ──
+const TASK_KEY = 'mod9-tasks';
+function loadTasks(){
+  const saved = JSON.parse(localStorage.getItem(TASK_KEY)||'[]');
+  document.querySelectorAll('.task-check-item').forEach((el,i)=>{
+    if(saved[i]) el.classList.add('checked');
+  });
+  updateProgress();
+}
+function toggleTask(el){
+  el.classList.toggle('checked');
+  const all = [...document.querySelectorAll('.task-check-item')];
+  localStorage.setItem(TASK_KEY, JSON.stringify(all.map(e=>e.classList.contains('checked'))));
+  updateProgress();
+}
+function updateProgress(){
+  const all = document.querySelectorAll('.task-check-item').length;
+  const done = document.querySelectorAll('.task-check-item.checked').length;
+  const pct = all ? Math.round(done/all*100) : 0;
+  document.getElementById('prog-fill').style.width = pct + '%';
+  document.getElementById('prog-pct').textContent = pct + '%';
+  document.querySelectorAll('.nav-link').forEach((link,i)=>{
+    const topicId = link.getAttribute('href');
+    if(topicId && topicId.startsWith('#t9-')){
+      const tasks = document.querySelectorAll(topicId + ' .task-check-item');
+      const done = [...tasks].filter(t=>t.classList.contains('checked')).length;
+      if(done === tasks.length && tasks.length > 0) link.classList.add('completed');
+      else link.classList.remove('completed');
+    }
+  });
+}
+
+// ── AUDIT CHECKLIST ──
+const AUDIT_KEY = 'mod9-audit';
+function loadAudit(){
+  const saved = JSON.parse(localStorage.getItem(AUDIT_KEY)||'[]');
+  document.querySelectorAll('.audit-item').forEach((el,i)=>{
+    if(saved[i]) el.classList.add('checked-audit');
+  });
+  updateAudit();
+}
+function toggleAudit(el){
+  el.classList.toggle('checked-audit');
+  const all=[...document.querySelectorAll('.audit-item')];
+  localStorage.setItem(AUDIT_KEY,JSON.stringify(all.map(e=>e.classList.contains('checked-audit'))));
+  updateAudit();
+}
+function updateAudit(){
+  const all=document.querySelectorAll('.audit-item').length;
+  const done=document.querySelectorAll('.audit-item.checked-audit').length;
+  document.getElementById('audit-prog').textContent=`${done} / ${all} complete`;
+}
+
+// ── QUIZ ──
+let curQ=0, score=0, answered=Array(5).fill(false);
+function initDots(){
+  const d=document.getElementById('q-dots');d.innerHTML='';
+  for(let i=0;i<5;i++){const dot=document.createElement('div');dot.className='qdot'+(i===0?' active':'');d.appendChild(dot);}
+}
+function answerQ(el,correct,qi){
+  if(answered[qi])return;
+  answered[qi]=true;
+  const opts=el.parentElement.querySelectorAll('.quiz-opt');
+  opts.forEach(o=>o.classList.add('disabled'));
+  if(correct){el.classList.add('correct');score++;document.getElementById('quiz-score').textContent=score+' / 5';}
+  else{el.classList.add('wrong');opts.forEach(o=>{if(o.dataset.correct)o.classList.add('correct');});}
+  const fb=document.getElementById('fb-'+qi);
+  if(fb){fb.classList.add('show','correct');if(!correct){fb.classList.remove('correct');fb.classList.add('wrong');fb.textContent='❌ '+fb.textContent.replace(/^✅ /,'');}}
+}
+function nextQ(){if(curQ<4){curQ++;showQ();}}
+function prevQ(){if(curQ>0){curQ--;showQ();}}
+function showQ(){
+  document.querySelectorAll('.quiz-q').forEach((q,i)=>q.classList.toggle('active',i===curQ));
+  document.querySelectorAll('.qdot').forEach((d,i)=>{d.className='qdot'+(answered[i]?' done':'')+(i===curQ?' active':'');});
+  document.getElementById('q-prev').disabled=curQ===0;
+  document.getElementById('q-next').disabled=curQ===4;
+}
+initDots();
+
+// ── FLASHCARDS ──
+const cards=[
+  {f:'GSC Performance "Quick Win" Filter',b:'Filter by Position 8–20. Pages that nearly rank on page 1 — small improvements (title tag, internal links, FAQ section) can push them to top 7 and dramatically boost traffic.'},
+  {f:'High Impressions / Low CTR Signal',b:'Your page appears in searches frequently but few people click. Fix: rewrite title tag and meta description to match search intent and be more compelling.'},
+  {f:'GA4 Conversion Event',b:'A specific user action tagged as valuable: form submit, purchase, call click, file download. Every SEO campaign must track at least one conversion event to measure real business impact.'},
+  {f:'Looker Studio',b:'Free Google data visualisation tool. Connect to GSC, GA4, and 800+ data sources. Build shareable live dashboards for clients — replacing manual PDF reports.'},
+  {f:'SEO KPI — Vanity vs Value',b:'Vanity: Domain Authority, total backlinks count, raw keyword count. Value: organic conversions, organic revenue, cost-per-organic-lead, keywords on page 1. Report only value metrics to clients.'},
+  {f:'PPC Equivalent Value of Organic Traffic',b:'CPC of your keywords × monthly organic clicks = "traffic value." If organic traffic would cost ₹3 lakh in Google Ads, that\'s the monthly value of your SEO. Powerful for justifying retainers.'},
+  {f:'GSC vs GA4 Discrepancy — Normal Range',b:'10–20% discrepancy is normal. GA4 excludes bots, users who leave before tag fires, and JS-disabled users that GSC counts as clicks. Investigate if gap exceeds 30%.'},
+  {f:'3-Layer KPI Stack',b:'Layer 1: Business outcomes (revenue, leads). Layer 2: SEO health (traffic, rankings, CTR). Layer 3: Activity (work done). Report all 3 — they tell the full story of impact, progress, and effort.'},
+  {f:'Attribution Model for SEO',b:'GA4 uses Data-Driven attribution by default. For SEO, also check Last Click (organic often wins decision stage) and First Click (organic often initiates awareness). Different models tell different parts of the story.'},
+  {f:'Analytics Audit First Step',b:'Check for duplicate tracking — the most common GA4 error. If GA4 tag fires via direct code AND GTM simultaneously, sessions are doubled. Verify the Measurement ID is only implemented once per page.'},
+];
+let curCard=0,flipped=false;
+function showCard(){
+  document.getElementById('fc-front-text').textContent=cards[curCard].f;
+  document.getElementById('fc-back-text').textContent=cards[curCard].b;
+  document.getElementById('fc-counter').textContent=(curCard+1)+' / '+cards.length;
+  document.getElementById('flashcard').classList.remove('flipped');
+  flipped=false;
+  document.getElementById('fc-prev').disabled=curCard===0;
+  document.getElementById('fc-next').disabled=curCard===cards.length-1;
+}
+function flipCard(){flipped=!flipped;document.getElementById('flashcard').classList.toggle('flipped',flipped);}
+function nextCard(){if(curCard<cards.length-1){curCard++;showCard();}}
+function prevCard(){if(curCard>0){curCard--;showCard();}}
+showCard();
+
+// ── REPORT BUILDER ──
+function generateReport(){
+  const client=document.getElementById('rpt-client').value||'Client';
+  const month=document.getElementById('rpt-month').value||'This Month';
+  const tNow=parseInt(document.getElementById('rpt-traffic-now').value)||0;
+  const tPrev=parseInt(document.getElementById('rpt-traffic-prev').value)||1;
+  const cNow=parseInt(document.getElementById('rpt-conv-now').value)||0;
+  const cPrev=parseInt(document.getElementById('rpt-conv-prev').value)||0;
+  const kw=document.getElementById('rpt-kw').value||'Target keyword improved';
+  const p1=document.getElementById('rpt-p1').value||'N/A';
+  const acts=document.getElementById('rpt-activities').value||'Various optimisations completed.';
+  const next=document.getElementById('rpt-next').value||'Continue current strategy.';
+  const tDiff=Math.round((tNow-tPrev)/tPrev*100);
+  const cDiff=cNow-cPrev;
+  document.getElementById('out-month').textContent=month+' — '+client;
+  const summList=document.getElementById('out-summary');
+  summList.innerHTML=`
+    <li>Organic traffic ${tDiff>=0?'grew':'declined'} ${Math.abs(tDiff)}% vs last month (${tNow.toLocaleString()} sessions)</li>
+    <li>Organic conversions: ${cNow} this month vs ${cPrev} last month — ${cDiff>=0?'+'+cDiff:cDiff} change</li>
+    <li>${kw}</li>
+  `;
+  document.getElementById('out-traffic').textContent=`Organic sessions this month: ${tNow.toLocaleString()} (previous: ${tPrev.toLocaleString()}, change: ${tDiff>=0?'+':''}${tDiff}%). Organic conversions: ${cNow} (previous: ${cPrev}).`;
+  document.getElementById('out-keywords').textContent=`Page-1 keywords: ${p1}. Top ranking movement: ${kw}.`;
+  document.getElementById('out-activities').textContent=acts;
+  document.getElementById('out-next').textContent=next;
+  document.getElementById('report-output').classList.add('show');
+}
+
+// ── SCROLL NAV HIGHLIGHT ──
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const id=e.target.id;
+      document.querySelectorAll('.nav-link').forEach(l=>{
+        l.classList.toggle('active',l.getAttribute('href')==='#'+id);
+      });
+    }
+  });
+},{threshold:.3});
+document.querySelectorAll('[id^="t9-"]').forEach(el=>observer.observe(el));
+
+// ── INIT ──
+loadTasks();
+loadAudit();
+</script>
+</body>
+</html>

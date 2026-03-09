@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 3 — On-Page SEO | SEO Mastery Roadmap 2025</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,700;0,900;1,300&family=Syne:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════
+   THEME VARIABLES
+══════════════════════════════════════════ */
+[data-theme="dark"] {
+  --bg:#0b0d14; --bg1:#0f111a; --bg2:#141720; --bg3:#1a1f2e;
+  --card:#12151e; --card2:#181d2c; --border:#1f2639; --border2:#2a3350;
+  --amber:#f59e0b; --amber2:#fbbf24; --amber3:#fde68a;
+  --teal:#14b8a6; --teal2:#2dd4bf;
+  --rose:#f43f5e; --rose2:#fb7185;
+  --blue:#3b82f6; --blue2:#60a5fa;
+  --green:#22c55e; --green2:#4ade80;
+  --violet:#8b5cf6; --violet2:#a78bfa;
+  --orange:#f97316; --orange2:#fb923c;
+  --text:#e2e8f4; --text2:#a8b4cc; --muted:#5a6882; --white:#f8faff;
+  --shadow:rgba(0,0,0,.55); --glow:rgba(245,158,11,.12);
+  --sidebar-bg:#0f111a; --header-bg:#0b0d14;
+  --note-bg:rgba(245,158,11,.06);
+}
+[data-theme="light"] {
+  --bg:#f2f4fb; --bg1:#eaecf7; --bg2:#e2e6f4; --bg3:#d8ddf0;
+  --card:#ffffff; --card2:#f5f7ff; --border:#cdd4ea; --border2:#b4bed8;
+  --amber:#d97706; --amber2:#b45309; --amber3:#92400e;
+  --teal:#0d9488; --teal2:#0f766e;
+  --rose:#e11d48; --rose2:#be123c;
+  --blue:#2563eb; --blue2:#1d4ed8;
+  --green:#16a34a; --green2:#15803d;
+  --violet:#7c3aed; --violet2:#6d28d9;
+  --orange:#ea580c; --orange2:#c2410c;
+  --text:#1e2535; --text2:#374561; --muted:#6b7a9c; --white:#0f1a2e;
+  --shadow:rgba(0,0,0,.1); --glow:rgba(217,119,6,.08);
+  --sidebar-bg:#eaecf7; --header-bg:#f2f4fb;
+  --note-bg:rgba(217,119,6,.07);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:15px}
+body{font-family:'Syne',sans-serif;background:var(--bg);color:var(--text);line-height:1.75;overflow-x:hidden;transition:background .3s,color .3s}
+
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--amber);border-radius:10px}
+
+/* ══════════════════════════════════════════
+   LAYOUT
+══════════════════════════════════════════ */
+.shell{display:flex;min-height:100vh}
+
+/* SIDEBAR */
+.sidebar{
+  width:270px;min-width:270px;
+  background:var(--sidebar-bg);
+  border-right:1px solid var(--border);
+  position:fixed;top:0;left:0;bottom:0;
+  overflow-y:auto;z-index:200;
+  display:flex;flex-direction:column;
+  transition:transform .3s,background .3s;
+}
+.sidebar::-webkit-scrollbar{width:3px}
+.sidebar::-webkit-scrollbar-thumb{background:var(--border2)}
+
+.sb-brand{padding:24px 20px 18px;border-bottom:1px solid var(--border)}
+.sb-back{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:.75em;font-weight:700;color:var(--muted);
+  text-decoration:none;text-transform:uppercase;letter-spacing:1px;
+  margin-bottom:14px;transition:color .15s;
+}
+.sb-back:hover{color:var(--amber)}
+.sb-mod-badge{
+  display:inline-block;
+  font-family:'Fira Code',monospace;font-size:.65em;font-weight:700;
+  background:var(--amber);color:#000;
+  padding:3px 9px;border-radius:6px;margin-bottom:10px;
+}
+.sb-brand h2{font-family:'Fraunces',serif;font-size:1.02em;font-weight:700;color:var(--white);line-height:1.35}
+.sb-brand p{font-size:.72em;color:var(--muted);margin-top:4px}
+
+/* Progress */
+.sb-progress{padding:14px 20px;border-bottom:1px solid var(--border)}
+.prog-label{display:flex;justify-content:space-between;align-items:center;font-size:.68em;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:7px}
+.prog-label span:last-child{color:var(--amber);font-family:'Fira Code',monospace}
+.prog-bg{height:4px;background:var(--border);border-radius:2px;overflow:hidden}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--amber),var(--amber2));width:0%;transition:width .4s ease}
+
+/* Nav */
+.sb-nav{padding:10px 0;flex:1}
+.sb-section-label{padding:10px 20px 4px;font-size:.63em;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted)}
+.nav-link{
+  display:flex;align-items:center;gap:10px;
+  padding:9px 20px;text-decoration:none;
+  color:var(--muted);font-size:.8em;font-weight:500;
+  transition:all .15s;border-left:2px solid transparent;cursor:pointer;
+}
+.nav-link:hover{color:var(--text);background:var(--bg2)}
+.nav-link.active{color:var(--amber);border-left-color:var(--amber);background:rgba(245,158,11,.07)}
+.nav-num{font-family:'Fira Code',monospace;font-size:.72em;color:var(--border2);min-width:28px}
+.nav-link.active .nav-num{color:var(--amber2)}
+.nav-done{margin-left:auto;font-size:.8em;color:var(--green);opacity:0;transition:opacity .2s}
+.nav-link.completed .nav-done{opacity:1}
+
+.sb-footer{padding:14px 20px;border-top:1px solid var(--border)}
+.sb-footer p{font-size:.7em;color:var(--muted);line-height:1.5}
+
+/* MAIN */
+.main{margin-left:270px;flex:1;min-width:0}
+
+/* TOP BAR */
+.topbar{
+  position:sticky;top:0;z-index:100;
+  background:var(--header-bg);border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:12px;
+  padding:12px 40px;
+  transition:background .3s;
+}
+.topbar-breadcrumb{font-size:.78em;color:var(--muted);display:flex;align-items:center;gap:6px;flex:1}
+.topbar-breadcrumb a{color:var(--muted);text-decoration:none;transition:color .15s}
+.topbar-breadcrumb a:hover{color:var(--amber)}
+.topbar-breadcrumb span{color:var(--text2);font-weight:600}
+
+/* THEME TOGGLE */
+.theme-btn{
+  display:flex;align-items:center;gap:7px;
+  background:var(--card);border:1px solid var(--border2);
+  border-radius:50px;padding:7px 14px;
+  cursor:pointer;font-size:.76em;font-weight:600;color:var(--text2);
+  transition:all .2s;font-family:'Syne',sans-serif;white-space:nowrap;
+}
+.theme-btn:hover{border-color:var(--amber);color:var(--amber)}
+
+/* HAMBURGER */
+.hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:4px;background:none;border:none}
+.hamburger span{display:block;width:20px;height:2px;background:var(--text2);border-radius:2px;transition:.3s}
+
+/* MODULE HERO */
+.mod-hero{
+  background:var(--bg1);border-bottom:1px solid var(--border);
+  padding:56px 56px 44px;position:relative;overflow:hidden;
+}
+.mod-hero-bg{
+  position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 700px 500px at 80% -20%,rgba(245,158,11,.07) 0%,transparent 60%),
+    radial-gradient(ellipse 500px 400px at -5% 100%,rgba(20,184,166,.05) 0%,transparent 60%);
+}
+.mod-hero-grid{
+  position:absolute;inset:0;pointer-events:none;opacity:.025;
+  background-image:linear-gradient(var(--border2) 1px,transparent 1px),
+                   linear-gradient(90deg,var(--border2) 1px,transparent 1px);
+  background-size:44px 44px;
+}
+.mod-hero-inner{max-width:800px;position:relative}
+.mod-number-tag{
+  font-family:'Fira Code',monospace;font-size:.68em;font-weight:700;
+  color:#000;background:var(--amber);
+  padding:4px 12px;border-radius:6px;display:inline-block;margin-bottom:16px;
+}
+.mod-hero h1{
+  font-family:'Fraunces',serif;
+  font-size:clamp(1.9em,4vw,3em);font-weight:900;
+  color:var(--white);line-height:1.1;margin-bottom:10px;
+}
+.mod-hero h1 em{
+  font-style:italic;
+  background:linear-gradient(135deg,var(--amber) 0%,var(--amber3) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.mod-hero p{color:var(--text2);font-size:.96em;max-width:680px;margin-bottom:22px;line-height:1.8}
+.mod-tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:28px}
+.mtag{
+  font-size:.67em;font-weight:700;text-transform:uppercase;letter-spacing:.8px;
+  padding:3px 10px;border-radius:4px;
+}
+.mtag-amber{background:rgba(245,158,11,.1);color:var(--amber);border:1px solid rgba(245,158,11,.25)}
+.mtag-teal{background:rgba(20,184,166,.1);color:var(--teal2);border:1px solid rgba(20,184,166,.25)}
+.mtag-violet{background:rgba(139,92,246,.1);color:var(--violet2);border:1px solid rgba(139,92,246,.25)}
+.mtag-green{background:rgba(34,197,94,.1);color:var(--green2);border:1px solid rgba(34,197,94,.25)}
+.mtag-rose{background:rgba(244,63,94,.1);color:var(--rose2);border:1px solid rgba(244,63,94,.25)}
+
+.hero-stats{
+  display:grid;grid-template-columns:repeat(4,auto);width:fit-content;
+  gap:1px;background:var(--border);
+  border:1px solid var(--border);border-radius:12px;overflow:hidden;
+}
+.stat-box{background:var(--bg2);padding:16px 20px;text-align:center}
+.stat-n{font-family:'Fraunces',serif;font-size:1.7em;font-weight:700;color:var(--amber);line-height:1;margin-bottom:3px}
+.stat-l{font-size:.65em;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.8px}
+
+/* CONTENT AREA */
+.content-area{max-width:820px;margin:0 auto;padding:44px 56px 100px}
+
+/* TOPIC ITEM */
+.topic-item{
+  border:1px solid var(--border);border-radius:14px;
+  margin-bottom:14px;overflow:hidden;
+  background:var(--card);transition:border-color .2s,box-shadow .2s;
+}
+.topic-item:hover{border-color:var(--border2);box-shadow:0 4px 24px var(--shadow)}
+.topic-item.open{border-color:rgba(245,158,11,.35);box-shadow:0 0 0 1px rgba(245,158,11,.1)}
+
+.topic-header{
+  display:flex;align-items:center;gap:12px;
+  padding:17px 20px;cursor:pointer;
+  transition:background .15s;
+}
+.topic-header:hover{background:var(--bg2)}
+.topic-num{
+  font-family:'Fira Code',monospace;font-size:.7em;font-weight:700;
+  color:var(--amber2);background:rgba(245,158,11,.08);
+  border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:5px;white-space:nowrap;
+}
+.topic-header h3{font-size:.95em;font-weight:700;color:var(--white);flex:1;line-height:1.35}
+.topic-difficulty{font-size:.63em;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:2px 7px;border-radius:4px;flex-shrink:0}
+.diff-beginner{background:rgba(34,197,94,.1);color:var(--green2)}
+.diff-intermediate{background:rgba(245,158,11,.1);color:var(--amber2)}
+.diff-advanced{background:rgba(244,63,94,.1);color:var(--rose2)}
+.topic-chevron{color:var(--muted);font-size:.75em;transition:transform .25s;flex-shrink:0}
+.topic-item.open .topic-chevron{transform:rotate(180deg);color:var(--amber)}
+
+.topic-body{display:none;padding:0 20px 24px;border-top:1px solid var(--border)}
+.topic-item.open .topic-body{display:block}
+
+.topic-intro{padding:18px 0 14px;color:var(--text2);font-size:.92em;line-height:1.85}
+.topic-intro strong{color:var(--white)}
+
+/* KEY POINTS */
+.keypoints{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+.kp{
+  display:flex;align-items:flex-start;gap:10px;
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:8px;padding:12px 14px;font-size:.89em;color:var(--text2);
+}
+.kp-dot{width:6px;height:6px;border-radius:50%;background:var(--amber);flex-shrink:0;margin-top:7px}
+.kp strong{color:var(--white)}
+
+/* BLOCK GRID */
+.block-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}
+.info-block{border-radius:10px;padding:16px;font-size:.87em}
+.info-block .block-label{display:flex;align-items:center;gap:6px;font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px}
+.block-example{background:rgba(20,184,166,.05);border:1px solid rgba(20,184,166,.18);border-left:3px solid var(--teal)}
+.block-example .block-label{color:var(--teal2)}
+.block-task{background:rgba(245,158,11,.05);border:1px solid rgba(245,158,11,.18);border-left:3px solid var(--amber)}
+.block-task .block-label{color:var(--amber2)}
+.block-insight{background:rgba(139,92,246,.05);border:1px solid rgba(139,92,246,.18);border-left:3px solid var(--violet)}
+.block-insight .block-label{color:var(--violet2)}
+.block-warning{background:rgba(244,63,94,.05);border:1px solid rgba(244,63,94,.18);border-left:3px solid var(--rose)}
+.block-warning .block-label{color:var(--rose2)}
+.info-block p{color:var(--text2);line-height:1.7;margin-bottom:8px}
+.info-block p:last-child{margin-bottom:0}
+.info-block ul,.info-block ol{padding-left:16px;color:var(--text2)}
+.info-block li{margin-bottom:4px;line-height:1.65}
+.info-block strong{color:var(--white)}
+
+/* TASK LIST */
+.task-list{display:flex;flex-direction:column;gap:7px}
+.task-check-item{display:flex;align-items:flex-start;gap:10px;cursor:pointer}
+.task-check-item input[type="checkbox"]{display:none}
+.check-box{
+  width:18px;height:18px;border-radius:4px;flex-shrink:0;
+  border:1.5px solid rgba(245,158,11,.4);background:transparent;
+  display:flex;align-items:center;justify-content:center;margin-top:2px;
+  transition:all .15s;font-size:.6em;color:transparent;
+}
+.task-check-item.checked .check-box{background:var(--amber);border-color:var(--amber);color:#000;font-size:.65em}
+.task-text{font-size:.86em;color:var(--text2);line-height:1.6;transition:color .15s}
+.task-check-item.checked .task-text{color:var(--muted);text-decoration:line-through}
+
+/* CODE */
+code{
+  font-family:'Fira Code',monospace;font-size:.84em;
+  background:rgba(255,255,255,.06);color:var(--teal2);
+  padding:2px 6px;border-radius:4px;
+}
+[data-theme="light"] code{background:rgba(0,0,0,.05);color:var(--teal)}
+
+/* RESOURCES */
+.resources-block{margin-top:18px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.res-title{
+  padding:11px 16px;background:var(--bg3);border-bottom:1px solid var(--border);
+  font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--amber);
+  display:flex;align-items:center;gap:6px;
+}
+.res-links{display:flex;flex-direction:column}
+.res-link{
+  display:flex;align-items:flex-start;gap:12px;
+  padding:12px 16px;border-bottom:1px solid var(--border);
+  text-decoration:none;transition:background .15s;
+}
+.res-link:last-child{border-bottom:none}
+.res-link:hover{background:rgba(245,158,11,.04)}
+.res-icon{font-size:1.1em;flex-shrink:0;margin-top:1px}
+.res-text{flex:1}
+.res-text strong{display:block;font-size:.85em;font-weight:600;color:var(--blue2);margin-bottom:2px}
+.res-link:hover .res-text strong{color:var(--amber2)}
+.res-text span{font-size:.77em;color:var(--muted);line-height:1.4}
+.res-badge{
+  font-size:.62em;font-weight:700;text-transform:uppercase;
+  padding:2px 7px;border-radius:3px;flex-shrink:0;margin-top:2px;letter-spacing:.5px;
+}
+.res-free{background:rgba(34,197,94,.1);color:var(--green2);border:1px solid rgba(34,197,94,.2)}
+.res-paid{background:rgba(244,63,94,.1);color:var(--rose2);border:1px solid rgba(244,63,94,.2)}
+.res-blog{background:rgba(59,130,246,.1);color:var(--blue2);border:1px solid rgba(59,130,246,.2)}
+.res-video{background:rgba(244,63,94,.15);color:#ff8080;border:1px solid rgba(244,63,94,.3)}
+.res-tool{background:rgba(139,92,246,.1);color:var(--violet2);border:1px solid rgba(139,92,246,.2)}
+.res-official{background:rgba(245,158,11,.1);color:var(--amber);border:1px solid rgba(245,158,11,.2)}
+
+/* ══ USE/WHERE/HOW/WHEN NOTE ══ */
+.topic-note{
+  margin-top:18px;border-radius:12px;overflow:hidden;
+  border:1px solid rgba(245,158,11,.25);background:var(--note-bg);
+}
+.note-header{
+  display:flex;align-items:center;gap:8px;
+  padding:10px 16px;background:rgba(245,158,11,.1);
+  border-bottom:1px solid rgba(245,158,11,.18);
+  font-size:.7em;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--amber);
+}
+.note-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.note-cell{
+  padding:13px 16px;border-right:1px solid rgba(245,158,11,.12);
+  border-bottom:1px solid rgba(245,158,11,.12);
+}
+.note-cell:nth-child(2n){border-right:none}
+.note-cell:nth-child(3),.note-cell:nth-child(4){border-bottom:none}
+.note-cell-label{
+  font-size:.64em;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;
+  color:var(--amber2);margin-bottom:5px;display:flex;align-items:center;gap:5px;
+}
+.note-cell p{font-size:.82em;color:var(--text2);line-height:1.6}
+.note-cell strong{color:var(--white)}
+
+/* TOOLS CHIPS */
+.tools-chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+.tool-chip{
+  font-family:'Fira Code',monospace;font-size:.74em;font-weight:500;
+  padding:4px 11px;border-radius:6px;
+  background:rgba(139,92,246,.08);border:1px solid rgba(139,92,246,.2);color:var(--violet2);
+  text-decoration:none;transition:all .15s;
+}
+.tool-chip:hover{background:rgba(139,92,246,.18);border-color:var(--violet2)}
+
+/* QUIZ BLOCK */
+.quiz-block{
+  margin-top:20px;background:var(--bg2);border:1px solid var(--border);
+  border-radius:12px;overflow:hidden;
+}
+.quiz-header{
+  padding:12px 16px;background:var(--bg3);border-bottom:1px solid var(--border);
+  font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;
+  color:var(--violet2);display:flex;align-items:center;gap:7px;
+}
+.quiz-q{padding:14px 16px;border-bottom:1px solid var(--border)}
+.quiz-q:last-child{border-bottom:none}
+.quiz-q p{font-size:.88em;color:var(--white);font-weight:600;margin-bottom:10px}
+.quiz-options{display:flex;flex-direction:column;gap:7px}
+.quiz-opt{
+  display:flex;align-items:center;gap:10px;padding:9px 13px;
+  border-radius:8px;border:1px solid var(--border);background:var(--card);
+  cursor:pointer;font-size:.84em;color:var(--text2);transition:all .15s;
+}
+.quiz-opt:hover{border-color:var(--border2);background:var(--bg3)}
+.quiz-opt.correct{border-color:var(--green);background:rgba(34,197,94,.1);color:var(--green2)}
+.quiz-opt.wrong{border-color:var(--rose);background:rgba(244,63,94,.1);color:var(--rose2)}
+.quiz-opt-letter{
+  width:22px;height:22px;border-radius:50%;flex-shrink:0;
+  background:var(--bg3);border:1px solid var(--border2);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Fira Code',monospace;font-size:.72em;font-weight:700;color:var(--muted);
+}
+.quiz-opt.correct .quiz-opt-letter{background:var(--green);border-color:var(--green);color:#000}
+.quiz-opt.wrong .quiz-opt-letter{background:var(--rose);border-color:var(--rose);color:#fff}
+.quiz-feedback{font-size:.79em;margin-top:8px;padding:8px 12px;border-radius:6px;display:none}
+.quiz-feedback.show{display:block}
+.quiz-feedback.ok{background:rgba(34,197,94,.1);color:var(--green2);border:1px solid rgba(34,197,94,.2)}
+.quiz-feedback.no{background:rgba(244,63,94,.1);color:var(--rose2);border:1px solid rgba(244,63,94,.2)}
+
+/* BLOG POSTS SECTION */
+.blog-section{
+  margin-top:20px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden;
+}
+.blog-header{
+  padding:11px 16px;background:var(--bg3);border-bottom:1px solid var(--border);
+  font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;
+  color:var(--orange2);display:flex;align-items:center;gap:7px;
+}
+.blog-item{
+  display:flex;align-items:flex-start;gap:12px;
+  padding:13px 16px;border-bottom:1px solid var(--border);
+  text-decoration:none;transition:background .15s;
+}
+.blog-item:last-child{border-bottom:none}
+.blog-item:hover{background:rgba(249,115,22,.04)}
+.blog-icon{font-size:1.1em;flex-shrink:0;margin-top:1px}
+.blog-text{flex:1}
+.blog-text strong{display:block;font-size:.85em;font-weight:600;color:var(--blue2);margin-bottom:2px}
+.blog-item:hover .blog-text strong{color:var(--orange2)}
+.blog-text span{font-size:.77em;color:var(--muted);line-height:1.4}
+.blog-meta{display:flex;align-items:center;gap:6px;flex-shrink:0;flex-direction:column}
+
+/* SECTION DIVIDER */
+.section-divider{
+  display:flex;align-items:center;gap:14px;margin:44px 0 32px;
+}
+.section-divider::before,.section-divider::after{content:'';flex:1;height:1px;background:linear-gradient(to right,transparent,var(--border),transparent)}
+.section-divider span{font-family:'Fira Code',monospace;font-size:.68em;color:var(--muted);white-space:nowrap;text-transform:uppercase;letter-spacing:2px}
+
+/* ══ NAV ARROWS ══ */
+.mod-nav{display:flex;justify-content:space-between;gap:14px;margin-top:50px}
+.mod-nav-btn{display:flex;align-items:center;gap:10px;padding:14px 20px;border:1px solid var(--border);border-radius:10px;text-decoration:none;transition:all .2s;flex:1}
+.mod-nav-btn:hover{border-color:var(--blue);background:rgba(59,130,246,.05)}
+.mod-nav-btn.prev{flex-direction:row}
+.mod-nav-btn.next{flex-direction:row-reverse;text-align:right}
+.mod-nav-label{font-size:.68em;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted)}
+.mod-nav-title{font-size:.88em;font-weight:700;color:var(--text2)}
+.mod-nav-btn:hover .mod-nav-title{color:var(--blue2)}
+.mod-nav-arrow{font-size:1.2em;color:var(--muted)}
+
+/* MOBILE OVERLAY */
+.sb-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:150;opacity:0;transition:opacity .3s}
+.sb-overlay.show{display:block;opacity:1}
+
+/* READING TIME BADGE */
+.reading-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:.72em;font-weight:600;color:var(--muted);
+  background:var(--bg3);border:1px solid var(--border);
+  padding:4px 11px;border-radius:50px;
+}
+
+/* FLASHCARD */
+.flashcard-block{
+  margin-top:20px;border:1px solid var(--border);border-radius:12px;overflow:hidden;
+  background:var(--card);
+}
+.flashcard-header{
+  padding:11px 16px;background:var(--bg3);border-bottom:1px solid var(--border);
+  font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;
+  color:var(--teal2);display:flex;align-items:center;gap:7px;
+}
+.flashcard-inner{padding:20px;display:flex;flex-direction:column;align-items:center;gap:14px}
+.flashcard{
+  width:100%;min-height:110px;border-radius:10px;cursor:pointer;
+  position:relative;perspective:800px;
+}
+.flashcard-face{
+  width:100%;min-height:110px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  padding:20px;text-align:center;
+  backface-visibility:hidden;
+  transition:transform .5s;position:absolute;top:0;left:0;
+}
+.fc-front{
+  background:var(--bg2);border:1px solid var(--border);
+  color:var(--white);font-weight:700;font-size:.95em;
+  transform:rotateY(0deg);
+}
+.fc-back{
+  background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.3);
+  color:var(--text2);font-size:.87em;line-height:1.6;
+  transform:rotateY(180deg);
+}
+.flashcard.flipped .fc-front{transform:rotateY(-180deg)}
+.flashcard.flipped .fc-back{transform:rotateY(0deg)}
+.fc-nav{display:flex;align-items:center;gap:12px}
+.fc-btn{
+  background:var(--bg2);border:1px solid var(--border);
+  color:var(--text2);border-radius:8px;padding:7px 16px;
+  cursor:pointer;font-size:.78em;font-weight:600;font-family:'Syne',sans-serif;
+  transition:all .15s;
+}
+.fc-btn:hover{border-color:var(--amber);color:var(--amber)}
+.fc-counter{font-size:.75em;color:var(--muted);font-family:'Fira Code',monospace}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .sidebar{transform:translateX(-100%)}
+  .sidebar.open{transform:translateX(0)}
+  .main{margin-left:0}
+  .hamburger{display:flex}
+  .topbar{padding:10px 20px}
+  .mod-hero{padding:36px 24px 28px}
+  .content-area{padding:28px 20px 80px}
+  .block-grid{grid-template-columns:1fr}
+  .note-grid{grid-template-columns:1fr}
+  .note-cell:nth-child(2n){border-right:1px solid rgba(245,158,11,.12)}
+  .note-cell{border-right:none !important}
+  .note-cell:nth-child(3){border-bottom:1px solid rgba(245,158,11,.12) !important}
+  .hero-stats{grid-template-columns:repeat(2,1fr);width:100%}
+  .mod-nav{flex-direction:column}
+}
+@media(max-width:500px){
+  .topbar-breadcrumb{display:none}
+  .mod-hero h1{font-size:1.7em}
+}
+</style>
+</head>
+<body>
+
+<div class="shell">
+
+<!-- ══════════ SIDEBAR ══════════ -->
+<nav class="sidebar" id="sidebar">
+  <div class="sb-brand">
+    <a class="sb-back" href="seo_complete_roadmap_v3.html">← All Modules</a>
+    <div class="sb-mod-badge">MODULE 03</div>
+    <h2>On-Page SEO</h2>
+    <p>Optimise Every Page for Maximum Rankings</p>
+  </div>
+
+  <div class="sb-progress">
+    <div class="prog-label"><span>Module Progress</span><span id="prog-pct">0%</span></div>
+    <div class="prog-bg"><div class="prog-fill" id="prog-bar"></div></div>
+  </div>
+
+  <div class="sb-nav">
+    <div class="sb-section-label">Topics</div>
+    <a class="nav-link" href="#t3-1" data-target="t3-1">
+      <span class="nav-num">3.1</span>Title Tags<span class="nav-done">✓</span>
+    </a>
+    <a class="nav-link" href="#t3-2" data-target="t3-2">
+      <span class="nav-num">3.2</span>Meta, Headers, URLs & Internal Links<span class="nav-done">✓</span>
+    </a>
+    <a class="nav-link" href="#t3-3" data-target="t3-3">
+      <span class="nav-num">3.3</span>Images, Schema & Page Experience<span class="nav-done">✓</span>
+    </a>
+    <a class="nav-link" href="#t3-4" data-target="t3-4">
+      <span class="nav-num">3.4</span>Content Quality & E-E-A-T<span class="nav-done">✓</span>
+    </a>
+    <a class="nav-link" href="#t3-5" data-target="t3-5">
+      <span class="nav-num">3.5</span>On-Page SEO Audit Checklist<span class="nav-done">✓</span>
+    </a>
+    <div class="sb-section-label" style="margin-top:8px">Tools & Resources</div>
+    <a class="nav-link" href="#tools-section" data-target="tools-section">
+      <span class="nav-num">🔧</span>Essential Tools<span class="nav-done">✓</span>
+    </a>
+    <a class="nav-link" href="#quiz-section" data-target="quiz-section">
+      <span class="nav-num">🎯</span>Module Quiz<span class="nav-done">✓</span>
+    </a>
+    <a class="nav-link" href="#flashcard-section" data-target="flashcard-section">
+      <span class="nav-num">🃏</span>Flashcards<span class="nav-done">✓</span>
+    </a>
+  </div>
+
+  <div class="sb-footer">
+    <p>SEO Mastery Roadmap 2025 Module 3 of 12</p>
+  </div>
+</nav>
+
+<div class="sb-overlay" id="sb-overlay" onclick="closeSidebar()"></div>
+
+<!-- ══════════ MAIN ══════════ -->
+<div class="main">
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <button class="hamburger" onclick="toggleSidebar()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="topbar-breadcrumb">
+    <a href="seo_complete_roadmap_v3.html">SEO Mastery 2025</a>
+    <span style="color:var(--muted)">›</span>
+    <span>Module 3 — On-Page SEO</span>
+  </div>
+  <button class="theme-btn" onclick="toggleTheme()" id="theme-btn">☀️ Light Mode</button>
+</div>
+
+<!-- MODULE HERO -->
+<div class="mod-hero">
+  <div class="mod-hero-bg"></div>
+  <div class="mod-hero-grid"></div>
+  <div class="mod-hero-inner">
+    <div class="mod-number-tag">MODULE 03 / 10</div>
+    <h1>On-Page SEO —<br><em>Optimise Every Page</em></h1>
+    <p>On-page SEO is every optimisation you make directly on your pages. It's the most controllable part of SEO — you can dramatically improve rankings without waiting for external factors. Master this module and you'll outperform sites with far more backlinks.</p>
+    <div class="mod-tags">
+      <span class="mtag mtag-amber">Intermediate</span>
+      <span class="mtag mtag-teal">High Impact</span>
+      <span class="mtag mtag-violet">Foundational</span>
+      <span class="mtag mtag-green">Beginner-Friendly</span>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-box"><div class="stat-n">5</div><div class="stat-l">Topics</div></div>
+      <div class="stat-box"><div class="stat-n">22</div><div class="stat-l">Tasks</div></div>
+      <div class="stat-box"><div class="stat-n">18</div><div class="stat-l">Resources</div></div>
+      <div class="stat-box"><div class="stat-n">2–3h</div><div class="stat-l">Est. Time</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENT AREA -->
+<div class="content-area">
+
+<!-- ══════════════════ TOPIC 3.1 ══════════════════ -->
+<div class="topic-item open" id="t3-1">
+  <div class="topic-header" onclick="toggleTopic(this)">
+    <span class="topic-num">3.1</span>
+    <h3>Title Tags — The Single Most Important On-Page Element</h3>
+    <span class="topic-difficulty diff-beginner">Beginner</span>
+    <span class="topic-chevron">▼</span>
+  </div>
+  <div class="topic-body">
+    <div class="topic-intro">
+      The HTML title tag (<code>&lt;title&gt;Your Title Here&lt;/title&gt;</code>) appears as the clickable blue headline in Google search results. It is simultaneously the <strong>most important on-page ranking signal</strong> AND the primary driver of whether users click your result. Google rewrites title tags it considers poor — if Google rewrites yours, you lose control of the first thing every user sees. To prevent rewrites: accurately describe your page, include the primary keyword naturally, and never keyword-stuff. Every single page on your site needs a unique, carefully crafted title tag.
+    </div>
+
+    <div class="keypoints">
+      <div class="kp"><div class="kp-dot"></div><div><strong>Character Length — 50–60 characters:</strong> Google truncates titles over ~580 pixels (≈60 chars) with "…". Too short wastes keyword real estate. Use a SERP preview tool to check before publishing — a desktop preview differs from mobile.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Keyword Placement — As early as possible:</strong> Google weights words nearer the start more heavily. Users also scan the first few words to decide relevance. "Keyword Research: The Complete 2025 Guide" outperforms "The Complete 2025 Guide to Keyword Research."</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>CTR Power Words:</strong> "Proven", "Ultimate", "Complete", "Free", "Fast", "Easy", "Step-by-Step", "In [Year]", specific numbers ("17 Tips"). These trigger higher click-through — treat your title tag as a mini-advertisement headline, not just a label.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Uniqueness per page:</strong> Duplicate title tags confuse Google about which page to rank for which terms. Every page — including archive, tag, and category pages — must have a unique title tag.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Branding:</strong> For inner pages, add brand at the end after a pipe: "17 SEO Tips | SiteName". For homepage, lead with brand: "SiteName — [Value Prop]". Avoid adding brand to every page title if it pushes keywords past the 60-char limit.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Google's Rewriting Trigger:</strong> Google rewrites titles when: they're too long, keyword-stuffed, boilerplate, mismatched with page content, or when the H1 is a better descriptor. A rewritten title means Google doesn't trust your choice — fix the underlying issue.</div></div>
+    </div>
+
+    <div class="block-grid">
+      <div class="info-block block-example">
+        <div class="block-label">📖 Bad vs Good — Real Examples</div>
+        <p><strong>❌ Bad:</strong> <code>SEO Tips | SEO Guide | Best SEO 2024</code><br><em>Stuffed, unreadable, Google will rewrite it.</em></p>
+        <p style="margin-top:8px"><strong>❌ Bad:</strong> <code>Page 1 – Blog – MySite.com</code><br><em>Auto-generated, zero keywords, zero appeal.</em></p>
+        <p style="margin-top:10px"><strong>✅ Good:</strong> <code>17 Proven SEO Tips to Double Traffic (2025)</code><br><em>Keyword early, number, benefit, year — 49 chars.</em></p>
+        <p style="margin-top:8px"><strong>✅ Good:</strong> <code>Keyword Research: The Definitive Beginner's Guide</code><br><em>Keyword first, clear value — 49 chars.</em></p>
+        <p style="margin-top:10px"><strong>💡 Pro Tip:</strong> Check GSC → Search Results → Filter by page to see if Google is showing your title or its own rewrite. A significant mismatch = rewrite is happening.</p>
+      </div>
+      <div class="info-block block-task">
+        <div class="block-label">✅ Your Tasks</div>
+        <div class="task-list">
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Write <strong>5 title tag variations</strong> for "how to start a blog": question format, number format, how-to, benefit-led, curiosity gap. Confirm all under 60 chars.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Use <strong>Screaming Frog</strong> to crawl any website. Export title tags. Find: missing, duplicates, over 60 chars, under 30 chars.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Preview your title tags in the <strong>SERP Snippet Preview Tool</strong> (technicalseo.com). Check both desktop and mobile display.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Audit 10 title tags on a live website. Score each 1–10. Rewrite every title scoring below 7. Present before/after comparison.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Check Google Search Console for any pages where Google rewrote your title tag. Investigate why and fix the root cause.</span></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="resources-block">
+      <div class="res-title">📚 Learning Resources</div>
+      <div class="res-links">
+        <a class="res-link" href="https://moz.com/learn/seo/title-tag" target="_blank" rel="noopener" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Moz — Title Tag Optimisation Guide</strong><span>Complete guide on best practices, length, keyword placement, with real before/after examples.</span></div><span class="res-badge res-blog">GUIDE</span></a>
+        <a class="res-link" href="https://technicalseo.com/tools/google-serp-simulator/" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>SERP Snippet Preview Tool — TechnicalSEO.com</strong><span>Free tool. Preview exactly how your title and meta look in Google results before publishing. Desktop + mobile view.</span></div><span class="res-badge res-free">FREE TOOL</span></a>
+        <a class="res-link" href="https://ahrefs.com/blog/title-tag-seo/" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Ahrefs — How to Craft the Perfect SEO Title Tag</strong><span>Data-backed study of what makes title tags rank and get clicked, with rewrite examples and CTR data.</span></div><span class="res-badge res-blog">BLOG</span></a>
+        <a class="res-link" href="https://backlinko.com/hub/seo/title-tags" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Backlinko — Title Tags: The Definitive Guide</strong><span>Brian Dean's comprehensive playbook on title tag optimisation with CTR studies and power word lists.</span></div><span class="res-badge res-blog">BLOG</span></a>
+        <a class="res-link" href="https://www.youtube.com/watch?v=4rs3tGIStiI" target="_blank" rel="noopener"><span class="res-icon">▶️</span><div class="res-text"><strong>Ahrefs YouTube — Title Tag SEO Explained</strong><span>10-minute video walkthrough of title tag best practices with live examples from real SERPs.</span></div><span class="res-badge res-video">VIDEO</span></a>
+      </div>
+    </div>
+
+    <!-- USE / WHERE / HOW / WHEN NOTE -->
+    <div class="topic-note">
+      <div class="note-header">📌 Quick Reference — Title Tags</div>
+      <div class="note-grid">
+        <div class="note-cell">
+          <div class="note-cell-label">✅ Why Use</div>
+          <p>Title tags are the <strong>strongest on-page ranking signal</strong> and the first impression users see in search results. A well-crafted title directly increases both ranking position and click-through rate simultaneously.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">📍 Where Use</div>
+          <p>Every single page — <strong>blog posts, product pages, category pages, homepage, landing pages, service pages</strong>. No page should be published without a unique, optimised title tag.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">⚙️ How Use</div>
+          <p>In WordPress: via Yoast SEO or Rank Math. In Shopify: theme settings per page. In raw HTML: <code>&lt;title&gt;…&lt;/title&gt;</code> in the <code>&lt;head&gt;</code>. Follow: <strong>Primary Keyword + Benefit/Number + Brand</strong> formula, under 60 chars.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">⏱ When Use</div>
+          <p>Set before publishing, then revisit <strong>every 6 months</strong>. Update when: Google Search Console shows your title is being rewritten, CTR drops in GSC data, or rankings shift for the target keyword.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ TOPIC 3.2 ══════════════════ -->
+<div class="topic-item" id="t3-2">
+  <div class="topic-header" onclick="toggleTopic(this)">
+    <span class="topic-num">3.2</span>
+    <h3>Meta Descriptions, Header Tags, URLs & Internal Linking</h3>
+    <span class="topic-difficulty diff-beginner">Beginner</span>
+    <span class="topic-chevron">▼</span>
+  </div>
+  <div class="topic-body">
+    <div class="topic-intro">
+      Beyond title tags, four additional elements form the backbone of every well-optimised page: meta descriptions (CTR driver), header tags H1–H6 (content hierarchy signal), URL slugs (minor ranking signal + user trust), and internal links (PageRank distribution + crawlability). Mastering all four together creates a compounding effect — each element reinforces the others, making your pages stronger than sites optimising only one or two.
+    </div>
+
+    <div class="keypoints">
+      <div class="kp"><div class="kp-dot"></div><div><strong>Meta Description — 150–160 characters, not a ranking factor but critical for CTR:</strong> When Google bolds keywords matching the query in your meta description, users immediately see relevance. A compelling meta description written like an ad headline can increase CTR by 40–70%, which improves rankings indirectly through engagement signals. Formula: Hook (pain point or benefit) + Proof or specifics + Soft CTA.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>H1 — One per page, direct ranking factor:</strong> Contains the primary keyword. Should closely match your title tag but needn't be identical. The H1 sets the topical context for everything that follows — Google reads this first when processing page content.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>H2–H6 — Indirect ranking signals via topical coverage:</strong> Section headings create document hierarchy. Include secondary and LSI keywords in H2s naturally. Google uses header structure to understand sub-topics — comprehensive H2 coverage signals topical authority and helps you rank for long-tail variations of the main keyword.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>URL Slug — Short, keyword-rich, hyphenated:</strong> <code>/keyword-research-guide</code> = excellent. <code>/?p=1234</code> = signals nothing to Google or users. Never change a live URL without a 301 redirect — changing URLs destroys all accumulated link equity from backlinks pointing to the old URL.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Internal Linking — Significant indirect ranking factor:</strong> Contextual links between your own pages distribute PageRank (ranking power), help Google understand content relationships, reduce orphan pages, and keep users engaged. A pillar page with strong internal links from 20 cluster articles can outrank competitor pages with more external backlinks.</div></div>
+    </div>
+
+    <div class="block-grid">
+      <div class="info-block block-example">
+        <div class="block-label">📖 Real Examples</div>
+        <p><strong>Strong Meta Description:</strong><br>"Struggling with organic traffic? These 17 SEO tips grew our clients' visits by 312% — with zero paid ads. Start with Tip #4."<br><em>Pain point hook → specific proof → curiosity trigger → 158 chars</em></p>
+        <p style="margin-top:10px"><strong>URL Structure Win:</strong> A site changed all URLs from <code>/p?id=8843</code> to <code>/blog/keyword-research-guide</code> with 301 redirects. CTR in Search Console jumped 28% in 8 weeks — keyword-rich URLs build trust before the click.</p>
+        <p style="margin-top:10px"><strong>Internal Linking Win:</strong> Adding 15 contextual internal links to a page ranking #9 (from relevant cluster articles) pushed it to #4 within 6 weeks — zero new backlinks needed.</p>
+      </div>
+      <div class="info-block block-task">
+        <div class="block-label">✅ Your Tasks</div>
+        <div class="task-list">
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Write meta descriptions for: homepage, a blog post, and a product page — each under 160 chars with keyword + CTA. Use SERP preview tool to check display.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Build a complete header structure (H1, H2s, H3s) for an article on "Home Workout for Beginners" <strong>before writing a single word</strong> of content.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Use Screaming Frog to identify <strong>orphan pages</strong> (pages with zero internal links pointing to them) on any website. Plan how to fix each.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Rewrite 5 bad URLs from any website into clean, keyword-rich slug formats. Specify what 301 redirect you'd implement for each.</span></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="resources-block">
+      <div class="res-title">📚 Learning Resources</div>
+      <div class="res-links">
+        <a class="res-link" href="https://ahrefs.com/blog/on-page-seo/" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Ahrefs — On-Page SEO: Beginner's Guide</strong><span>Comprehensive on-page checklist covering every element with real examples and common mistakes to avoid.</span></div><span class="res-badge res-blog">GUIDE</span></a>
+        <a class="res-link" href="https://yoast.com/wordpress/plugins/seo/" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>Yoast SEO Plugin (WordPress)</strong><span>Guides you through on-page optimisation for every page as you write. Traffic-light scoring system.</span></div><span class="res-badge res-free">FREE TOOL</span></a>
+        <a class="res-link" href="https://rankmath.com/" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>Rank Math SEO Plugin</strong><span>Advanced alternative to Yoast. Free tier includes on-page analysis, schema, and GSC integration.</span></div><span class="res-badge res-free">FREE TOOL</span></a>
+        <a class="res-link" href="https://www.semrush.com/blog/on-page-seo/" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>SEMrush — On-Page SEO Checklist 2025</strong><span>100-point on-page checklist with practical guidance for every element including meta, headers, URLs.</span></div><span class="res-badge res-blog">BLOG</span></a>
+        <a class="res-link" href="https://moz.com/learn/seo/internal-link" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Moz — Internal Links Guide</strong><span>How internal linking distributes PageRank, how to structure an internal linking strategy, and common mistakes.</span></div><span class="res-badge res-blog">GUIDE</span></a>
+      </div>
+    </div>
+
+    <div class="topic-note">
+      <div class="note-header">📌 Quick Reference — Meta, Headers, URLs, Internal Links</div>
+      <div class="note-grid">
+        <div class="note-cell">
+          <div class="note-cell-label">✅ Why Use</div>
+          <p>These four elements work as a <strong>complete signal system</strong> — meta descriptions drive clicks, headers signal topic coverage, URLs build trust, and internal links distribute ranking power across your entire site.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">📍 Where Use</div>
+          <p>Every page on your site. Pay special attention to <strong>high-traffic pages, commercial intent pages, and any page you're actively trying to rank</strong>. Prioritise pages ranking positions 5–15 for quick wins.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">⚙️ How Use</div>
+          <p>Meta: via SEO plugin. H1: your first and only H1 in the post content. URLs: set in WordPress permalink settings before publishing. Internal links: add 3–5 contextual links in the body of every new article to relevant existing pages.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">⏱ When Use</div>
+          <p>Set everything <strong>before publishing</strong>. Run an internal linking audit every quarter using Screaming Frog. Update meta descriptions on pages where CTR drops in GSC. Plan header structure before writing any content.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ TOPIC 3.3 ══════════════════ -->
+<div class="topic-item" id="t3-3">
+  <div class="topic-header" onclick="toggleTopic(this)">
+    <span class="topic-num">3.3</span>
+    <h3>Image SEO, Schema Markup & Page Experience Signals</h3>
+    <span class="topic-difficulty diff-intermediate">Intermediate</span>
+    <span class="topic-chevron">▼</span>
+  </div>
+  <div class="topic-body">
+    <div class="topic-intro">
+      Images and structured data are two underutilised on-page elements that generate significant additional traffic without requiring more content or backlinks. <strong>Image SEO</strong> can drive substantial Google Images traffic and directly impacts page speed (a ranking factor). <strong>Schema Markup</strong> enables rich results — expanded listings with star ratings, FAQs, prices, and more — that can 2–3× your click-through rate from the same ranking position. Page Experience signals (Core Web Vitals) are direct ranking factors since 2021.
+    </div>
+
+    <div class="keypoints">
+      <div class="kp"><div class="kp-dot"></div><div><strong>Image Alt Text — Required for Google Images + accessibility:</strong> Describe what's in the image accurately and naturally — include the keyword only if it genuinely describes the image content. Not: <code>alt="seo seo tips seo guide"</code>. Yes: <code>alt="keyword research process using Ahrefs dashboard on laptop"</code>. Empty alt text on informational images is an SEO opportunity wasted.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Image Format & Compression — #1 cause of slow sites:</strong> Convert to WebP (30–50% smaller than JPEG/PNG with equivalent quality). Target under 100KB per image. Use explicit width and height attributes on every image to prevent CLS. Images without dimensions cause layout shifts as they load — a Core Web Vitals failure.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Schema Markup / Structured Data — Rich Results Eligibility:</strong> JSON-LD code in your page's &lt;head&gt; that tells Google the structure of your content. Key types: Article, FAQ, HowTo, Product, Review, LocalBusiness, Recipe, BreadcrumbList. FAQ schema is particularly high-ROI — adds expandable Q&A boxes directly in search results, dramatically increasing visible listing real estate.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Core Web Vitals — Direct ranking factors (since 2021):</strong> LCP (Largest Contentful Paint, target &lt;2.5s), INP (Interaction to Next Paint, target &lt;200ms), CLS (Cumulative Layout Shift, target &lt;0.1). Measured from real Chrome user data. Poor scores trigger ranking penalties on mobile searches. Check in Google Search Console under Experience → Core Web Vitals.</div></div>
+    </div>
+
+    <div class="block-grid">
+      <div class="info-block block-example">
+        <div class="block-label">📖 Real Case Study — Schema ROI</div>
+        <p>A recipe blog added FAQ schema to all 200+ recipe articles. Average result expanded from 1 line to showing 4 expandable Q&A boxes directly in Google results. <strong>CTR jumped from 3.8% to 11.2%</strong> — nearly 3× more clicks with zero change in ranking position. That's 190% more traffic from identical rankings. Schema implementation costs zero in budget and ~30 minutes per page to implement.</p>
+        <p style="margin-top:10px"><strong>Image Speed Fix:</strong> An e-commerce site had an 8.4s LCP from a 4.2MB hero image. After converting to WebP + adding width/height: LCP dropped to 1.6s. Mobile PageSpeed: 28 → 91. Organic mobile traffic +34%. That single fix outperformed 6 months of content creation.</p>
+      </div>
+      <div class="info-block block-task">
+        <div class="block-label">✅ Your Tasks</div>
+        <div class="task-list">
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Write proper alt text for 10 images from any webpage. Include keyword naturally where the image genuinely depicts it.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Compress 5 images using <strong>Squoosh.app</strong> (free, by Google). Note the % size reduction. Convert to WebP and compare quality.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Use <strong>Google's Rich Results Test</strong> to check 3 websites for existing schema markup. Note what rich results they qualify for.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Generate FAQ schema using <strong>Merkle's Schema Generator</strong> for any FAQ page. Validate it in Rich Results Test. Then implement it.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Run <strong>PageSpeed Insights</strong> on your site or a client's. Document the exact Core Web Vitals scores and the top 3 recommended improvements.</span></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="resources-block">
+      <div class="res-title">📚 Learning Resources</div>
+      <div class="res-links">
+        <a class="res-link" href="https://search.google.com/test/rich-results" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>Google Rich Results Test</strong><span>Official tool. Test any URL for valid structured data. Preview how rich results appear in search.</span></div><span class="res-badge res-free">FREE</span></a>
+        <a class="res-link" href="https://technicalseo.com/tools/schema-markup-generator/" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>Merkle Schema Markup Generator</strong><span>Generate JSON-LD schema code for any page type without writing code. FAQ, Article, Product, and more.</span></div><span class="res-badge res-free">FREE TOOL</span></a>
+        <a class="res-link" href="https://squoosh.app" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>Squoosh.app (Google)</strong><span>Browser-based image compression + WebP converter. Before/after comparison. Free with no upload limits.</span></div><span class="res-badge res-free">FREE TOOL</span></a>
+        <a class="res-link" href="https://web.dev/articles/vitals" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>web.dev — Core Web Vitals Essentials</strong><span>Official Google developer docs on LCP, INP, CLS — what they measure, thresholds, and how to improve each.</span></div><span class="res-badge res-official">OFFICIAL</span></a>
+        <a class="res-link" href="https://schema.org/docs/full.html" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Schema.org — Complete Schema Reference</strong><span>Full list of all schema types supported by Google. Use this to find the right schema for any content type.</span></div><span class="res-badge res-official">OFFICIAL</span></a>
+        <a class="res-link" href="https://ahrefs.com/blog/image-seo/" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Ahrefs — Image SEO: How to Rank in Google Image Search</strong><span>Complete guide to optimising images for both page speed and Google Images traffic. Covers alt text, file names, formats.</span></div><span class="res-badge res-blog">GUIDE</span></a>
+      </div>
+    </div>
+
+    <div class="topic-note">
+      <div class="note-header">📌 Quick Reference — Images, Schema & Core Web Vitals</div>
+      <div class="note-grid">
+        <div class="note-cell">
+          <div class="note-cell-label">✅ Why Use</div>
+          <p>Schema markup delivers <strong>richer search listings with zero ranking change</strong> — more visual space = more clicks. Image optimisation improves both rankings (via speed signals) and drives Google Images traffic as a separate channel.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">📍 Where Use</div>
+          <p>Schema: FAQ pages, how-to articles, product pages, review pages, local business pages. Image optimisation: <strong>every image on every page</strong>. CWV focus: pages with high traffic or commercial intent — prioritise by impact.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">⚙️ How Use</div>
+          <p>Schema: Add JSON-LD in <code>&lt;head&gt;</code> or use Rank Math's built-in schema builder. Images: batch-compress with Squoosh or ShortPixel, add alt text in CMS media library, set width/height in HTML. CWV: fix in PageSpeed Insights order of priority.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">⏱ When Use</div>
+          <p>Schema: add to eligible pages at publication. CWV audit: <strong>monthly</strong> using GSC Core Web Vitals report. Image audit: every time new images are uploaded and as a one-time audit for legacy content. Compress before upload, not after.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ TOPIC 3.4 ══════════════════ -->
+<div class="topic-item" id="t3-4">
+  <div class="topic-header" onclick="toggleTopic(this)">
+    <span class="topic-num">3.4</span>
+    <h3>Content Quality, E-E-A-T & Writing for Rankings</h3>
+    <span class="topic-difficulty diff-intermediate">Intermediate</span>
+    <span class="topic-chevron">▼</span>
+  </div>
+  <div class="topic-body">
+    <div class="topic-intro">
+      Content quality is the most significant ranking factor after backlinks — and Google's ability to evaluate quality increases with every algorithm update. Google introduced <strong>E-E-A-T</strong> (Experience, Expertise, Authoritativeness, Trustworthiness) as its quality framework, used by human Quality Raters to evaluate search result quality and train the algorithm. Great SEO content must satisfy two audiences simultaneously: search algorithms (keywords, structure, schema) and human readers (clarity, depth, value). Fortunately, these goals align more than they conflict.
+    </div>
+
+    <div class="keypoints">
+      <div class="kp"><div class="kp-dot"></div><div><strong>E-E-A-T — What Google's Quality Raters Evaluate:</strong> Experience (has the author personally done or used what they're describing?), Expertise (do they have deep knowledge of the subject?), Authoritativeness (do others in the field recognise this site/author?), Trustworthiness (is the site transparent, accurate, and honest?). YMYL (Your Money Your Life) pages — health, finance, safety — face the strictest E-E-A-T evaluation.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Keyword Placement — Strategic, not mechanical:</strong> Primary keyword in: title tag, H1, first 100 words, at least one H2, URL, and image alt text. For density: forget old percentage rules. Instead aim for natural language that covers the topic using synonyms, related terms (LSI keywords), and the exact phrases people search.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Content Length — Match the query, not a word count:</strong> How-to guides: 1,500–3,000 words. Pillar pages: 3,000–8,000 words. Product pages: 200–500 words of unique copy. News articles: 300–700 words. Check what's currently ranking for your target keyword — match the format and approximate depth of the top 3 results.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Content Freshness — Update, don't republish:</strong> Google's "freshness" algorithm rewards updated content. Updating an existing article (new statistics, additional sections, refreshed examples, updated date) consistently outperforms creating a new competing article. Pages ranking position 8–15 are the best candidates for a "freshness boost".</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Skyscraper Method:</strong> (1) Find top-ranking content for your keyword, (2) identify gaps — outdated stats, missing sub-topics, no examples, weak structure, (3) create something comprehensively better, (4) reach out to sites linking to the weaker version. One Skyscraper article can drive traffic for years.</div></div>
+    </div>
+
+    <div class="block-grid">
+      <div class="info-block block-example">
+        <div class="block-label">📖 E-E-A-T in Practice</div>
+        <p><strong>Author Bio Page:</strong> Include credentials, years of experience, links to published work, professional social profiles. Google's crawlers and quality raters look for evidence that real experts write the content.</p>
+        <p style="margin-top:8px"><strong>Freshness Case Study:</strong> A finance blog updated a "best savings account" article (ranking #11) — refreshed rates, added 3 new sub-sections, removed outdated content. Result: jumped to #3 in 4 weeks. Zero new backlinks. The freshness signal alone was sufficient to leapfrog 8 positions.</p>
+        <p style="margin-top:8px"><strong>LSI Keywords:</strong> For "digital marketing", Google expects to see related terms like: conversion rate, social media, email campaigns, ROI, analytics, customer journey. Missing these signals thin topical coverage.</p>
+      </div>
+      <div class="info-block block-task">
+        <div class="block-label">✅ Your Tasks</div>
+        <div class="task-list">
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Analyse the top 5 ranking articles for any keyword. List every H2, sub-topic, and unique angle they cover. Create a content outline that covers all of these <strong>plus 3 additional sections</strong>.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Write a complete <strong>1,500-word SEO article</strong> on any topic. Score it in Yoast or Rank Math. Aim for 80+ score before publishing.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Find an article ranking positions 8–15. Update it: add 500 words, refresh statistics with current data, improve H2 structure. Track position in GSC for 4 weeks.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Use <strong>LSIGraph.com</strong> to generate semantic keywords for your content's main topic. Identify 10 LSI terms missing from your existing article and naturally weave them in.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Read Google's <strong>Search Quality Rater Guidelines</strong> (the E-E-A-T section). List 5 specific changes you'd make to a website to improve its E-E-A-T signals.</span></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="resources-block">
+      <div class="res-title">📚 Learning Resources</div>
+      <div class="res-links">
+        <a class="res-link" href="https://backlinko.com/skyscraper-technique" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Backlinko — The Skyscraper Technique (Original Guide)</strong><span>The definitive guide to content-based link building with real traffic case studies from Brian Dean.</span></div><span class="res-badge res-blog">GUIDE</span></a>
+        <a class="res-link" href="https://surferseo.com/" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>Surfer SEO</strong><span>Real-time content optimisation tool. Analyses top-ranking pages and scores your content as you write.</span></div><span class="res-badge res-tool">TOOL</span></a>
+        <a class="res-link" href="https://lsigraph.com" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>LSIGraph — Semantic Keyword Generator</strong><span>Free tool generating LSI (related/semantic) keywords for any seed term. Use these naturally in your content.</span></div><span class="res-badge res-free">FREE TOOL</span></a>
+        <a class="res-link" href="https://hemingwayapp.com" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>Hemingway Editor</strong><span>Paste content to get readability score, complex sentence analysis, and clarity suggestions. Target Grade 8.</span></div><span class="res-badge res-free">FREE TOOL</span></a>
+        <a class="res-link" href="https://static.googleusercontent.com/media/guidelines.raterhub.com/en//searchqualityevaluatorguidelines.pdf" target="_blank" rel="noopener"><span class="res-icon">📄</span><div class="res-text"><strong>Google Search Quality Rater Guidelines (PDF)</strong><span>The actual document Google's human raters use to evaluate content. Contains the full E-E-A-T framework with examples.</span></div><span class="res-badge res-official">OFFICIAL</span></a>
+        <a class="res-link" href="https://ahrefs.com/blog/eeat-seo/" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Ahrefs — E-E-A-T: How to Demonstrate It for SEO</strong><span>Practical guide to improving E-E-A-T signals with specific on-page and off-page actions that make a measurable difference.</span></div><span class="res-badge res-blog">BLOG</span></a>
+        <a class="res-link" href="https://www.youtube.com/watch?v=XbsA6Rjj5ts" target="_blank" rel="noopener"><span class="res-icon">▶️</span><div class="res-text"><strong>Ahrefs YouTube — Content Quality & E-E-A-T Explained</strong><span>Video walkthrough of how Google evaluates content quality and what you can do to improve your content's E-E-A-T score.</span></div><span class="res-badge res-video">VIDEO</span></a>
+      </div>
+    </div>
+
+    <div class="topic-note">
+      <div class="note-header">📌 Quick Reference — Content Quality & E-E-A-T</div>
+      <div class="note-grid">
+        <div class="note-cell">
+          <div class="note-cell-label">✅ Why Use</div>
+          <p>Google's algorithm increasingly rewards genuine quality signals. E-E-A-T compliance protects against algorithm updates (Helpful Content Updates hit thin or untrustworthy content hardest) and builds long-term traffic stability.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">📍 Where Use</div>
+          <p>Every content page — but prioritise <strong>YMYL topics</strong> (health, finance, legal, safety) where E-E-A-T matters most. Commercial pages and pages targeting high-competition keywords need the strongest quality signals.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">⚙️ How Use</div>
+          <p>Add author bio pages with credentials and social proof. Cite expert sources. Update content regularly. Use first-person experience language. Include original data, screenshots, or case studies. Build author authority with a consistent publishing record.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">⏱ When Use</div>
+          <p>Before publishing any new content. Also critical after any <strong>Google core update</strong> or Helpful Content Update — if rankings dropped, E-E-A-T weakness is often the cause. Audit quarterly using Google Search Console's performance report.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ TOPIC 3.5 ══════════════════ -->
+<div class="topic-item" id="t3-5">
+  <div class="topic-header" onclick="toggleTopic(this)">
+    <span class="topic-num">3.5</span>
+    <h3>On-Page SEO Audit Checklist — Full Page Optimisation Process</h3>
+    <span class="topic-difficulty diff-intermediate">Intermediate</span>
+    <span class="topic-chevron">▼</span>
+  </div>
+  <div class="topic-body">
+    <div class="topic-intro">
+      An on-page SEO audit systematically evaluates every optimisable element on a page and identifies exactly what needs fixing. Running this audit before publishing any new page (pre-publish audit) and regularly on existing pages (maintenance audit) is the professional standard. A thorough on-page audit is also the deliverable for your first freelance SEO clients — it demonstrates expertise, creates a clear action plan, and gives you measurable before/after results.
+    </div>
+
+    <div class="keypoints">
+      <div class="kp"><div class="kp-dot"></div><div><strong>Pre-Publish Checklist (Before Any Page Goes Live):</strong> Title tag (unique, 50–60 chars, keyword early), H1 (matches intent, includes keyword), Meta description (150–160 chars, compelling), URL slug (clean, keyword-rich, no stop words), at least 2–3 internal links added from relevant pages, images compressed and alt text written, schema markup added where relevant, page passes mobile-friendly test, no duplicate content issues.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Existing Page Audit Triggers:</strong> Ranking has stalled or dropped in the past 30 days, CTR is below average for its position (check in GSC), the content is over 12 months old and contains statistics, a competitor has overtaken the page, or the page has never ranked despite quality backlinks.</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Tools for Comprehensive On-Page Audits:</strong> Screaming Frog (technical on-page crawl), Ahrefs Site Audit (large-scale issue detection), Rank Math / Yoast (real-time per-page scoring), Google Search Console (performance + CWV data), PageSpeed Insights (speed metrics), Semrush On-Page SEO Checker (competitor comparison + recommendations).</div></div>
+      <div class="kp"><div class="kp-dot"></div><div><strong>Prioritisation Framework — Fix in this order:</strong> (1) Missing/duplicate titles and H1s, (2) Pages with &lt;2 internal links pointing to them, (3) Images missing alt text, (4) Pages with Core Web Vitals failures, (5) Missing schema on eligible pages, (6) Thin content (under 300 words on indexable pages), (7) Missing or poor meta descriptions on high-traffic pages.</div></div>
+    </div>
+
+    <div class="block-grid">
+      <div class="info-block block-insight">
+        <div class="block-label">💡 Pro Audit Workflow</div>
+        <p><strong>Step 1 — Crawl:</strong> Run Screaming Frog on the full site. Export: title tags, meta descriptions, H1s, status codes, image alt attributes, word count per URL, inlinks per URL.</p>
+        <p style="margin-top:8px"><strong>Step 2 — Analyse:</strong> Filter each export for issues. Title tags: flag missing, duplicate, &gt;60 chars. H1s: flag missing, duplicate, H1 ≠ Title Tag. Meta: flag missing and duplicates.</p>
+        <p style="margin-top:8px"><strong>Step 3 — Prioritise:</strong> Sort pages by organic traffic (GSC). Fix highest-traffic pages first — the ROI is proportionally higher.</p>
+        <p style="margin-top:8px"><strong>Step 4 — Fix + Measure:</strong> Implement changes, note the date in a spreadsheet, and track keyword positions and CTR in GSC over the following 4–8 weeks.</p>
+      </div>
+      <div class="info-block block-task">
+        <div class="block-label">✅ Your Tasks</div>
+        <div class="task-list">
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Run a complete Screaming Frog crawl on any site with 50+ pages. Document every on-page issue found in a prioritised spreadsheet.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Use SEMrush's <strong>On-Page SEO Checker</strong> on a 10-page website. Review all recommendations. Implement the top 5 highest-priority fixes.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Create your own <strong>personal on-page SEO checklist</strong> with 20+ items based on everything in this module. This becomes your SOP for every future audit.</span></label>
+          <label class="task-check-item" onclick="toggleTask(this)"><input type="checkbox"><span class="check-box">✓</span><span class="task-text">Run Google Search Console's Coverage report and Core Web Vitals report. Document all flagged URLs and create a fix priority list by traffic volume.</span></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="resources-block">
+      <div class="res-title">📚 Learning Resources</div>
+      <div class="res-links">
+        <a class="res-link" href="https://www.screamingfrog.co.uk/seo-spider/" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>Screaming Frog SEO Spider</strong><span>The industry standard site crawler. Free for up to 500 URLs. Exports every on-page element in bulk for analysis.</span></div><span class="res-badge res-free">FREE (500 URLs)</span></a>
+        <a class="res-link" href="https://www.semrush.com/on-page-seo-checker/" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>SEMrush On-Page SEO Checker</strong><span>Automatically audits pages and provides prioritised recommendations with competitor benchmarking data.</span></div><span class="res-badge res-tool">TOOL</span></a>
+        <a class="res-link" href="https://ahrefs.com/blog/seo-audit/" target="_blank" rel="noopener"><span class="res-icon">🔗</span><div class="res-text"><strong>Ahrefs — How to Do an SEO Audit (Step-by-Step)</strong><span>Comprehensive SEO audit guide covering technical, on-page, and content issues with downloadable checklist.</span></div><span class="res-badge res-blog">GUIDE</span></a>
+        <a class="res-link" href="https://search.google.com/search-console" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>Google Search Console</strong><span>Free. The most important SEO tool. Shows your actual ranking data, CWV performance, coverage issues, and more.</span></div><span class="res-badge res-free">FREE</span></a>
+        <a class="res-link" href="https://developers.google.com/speed/pagespeed/insights/" target="_blank" rel="noopener"><span class="res-icon">🔧</span><div class="res-text"><strong>PageSpeed Insights</strong><span>Google's official Core Web Vitals testing tool. Shows both lab and real-world field data for any URL.</span></div><span class="res-badge res-free">FREE</span></a>
+      </div>
+    </div>
+
+    <div class="topic-note">
+      <div class="note-header">📌 Quick Reference — On-Page SEO Audit</div>
+      <div class="note-grid">
+        <div class="note-cell">
+          <div class="note-cell-label">✅ Why Use</div>
+          <p>Audits identify the exact gaps holding rankings back. They create a <strong>quantifiable, actionable work plan</strong> — turning vague "do better SEO" into specific fixes with measurable outcomes. Essential for freelance deliverables.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">📍 Where Use</div>
+          <p>Every site you manage or get hired to improve. Focus on: <strong>highest-traffic pages first</strong>, then pages ranking 5–20 (quickest wins), then pages with rich result eligibility (schema opportunity), then pages with CWV failures.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">⚙️ How Use</div>
+          <p>Crawl with Screaming Frog → export all issues → cross-reference with GSC traffic data → prioritise by impact → fix → record implementation dates → measure in GSC. Use SEMrush On-Page Checker for automated recommendations with competitor benchmarks.</p>
+        </div>
+        <div class="note-cell">
+          <div class="note-cell-label">⏱ When Use</div>
+          <p>Pre-publish audit on every new page. Full-site audit <strong>quarterly</strong>. Emergency audit immediately after any rankings drop. Use as your first deliverable for new clients — it establishes authority and sets a clear baseline for measuring your impact.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ TOOLS SECTION ══════════════════ -->
+<div class="section-divider" id="tools-section"><span>◈ Essential Tools</span></div>
+
+<div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:24px">
+  <h3 style="font-family:'Fraunces',serif;font-size:1.25em;color:var(--white);margin-bottom:6px">🔧 Module 3 Tool Stack</h3>
+  <p style="font-size:.87em;color:var(--text2);margin-bottom:18px">Every tool you need to execute on-page SEO professionally. Clickable links — all verified working.</p>
+  <div class="tools-chips">
+    <a class="tool-chip" href="https://www.screamingfrog.co.uk/seo-spider/" target="_blank" rel="noopener">Screaming Frog</a>
+    <a class="tool-chip" href="https://rankmath.com/" target="_blank" rel="noopener">Rank Math</a>
+    <a class="tool-chip" href="https://yoast.com/wordpress/plugins/seo/" target="_blank" rel="noopener">Yoast SEO</a>
+    <a class="tool-chip" href="https://search.google.com/search-console" target="_blank" rel="noopener">Google Search Console</a>
+    <a class="tool-chip" href="https://developers.google.com/speed/pagespeed/insights/" target="_blank" rel="noopener">PageSpeed Insights</a>
+    <a class="tool-chip" href="https://technicalseo.com/tools/google-serp-simulator/" target="_blank" rel="noopener">SERP Preview Tool</a>
+    <a class="tool-chip" href="https://search.google.com/test/rich-results" target="_blank" rel="noopener">Rich Results Test</a>
+    <a class="tool-chip" href="https://technicalseo.com/tools/schema-markup-generator/" target="_blank" rel="noopener">Schema Generator</a>
+    <a class="tool-chip" href="https://squoosh.app" target="_blank" rel="noopener">Squoosh (Images)</a>
+    <a class="tool-chip" href="https://lsigraph.com" target="_blank" rel="noopener">LSIGraph</a>
+    <a class="tool-chip" href="https://hemingwayapp.com" target="_blank" rel="noopener">Hemingway Editor</a>
+    <a class="tool-chip" href="https://surferseo.com/" target="_blank" rel="noopener">Surfer SEO</a>
+    <a class="tool-chip" href="https://answerthepublic.com" target="_blank" rel="noopener">AnswerThePublic</a>
+    <a class="tool-chip" href="https://www.semrush.com/on-page-seo-checker/" target="_blank" rel="noopener">SEMrush On-Page Checker</a>
+    <a class="tool-chip" href="https://search.google.com/test/mobile-friendly" target="_blank" rel="noopener">Mobile-Friendly Test</a>
+    <a class="tool-chip" href="https://www.xml-sitemaps.com" target="_blank" rel="noopener">XML Sitemap Generator</a>
+  </div>
+</div>
+
+<!-- BLOG POSTS SECTION -->
+<div class="blog-section" style="margin-bottom:30px">
+  <div class="blog-header">✍️ Recommended Blog Posts & Articles to Read</div>
+  <a class="blog-item" href="https://moz.com/learn/seo/on-page-factors" target="_blank" rel="noopener">
+    <span class="blog-icon">📝</span>
+    <div class="blog-text">
+      <strong>Moz — On-Page Ranking Factors: The Complete List</strong>
+      <span>Every on-page factor Moz's research identifies as ranking signals, with their relative importance scored. Essential reading to understand what matters most.</span>
+    </div>
+    <div class="blog-meta"><span class="res-badge res-blog">BLOG</span></div>
+  </a>
+  <a class="blog-item" href="https://backlinko.com/on-page-seo" target="_blank" rel="noopener">
+    <span class="blog-icon">📝</span>
+    <div class="blog-text">
+      <strong>Backlinko — On-Page SEO: Actionable Guide (2025)</strong>
+      <span>Brian Dean's complete on-page SEO guide with actionable tactics backed by ranking data. Includes his SEO content template framework.</span>
+    </div>
+    <div class="blog-meta"><span class="res-badge res-blog">BLOG</span></div>
+  </a>
+  <a class="blog-item" href="https://neilpatel.com/blog/seo-writing/" target="_blank" rel="noopener">
+    <span class="blog-icon">📝</span>
+    <div class="blog-text">
+      <strong>Neil Patel — How to Write SEO Content That Ranks in 2025</strong>
+      <span>Neil's practical guide to writing content that satisfies both Google and readers. Covers keyword research integration, structure, and length decisions.</span>
+    </div>
+    <div class="blog-meta"><span class="res-badge res-blog">BLOG</span></div>
+  </a>
+  <a class="blog-item" href="https://www.searchenginejournal.com/on-page-seo/how-to-optimize-for-google/" target="_blank" rel="noopener">
+    <span class="blog-icon">📝</span>
+    <div class="blog-text">
+      <strong>Search Engine Journal — On-Page SEO Guide: How to Optimise for Google</strong>
+      <span>Comprehensive guide from SEJ covering every aspect of on-page optimisation with 2025 algorithm updates factored in.</span>
+    </div>
+    <div class="blog-meta"><span class="res-badge res-blog">BLOG</span></div>
+  </a>
+  <a class="blog-item" href="https://ahrefs.com/blog/eeat-seo/" target="_blank" rel="noopener">
+    <span class="blog-icon">📝</span>
+    <div class="blog-text">
+      <strong>Ahrefs — E-E-A-T: What It Is & How to Demonstrate It for SEO</strong>
+      <span>The most practical guide to building E-E-A-T signals. Includes specific, implementable tactics organised by each of the four quality pillars.</span>
+    </div>
+    <div class="blog-meta"><span class="res-badge res-blog">BLOG</span></div>
+  </a>
+  <a class="blog-item" href="https://www.youtube.com/watch?v=Cbo6iXjSH3k" target="_blank" rel="noopener">
+    <span class="blog-icon">▶️</span>
+    <div class="blog-text">
+      <strong>Ahrefs YouTube — On-Page SEO Masterclass (45 min)</strong>
+      <span>Full video course covering every on-page element with live website examples. Best video resource available on this topic — free on YouTube.</span>
+    </div>
+    <div class="blog-meta"><span class="res-badge res-video">VIDEO</span></div>
+  </a>
+</div>
+
+<!-- ══════════════════ QUIZ SECTION ══════════════════ -->
+<div class="section-divider" id="quiz-section"><span>◈ Test Your Knowledge</span></div>
+
+<div class="quiz-block">
+  <div class="quiz-header">🎯 Module 3 Quiz — On-Page SEO</div>
+
+  <div class="quiz-q" id="q1">
+    <p>1. What is the ideal character length for a title tag?</p>
+    <div class="quiz-options">
+      <div class="quiz-opt" onclick="answerQuiz('q1','a','b')"><span class="quiz-opt-letter">A</span>30–40 characters</div>
+      <div class="quiz-opt" onclick="answerQuiz('q1','b','b')"><span class="quiz-opt-letter">B</span>50–60 characters</div>
+      <div class="quiz-opt" onclick="answerQuiz('q1','c','b')"><span class="quiz-opt-letter">C</span>80–100 characters</div>
+      <div class="quiz-opt" onclick="answerQuiz('q1','d','b')"><span class="quiz-opt-letter">D</span>No character limit matters</div>
+    </div>
+    <div class="quiz-feedback ok" id="q1-ok">✅ Correct! 50–60 characters is ideal — Google truncates longer titles with "…" at approximately 580 pixels width.</div>
+    <div class="quiz-feedback no" id="q1-no">❌ Not quite. The ideal is <strong>50–60 characters</strong>. Google truncates titles over ~580 pixels (≈60 chars) in search results.</div>
+  </div>
+
+  <div class="quiz-q" id="q2">
+    <p>2. Meta descriptions are NOT a direct Google ranking factor. True or False?</p>
+    <div class="quiz-options">
+      <div class="quiz-opt" onclick="answerQuiz('q2','a','a')"><span class="quiz-opt-letter">A</span>True — they influence CTR, not rankings directly</div>
+      <div class="quiz-opt" onclick="answerQuiz('q2','b','a')"><span class="quiz-opt-letter">B</span>False — they directly affect keyword rankings</div>
+    </div>
+    <div class="quiz-feedback ok" id="q2-ok">✅ Correct! Meta descriptions are NOT a ranking factor, but they drive CTR — and higher CTR indirectly improves rankings through engagement signals. Google confirmed this in 2009 and it remains true today.</div>
+    <div class="quiz-feedback no" id="q2-no">❌ Incorrect. Google confirmed meta descriptions do <strong>not</strong> directly influence rankings. Their value is improving click-through rate, which indirectly benefits rankings.</div>
+  </div>
+
+  <div class="quiz-q" id="q3">
+    <p>3. What does E-E-A-T stand for in Google's quality framework?</p>
+    <div class="quiz-options">
+      <div class="quiz-opt" onclick="answerQuiz('q3','a','c')"><span class="quiz-opt-letter">A</span>Engagement, Expertise, Authority, Traffic</div>
+      <div class="quiz-opt" onclick="answerQuiz('q3','b','c')"><span class="quiz-opt-letter">B</span>Efficiency, Editing, Analytics, Traffic</div>
+      <div class="quiz-opt" onclick="answerQuiz('q3','c','c')"><span class="quiz-opt-letter">C</span>Experience, Expertise, Authoritativeness, Trustworthiness</div>
+      <div class="quiz-opt" onclick="answerQuiz('q3','d','c')"><span class="quiz-opt-letter">D</span>Experience, Editing, Accuracy, Technology</div>
+    </div>
+    <div class="quiz-feedback ok" id="q3-ok">✅ Correct! E-E-A-T = Experience, Expertise, Authoritativeness, Trustworthiness. The first "E" (Experience) was added in December 2022, making it E-E-A-T from the original E-A-T.</div>
+    <div class="quiz-feedback no" id="q3-no">❌ The answer is <strong>Experience, Expertise, Authoritativeness, Trustworthiness</strong>. The first "E" for Experience was added by Google in December 2022.</div>
+  </div>
+
+  <div class="quiz-q" id="q4">
+    <p>4. A recipe blog adds FAQ schema to its pages. Its rankings stay at position 4. What is the MOST LIKELY immediate benefit?</p>
+    <div class="quiz-options">
+      <div class="quiz-opt" onclick="answerQuiz('q4','a','b')"><span class="quiz-opt-letter">A</span>Instant jump to position 1</div>
+      <div class="quiz-opt" onclick="answerQuiz('q4','b','b')"><span class="quiz-opt-letter">B</span>Higher CTR from expanded rich result listings in SERPs</div>
+      <div class="quiz-opt" onclick="answerQuiz('q4','c','b')"><span class="quiz-opt-letter">C</span>More backlinks from other sites</div>
+      <div class="quiz-opt" onclick="answerQuiz('q4','d','b')"><span class="quiz-opt-letter">D</span>Faster page loading speed</div>
+    </div>
+    <div class="quiz-feedback ok" id="q4-ok">✅ Correct! Schema markup doesn't change ranking position — but it expands your result's visual footprint with FAQ boxes, driving significantly higher CTR from the same ranking. Real case studies show CTR 2–3x improvements.</div>
+    <div class="quiz-feedback no" id="q4-no">❌ Schema doesn't move rankings directly. The main benefit is <strong>higher CTR via richer, larger result listings</strong> — more space in the SERP means more clicks from the same position.</div>
+  </div>
+</div>
+
+<!-- ══════════════════ FLASHCARDS ══════════════════ -->
+<div class="section-divider" id="flashcard-section"><span>◈ Flashcards</span></div>
+
+<div class="flashcard-block">
+  <div class="flashcard-header">🃏 Module 3 Flashcards — Click to Flip</div>
+  <div class="flashcard-inner">
+    <div class="flashcard" id="fc" onclick="flipCard()">
+      <div class="flashcard-face fc-front" id="fc-front">Loading...</div>
+      <div class="flashcard-face fc-back" id="fc-back">Loading...</div>
+    </div>
+    <div class="fc-nav">
+      <button class="fc-btn" onclick="prevCard()">← Prev</button>
+      <span class="fc-counter" id="fc-counter">1 / 8</span>
+      <button class="fc-btn" onclick="nextCard()">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODULE NAVIGATION -->
+<div class="mod-nav">
+  <a href="module-2.html" class="mod-nav-btn prev">
+    <span class="mod-nav-arrow">←</span>
+    <div>
+      <div class="mod-nav-label">Previous Module</div>
+      <div class="mod-nav-title">Module 2 — On-Page SEO</div>
+    </div>
+  </a>
+  <a href="module-4.html" class="mod-nav-btn next">
+    <span class="mod-nav-arrow">→</span>
+    <div>
+      <div class="mod-nav-label">Next Module</div>
+      <div class="mod-nav-title">Module 4 — Content Strategy</div>
+    </div>
+  </a>
+</div>
+
+</div><!-- /content-area -->
+
+</div><!-- /main -->
+</div><!-- /shell -->
+
+<script>
+/* ── THEME ─────────────────────────────── */
+function toggleTheme() {
+  const html = document.documentElement;
+  const isDark = html.dataset.theme === 'dark';
+  html.dataset.theme = isDark ? 'light' : 'dark';
+  document.getElementById('theme-btn').textContent = isDark ? '🌙 Dark Mode' : '☀️ Light Mode';
+  localStorage.setItem('seo-theme', html.dataset.theme);
+}
+(function(){
+  const saved = localStorage.getItem('seo-theme');
+  if (saved) {
+    document.documentElement.dataset.theme = saved;
+    document.getElementById('theme-btn').textContent = saved === 'light' ? '🌙 Dark Mode' : '☀️ Light Mode';
+  }
+})();
+
+/* ── SIDEBAR ────────────────────────────── */
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('sb-overlay').classList.toggle('show');
+}
+function closeSidebar() {
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('sb-overlay').classList.remove('show');
+}
+
+/* ── TOPIC ACCORDION ────────────────────── */
+function toggleTopic(header) {
+  const item = header.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.topic-item.open').forEach(el => el.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+/* ── TASK CHECKBOXES ────────────────────── */
+function toggleTask(el) {
+  el.classList.toggle('checked');
+  updateProgress();
+  saveTasks();
+}
+
+/* ── PROGRESS ───────────────────────────── */
+function updateProgress() {
+  const total = document.querySelectorAll('.task-check-item').length;
+  const done  = document.querySelectorAll('.task-check-item.checked').length;
+  const pct   = total > 0 ? Math.round((done / total) * 100) : 0;
+  document.getElementById('prog-pct').textContent = pct + '%';
+  document.getElementById('prog-bar').style.width  = pct + '%';
+
+  // Mark sidebar nav links done when 100% of that topic done
+  document.querySelectorAll('.topic-item').forEach(item => {
+    const id = item.id;
+    const navLink = document.querySelector(`.nav-link[href="#${id}"]`);
+    const tasks = item.querySelectorAll('.task-check-item').length;
+    const checked = item.querySelectorAll('.task-check-item.checked').length;
+    if (navLink && tasks > 0 && checked === tasks) navLink.classList.add('completed');
+    else if (navLink) navLink.classList.remove('completed');
+  });
+}
+
+function saveTasks() {
+  const state = {};
+  document.querySelectorAll('.task-check-item').forEach((el, i) => {
+    state[i] = el.classList.contains('checked');
+  });
+  try { localStorage.setItem('seo-m3-tasks', JSON.stringify(state)); } catch(e){}
+}
+
+function loadTasks() {
+  try {
+    const state = JSON.parse(localStorage.getItem('seo-m3-tasks') || '{}');
+    document.querySelectorAll('.task-check-item').forEach((el, i) => {
+      if (state[i]) el.classList.add('checked');
+    });
+    updateProgress();
+  } catch(e){}
+}
+
+/* ── ACTIVE NAV ON SCROLL ───────────────── */
+const navLinks = document.querySelectorAll('.nav-link[data-target]');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id;
+      navLinks.forEach(link => link.classList.toggle('active', link.dataset.target === id));
+    }
+  });
+}, { threshold: 0.2, rootMargin: '-80px 0px -80px 0px' });
+
+document.querySelectorAll('.topic-item, [id]').forEach(el => {
+  if (el.id) observer.observe(el);
+});
+
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    if (window.innerWidth <= 900) closeSidebar();
+  });
+});
+
+/* ── QUIZ ───────────────────────────────── */
+function answerQuiz(qId, chosen, correct) {
+  const qEl = document.getElementById(qId);
+  if (qEl.dataset.answered) return;
+  qEl.dataset.answered = '1';
+  const opts = qEl.querySelectorAll('.quiz-opt');
+  const letters = ['a','b','c','d'];
+  opts.forEach((opt, i) => {
+    if (letters[i] === correct) opt.classList.add('correct');
+    else if (letters[i] === chosen && chosen !== correct) opt.classList.add('wrong');
+    opt.style.pointerEvents = 'none';
+  });
+  const isOk = chosen === correct;
+  document.getElementById(qId + '-ok').classList.toggle('show', isOk);
+  document.getElementById(qId + '-no').classList.toggle('show', !isOk);
+}
+
+/* ── FLASHCARDS ─────────────────────────── */
+const cards = [
+  { q: 'What is the ideal length for a title tag?', a: '50–60 characters. Google truncates titles over ~580px wide (~60 chars). Too short wastes keyword real estate, too long gets cut.' },
+  { q: 'What does alt text do for SEO?', a: 'Alt text tells Google what an image shows — essential for Google Images rankings and accessibility. Include the keyword naturally if the image genuinely depicts it.' },
+  { q: 'What is the target LCP (Largest Contentful Paint) for Core Web Vitals?', a: 'Under 2.5 seconds = Good. 2.5–4s = Needs Improvement. Over 4s = Poor (ranking penalty on mobile). LCP measures when the largest element fully loads.' },
+  { q: 'How many H1 tags should a page have?', a: 'Exactly ONE H1 per page. It should contain your primary keyword and set the page\'s topical context. Multiple H1s confuse Google about the main topic.' },
+  { q: 'What is E-E-A-T?', a: 'Experience, Expertise, Authoritativeness, Trustworthiness — Google\'s content quality framework used by human Quality Raters and to train the ranking algorithm.' },
+  { q: 'What is the recommended length for a meta description?', a: '150–160 characters. Include the target keyword (Google bolds it), a compelling hook, and a soft CTA. Not a ranking factor but directly drives CTR.' },
+  { q: 'What URL format does Google prefer?', a: 'Short, lowercase, hyphenated, keyword-rich slugs. Example: /keyword-research-guide. Avoid: /?p=1234 or /page1-category-sub-site. Never change live URLs without a 301 redirect.' },
+  { q: 'What is FAQ Schema and why does it matter?', a: 'JSON-LD code that marks up Q&A content. Google displays it as expandable boxes directly in search results — dramatically increasing your result\'s visual size and CTR without any ranking improvement needed.' },
+];
+
+let current = 0, flipped = false;
+
+function showCard(i) {
+  const fc = document.getElementById('fc');
+  fc.classList.remove('flipped');
+  flipped = false;
+  document.getElementById('fc-front').textContent = cards[i].q;
+  document.getElementById('fc-back').textContent  = cards[i].a;
+  document.getElementById('fc-counter').textContent = (i+1) + ' / ' + cards.length;
+  // Set min height after text update
+  setTimeout(() => {
+    const front = document.getElementById('fc-front');
+    const back  = document.getElementById('fc-back');
+    const h = Math.max(front.scrollHeight, back.scrollHeight, 110);
+    fc.style.height = h + 'px';
+    front.style.minHeight = h + 'px';
+    back.style.minHeight  = h + 'px';
+  }, 10);
+}
+function flipCard() {
+  flipped = !flipped;
+  document.getElementById('fc').classList.toggle('flipped', flipped);
+}
+function nextCard() { current = (current + 1) % cards.length; showCard(current); }
+function prevCard() { current = (current - 1 + cards.length) % cards.length; showCard(current); }
+
+/* ── INIT ───────────────────────────────── */
+document.addEventListener('DOMContentLoaded', () => {
+  loadTasks();
+  showCard(0);
+});
+</script>
+</body>
+</html>

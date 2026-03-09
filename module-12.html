@@ -1,0 +1,1536 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 12 — All Projects | SEO Mastery Roadmap 2025</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,700;0,900;1,300&family=Syne:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+[data-theme="dark"]{
+  --bg:#130a0d;--bg1:#1a0c12;--bg2:#21101a;--bg3:#291520;
+  --card:#140b10;--card2:#1e1020;--border:#301520;--border2:#4a1e30;
+  --rose:#f43f5e;--rose2:#fb7185;--rose3:#fda4af;
+  --pink:#ec4899;--pink2:#f472b6;
+  --fuchsia:#d946ef;--fuchsia2:#e879f9;
+  --amber:#f59e0b;--amber2:#fbbf24;
+  --green:#22c55e;--green2:#4ade80;
+  --blue:#3b82f6;--blue2:#60a5fa;
+  --violet:#8b5cf6;--violet2:#a78bfa;
+  --text:#f4dde4;--text2:#c47a90;--muted:#7a3a50;--white:#fef0f3;
+  --shadow:rgba(0,0,0,.7);
+  --sidebar-bg:#1a0c12;--header-bg:#130a0d;
+  --note-bg:rgba(244,63,94,.05);
+}
+[data-theme="light"]{
+  --bg:#fff1f4;--bg1:#ffe4e9;--bg2:#ffd6de;--bg3:#ffc7d0;
+  --card:#ffffff;--card2:#fff8f9;--border:#fbbfd4;--border2:#f89db8;
+  --rose:#e11d48;--rose2:#be123c;--rose3:#9f1239;
+  --pink:#db2777;--pink2:#be185d;
+  --fuchsia:#c026d3;--fuchsia2:#a21caf;
+  --amber:#d97706;--amber2:#b45309;
+  --green:#16a34a;--green2:#15803d;
+  --blue:#2563eb;--blue2:#1d4ed8;
+  --violet:#7c3aed;--violet2:#6d28d9;
+  --text:#2d0a15;--text2:#7a1d35;--muted:#c06080;--white:#1a0510;
+  --shadow:rgba(0,0,0,.1);
+  --sidebar-bg:#ffe4e9;--header-bg:#fff1f4;
+  --note-bg:rgba(244,63,94,.04);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:15px}
+body{font-family:'Syne',sans-serif;background:var(--bg);color:var(--text);line-height:1.75;overflow-x:hidden;transition:background .3s,color .3s}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--rose);border-radius:10px}
+.shell{display:flex;min-height:100vh}
+
+/* ── SIDEBAR ── */
+.sidebar{width:272px;min-width:272px;background:var(--sidebar-bg);border-right:1px solid var(--border);position:fixed;top:0;left:0;bottom:0;overflow-y:auto;z-index:200;display:flex;flex-direction:column;transition:transform .3s,background .3s}
+.sidebar::-webkit-scrollbar{width:3px}.sidebar::-webkit-scrollbar-thumb{background:var(--border2)}
+.sb-brand{padding:24px 20px 18px;border-bottom:1px solid var(--border)}
+.sb-back{display:inline-flex;align-items:center;gap:7px;font-size:.75em;font-weight:700;color:var(--muted);text-decoration:none;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;transition:color .15s}
+.sb-back:hover{color:var(--rose2)}
+.sb-mod-badge{display:inline-block;font-family:'Fira Code',monospace;font-size:.65em;font-weight:700;background:linear-gradient(135deg,var(--rose),var(--pink));color:#fff;padding:3px 9px;border-radius:6px;margin-bottom:10px}
+.sb-brand h2{font-family:'Fraunces',serif;font-size:1.02em;font-weight:700;color:var(--white);line-height:1.35}
+.sb-brand p{font-size:.72em;color:var(--muted);margin-top:4px}
+.sb-progress{padding:14px 20px;border-bottom:1px solid var(--border)}
+.prog-label{display:flex;justify-content:space-between;font-size:.68em;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:7px}
+.prog-label span:last-child{color:var(--rose2);font-family:'Fira Code',monospace}
+.prog-bg{height:4px;background:var(--border);border-radius:2px;overflow:hidden}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--rose),var(--pink2));width:0%;transition:width .4s ease}
+.sb-nav{padding:10px 0;flex:1}
+.sb-section-label{padding:10px 20px 4px;font-size:.63em;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted)}
+.nav-link{display:flex;align-items:center;gap:10px;padding:9px 20px;text-decoration:none;color:var(--muted);font-size:.8em;font-weight:500;transition:all .15s;border-left:2px solid transparent;cursor:pointer}
+.nav-link:hover{color:var(--text);background:var(--bg2)}
+.nav-link.active{color:var(--rose2);border-left-color:var(--rose);background:rgba(244,63,94,.07)}
+.nav-num{font-family:'Fira Code',monospace;font-size:.72em;color:var(--border2);min-width:28px}
+.nav-link.active .nav-num{color:var(--rose2)}
+.nav-done{margin-left:auto;font-size:.8em;color:var(--green2);opacity:0;transition:opacity .2s}
+.nav-link.completed .nav-done{opacity:1}
+.sb-footer{padding:14px 20px;border-top:1px solid var(--border)}
+.sb-footer p{font-size:.7em;color:var(--muted);line-height:1.5}
+
+/* ── MAIN ── */
+.main{margin-left:272px;flex:1;min-width:0}
+.topbar{position:sticky;top:0;z-index:100;background:var(--header-bg);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;padding:12px 40px;transition:background .3s}
+.topbar-breadcrumb{font-size:.78em;color:var(--muted);display:flex;align-items:center;gap:6px;flex:1;flex-wrap:wrap}
+.topbar-breadcrumb a{color:var(--muted);text-decoration:none;transition:color .15s}
+.topbar-breadcrumb a:hover{color:var(--rose2)}
+.topbar-breadcrumb span{color:var(--text2);font-weight:600}
+.theme-btn{display:flex;align-items:center;gap:7px;background:var(--card);border:1px solid var(--border2);border-radius:50px;padding:7px 14px;cursor:pointer;font-size:.76em;font-weight:600;color:var(--text2);transition:all .2s;font-family:'Syne',sans-serif;white-space:nowrap}
+.theme-btn:hover{border-color:var(--rose2);color:var(--rose2)}
+.hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:4px;background:none;border:none}
+.hamburger span{display:block;width:20px;height:2px;background:var(--text2);border-radius:2px}
+
+/* ── HERO ── */
+.mod-hero{background:var(--bg1);border-bottom:1px solid var(--border);padding:56px 56px 44px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 700px 500px at 80% -15%,rgba(244,63,94,.14) 0%,transparent 60%),radial-gradient(ellipse 500px 400px at -5% 100%,rgba(236,72,153,.08) 0%,transparent 60%),radial-gradient(ellipse 400px 300px at 30% 120%,rgba(217,70,239,.06) 0%,transparent 60%)}
+.hero-grid{position:absolute;inset:0;pointer-events:none;opacity:.022;background-image:linear-gradient(var(--border2) 1px,transparent 1px),linear-gradient(90deg,var(--border2) 1px,transparent 1px);background-size:44px 44px}
+.hero-inner{max-width:820px;position:relative}
+.mod-num-tag{font-family:'Fira Code',monospace;font-size:.68em;font-weight:700;color:#fff;background:var(--rose);padding:4px 12px;border-radius:6px;display:inline-block;margin-bottom:16px}
+.mod-hero h1{font-family:'Fraunces',serif;font-size:clamp(1.9em,4vw,3em);font-weight:900;color:var(--white);line-height:1.08;margin-bottom:10px}
+.mod-hero h1 em{font-style:italic;background:linear-gradient(135deg,var(--rose2) 0%,var(--pink2) 50%,var(--fuchsia2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.mod-hero p{color:var(--text2);font-size:.96em;max-width:700px;margin-bottom:22px;line-height:1.8}
+.mod-tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:28px}
+.mtag{font-size:.67em;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding:3px 10px;border-radius:4px}
+.mtag-rose{background:rgba(244,63,94,.1);color:var(--rose2);border:1px solid rgba(244,63,94,.25)}
+.mtag-pink{background:rgba(236,72,153,.1);color:var(--pink2);border:1px solid rgba(236,72,153,.25)}
+.mtag-fuchsia{background:rgba(217,70,239,.1);color:var(--fuchsia2);border:1px solid rgba(217,70,239,.25)}
+.mtag-amber{background:rgba(245,158,11,.1);color:var(--amber);border:1px solid rgba(245,158,11,.25)}
+.mtag-blue{background:rgba(59,130,246,.1);color:#93c5fd;border:1px solid rgba(59,130,246,.25)}
+.mtag-violet{background:rgba(139,92,246,.1);color:var(--violet2);border:1px solid rgba(139,92,246,.25)}
+.hero-stats{display:grid;grid-template-columns:repeat(4,auto);width:fit-content;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.stat-box{background:var(--bg2);padding:16px 20px;text-align:center}
+.stat-n{font-family:'Fraunces',serif;font-size:1.7em;font-weight:700;color:var(--rose2);line-height:1;margin-bottom:3px}
+.stat-l{font-size:.65em;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.8px}
+
+.content-area{max-width:840px;margin:0 auto;padding:44px 56px 100px}
+.section-header{display:flex;align-items:center;gap:14px;margin-bottom:20px;margin-top:40px}
+.section-header h2{font-family:'Fraunces',serif;font-size:1.35em;font-weight:700;color:var(--white)}
+.section-line{flex:1;height:1px;background:var(--border)}
+
+/* ── PROJECT OVERVIEW BANNER ── */
+.proj-overview{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:22px 24px;margin-bottom:28px;display:flex;flex-direction:column;gap:10px}
+.proj-overview-title{font-family:'Fraunces',serif;font-size:1em;font-weight:700;color:var(--white);margin-bottom:6px}
+.proj-overview p{font-size:.88em;color:var(--text2);line-height:1.75}
+.proj-level-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:6px}
+.plevel{border-radius:8px;padding:10px 14px;font-size:.8em;font-weight:700;text-align:center;border:1px solid transparent}
+.plevel-int{background:rgba(244,63,94,.07);border-color:rgba(244,63,94,.2);color:var(--rose2)}
+.plevel-adv{background:rgba(236,72,153,.07);border-color:rgba(236,72,153,.2);color:var(--pink2)}
+.plevel-exp{background:rgba(217,70,239,.07);border-color:rgba(217,70,239,.2);color:var(--fuchsia2)}
+.plevel span{display:block;font-size:.72em;font-weight:600;opacity:.8;margin-top:2px;font-family:'Fira Code',monospace}
+
+/* ── TOPICS / PROJECT CARDS ── */
+.topic-item{border:1px solid var(--border);border-radius:14px;margin-bottom:14px;overflow:hidden;background:var(--card);transition:border-color .2s,box-shadow .2s}
+.topic-item:hover{border-color:var(--border2);box-shadow:0 4px 28px var(--shadow)}
+.topic-item.open{border-color:rgba(244,63,94,.4);box-shadow:0 0 0 1px rgba(244,63,94,.1)}
+.topic-header{display:flex;align-items:center;gap:12px;padding:17px 20px;cursor:pointer;user-select:none;transition:background .15s}
+.topic-header:hover{background:var(--bg2)}
+.topic-num{font-family:'Fira Code',monospace;font-size:.7em;font-weight:700;color:var(--rose2);background:rgba(244,63,94,.08);border:1px solid rgba(244,63,94,.2);padding:3px 8px;border-radius:5px;white-space:nowrap}
+.topic-header h3{font-size:.95em;font-weight:700;color:var(--white);flex:1;line-height:1.35}
+.diff{font-size:.63em;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:2px 7px;border-radius:4px;flex-shrink:0}
+.diff-int{background:rgba(244,63,94,.1);color:var(--rose2)}
+.diff-adv{background:rgba(236,72,153,.12);color:var(--pink2)}
+.diff-exp{background:rgba(217,70,239,.12);color:var(--fuchsia2)}
+.chevron{color:var(--muted);font-size:.75em;transition:transform .25s;flex-shrink:0}
+.topic-item.open .chevron{transform:rotate(180deg);color:var(--rose2)}
+.topic-body{display:none;padding:0 20px 24px;border-top:1px solid var(--border)}
+.topic-item.open .topic-body{display:block}
+.topic-intro{padding:18px 0 14px;color:var(--text2);font-size:.92em;line-height:1.85}
+.topic-intro strong{color:var(--white)}
+
+/* ── PROJECT META STRIP ── */
+.proj-meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.pmeta{display:inline-flex;align-items:center;gap:5px;font-size:.72em;font-weight:700;padding:4px 10px;border-radius:6px;background:var(--bg3);border:1px solid var(--border);color:var(--text2)}
+.pmeta-icon{font-size:.9em}
+
+/* ── DELIVERABLES ── */
+.deliverables{background:rgba(244,63,94,.04);border:1px solid rgba(244,63,94,.18);border-left:3px solid var(--rose);border-radius:8px;padding:14px 16px;margin-bottom:14px}
+.deliverables-title{font-size:.7em;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;color:var(--rose2);margin-bottom:10px}
+.deliv-list{display:flex;flex-direction:column;gap:6px}
+.deliv-item{display:flex;align-items:flex-start;gap:8px;font-size:.86em;color:var(--text2)}
+.deliv-check{color:var(--rose2);font-size:.8em;flex-shrink:0;margin-top:3px}
+
+.keypoints{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+.kp{display:flex;align-items:flex-start;gap:10px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-size:.89em;color:var(--text2)}
+.kp-dot{width:6px;height:6px;border-radius:50%;background:var(--rose);flex-shrink:0;margin-top:7px}
+.kp strong{color:var(--white)}
+code{font-family:'Fira Code',monospace;font-size:.83em;background:rgba(244,63,94,.08);color:var(--rose2);padding:2px 6px;border-radius:4px}
+[data-theme="light"] code{background:rgba(244,63,94,.1)}
+
+/* ── BLOCKS ── */
+.block-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}
+.info-block{border-radius:10px;padding:16px;font-size:.87em}
+.blabel{display:flex;align-items:center;gap:6px;font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px}
+.b-example{background:rgba(244,63,94,.05);border:1px solid rgba(244,63,94,.18);border-left:3px solid var(--rose)}
+.b-example .blabel{color:var(--rose2)}
+.b-task{background:rgba(245,158,11,.05);border:1px solid rgba(245,158,11,.18);border-left:3px solid var(--amber)}
+.b-task .blabel{color:var(--amber)}
+.b-insight{background:rgba(217,70,239,.05);border:1px solid rgba(217,70,239,.18);border-left:3px solid var(--fuchsia)}
+.b-insight .blabel{color:var(--fuchsia2)}
+.b-warn{background:rgba(244,63,94,.07);border:1px solid rgba(244,63,94,.22);border-left:3px solid var(--rose)}
+.b-warn .blabel{color:var(--rose2)}
+.b-future{background:rgba(59,130,246,.05);border:1px solid rgba(59,130,246,.2);border-left:3px solid var(--blue)}
+.b-future .blabel{color:var(--blue2)}
+.b-portfolio{background:rgba(139,92,246,.05);border:1px solid rgba(139,92,246,.2);border-left:3px solid var(--violet)}
+.b-portfolio .blabel{color:var(--violet2)}
+.info-block p{color:var(--text2);line-height:1.7;margin-bottom:8px}
+.info-block p:last-child{margin-bottom:0}
+.info-block strong{color:var(--white)}
+.info-block ul,.info-block ol{padding-left:16px;color:var(--text2)}
+.info-block li{margin-bottom:5px;line-height:1.65}
+
+/* ── TASKS ── */
+.task-list{display:flex;flex-direction:column;gap:7px}
+.task-item{display:flex;align-items:flex-start;gap:10px;cursor:pointer}
+.task-item input{display:none}
+.chk{width:18px;height:18px;border-radius:4px;flex-shrink:0;border:1.5px solid rgba(244,63,94,.4);background:transparent;display:flex;align-items:center;justify-content:center;margin-top:2px;transition:all .15s;font-size:.65em;color:transparent}
+.task-item.checked .chk{background:var(--rose);border-color:var(--rose);color:#fff}
+.task-txt{font-size:.86em;color:var(--text2);line-height:1.6;transition:color .15s}
+.task-item.checked .task-txt{color:var(--muted);text-decoration:line-through}
+
+/* ── TOOLS ── */
+.tools-wrap{display:flex;flex-wrap:wrap;gap:7px;margin:14px 0}
+.t-chip{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;background:var(--bg2);border:1px solid var(--border2);border-radius:20px;font-size:.76em;font-weight:600;color:var(--text2);text-decoration:none;transition:all .15s}
+.t-chip:hover{background:rgba(244,63,94,.08);border-color:var(--rose);color:var(--rose2);transform:translateY(-1px)}
+
+/* ── RESOURCES ── */
+.res-block{margin-top:18px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.res-title{padding:11px 16px;background:var(--bg3);border-bottom:1px solid var(--border);font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--rose2)}
+.res-links{display:flex;flex-direction:column}
+.res-link{display:flex;align-items:flex-start;gap:12px;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;transition:background .15s}
+.res-link:last-child{border-bottom:none}
+.res-link:hover{background:rgba(244,63,94,.04)}
+.res-icon{font-size:1.1em;flex-shrink:0;margin-top:1px}
+.res-info{flex:1}
+.res-info strong{display:block;font-size:.85em;font-weight:600;color:var(--rose2);margin-bottom:2px}
+.res-link:hover .res-info strong{color:var(--pink2)}
+.res-info span{font-size:.77em;color:var(--muted);line-height:1.4}
+.res-badge{font-size:.62em;font-weight:700;text-transform:uppercase;padding:2px 7px;border-radius:3px;flex-shrink:0;margin-top:2px;letter-spacing:.5px}
+.badge-free{background:rgba(34,197,94,.1);color:var(--green2);border:1px solid rgba(34,197,94,.2)}
+.badge-blog{background:rgba(244,63,94,.1);color:var(--rose2);border:1px solid rgba(244,63,94,.2)}
+.badge-video{background:rgba(236,72,153,.15);color:var(--pink2);border:1px solid rgba(236,72,153,.3)}
+.badge-tool{background:rgba(217,70,239,.1);color:var(--fuchsia2);border:1px solid rgba(217,70,239,.2)}
+.badge-official{background:rgba(245,158,11,.1);color:var(--amber);border:1px solid rgba(245,158,11,.2)}
+.badge-template{background:rgba(139,92,246,.1);color:var(--violet2);border:1px solid rgba(139,92,246,.2)}
+
+/* ── NOTE ── */
+.topic-note{margin-top:18px;border-radius:12px;overflow:hidden;border:1px solid rgba(244,63,94,.25);background:var(--note-bg)}
+.note-hdr{padding:10px 16px;background:rgba(244,63,94,.1);border-bottom:1px solid rgba(244,63,94,.18);font-size:.7em;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--rose2)}
+.note-grid{display:grid;grid-template-columns:1fr 1fr}
+.note-cell{padding:13px 16px;border-right:1px solid rgba(244,63,94,.12);border-bottom:1px solid rgba(244,63,94,.12)}
+.note-cell:nth-child(2n){border-right:none}
+.note-cell:nth-child(3),.note-cell:nth-child(4){border-bottom:none}
+.note-lbl{font-size:.64em;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;color:var(--rose2);margin-bottom:5px}
+.note-cell p{font-size:.82em;color:var(--text2);line-height:1.6}
+.note-cell strong{color:var(--white)}
+
+/* ── QUIZ ── */
+.quiz-section{margin-top:32px;background:var(--bg2);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+.quiz-hdr{padding:14px 20px;background:var(--bg3);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.quiz-hdr h3{font-family:'Fraunces',serif;font-size:1em;font-weight:700;color:var(--white)}
+.quiz-score{font-family:'Fira Code',monospace;font-size:.76em;color:var(--rose2);background:rgba(244,63,94,.08);padding:4px 12px;border-radius:20px;border:1px solid rgba(244,63,94,.2)}
+.quiz-body{padding:20px}
+.quiz-q{display:none}.quiz-q.active{display:block}
+.qnum{display:inline-block;font-family:'Fira Code',monospace;font-size:.65em;color:var(--rose2);background:rgba(244,63,94,.08);padding:2px 7px;border-radius:4px;margin-bottom:8px}
+.qtext{font-size:.92em;font-weight:600;color:var(--white);margin-bottom:14px;line-height:1.5}
+.qopts{display:flex;flex-direction:column;gap:7px}
+.qopt{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;background:var(--card);border:1.5px solid var(--border);border-radius:8px;cursor:pointer;transition:all .15s;font-size:.88em;color:var(--text2)}
+.qopt:hover:not(.disabled){background:rgba(244,63,94,.04);border-color:var(--rose);color:var(--white)}
+.qopt.correct{background:rgba(34,197,94,.08);border-color:var(--green2);color:var(--white)}
+.qopt.wrong{background:rgba(244,63,94,.08);border-color:var(--rose);color:var(--text2)}
+.qopt.disabled{cursor:default}
+.opt-l{font-family:'Fira Code',monospace;font-size:.75em;font-weight:700;color:var(--rose2);background:rgba(244,63,94,.08);width:22px;height:22px;border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.qopt.correct .opt-l{background:rgba(34,197,94,.2);color:var(--green2)}
+.qopt.wrong .opt-l{background:rgba(244,63,94,.15);color:var(--rose2)}
+.qfb{margin-top:12px;padding:10px 14px;border-radius:8px;font-size:.84em;display:none;line-height:1.5}
+.qfb.show{display:block}
+.qfb.ok{background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2);color:var(--green2)}
+.qfb.no{background:rgba(244,63,94,.08);border:1px solid rgba(244,63,94,.2);color:var(--rose2)}
+.quiz-nav{display:flex;align-items:center;justify-content:space-between;margin-top:16px;padding-top:14px;border-top:1px solid var(--border)}
+.qbtn{padding:8px 18px;border-radius:7px;border:none;font-family:'Syne',sans-serif;font-size:.82em;font-weight:700;cursor:pointer;transition:all .15s}
+.qbtn-sec{background:var(--bg3);color:var(--muted)}.qbtn-sec:hover{color:var(--text);background:var(--border)}
+.qbtn-pri{background:var(--rose);color:#fff}.qbtn-pri:hover{background:var(--rose2);transform:translateY(-1px)}
+.qdots{display:flex;gap:5px}
+.qdot{width:7px;height:7px;border-radius:50%;background:var(--border);transition:.2s}
+.qdot.done{background:var(--green2)}.qdot.cur{background:var(--rose)}
+
+/* ── FLASHCARDS ── */
+.flash-section{margin-top:32px}
+.flash-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.flash-hdr h3{font-family:'Fraunces',serif;font-size:1em;font-weight:700;color:var(--white)}
+.fc-count{font-family:'Fira Code',monospace;font-size:.76em;color:var(--rose2)}
+.fc-wrap{perspective:1000px;height:190px;margin-bottom:12px;cursor:pointer}
+.fc-card{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .5s ease}
+.fc-card.flipped{transform:rotateY(180deg)}
+.fc-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center}
+.fc-front{background:var(--bg2);border:1.5px solid rgba(244,63,94,.3)}
+.fc-back{background:linear-gradient(135deg,rgba(244,63,94,.08),rgba(236,72,153,.06));border:1.5px solid rgba(244,63,94,.4);transform:rotateY(180deg)}
+.fc-lbl{font-size:.62em;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px}
+.fc-front .fc-lbl{color:var(--muted)}.fc-back .fc-lbl{color:var(--rose2)}
+.fc-txt{font-size:.95em;font-weight:600;color:var(--white);line-height:1.5}
+.fc-hint{font-size:.72em;color:var(--muted);margin-top:8px}
+.fc-controls{display:flex;gap:8px;justify-content:center}
+.fc-btn{padding:7px 16px;border-radius:7px;border:1px solid var(--border2);background:var(--bg2);color:var(--text2);font-family:'Syne',sans-serif;font-size:.8em;font-weight:600;cursor:pointer;transition:all .15s}
+.fc-btn:hover:not(:disabled){border-color:var(--rose);color:var(--rose2);background:rgba(244,63,94,.05)}
+.fc-btn:disabled{opacity:.35;cursor:default}
+
+/* ── CHECKLIST ── */
+.checklist-section{margin-top:32px;background:var(--bg2);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+.cl-hdr{padding:14px 20px;background:var(--bg3);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.cl-hdr h3{font-family:'Fraunces',serif;font-size:1em;font-weight:700;color:var(--white)}
+.cl-prog{font-family:'Fira Code',monospace;font-size:.75em;color:var(--rose2)}
+.cl-tier{border-bottom:1px solid var(--border)}
+.cl-tier:last-child{border-bottom:none}
+.cl-tier-lbl{padding:10px 20px 6px;font-size:.68em;font-weight:800;text-transform:uppercase;letter-spacing:1.2px}
+.tier-loc .cl-tier-lbl{color:var(--rose2)}
+.tier-ecom .cl-tier-lbl{color:var(--pink2)}
+.tier-content .cl-tier-lbl{color:var(--fuchsia2)}
+.tier-tech .cl-tier-lbl{color:#93c5fd}
+.tier-link .cl-tier-lbl{color:var(--amber)}
+.tier-client .cl-tier-lbl{color:var(--violet2)}
+.cl-items{padding:4px 20px 14px}
+.cl-item{display:flex;align-items:flex-start;gap:10px;padding:7px 0;cursor:pointer;border-bottom:1px solid var(--border);transition:opacity .15s}
+.cl-item:last-child{border-bottom:none}
+.cl-chk{width:17px;height:17px;border-radius:4px;border:1.5px solid rgba(244,63,94,.35);background:transparent;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.6em;color:transparent;margin-top:2px;transition:all .15s}
+.cl-item.chk-done .cl-chk{background:var(--rose);border-color:var(--rose);color:#fff}
+.cl-txt{font-size:.84em;color:var(--text2);line-height:1.55;transition:color .15s}
+.cl-item.chk-done .cl-txt{color:var(--muted);text-decoration:line-through}
+
+/* ── COMPLETION ── */
+.completion-card{margin-top:44px;border-radius:20px;overflow:hidden;border:1px solid rgba(244,63,94,.35);position:relative;text-align:center;padding:60px 40px}
+.completion-glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 600px 400px at 50% 0%,rgba(244,63,94,.12) 0%,transparent 60%)}
+.completion-inner{position:relative}
+.comp-icon{font-size:2.8em;margin-bottom:18px}
+.completion-card h2{font-family:'Fraunces',serif;font-size:clamp(1.6em,3.5vw,2.3em);font-weight:900;color:var(--white);line-height:1.15;margin-bottom:14px}
+.completion-card h2 em{font-style:italic;background:linear-gradient(135deg,var(--rose2),var(--pink2),var(--fuchsia2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.completion-card p{color:var(--text2);font-size:.93em;max-width:600px;margin:0 auto 28px;line-height:1.8}
+.comp-stats{display:flex;flex-wrap:wrap;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;width:fit-content;margin:0 auto 28px}
+.cs{background:var(--bg2);padding:14px 22px;text-align:center}
+.cs strong{display:block;font-family:'Fraunces',serif;font-size:1.5em;font-weight:700;color:var(--rose2)}
+.cs span{font-size:.65em;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.8px}
+.comp-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.comp-btn{display:inline-flex;align-items:center;gap:7px;padding:11px 22px;border-radius:9px;font-family:'Syne',sans-serif;font-size:.85em;font-weight:700;text-decoration:none;transition:all .2s}
+.comp-pri{background:linear-gradient(135deg,var(--rose),var(--pink));color:#fff;box-shadow:0 4px 20px rgba(244,63,94,.3)}
+.comp-pri:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(244,63,94,.4)}
+.comp-sec{background:var(--bg2);border:1px solid var(--border2);color:var(--text2)}
+.comp-sec:hover{border-color:var(--rose2);color:var(--rose2)}
+
+/* ── MODULE NAV ── */
+.module-nav{display:flex;gap:10px;margin-top:44px;flex-wrap:wrap}
+.mnav-btn{display:flex;align-items:center;gap:12px;padding:14px 20px;border-radius:10px;background:var(--bg2);border:1px solid var(--border);text-decoration:none;transition:all .2s;min-width:200px}
+.mnav-btn:hover{border-color:var(--rose2);background:rgba(244,63,94,.04)}
+.mnav-arr{font-size:1.2em;color:var(--rose2)}
+.mnav-lbl{display:block;font-size:.63em;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:2px}
+.mnav-title{display:block;font-size:.82em;font-weight:700;color:var(--white)}
+
+/* ── OVERLAY ── */
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:150;backdrop-filter:blur(2px)}
+.overlay.show{display:block}
+
+/* ════════════════════════════════════════════════
+   RESPONSIVE — Tablet landscape ≤1024px
+════════════════════════════════════════════════ */
+@media(max-width:1024px){
+  .sidebar{width:240px;min-width:240px}
+  .main{margin-left:240px}
+  .mod-hero{padding:48px 40px 36px}
+  .content-area{padding:36px 40px 80px}
+  .topbar{padding:10px 28px}
+}
+
+/* ════════════════════════════════════════════════
+   RESPONSIVE — Tablet portrait ≤900px
+   Sidebar becomes a slide-in drawer
+════════════════════════════════════════════════ */
+@media(max-width:900px){
+  /* Sidebar drawer */
+  .sidebar{transform:translateX(-100%);width:272px;min-width:272px;box-shadow:4px 0 30px var(--shadow)}
+  .sidebar.open{transform:translateX(0)}
+  .hamburger{display:flex}
+
+  /* Main resets to full width */
+  .main{margin-left:0}
+
+  /* Topbar */
+  .topbar{padding:10px 18px;gap:8px}
+  .topbar-breadcrumb{font-size:.72em}
+
+  /* Hero */
+  .mod-hero{padding:36px 24px 30px}
+  .mod-hero h1{font-size:clamp(1.6em,5vw,2.4em)}
+  .hero-stats{grid-template-columns:repeat(2,1fr);width:100%;max-width:340px}
+  .stat-box{padding:14px 16px}
+
+  /* Content */
+  .content-area{padding:28px 20px 80px}
+
+  /* Grids → single column */
+  .block-grid{grid-template-columns:1fr}
+  .note-grid{grid-template-columns:1fr}
+  .note-cell:nth-child(odd){border-right:none}
+  .note-cell:nth-child(3){border-bottom:1px solid rgba(244,63,94,.12)}
+  .proj-level-grid{grid-template-columns:1fr 1fr}
+
+  /* Completion */
+  .comp-stats{flex-wrap:wrap;width:auto}
+  .completion-card{padding:40px 24px}
+
+  /* Module nav */
+  .module-nav{flex-direction:column}
+  .mnav-btn{min-width:unset;width:100%}
+}
+
+/* ════════════════════════════════════════════════
+   RESPONSIVE — Large phone ≤640px
+════════════════════════════════════════════════ */
+@media(max-width:640px){
+  html{font-size:14px}
+
+  /* Topbar */
+  .topbar{padding:9px 14px;gap:6px}
+  .topbar-breadcrumb{font-size:.7em;gap:4px}
+  /* hide middle breadcrumb crumb on small screens */
+  .topbar-breadcrumb a:first-child{display:none}
+  .topbar-breadcrumb>*:nth-child(2){display:none}
+  .theme-btn{padding:6px 10px;font-size:.72em;gap:4px}
+
+  /* Hero */
+  .mod-hero{padding:32px 18px 26px}
+  .mod-hero p{font-size:.9em}
+  .mod-tags{gap:5px}
+  .mtag{font-size:.62em;padding:2px 8px}
+  .hero-stats{grid-template-columns:repeat(2,1fr);max-width:100%}
+  .stat-n{font-size:1.5em}
+  .stat-l{font-size:.6em}
+
+  /* Content */
+  .content-area{padding:22px 16px 70px}
+
+  /* Project overview */
+  .proj-overview{padding:18px 16px}
+  .proj-level-grid{grid-template-columns:1fr}
+
+  /* Topic items */
+  .topic-header{padding:14px 14px;gap:8px}
+  .topic-header h3{font-size:.88em}
+  .diff{display:none}
+  .topic-body{padding:0 14px 20px}
+
+  /* Blocks */
+  .info-block{padding:13px}
+
+  /* Quiz */
+  .quiz-body{padding:16px}
+  .quiz-hdr{padding:12px 16px;flex-wrap:wrap;gap:6px}
+  .qtext{font-size:.88em}
+  .qopt{padding:9px 12px;font-size:.85em}
+  .quiz-nav{flex-wrap:wrap;gap:8px}
+  .qbtn{padding:7px 14px;font-size:.78em}
+
+  /* Flashcard */
+  .fc-wrap{height:170px}
+  .fc-txt{font-size:.88em}
+
+  /* Checklist */
+  .cl-hdr{padding:12px 14px;flex-wrap:wrap;gap:6px}
+  .cl-items{padding:4px 14px 12px}
+  .cl-txt{font-size:.82em}
+
+  /* Completion */
+  .completion-card{padding:32px 16px}
+  .comp-icon{font-size:2.2em;margin-bottom:14px}
+  .comp-stats{flex-direction:column;border-radius:10px}
+  .cs{padding:12px 20px}
+  .comp-btns{flex-direction:column;align-items:stretch}
+  .comp-btn{justify-content:center}
+
+  /* Module nav */
+  .mnav-btn{padding:12px 14px;gap:8px}
+  .mnav-title{font-size:.78em}
+
+  /* Resources */
+  .res-link{padding:10px 12px;gap:8px}
+  .res-info strong{font-size:.82em}
+  .res-info span{font-size:.74em}
+  .res-badge{display:none}
+
+  /* Section divider */
+  .section-header{margin-top:28px}
+  .section-header h2{font-size:1.15em}
+}
+
+/* ════════════════════════════════════════════════
+   RESPONSIVE — Mobile portrait ≤480px
+════════════════════════════════════════════════ */
+@media(max-width:480px){
+  html{font-size:13.5px}
+
+  /* Hero */
+  .mod-hero{padding:28px 14px 22px}
+  .mod-num-tag{font-size:.62em;padding:3px 9px;margin-bottom:12px}
+  .mod-hero h1{font-size:clamp(1.4em,7vw,1.9em);margin-bottom:8px}
+  .mod-hero p{font-size:.87em;margin-bottom:16px}
+  .hero-stats{grid-template-columns:1fr 1fr;max-width:100%}
+  .stat-box{padding:12px 10px}
+  .stat-n{font-size:1.35em}
+
+  /* Content */
+  .content-area{padding:18px 14px 60px}
+
+  /* Project overview banner */
+  .proj-overview{padding:16px 14px;gap:8px}
+  .proj-overview-title{font-size:.9em}
+  .proj-overview p{font-size:.84em}
+  .plevel{padding:8px 10px;font-size:.75em}
+
+  /* Topic header */
+  .topic-header{padding:12px 12px;gap:6px}
+  .topic-num{font-size:.65em;padding:2px 6px}
+  .topic-header h3{font-size:.85em}
+  .topic-body{padding:0 12px 18px}
+  .topic-intro{font-size:.87em;padding:14px 0 12px}
+
+  /* Key points */
+  .kp{padding:10px 12px;font-size:.85em}
+
+  /* Deliverables */
+  .deliverables{padding:12px 13px}
+  .deliv-item{font-size:.83em}
+
+  /* Meta strip */
+  .proj-meta{gap:5px}
+  .pmeta{font-size:.68em;padding:3px 8px}
+
+  /* Task items */
+  .task-txt{font-size:.83em}
+
+  /* Tools */
+  .t-chip{font-size:.72em;padding:4px 9px}
+
+  /* Quiz */
+  .quiz-body{padding:14px}
+  .quiz-hdr h3{font-size:.9em}
+  .qnum{font-size:.6em}
+  .qtext{font-size:.85em;margin-bottom:11px}
+  .qopt{font-size:.83em;padding:8px 10px;gap:8px}
+  .opt-l{width:20px;height:20px;font-size:.7em}
+  .qdots{gap:4px}
+  .qdot{width:6px;height:6px}
+  .qfb{font-size:.8em;padding:8px 12px}
+
+  /* Flashcard */
+  .fc-wrap{height:155px}
+  .fc-face{padding:18px}
+  .fc-txt{font-size:.85em}
+  .fc-hint{font-size:.68em}
+  .flash-hdr{flex-wrap:wrap;gap:6px}
+  .fc-btn{font-size:.76em;padding:6px 12px}
+
+  /* Checklist */
+  .cl-tier-lbl{font-size:.64em;padding:8px 14px 4px}
+  .cl-items{padding:4px 14px 10px}
+  .cl-txt{font-size:.8em}
+  .cl-chk{width:15px;height:15px}
+
+  /* Completion */
+  .completion-card{padding:28px 14px;border-radius:14px}
+  .completion-card h2{font-size:clamp(1.3em,5vw,1.7em)}
+  .completion-card p{font-size:.88em}
+  .comp-icon{font-size:2em;margin-bottom:12px}
+  .cs strong{font-size:1.3em}
+  .comp-btn{padding:10px 18px;font-size:.82em}
+
+  /* Module nav */
+  .module-nav{margin-top:32px}
+  .mnav-btn{padding:11px 14px}
+
+  /* Section header */
+  .section-header h2{font-size:1.05em}
+}
+
+/* ════════════════════════════════════════════════
+   RESPONSIVE — Small phones ≤380px
+════════════════════════════════════════════════ */
+@media(max-width:380px){
+  html{font-size:13px}
+  .mod-hero{padding:24px 12px 20px}
+  .content-area{padding:14px 12px 50px}
+  .hero-stats{grid-template-columns:repeat(2,1fr)}
+  .stat-n{font-size:1.2em}
+  .topic-header h3{font-size:.82em}
+  .completion-card{padding:24px 12px}
+  .comp-btns{gap:8px}
+}
+
+/* ════════════════════════════════════════════════
+   GLOBAL OVERFLOW GUARD
+════════════════════════════════════════════════ */
+body{max-width:100vw}
+img,video,iframe,table{max-width:100%}
+.topbar-breadcrumb{overflow:hidden;min-width:0}
+.topic-header h3{word-break:break-word}
+</style>
+</head>
+<body>
+<div class="overlay" id="overlay" onclick="closeSB()"></div>
+<div class="shell">
+
+<!-- ══ SIDEBAR ══ -->
+<aside class="sidebar" id="sidebar">
+  <div class="sb-brand">
+    <a href="seo_complete_roadmap_v3.html" class="sb-back">← All Modules</a>
+    <div class="sb-mod-badge">MODULE 12</div>
+    <h2>All Projects — Ready Portfolio Projects of SEO</h2>
+    <p>7 real projects · Build a client-winning portfolio</p>
+  </div>
+  <div class="sb-progress">
+    <div class="prog-label"><span>Project Tasks</span><span id="prog-pct">0%</span></div>
+    <div class="prog-bg"><div class="prog-fill" id="prog-fill"></div></div>
+  </div>
+  <nav class="sb-nav">
+    <div class="sb-section-label">Projects</div>
+    <a class="nav-link active" href="#t11-1"><span class="nav-num">11.1</span>Local Business SEO Audit<span class="nav-done">✓</span></a>
+    <a class="nav-link" href="#t11-2"><span class="nav-num">11.2</span>E-Commerce SEO Project<span class="nav-done">✓</span></a>
+    <a class="nav-link" href="#t11-3"><span class="nav-num">11.3</span>Content & Blog SEO Case Study<span class="nav-done">✓</span></a>
+    <a class="nav-link" href="#t11-4"><span class="nav-num">11.4</span>Technical SEO Audit Report<span class="nav-done">✓</span></a>
+    <a class="nav-link" href="#t11-5"><span class="nav-num">11.5</span>Link Building Campaign<span class="nav-done">✓</span></a>
+    <a class="nav-link" href="#t11-6"><span class="nav-num">11.6</span>International SEO Strategy<span class="nav-done">✓</span></a>
+    <a class="nav-link" href="#t11-7"><span class="nav-num">11.7</span>Client SEO Proposal & 90-Day Plan<span class="nav-done">✓</span></a>
+    <div class="sb-section-label" style="margin-top:10px">Review</div>
+    <a class="nav-link" href="#quiz-sec"><span class="nav-num">❓</span>Portfolio Quiz</a>
+    <a class="nav-link" href="#flash-sec"><span class="nav-num">🃏</span>Flashcards</a>
+    <a class="nav-link" href="#cl-sec"><span class="nav-num">📋</span>Portfolio Checklist</a>
+  </nav>
+  <div class="sb-footer"><p>Complete all 7 projects to build a full SEO portfolio ready for client work or job interviews.</p></div>
+</aside>
+
+<!-- ══ MAIN ══ -->
+<main class="main">
+  <div class="topbar">
+    <button class="hamburger" onclick="openSB()"><span></span><span></span><span></span></button>
+    <div class="topbar-breadcrumb">
+      <a href="seo_complete_roadmap_v3.html">SEO Mastery Roadmap 2025</a> › <span>Module 12 — All Projects — Portfolio</span>
+    </div>
+    <button class="theme-btn" id="theme-btn" onclick="toggleTheme()">☀️ Light Mode</button>
+  </div>
+
+  <!-- ══ HERO ══ -->
+  <div class="mod-hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-inner">
+      <div class="mod-num-tag">MODULE 12</div>
+      <h1>All Projects — <em>Ready Portfolio</em><br>Projects of SEO</h1>
+      <p>Stop learning theory. Start building proof. This module gives you 7 fully scoped, real-world SEO projects — each with a brief, deliverables list, step-by-step tasks, and portfolio presentation guidance. Complete these and you'll have a portfolio that wins clients and passes job interviews.</p>
+      <div class="mod-tags">
+        <span class="mtag mtag-rose">Local SEO</span>
+        <span class="mtag mtag-pink">E-Commerce SEO</span>
+        <span class="mtag mtag-fuchsia">Technical Audit</span>
+        <span class="mtag mtag-amber">Content Strategy</span>
+        <span class="mtag mtag-blue">Link Building</span>
+        <span class="mtag mtag-violet">Client Proposals</span>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-box"><div class="stat-n">7</div><div class="stat-l">Projects</div></div>
+        <div class="stat-box"><div class="stat-n">35+</div><div class="stat-l">Tasks</div></div>
+        <div class="stat-box"><div class="stat-n">7</div><div class="stat-l">Deliverables</div></div>
+        <div class="stat-box"><div class="stat-n">∞</div><div class="stat-l">Client Value</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-area">
+
+    <!-- PROJECT OVERVIEW -->
+    <div class="proj-overview">
+      <div class="proj-overview-title">📁 How to Use This Module</div>
+      <p>Each project below represents a complete, real-world SEO deliverable. Work through them in order or jump to the ones most relevant to your niche. Every project specifies the <strong>brief</strong> (what the client needs), the <strong>deliverables</strong> (what you'll produce), and the <strong>step-by-step tasks</strong> to complete it. When finished, each project can be showcased as a portfolio case study on your website or in a client proposal deck.</p>
+      <div class="proj-level-grid">
+        <div class="plevel plevel-int">🟥 Projects 11.1–11.2<span>Intermediate</span></div>
+        <div class="plevel plevel-adv">🟧 Projects 11.3–11.5<span>Advanced</span></div>
+        <div class="plevel plevel-exp">🟪 Projects 11.6–11.7<span>Expert</span></div>
+      </div>
+    </div>
+
+    <div class="section-header">
+      <h2>Portfolio Projects</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <!-- ═══ 11.1 ═══ -->
+    <div class="topic-item" id="t11-1">
+      <div class="topic-header" onclick="toggleTopic(this)">
+        <span class="topic-num">11.1</span>
+        <h3>Local Business SEO Full Audit & 3-Month Campaign</h3>
+        <span class="diff diff-int">Intermediate</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="topic-body">
+        <div class="topic-intro"><strong>Project Brief:</strong> A local dental clinic (or any local service business) wants to rank #1 in Google Maps and organic search for its city. They have a website but no structured SEO strategy. Your job is to audit their current presence, fix issues, and build a complete 3-month local SEO campaign with measurable results. This project demonstrates the most in-demand SEO skill for freelancers — local SEO clients are everywhere and budgets are strong.</div>
+
+        <div class="proj-meta">
+          <span class="pmeta"><span class="pmeta-icon">⏱</span> 2–3 weeks</span>
+          <span class="pmeta"><span class="pmeta-icon">🏢</span> Local Business / Agency</span>
+          <span class="pmeta"><span class="pmeta-icon">📊</span> GSC + GBP + Screaming Frog</span>
+          <span class="pmeta"><span class="pmeta-icon">💰</span> £500–£1,500 freelance value</span>
+        </div>
+
+        <div class="deliverables">
+          <div class="deliverables-title">📦 Project Deliverables</div>
+          <div class="deliv-list">
+            <div class="deliv-item"><span class="deliv-check">▸</span><span>Local SEO audit PDF — covering GBP, citations, reviews, on-page, and technical issues (15–20 pages)</span></div>
+            <div class="deliv-item"><span class="deliv-check">▸</span><span>Optimised Google Business Profile with all fields completed and a photo upload plan</span></div>
+            <div class="deliv-item"><span class="deliv-check">▸</span><span>Local keyword research spreadsheet — 30+ target keywords segmented by service and location</span></div>
+            <div class="deliv-item"><span class="deliv-check">▸</span><span>On-page optimisation for 5 core service/location pages — title tags, meta, headings, schema</span></div>
+            <div class="deliv-item"><span class="deliv-check">▸</span><span>3-month content & citation plan with monthly milestones and KPIs</span></div>
+          </div>
+        </div>
+
+        <div class="keypoints">
+          <div class="kp"><div class="kp-dot"></div><div><strong>Step 1 — GBP Audit & Optimisation:</strong> Claim/verify GBP if not done. Complete every field: business name (exact match, no keyword stuffing), category (primary + secondary), description (750 chars, 3–5 keywords naturally), hours, website link, phone, attributes. Add 10+ high-quality photos. Set up Q&A with pre-answered FAQs. Enable messaging and booking link. Review GBP weekly.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Step 2 — Citation Audit & Cleanup:</strong> Use BrightLocal or Whitespark to audit NAP (Name, Address, Phone) consistency across all directories. Identify and fix any incorrect or duplicate listings on Google, Yelp, Bing Places, Apple Maps, Facebook, TripAdvisor, Yell, Cylex, and industry-specific directories. NAP inconsistencies are one of the most common and damaging local SEO errors.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Step 3 — Local Keyword Research:</strong> Target "[service] + [city]", "[service] + [borough/area]", and "[service] near me" variations. Use Google Keyword Planner, Ahrefs, or Ubersuggest with location set to the business city. Identify the top 10 primary keywords and map each to a specific page. Create new landing pages for any high-volume service+location combos that lack dedicated pages.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Step 4 — LocalBusiness Schema & On-Page:</strong> Implement <code>LocalBusiness</code> JSON-LD schema on the homepage and all service pages. Include: name, address, telephone, geo coordinates, opening hours, areaServed, and sameAs links to all social profiles. Optimise every service page title tag as: [Keyword] | [Business Name] — [City]. Validate with Google Rich Results Test.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Step 5 — Review Velocity Strategy:</strong> Design a simple review acquisition system. Create a short URL to the GBP review page. Write a follow-up email/SMS template for post-service review requests. Set a target of 5 new reviews per month. Respond professionally to all existing reviews (positive and negative). Monitor mentions using Google Alerts for the business name.</div></div>
+        </div>
+
+        <div class="block-grid">
+          <div class="info-block b-example">
+            <div class="blabel">📖 Real Example</div>
+            <p>A Manchester-based plumber had 12 GBP reviews and no consistent NAP. After 3-month local SEO campaign: fixed 47 citation inconsistencies, added LocalBusiness schema, created dedicated pages for "emergency plumber Manchester", "boiler repair Manchester", and "drain unblocking Manchester". Added 28 new GBP reviews via post-service text message system. Result: <strong>Map Pack position 1–3 for all primary keywords, 340% increase in phone call leads from organic search in 90 days.</strong></p>
+          </div>
+          <div class="info-block b-task">
+            <div class="blabel">✅ Your Tasks</div>
+            <div class="task-list">
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Pick any local business (your own, a friend's, or a hypothetical one). Complete a GBP optimisation — all fields, 10 photos, and 5 pre-answered Q&As. Screenshot the before/after.</span></label>
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Research 30 local keywords for this business using Keyword Planner. Create a spreadsheet mapping each keyword to an existing or planned page, noting monthly volume and competition.</span></label>
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Write and validate complete <code>LocalBusiness</code> JSON-LD schema for the homepage. Include all required fields and validate with Google Rich Results Test. Screenshot the "Valid" result.</span></label>
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Write a <strong>professional Local SEO audit report</strong> (PDF, 15+ pages) covering GBP, citations, on-page, and technical findings. Include prioritised recommendations. This is your portfolio document.</span></label>
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Design a review acquisition email/SMS template. Write 3 variations (post-purchase, follow-up, last chance). Include a short review link and response to a 1-star review professionally.</span></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="tools-wrap">
+          <span class="t-chip">🔧 Google Business Profile</span>
+          <span class="t-chip">🔧 BrightLocal</span>
+          <span class="t-chip">🔧 Screaming Frog</span>
+          <span class="t-chip">🔧 Google Rich Results Test</span>
+          <span class="t-chip">🔧 Whitespark</span>
+          <span class="t-chip">🔧 Ahrefs / Ubersuggest</span>
+        </div>
+
+        <div class="res-block">
+          <div class="res-title">📚 Resources</div>
+          <div class="res-links">
+            <a class="res-link" href="https://moz.com/local-seo-guide" target="_blank"><span class="res-icon">🔗</span><div class="res-info"><strong>Moz — The Local SEO Guide</strong><span>Comprehensive local SEO guide covering GBP, citations, on-page, and ranking factors. The definitive reference for local SEO projects.</span></div><span class="res-badge badge-blog">GUIDE</span></a>
+            <a class="res-link" href="https://developers.google.com/search/docs/appearance/structured-data/local-business" target="_blank"><span class="res-icon">📄</span><div class="res-info"><strong>Google — LocalBusiness Schema Documentation</strong><span>Official schema.org markup reference for LocalBusiness entities, with required and recommended fields and code examples.</span></div><span class="res-badge badge-official">OFFICIAL</span></a>
+            <a class="res-link" href="https://brightlocal.com/resources/" target="_blank"><span class="res-icon">🔧</span><div class="res-info"><strong>BrightLocal — Local SEO Resources & Templates</strong><span>Free local SEO audit templates, citation tracking tools, and GBP optimisation checklists for freelancers and agencies.</span></div><span class="res-badge badge-free">FREE</span></a>
+          </div>
+        </div>
+        <div class="topic-note">
+          <div class="note-hdr">📌 Portfolio Tip</div>
+          <div class="note-grid">
+            <div class="note-cell"><div class="note-lbl">🎯 What to Showcase</div><p>Before/after GBP screenshots, keyword ranking improvements in GSC, citation consistency audit results, and the final audit PDF. Even a hypothetical business makes a strong portfolio piece.</p></div>
+            <div class="note-cell"><div class="note-lbl">📍 Who Hires for This</div><p>Every local business in every city. Restaurants, dentists, plumbers, solicitors, gyms. This is the <strong>highest-volume freelance SEO niche</strong> — master it first.</p></div>
+            <div class="note-cell"><div class="note-lbl">🔧 How to Present It</div><p>PDF report + a 5-slide deck. Slide 1: the problem. Slide 2: audit findings. Slide 3: actions taken. Slide 4: results. Slide 5: next steps. Always quantify results with numbers.</p></div>
+            <div class="note-cell"><div class="note-lbl">⏰ Time to Results</div><p>Local SEO results typically appear in <strong>4–12 weeks</strong>. GBP changes can impact Map Pack rankings in as little as 2–3 weeks. Citation cleanup takes 30–60 days to propagate.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ 11.2 ═══ -->
+    <div class="topic-item" id="t11-2">
+      <div class="topic-header" onclick="toggleTopic(this)">
+        <span class="topic-num">11.2</span>
+        <h3>E-Commerce SEO: Product Page & Category Optimisation Project</h3>
+        <span class="diff diff-int">Intermediate</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="topic-body">
+        <div class="topic-intro"><strong>Project Brief:</strong> An online skincare store with 200+ products is getting traffic to its homepage but barely any organic traffic to product or category pages. They're losing thousands of potential sales to competitors who rank for transactional keywords. Your goal: audit product and category pages, create a scalable SEO template, optimise 20 priority pages, and implement e-commerce structured data to generate rich results in Google.</div>
+
+        <div class="proj-meta">
+          <span class="pmeta"><span class="pmeta-icon">⏱</span> 3–4 weeks</span>
+          <span class="pmeta"><span class="pmeta-icon">🏢</span> E-Commerce / Shopify / WooCommerce</span>
+          <span class="pmeta"><span class="pmeta-icon">📊</span> Ahrefs + Screaming Frog + GSC</span>
+          <span class="pmeta"><span class="pmeta-icon">💰</span> £1,000–£3,500 freelance value</span>
+        </div>
+
+        <div class="deliverables">
+          <div class="deliverables-title">📦 Project Deliverables</div>
+          <div class="deliv-list">
+            <div class="deliv-item"><span class="deliv-check">▸</span><span>E-commerce SEO audit report — crawl issues, duplicate content, thin pages, missing schema (20+ pages)</span></div>
+            <div class="deliv-item"><span class="deliv-check">▸</span><span>Keyword-mapped product/category hierarchy spreadsheet — 100+ target keywords with page assignments</span></div>
+            <div class="deliv-item"><span class="deliv-check">▸</span><span>Optimised meta titles, descriptions, and H1s for 20 priority product and category pages</span></div>
+            <div class="deliv-item"><span class="deliv-check">▸</span><span>Product and BreadcrumbList JSON-LD schema implemented and validated</span></div>
+            <div class="deliv-item"><span class="deliv-check">▸</span><span>Internal linking map connecting category → product pages for crawl efficiency</span></div>
+          </div>
+        </div>
+
+        <div class="keypoints">
+          <div class="kp"><div class="kp-dot"></div><div><strong>Category Page Optimisation:</strong> Category pages are the most valuable e-commerce SEO assets — they rank for head terms with the highest purchase intent. Each category needs: unique, keyword-rich H1, 150–300 word introductory copy above the fold (with primary keyword in first sentence), breadcrumb navigation, internal links to subcategories and top products, and clean faceted navigation handling (use canonical or noindex for filter combinations to prevent duplicate content).</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Product Page Best Practices:</strong> Target long-tail product + modifier keywords: "[product name] + [colour/size/material/use case]". Write unique descriptions — never use manufacturer copy (duplicate content destroys ranking). Add: user-generated content sections (reviews), related products internal links, <code>Product</code> schema with price, availability, and rating. Use image alt text with keyword + product description.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Duplicate Content Prevention:</strong> E-commerce sites generate massive duplicate content through: parameter URLs (filters, sorting), session IDs, faceted navigation, and product variants. Solutions: canonical tags pointing filtered pages to the clean category URL, <code>robots.txt</code> disallowing crawl of parameter URLs, and disabling GSC URL parameter handling. Audit with Screaming Frog to find all duplicates systematically.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Product Schema for Rich Results:</strong> Implement <code>Product</code> JSON-LD with: name, image, description, brand, sku, offers (price, priceCurrency, availability, url), and aggregateRating. Google shows star ratings, price, and availability directly in search results — CTR increases of 20–40% are common. Validate with Rich Results Test. Add <code>BreadcrumbList</code> schema to every page for navigational breadcrumbs in SERPs.</div></div>
+        </div>
+
+        <div class="block-grid">
+          <div class="info-block b-portfolio">
+            <div class="blabel">💼 Portfolio Showcase</div>
+            <p><strong>What makes this project impressive:</strong></p>
+            <ul>
+              <li>Crawl data analysis showing issues found and fixed</li>
+              <li>Before/after meta title comparisons with keyword targeting logic explained</li>
+              <li>Rich Results Test screenshots showing validated Product schema</li>
+              <li>Keyword ranking tracking (GSC or Ahrefs) showing improvements at 30, 60, 90 days</li>
+              <li>Estimated traffic value gain (use Ahrefs traffic value metric)</li>
+            </ul>
+          </div>
+          <div class="info-block b-task">
+            <div class="blabel">✅ Your Tasks</div>
+            <div class="task-list">
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Crawl any e-commerce site with Screaming Frog free (up to 500 URLs). Export title tags — identify all missing, duplicate, or over-length titles. Create a prioritised fix list.</span></label>
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Write optimised title tags and meta descriptions for 10 product pages and 5 category pages. Follow the formula: <strong>[Primary Keyword] — [USP or Modifier] | [Brand Name]</strong>.</span></label>
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Write complete <code>Product</code> JSON-LD schema for 3 products with price, availability, brand, and aggregateRating. Validate all 3 in Google Rich Results Test.</span></label>
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Create a keyword mapping spreadsheet for 20 pages with columns: URL, primary keyword, secondary keywords, current title, proposed title, monthly volume, difficulty.</span></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="res-block">
+          <div class="res-title">📚 Resources</div>
+          <div class="res-links">
+            <a class="res-link" href="https://ahrefs.com/blog/ecommerce-seo/" target="_blank"><span class="res-icon">🔗</span><div class="res-info"><strong>Ahrefs — E-Commerce SEO: The Beginner's Guide</strong><span>Comprehensive walkthrough of e-commerce SEO covering site architecture, category pages, product pages, and technical issues.</span></div><span class="res-badge badge-blog">GUIDE</span></a>
+            <a class="res-link" href="https://developers.google.com/search/docs/appearance/structured-data/product" target="_blank"><span class="res-icon">📄</span><div class="res-info"><strong>Google — Product Structured Data Reference</strong><span>Official documentation for Product and Offer schema markup, including all required properties for rich results eligibility.</span></div><span class="res-badge badge-official">OFFICIAL</span></a>
+            <a class="res-link" href="https://www.screamingfrog.co.uk/seo-spider/" target="_blank"><span class="res-icon">🔧</span><div class="res-info"><strong>Screaming Frog SEO Spider (Free up to 500 URLs)</strong><span>The industry-standard crawl tool for identifying technical SEO issues — missing tags, duplicates, redirects, and broken links.</span></div><span class="res-badge badge-free">FREE TIER</span></a>
+          </div>
+        </div>
+        <div class="topic-note">
+          <div class="note-hdr">📌 Portfolio Tip</div>
+          <div class="note-grid">
+            <div class="note-cell"><div class="note-lbl">🎯 What to Showcase</div><p>Crawl report summary, before/after title tags, validated schema screenshots, and a keyword mapping spreadsheet. If you have GSC access, include impression and click growth charts.</p></div>
+            <div class="note-cell"><div class="note-lbl">📍 Who Hires for This</div><p>Every online store. Shopify, WooCommerce, and Magento agencies all need this skill. E-commerce SEO commands the <strong>highest day rates</strong> in the SEO market.</p></div>
+            <div class="note-cell"><div class="note-lbl">🔧 How to Present It</div><p>Create a case study page on your portfolio site. Use anonymised screenshots if working with a real client's data. Include a "problem → solution → result" narrative.</p></div>
+            <div class="note-cell"><div class="note-lbl">⏰ Time to Results</div><p>Title tag and meta changes can impact CTR within <strong>1–2 weeks</strong>. Schema rich results appear in 2–4 weeks. Full ranking improvements from content changes: 8–16 weeks.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ 11.3 ═══ -->
+    <div class="topic-item" id="t11-3">
+      <div class="topic-header" onclick="toggleTopic(this)">
+        <span class="topic-num">11.3</span>
+        <h3>Content Marketing & Blog SEO Case Study Project</h3>
+        <span class="diff diff-adv">Advanced</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="topic-body">
+        <div class="topic-intro"><strong>Project Brief:</strong> A B2B SaaS company has a blog with 80 posts written 2–3 years ago. Most posts get no traffic. They want to use content marketing to drive organic leads. Your project: conduct a full content audit, identify the 15 best pages to refresh, write one complete pillar content piece targeting a high-volume keyword, build a topic cluster strategy, and create a 6-month editorial calendar. This demonstrates advanced content strategy — one of the most sought-after and highest-paying SEO skills.</div>
+
+        <div class="proj-meta">
+          <span class="pmeta"><span class="pmeta-icon">⏱</span> 4–5 weeks</span>
+          <span class="pmeta"><span class="pmeta-icon">🏢</span> SaaS / B2B / Publisher / Agency</span>
+          <span class="pmeta"><span class="pmeta-icon">📊</span> Ahrefs + GSC + Surfer SEO</span>
+          <span class="pmeta"><span class="pmeta-icon">💰</span> £1,500–£4,000 freelance value</span>
+        </div>
+
+        <div class="deliverables">
+          <div class="deliverables-title">📦 Project Deliverables</div>
+          <div class="deliv-list">
+            <div class="deliv-item"><span class="deliv-check">▸</span><span>Full content audit spreadsheet — all pages graded Keep / Improve / Consolidate / Delete with rationale</span></div>
+            <div class="deliv-item"><span class="deliv-check">▸</span><span>Topic cluster map — 1 pillar page + 8–10 cluster posts per main topic, shown as a visual hierarchy</span></div>
+            <div class="deliv-item"><span class="deliv-check">▸</span><span>One complete pillar content piece (2,500+ words) targeting a head keyword — fully optimised</span></div>
+            <div class="deliv-item"><span class="deliv-check">▸</span><span>Content refresh plan — detailed improvement notes for 15 existing posts</span></div>
+            <div class="deliv-item"><span class="deliv-check">▸</span><span>6-month editorial calendar with topics, target keywords, word counts, and monthly goals</span></div>
+          </div>
+        </div>
+
+        <div class="keypoints">
+          <div class="kp"><div class="kp-dot"></div><div><strong>Content Audit Process:</strong> Export all blog URLs. In Ahrefs Site Explorer, pull organic traffic for each URL. Categorise: (1) <strong>Keep</strong> — getting traffic, performing well; (2) <strong>Improve</strong> — ranking 4–20 with potential; (3) <strong>Consolidate</strong> — multiple thin posts on same topic (merge into one strong post with 301 redirects); (4) <strong>Delete</strong> — zero traffic, no backlinks, no business value (redirect to relevant page or category).</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Topic Cluster Architecture:</strong> Identify your 3 core topic pillars aligned to business goals. Each pillar = one comprehensive "ultimate guide" page targeting a broad head keyword. Each cluster post = a deep dive into a specific subtopic of the pillar, targeting a long-tail variation. All cluster posts link back to the pillar page, and the pillar links out to all cluster posts. This creates topical authority that signals expertise to Google.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Pillar Content Formula:</strong> Pillar pages target keywords with 1,000–10,000 monthly searches. Minimum 2,500 words — cover the topic more comprehensively than any ranking competitor. Structure: introduction answering the core question in 2 sentences, clear H2/H3 structure, numbered steps where applicable, original data or expert quotes, FAQ section, internal links to cluster posts, and a strong CTA. Target a Featured Snippet for the core question.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Content Refresh Strategy:</strong> For pages ranking 4–20 with existing traffic: (1) Update all outdated statistics with 2024–2025 data, (2) Add missing subtopics competitors cover that you don't, (3) Improve meta title for CTR using emotional triggers or numbers, (4) Add or expand FAQ section with questions from "People Also Ask", (5) Add internal links from newer content, (6) Update published date and add "Last Updated: [Month Year]" prominently. Refreshes are 3× faster ROI than new content.</div></div>
+        </div>
+
+        <div class="block-grid">
+          <div class="info-block b-example">
+            <div class="blabel">📖 Real Example</div>
+            <p>A UK HR software company had 60 blog posts averaging 12 monthly sessions each. Content audit showed 22 posts were duplicating the same topics. Actions: merged 22 posts into 8 strong articles with 301 redirects, refreshed 15 posts with updated 2025 data and expanded FAQs, created 3 new pillar pages. At 6 months: blog sessions grew from 700/month to <strong>11,400/month</strong>, generating 47 inbound demo requests directly attributed to organic blog traffic.</p>
+          </div>
+          <div class="info-block b-task">
+            <div class="blabel">✅ Your Tasks</div>
+            <div class="task-list">
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Conduct a content audit of any 20+ page blog. Grade each post: Keep / Improve / Consolidate / Delete. Export results into a colour-coded spreadsheet with traffic data from GSC or Ahrefs.</span></label>
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Design a full topic cluster map for one niche: 1 pillar keyword + 8 cluster subtopics. Create a visual diagram (Miro, Figma, or even Google Slides) showing the linking structure.</span></label>
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Write a <strong>2,500+ word pillar content piece</strong> targeting a real keyword. Include: structured H2/H3 headings, FAQ section, internal link placeholders, and a meta title targeting a Featured Snippet.</span></label>
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Build a 6-month editorial calendar in a spreadsheet: publish date, topic, target keyword, word count, content type (new/refresh), assigned writer, and status tracking columns.</span></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="res-block">
+          <div class="res-title">📚 Resources</div>
+          <div class="res-links">
+            <a class="res-link" href="https://ahrefs.com/blog/content-audit/" target="_blank"><span class="res-icon">🔗</span><div class="res-info"><strong>Ahrefs — How to Do a Content Audit (with Template)</strong><span>Step-by-step content audit methodology with a free spreadsheet template for grading and prioritising content improvements.</span></div><span class="res-badge badge-blog">GUIDE</span></a>
+            <a class="res-link" href="https://backlinko.com/hub/seo/topic-clusters" target="_blank"><span class="res-icon">🔗</span><div class="res-info"><strong>Backlinko — Topic Clusters: The Complete Guide</strong><span>Visual explanation of pillar-cluster architecture with real examples, linking strategies, and implementation steps.</span></div><span class="res-badge badge-blog">BLOG</span></a>
+            <a class="res-link" href="https://surferseo.com/blog/" target="_blank"><span class="res-icon">🔧</span><div class="res-info"><strong>Surfer SEO Blog — Content Optimisation Best Practices</strong><span>Practical content strategy and optimisation guides from one of the leading content SEO tools — free articles with deep tactical insight.</span></div><span class="res-badge badge-blog">BLOG</span></a>
+          </div>
+        </div>
+        <div class="topic-note">
+          <div class="note-hdr">📌 Portfolio Tip</div>
+          <div class="note-grid">
+            <div class="note-cell"><div class="note-lbl">🎯 What to Showcase</div><p>The content audit spreadsheet, topic cluster diagram, and the published pillar article. Link to the live article if possible. Show keyword ranking progress in GSC at 30, 60, and 90 days post-publish.</p></div>
+            <div class="note-cell"><div class="note-lbl">📍 Who Hires for This</div><p>SaaS companies, agencies, B2B businesses, publishers. Content strategy is the <strong>fastest-growing SEO specialism</strong> — brands spend more on content than any other SEO activity.</p></div>
+            <div class="note-cell"><div class="note-lbl">🔧 How to Present It</div><p>Write a case study blog post on your own site about this project. This serves double duty: it's a portfolio piece AND a demonstration of your own content SEO skills.</p></div>
+            <div class="note-cell"><div class="note-lbl">⏰ Time to Results</div><p>Content refreshes often show ranking improvements in <strong>2–6 weeks</strong>. New pillar pages typically take 3–6 months to reach competitive positions for head keywords.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ 11.4 ═══ -->
+    <div class="topic-item" id="t11-4">
+      <div class="topic-header" onclick="toggleTopic(this)">
+        <span class="topic-num">11.4</span>
+        <h3>Full Technical SEO Audit Report — Enterprise Site</h3>
+        <span class="diff diff-adv">Advanced</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="topic-body">
+        <div class="topic-intro"><strong>Project Brief:</strong> A corporate website with 5,000+ pages is experiencing unexplained traffic drops. The in-house team suspects technical issues but doesn't have the expertise to diagnose them. Your project: conduct a comprehensive technical SEO audit covering crawlability, indexation, Core Web Vitals, structured data, duplicate content, redirect chains, and log file analysis. Deliver a 25-page prioritised technical audit report with an implementation roadmap. Technical SEO audit reports are among the highest-value deliverables in SEO — specialist agencies charge £3,000–£15,000 for these.</div>
+
+        <div class="proj-meta">
+          <span class="pmeta"><span class="pmeta-icon">⏱</span> 3–5 weeks</span>
+          <span class="pmeta"><span class="pmeta-icon">🏢</span> Enterprise / Large E-Commerce / Publisher</span>
+          <span class="pmeta"><span class="pmeta-icon">📊</span> Screaming Frog + GSC + PageSpeed Insights + Semrush</span>
+          <span class="pmeta"><span class="pmeta-icon">💰</span> £3,000–£12,000 agency value</span>
+        </div>
+
+        <div class="deliverables">
+          <div class="deliverables-title">📦 Project Deliverables</div>
+          <div class="deliv-list">
+            <div class="deliv-item"><span class="deliv-check">▸</span><span>Technical SEO audit report PDF (25+ pages) — executive summary, findings by category, prioritised fixes</span></div>
+            <div class="deliv-item"><span class="deliv-check">▸</span><span>Crawl data export — all URLs with status codes, title tags, canonical tags, and indexability status</span></div>
+            <div class="deliv-item"><span class="deliv-check">▸</span><span>Core Web Vitals report — LCP, CLS, INP scores per page type with specific optimisation recommendations</span></div>
+            <div class="deliv-item"><span class="deliv-check">▸</span><span>Redirect chain map — all chains of 2+ hops identified with recommended fixes</span></div>
+            <div class="deliv-item"><span class="deliv-check">▸</span><span>Technical implementation roadmap — issues prioritised by impact × effort with a 90-day dev sprint plan</span></div>
+          </div>
+        </div>
+
+        <div class="keypoints">
+          <div class="kp"><div class="kp-dot"></div><div><strong>Crawlability & Indexation Audit:</strong> Check <code>robots.txt</code> for accidentally blocked resources (CSS, JS, images, entire directories). Audit XML sitemap — does it include only canonical, indexable, 200-status URLs? No 301, 404, or noindexed URLs in the sitemap. In GSC Coverage report, diagnose "Discovered – currently not indexed" pages — usually crawl budget, duplicate content, or quality issues. Check all canonical tags point to the correct self-referencing or preferred URL.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Core Web Vitals Diagnosis:</strong> Use PageSpeed Insights for page-level analysis and GSC Core Web Vitals report for site-wide picture. LCP targets: under 2.5s — fix by compressing hero images (WebP), preloading LCP element, reducing TTFB via hosting/CDN upgrade. CLS targets: under 0.1 — fix by specifying image dimensions, avoiding late-loading dynamic content above fold. INP targets: under 200ms — fix by reducing JavaScript execution time.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Redirect Audit:</strong> Crawl with Screaming Frog set to follow all redirects. Export all redirect chains (2+ hops are inefficient — each hop dilutes link equity and increases load time). Common causes: legacy domain migrations, CMS platform changes, repeated URL restructures. Fix: update all internal links pointing to the first URL in a chain to point directly to the final destination. Eliminate all redirect loops immediately.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Structured Data Audit:</strong> Use Screaming Frog's structured data extraction + Google Rich Results Test + Schema Markup Validator. Check: Are all required properties present? Are there validation errors? Are rich results appearing in SERPs? Identify pages that should have schema but don't (products, FAQs, articles, local business, breadcrumbs). Create a schema implementation priority list with estimated CTR impact per page type.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Report Structure & Prioritisation:</strong> Technical issues must be prioritised by: (1) Critical — blocking indexation or causing active ranking losses (fix within 2 weeks); (2) High — significant impact, straightforward fix (fix within 1 month); (3) Medium — meaningful improvement, requires dev resources (fix within 3 months); (4) Low — nice-to-have optimisations (backlog). Clients and developers need this prioritisation or nothing gets fixed.</div></div>
+        </div>
+
+        <div class="block-grid">
+          <div class="info-block b-insight">
+            <div class="blabel">💡 Audit Report Structure Template</div>
+            <ul>
+              <li><strong>1. Executive Summary</strong> — Top 5 critical findings, estimated traffic impact, key wins</li>
+              <li><strong>2. Crawlability & Indexation</strong> — robots.txt, sitemap, GSC Coverage, noindex</li>
+              <li><strong>3. Site Architecture</strong> — URL structure, depth, internal linking, pagination</li>
+              <li><strong>4. Technical On-Page</strong> — Title tags, canonicals, hreflang, redirects</li>
+              <li><strong>5. Core Web Vitals</strong> — LCP, CLS, INP per page type</li>
+              <li><strong>6. Structured Data</strong> — Schema audit, validation errors, opportunities</li>
+              <li><strong>7. Security & HTTPS</strong> — Mixed content, HTTP/2, certificate status</li>
+              <li><strong>8. Implementation Roadmap</strong> — Prioritised issues with dev sprint plan</li>
+            </ul>
+          </div>
+          <div class="info-block b-task">
+            <div class="blabel">✅ Your Tasks</div>
+            <div class="task-list">
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Crawl any website with Screaming Frog (use your own domain or a friend's). Export: all URLs, status codes, title tags, canonical tags, and response times. Identify the top 10 technical issues.</span></label>
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Run PageSpeed Insights on 5 pages of any website — homepage, category, product/article, contact, and about. Document LCP, CLS, and INP scores for each. Write specific fixes for the lowest scoring page.</span></label>
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Write a <strong>full technical SEO audit report</strong> (PDF, 20+ pages) using the structure template above. Use real crawl data. Prioritise every issue as Critical / High / Medium / Low.</span></label>
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Validate all existing structured data on a site using Schema Markup Validator. List every error and warning, then write the corrected schema for the most critical page type.</span></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="res-block">
+          <div class="res-title">📚 Resources</div>
+          <div class="res-links">
+            <a class="res-link" href="https://web.dev/performance/" target="_blank"><span class="res-icon">🔗</span><div class="res-info"><strong>web.dev — Core Web Vitals & Performance</strong><span>Google's official developer resource for Core Web Vitals. Detailed explanations of LCP, CLS, INP with diagnostics and fix guides.</span></div><span class="res-badge badge-official">OFFICIAL</span></a>
+            <a class="res-link" href="https://ahrefs.com/blog/technical-seo/" target="_blank"><span class="res-icon">🔗</span><div class="res-info"><strong>Ahrefs — Technical SEO: The Beginner's Guide</strong><span>Complete introduction to technical SEO covering crawlability, indexation, site speed, structured data, and duplicate content.</span></div><span class="res-badge badge-blog">GUIDE</span></a>
+            <a class="res-link" href="https://www.semrush.com/blog/technical-seo-audit/" target="_blank"><span class="res-icon">🔗</span><div class="res-info"><strong>SEMrush — Complete Technical SEO Audit Guide</strong><span>Actionable 30-step technical audit checklist used by SEMrush's agency team — includes screenshots and tool recommendations.</span></div><span class="res-badge badge-blog">BLOG</span></a>
+          </div>
+        </div>
+        <div class="topic-note">
+          <div class="note-hdr">📌 Portfolio Tip</div>
+          <div class="note-grid">
+            <div class="note-cell"><div class="note-lbl">🎯 What to Showcase</div><p>The full audit report PDF, a 1-page "issues found" summary, and the implementation roadmap. Anonymise any client data. The depth of the report communicates expertise more than any certificate.</p></div>
+            <div class="note-cell"><div class="note-lbl">📍 Who Hires for This</div><p>Enterprise clients, large e-commerce brands, and digital agencies who subcontract technical audits. Technical SEO commands the highest freelance rates — £100–£200+/hour for specialists.</p></div>
+            <div class="note-cell"><div class="note-lbl">🔧 How to Present It</div><p>Offer a "free mini-audit" (top 5 issues only) as a lead magnet. Use this to build relationships with potential clients, then pitch the full audit. Works extremely well for business development.</p></div>
+            <div class="note-cell"><div class="note-lbl">⏰ Time to Results</div><p>Technical fixes impact rankings progressively. Critical crawlability fixes can show results in <strong>2–4 weeks</strong>. Core Web Vitals improvements may need 4–8 weeks for Google to re-evaluate page experience signals.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ 11.5 ═══ -->
+    <div class="topic-item" id="t11-5">
+      <div class="topic-header" onclick="toggleTopic(this)">
+        <span class="topic-num">11.5</span>
+        <h3>Link Building & Digital PR Campaign Project</h3>
+        <span class="diff diff-adv">Advanced</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="topic-body">
+        <div class="topic-intro"><strong>Project Brief:</strong> A startup fintech company has strong content but a Domain Rating (DR) of 22 and almost no backlinks from authoritative sites. Competitors have DR 50+. Your project: design and execute a 3-month link building and Digital PR campaign targeting 20 editorial backlinks from sites with DR 40+. This project demonstrates one of the most high-value and difficult-to-learn SEO skills — earning genuine, scalable backlinks through outreach and PR.</div>
+
+        <div class="proj-meta">
+          <span class="pmeta"><span class="pmeta-icon">⏱</span> 8–12 weeks (campaign duration)</span>
+          <span class="pmeta"><span class="pmeta-icon">🏢</span> Startup / SaaS / E-Commerce / Publisher</span>
+          <span class="pmeta"><span class="pmeta-icon">📊</span> Ahrefs + Hunter.io + BuzzStream + HARO</span>
+          <span class="pmeta"><span class="pmeta-icon">💰</span> £2,000–£6,000 freelance value</span>
+        </div>
+
+        <div class="deliverables">
+          <div class="deliverables-title">📦 Project Deliverables</div>
+          <div class="deliv-list">
+            <div class="deliv-item"><span class="deliv-check">▸</span><span>Link building strategy document — 3 core tactics selected, rationale, and 90-day timeline</span></div>
+            <div class="deliv-item"><span class="deliv-check">▸</span><span>Prospect list — 100+ qualified outreach targets with DR, contact email, relevance score</span></div>
+            <div class="deliv-item"><span class="deliv-check">▸</span><span>Outreach email templates (3 variations) — personalised cold outreach, follow-up, and resource pitch</span></div>
+            <div class="deliv-item"><span class="deliv-check">▸</span><span>Linkable asset — one piece of original data, research, or interactive content designed for earning links</span></div>
+            <div class="deliv-item"><span class="deliv-check">▸</span><span>Campaign results report — links earned, DR distribution, referring domains growth, DR impact</span></div>
+          </div>
+        </div>
+
+        <div class="keypoints">
+          <div class="kp"><div class="kp-dot"></div><div><strong>Tactic 1 — Broken Link Building:</strong> In Ahrefs, find competitor pages that have earned backlinks but are now 404 (dead). Use: Ahrefs → Site Explorer → enter competitor domain → Pages → Best by Links → filter 404. Find which external sites link to these dead pages. Create equivalent or better content on your site. Reach out to those sites: "I noticed you're linking to a dead page about [topic] — I created an updated version here: [URL]. Might be useful to update your link."</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Tactic 2 — Original Data & Statistics Pages:</strong> Create one piece of original research relevant to your niche. Survey 100+ people (use Google Forms or Typeform), compile industry statistics, or analyse publicly available datasets. Publish a statistics page: "X Statistics About [Topic] in 2025." Journalists and bloggers constantly search for data to cite. A well-promoted statistics page earns 50–200+ natural backlinks over 12 months. Promote via HARO, journalist outreach, and social sharing.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Tactic 3 — Expert Contributor & HARO:</strong> HARO (Help a Reporter Out), Qwoted, and SourceBottle connect journalists with expert sources. Sign up, respond daily to relevant queries with expert quotes (3–5 sentences, specific, data-backed, quotable). Successful responses earn DR 40–90 editorial mentions in Forbes, Business Insider, TechCrunch, etc. Also pitch guest posts to industry publications — write comprehensive, original articles for sites your target audience reads.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Outreach Best Practices:</strong> Personalise every outreach email — mention a specific recent article they wrote, a point you agreed/disagreed with, or something unique about their site. Keep emails under 120 words. One clear ask per email. Follow up once after 5–7 days. Track everything in a spreadsheet or CRM (BuzzStream). Expected response rates: personalised cold outreach 5–15%. Never buy links, PBN links, or link exchange schemes — these violate Google's guidelines and risk manual penalties.</div></div>
+        </div>
+
+        <div class="block-grid">
+          <div class="info-block b-example">
+            <div class="blabel">📖 Real Example</div>
+            <p>A UK legal tech startup used an original research campaign: surveyed 500 UK small business owners about legal disputes. Published "500 UK SME Legal Dispute Statistics 2025." Promoted via HARO + direct journalist outreach to legal and business journalists. In 90 days, the page earned 84 referring domains including The Guardian, Law Gazette, and CompanyUK. Domain Rating climbed from DR 19 to DR 41. <strong>Organic traffic tripled in the following 6 months.</strong> Total cost: 20 hours of researcher time + £200 survey tool costs.</p>
+          </div>
+          <div class="info-block b-task">
+            <div class="blabel">✅ Your Tasks</div>
+            <div class="task-list">
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Conduct a competitor backlink gap analysis using Ahrefs Link Intersect. Find 20+ high-DR sites linking to 2+ competitors but NOT to your chosen brand. Create a qualified prospect list.</span></label>
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Write 3 cold outreach email variations for a broken link building campaign. Include: personalisation line, value proposition, clear ask. Keep each under 120 words. Write one follow-up email.</span></label>
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Design a "linkable asset" concept for any niche — write the full outline, data sources, and promotion strategy. Explain which sites would link to it and why. (Full production optional.)</span></label>
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Sign up for HARO (free). Monitor it for one week. Respond to 3 relevant journalist queries with expert quotes. Document each response and record any placements received.</span></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="res-block">
+          <div class="res-title">📚 Resources</div>
+          <div class="res-links">
+            <a class="res-link" href="https://ahrefs.com/blog/link-building/" target="_blank"><span class="res-icon">🔗</span><div class="res-info"><strong>Ahrefs — Link Building for SEO: The Definitive Guide</strong><span>The most comprehensive link building guide available — covers all major tactics with step-by-step instructions and real examples.</span></div><span class="res-badge badge-blog">GUIDE</span></a>
+            <a class="res-link" href="https://www.helpareporter.com/" target="_blank"><span class="res-icon">🔧</span><div class="res-info"><strong>HARO — Help a Reporter Out (Free)</strong><span>Free service connecting journalists with expert sources. Daily email digests with media opportunity queries across all industries.</span></div><span class="res-badge badge-free">FREE</span></a>
+            <a class="res-link" href="https://hunter.io/" target="_blank"><span class="res-icon">🔧</span><div class="res-info"><strong>Hunter.io — Email Finder (Free Tier)</strong><span>Find professional email addresses for outreach prospects. Free tier includes 25 searches/month — sufficient for small campaigns.</span></div><span class="res-badge badge-free">FREE TIER</span></a>
+          </div>
+        </div>
+        <div class="topic-note">
+          <div class="note-hdr">📌 Portfolio Tip</div>
+          <div class="note-grid">
+            <div class="note-cell"><div class="note-lbl">🎯 What to Showcase</div><p>Campaign strategy doc, outreach templates, prospect list (anonymised), and the campaign results — DR growth chart from Ahrefs, referring domains over time, and any notable placements earned.</p></div>
+            <div class="note-cell"><div class="note-lbl">📍 Who Hires for This</div><p>Agencies, SaaS companies, e-commerce brands, and startups. Link building is the most outsourced SEO activity. Specialists who can demonstrate real results are rare and very well compensated.</p></div>
+            <div class="note-cell"><div class="note-lbl">🔧 How to Present It</div><p>Showcase the DR growth graph, a list of notable publications where you earned placements, and the outreach response rate. Include anonymised email examples that actually worked.</p></div>
+            <div class="note-cell"><div class="note-lbl">⏰ Time to Results</div><p>Link acquisition takes <strong>8–16 weeks</strong> to meaningfully impact DR and rankings. New links are discovered by Google's crawler within days but may take months to influence rankings significantly.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ 11.6 ═══ -->
+    <div class="topic-item" id="t11-6">
+      <div class="topic-header" onclick="toggleTopic(this)">
+        <span class="topic-num">11.6</span>
+        <h3>International SEO Strategy & Hreflang Implementation Project</h3>
+        <span class="diff diff-exp">Expert</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="topic-body">
+        <div class="topic-intro"><strong>Project Brief:</strong> A UK-based SaaS company with 50,000 monthly visitors wants to expand to India, Germany, and France. They have one English-language site and no international infrastructure. Your project: design the complete international SEO strategy — URL structure decision, hreflang implementation plan, per-market keyword research, and localisation guidelines. Then create and validate the complete hreflang implementation for a 10-page pilot. This is an expert-level deliverable that opens doors to enterprise clients and agency partnerships.</div>
+
+        <div class="proj-meta">
+          <span class="pmeta"><span class="pmeta-icon">⏱</span> 3–4 weeks</span>
+          <span class="pmeta"><span class="pmeta-icon">🏢</span> SaaS / E-Commerce / Enterprise / Agency</span>
+          <span class="pmeta"><span class="pmeta-icon">📊</span> Ahrefs + GSC + hreflang.org + Google Translate</span>
+          <span class="pmeta"><span class="pmeta-icon">💰</span> £3,000–£8,000 freelance value</span>
+        </div>
+
+        <div class="deliverables">
+          <div class="deliverables-title">📦 Project Deliverables</div>
+          <div class="deliv-list">
+            <div class="deliv-item"><span class="deliv-check">▸</span><span>International SEO strategy document — URL structure decision, market prioritisation, and phased roadmap</span></div>
+            <div class="deliv-item"><span class="deliv-check">▸</span><span>Per-market keyword research — top 20 target keywords per country with volume, competition, and CPC</span></div>
+            <div class="deliv-item"><span class="deliv-check">▸</span><span>Hreflang implementation code — complete, validated hreflang tags for all 10 pilot pages across 4 locales</span></div>
+            <div class="deliv-item"><span class="deliv-check">▸</span><span>Localisation guidelines — cultural, linguistic, and UX considerations per target market</span></div>
+            <div class="deliv-item"><span class="deliv-check">▸</span><span>GSC multi-property setup guide — how to structure Search Console properties for the international site</span></div>
+          </div>
+        </div>
+
+        <div class="keypoints">
+          <div class="kp"><div class="kp-dot"></div><div><strong>URL Structure Decision Framework:</strong> <strong>Subdirectories</strong> (example.com/de/) — recommended for most businesses. Shares root domain authority, single GSC property, easier CMS management, one hosting cost. Choose this for most SaaS and content sites. <strong>ccTLDs</strong> (.de, .fr, .in) — strongest geo-signal, ideal if brand recognition in each market is a priority. Requires separate SEO strategy per domain, separate GSC properties, higher cost and complexity. <strong>Subdomains</strong> (de.example.com) — middle ground, generally not recommended as they don't share root domain authority as effectively as subdirectories.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Per-Market Keyword Research:</strong> Never translate UK keywords literally. Each market has distinct search behaviour. For India: use Ahrefs with location set to India, check Google.co.in search suggestions. For Germany: research German-language keywords, not English. Consider cultural purchase intent differences — German users research more thoroughly before buying (favour long-form, detailed content). Indian market has different competitive landscape — lower competition = faster ranking opportunities. Document volume, CPC, difficulty separately per market.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Hreflang Implementation:</strong> Every page must contain a self-referential hreflang + one tag per alternate version + x-default. Format: <code>&lt;link rel="alternate" hreflang="en-GB" href="https://example.com/"&gt;</code>. Critical errors: missing self-referential tag, wrong ISO codes (use BCP 47 format: language-REGION), missing x-default, and non-reciprocal tags (if EN page references DE page, DE page must also reference EN page). Implement in HTML head or XML sitemap. Validate with Hreflang.org Checker before going live.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Localisation vs Translation:</strong> Localisation is not translation. Localisation means adapting content, tone, imagery, pricing, and cultural references for the target market. For Germany: formal tone (Sie not du), precise technical language, detailed product specifications. For India: formal professional tone, price in INR, address local pain points, regional context. For France: formal grammar (vous), French-first content (not translated English). Never launch machine-translated content without native speaker review — it destroys E-E-A-T in local markets.</div></div>
+        </div>
+
+        <div class="block-grid">
+          <div class="info-block b-insight">
+            <div class="blabel">💡 Hreflang Code Example</div>
+            <p><strong>Correct implementation for EN-GB / DE / FR / IN / x-default:</strong></p>
+            <p style="font-family:'Fira Code',monospace;font-size:.76em;line-height:2;background:rgba(244,63,94,.05);padding:12px;border-radius:6px;border:1px solid rgba(244,63,94,.15);margin-top:8px;color:var(--rose3)">
+              &lt;link rel="alternate" hreflang="en-GB" href="https://site.com/"&gt;<br>
+              &lt;link rel="alternate" hreflang="de" href="https://site.com/de/"&gt;<br>
+              &lt;link rel="alternate" hreflang="fr" href="https://site.com/fr/"&gt;<br>
+              &lt;link rel="alternate" hreflang="en-IN" href="https://site.com/in/"&gt;<br>
+              &lt;link rel="alternate" hreflang="x-default" href="https://site.com/"&gt;
+            </p>
+            <p style="margin-top:10px;font-size:.83em">Every version of this page must include ALL 5 of these tags. Missing any one tag from any page breaks the reciprocal requirement.</p>
+          </div>
+          <div class="info-block b-task">
+            <div class="blabel">✅ Your Tasks</div>
+            <div class="task-list">
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Write a URL structure decision document for a business targeting UK, Germany, and India. Present the pros/cons of subdirectories vs ccTLDs for this specific business and make a final recommendation with rationale.</span></label>
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Research 15 target keywords for each of 3 markets (UK, Germany, India) for any niche. Create a comparison spreadsheet showing volume, difficulty, and CPC per market. Highlight the biggest opportunity gaps.</span></label>
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Write complete hreflang tags for a 5-page site targeting EN-GB, DE, FR, and EN-IN. Validate using Hreflang.org Checker. Fix all errors and screenshot the "Validated" result.</span></label>
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Write a 1-page localisation guideline document for one target market (Germany, France, or India). Include: tone of voice, linguistic nuances, cultural considerations, and 5 content adaptation examples.</span></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="res-block">
+          <div class="res-title">📚 Resources</div>
+          <div class="res-links">
+            <a class="res-link" href="https://developers.google.com/search/docs/specialty/international/localization-with-hreflang" target="_blank"><span class="res-icon">📄</span><div class="res-info"><strong>Google — Managing Multi-regional & Multilingual Sites</strong><span>Official Google documentation on hreflang, URL structure, and content localisation. The authoritative technical reference.</span></div><span class="res-badge badge-official">OFFICIAL</span></a>
+            <a class="res-link" href="https://hreflang.org/checker/" target="_blank"><span class="res-icon">🔧</span><div class="res-info"><strong>Hreflang.org Checker (Free)</strong><span>Validates hreflang implementation in real time. Identifies wrong ISO codes, missing self-referential tags, missing x-default, and reciprocal errors.</span></div><span class="res-badge badge-free">FREE</span></a>
+            <a class="res-link" href="https://ahrefs.com/blog/international-seo/" target="_blank"><span class="res-icon">🔗</span><div class="res-info"><strong>Ahrefs — International SEO: The Complete Guide</strong><span>Comprehensive guide to URL structures, hreflang implementation, per-market keyword research, and localisation strategy.</span></div><span class="res-badge badge-blog">GUIDE</span></a>
+          </div>
+        </div>
+        <div class="topic-note">
+          <div class="note-hdr">📌 Portfolio Tip</div>
+          <div class="note-grid">
+            <div class="note-cell"><div class="note-lbl">🎯 What to Showcase</div><p>Strategy document, validated hreflang code (screenshot), keyword comparison spreadsheet per market, and localisation guidelines. This is a rare skill — very few SEOs can credibly present international SEO work.</p></div>
+            <div class="note-cell"><div class="note-lbl">📍 Who Hires for This</div><p>Mid-size to large companies expanding internationally, SaaS brands targeting EU or US, and agencies with enterprise clients. International SEO projects often command <strong>retainers of £3,000–£8,000/month</strong>.</p></div>
+            <div class="note-cell"><div class="note-lbl">🔧 How to Present It</div><p>Include a short case study: "How I planned an international SEO expansion for [anonymous company] targeting 4 markets." Show the strategic thinking, not just the code. Clients pay for strategy.</p></div>
+            <div class="note-cell"><div class="note-lbl">⏰ Time to Results</div><p>International expansion typically shows organic traffic in new markets within <strong>3–6 months</strong> — depending on competition level and how quickly the new content is crawled and indexed.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ 11.7 ═══ -->
+    <div class="topic-item" id="t11-7">
+      <div class="topic-header" onclick="toggleTopic(this)">
+        <span class="topic-num">11.7</span>
+        <h3>Full SEO Client Proposal, Onboarding Pack & 90-Day Strategy</h3>
+        <span class="diff diff-exp">Expert</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="topic-body">
+        <div class="topic-intro"><strong>Project Brief:</strong> You've been approached by a growing e-commerce brand for a 6-month SEO retainer. Before work starts, you need to win the business, onboard the client professionally, and plan the first 90 days in detail. This project covers the business side of SEO: writing a compelling proposal that justifies ROI, creating a professional onboarding document, and designing a phased 90-day strategy that sets clear expectations and delivers early wins. This is the project that determines whether you get hired — and retained. Most SEOs lose clients due to poor communication and unclear strategy, not technical ability.</div>
+
+        <div class="proj-meta">
+          <span class="pmeta"><span class="pmeta-icon">⏱</span> 1–2 weeks</span>
+          <span class="pmeta"><span class="pmeta-icon">🏢</span> Any Client Type / Freelance / Agency</span>
+          <span class="pmeta"><span class="pmeta-icon">📊</span> Google Slides / Notion / Ahrefs</span>
+          <span class="pmeta"><span class="pmeta-icon">💰</span> Enables £1,500–£5,000/month retainers</span>
+        </div>
+
+        <div class="deliverables">
+          <div class="deliverables-title">📦 Project Deliverables</div>
+          <div class="deliv-list">
+            <div class="deliv-item"><span class="deliv-check">▸</span><span>SEO proposal deck (10–12 slides) — problem, opportunity, approach, deliverables, timeline, pricing</span></div>
+            <div class="deliv-item"><span class="deliv-check">▸</span><span>Client onboarding document — access requirements, kickoff questionnaire, communication protocol</span></div>
+            <div class="deliv-item"><span class="deliv-check">▸</span><span>90-day SEO strategy — Month 1 (audit + foundations), Month 2 (implementation), Month 3 (growth + reporting)</span></div>
+            <div class="deliv-item"><span class="deliv-check">▸</span><span>KPI framework — 5–7 measurable KPIs with targets and monthly reporting template</span></div>
+            <div class="deliv-item"><span class="deliv-check">▸</span><span>Monthly SEO report template — executive summary, KPI tracking, wins, next month plan</span></div>
+          </div>
+        </div>
+
+        <div class="keypoints">
+          <div class="kp"><div class="kp-dot"></div><div><strong>Proposal Structure That Wins:</strong> Slide 1: Current situation — what's not working (use their GSC/Ahrefs data). Slide 2: The opportunity — traffic and revenue they're leaving on the table. Slide 3: Your approach — specific, strategic, not generic. Slide 4: Month-by-month deliverables. Slide 5: Case study — similar client, measurable result. Slide 6: Pricing — present 2–3 tiers. Slide 7: Next steps. Always open with the client's problem, not your credentials — they want to know "what's in it for me."</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>90-Day Strategy Framework:</strong> <strong>Month 1 — Foundations:</strong> Full audit (technical, content, backlinks), GSC/GA4 setup verification, keyword research, quick wins implementation (title tags, schema, broken links). <strong>Month 2 — Implementation:</strong> On-page optimisation rollout, content refresh of top 10 pages, new content publication (2–3 pillar pieces), internal linking improvements, link building outreach begins. <strong>Month 3 — Growth:</strong> Monitor and iterate, content velocity increase, link acquisition, competitor analysis, prepare Month 4 roadmap. First client report showing measurable progress.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>KPIs That Matter to Clients:</strong> Clients don't understand DA or domain rating. Present KPIs in business language: (1) Organic sessions growth (month-over-month %), (2) Keyword ranking improvements (tracked keywords moving into top 10), (3) Organic revenue or leads (if GA4 is set up with goals), (4) Organic CTR improvement (from GSC), (5) Crawl health score (% errors resolved), (6) New ranking keywords (net new keywords in top 100). Avoid vanity metrics like "we published 12 blog posts."</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Client Retention Through Communication:</strong> 80% of clients who leave SEO retainers cite "lack of communication" not "lack of results." Best practices: weekly 5-minute update email every Friday, monthly video call with screen-share report, quarterly strategy review (show what's working, what's next). Always communicate proactively — if something goes wrong (algorithm update, traffic drop) tell the client before they notice. Transparency builds the trust that extends contracts from 3 months to 3 years.</div></div>
+          <div class="kp"><div class="kp-dot"></div><div><strong>Pricing Strategy:</strong> Three-tier pricing is industry standard: <strong>Basic</strong> (technical + on-page only), <strong>Growth</strong> (+ content + outreach), <strong>Enterprise</strong> (full-service + dedicated team). Monthly retainers outperform project-based fees for both parties — stable income for you, compounding results for the client. Always include a minimum 3-month commitment clause (SEO takes time; 1-month contracts set up unrealistic expectations and result in early cancellations).</div></div>
+        </div>
+
+        <div class="block-grid">
+          <div class="info-block b-future">
+            <div class="blabel">📊 Monthly SEO Report Template</div>
+            <ul>
+              <li><strong>Executive Summary</strong> — 3 bullet points: biggest win, key metric, next priority</li>
+              <li><strong>Organic Traffic</strong> — this month vs last month vs same month last year</li>
+              <li><strong>Keyword Rankings</strong> — tracked keywords: moved up / moved down / new in top 10</li>
+              <li><strong>Content Published</strong> — titles, publish dates, early ranking signals</li>
+              <li><strong>Links Earned</strong> — new referring domains with DR and anchor text</li>
+              <li><strong>Technical Health</strong> — GSC errors this month vs last month</li>
+              <li><strong>Next Month Plan</strong> — specific actions, expected outcomes, resources needed</li>
+            </ul>
+          </div>
+          <div class="info-block b-task">
+            <div class="blabel">✅ Your Tasks</div>
+            <div class="task-list">
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Create a <strong>10-slide SEO proposal deck</strong> (Google Slides or PowerPoint) for a hypothetical e-commerce client. Use real competitor data from Ahrefs to quantify the opportunity. Include 3-tier pricing.</span></label>
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Write a complete <strong>90-day SEO strategy document</strong> with specific tasks per week for Months 1, 2, and 3. Include: who does what, tools required, expected outputs, and success metrics per phase.</span></label>
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Build a <strong>monthly SEO report template</strong> in Google Slides or Notion. Include all 7 sections above. Pre-fill example data to show clients what a report looks like before they sign.</span></label>
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Write a <strong>client onboarding questionnaire</strong> (15–20 questions). Cover: business goals, target audience, competitors, brand voice, current SEO history, access requirements, and success definition.</span></label>
+              <label class="task-item" onclick="toggleTask(this)"><input type="checkbox"><span class="chk">✓</span><span class="task-txt">Define a KPI framework: 6 measurable KPIs for an e-commerce SEO retainer. For each KPI: what it measures, how to track it, what tool, and what "good progress" looks like at 30/60/90 days.</span></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="res-block">
+          <div class="res-title">📚 Resources</div>
+          <div class="res-links">
+            <a class="res-link" href="https://moz.com/beginners-guide-to-seo/how-to-get-seo-clients" target="_blank"><span class="res-icon">🔗</span><div class="res-info"><strong>Moz — How to Get SEO Clients: A Guide for Freelancers</strong><span>Practical guide to pitching SEO services, pricing retainers, and building a sustainable client base as a freelance SEO consultant.</span></div><span class="res-badge badge-blog">GUIDE</span></a>
+            <a class="res-link" href="https://ahrefs.com/blog/seo-report/" target="_blank"><span class="res-icon">🔗</span><div class="res-info"><strong>Ahrefs — How to Create an SEO Report (with Template)</strong><span>Step-by-step guide to writing monthly SEO reports that clients understand and value — with a free downloadable template.</span></div><span class="res-badge badge-blog">TEMPLATE</span></a>
+            <a class="res-link" href="https://www.notion.so/templates/seo-report" target="_blank"><span class="res-icon">🔧</span><div class="res-info"><strong>Notion — SEO Report Templates (Free)</strong><span>Free Notion templates for SEO dashboards, monthly reports, and client onboarding documents. Duplicate and customise for your workflow.</span></div><span class="res-badge badge-free">FREE</span></a>
+          </div>
+        </div>
+        <div class="topic-note">
+          <div class="note-hdr">📌 Portfolio Tip</div>
+          <div class="note-grid">
+            <div class="note-cell"><div class="note-lbl">🎯 What to Showcase</div><p>Share your proposal template (redact pricing if preferred), onboarding questionnaire, and sample monthly report. These documents signal professionalism and immediately differentiate you from amateur SEOs.</p></div>
+            <div class="note-cell"><div class="note-lbl">📍 Who Hires for This</div><p>Every business that hires SEO consultants. The quality of your proposal and process documents often matters more than your technical SEO knowledge — they're buying your <strong>professionalism and clarity</strong>.</p></div>
+            <div class="note-cell"><div class="note-lbl">🔧 How to Present It</div><p>Create a "how I work" page on your portfolio site featuring sample proposal slides, your onboarding process, and a sample monthly report page. Prospects who see this convert at much higher rates.</p></div>
+            <div class="note-cell"><div class="note-lbl">⏰ Time to Results</div><p>Strong proposal documents can win clients within <strong>24–48 hours</strong> of submission. Professional reporting and communication extend retainers from 3-month trials into 12–24 month partnerships.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ QUIZ ═══ -->
+    <div class="quiz-section" id="quiz-sec">
+      <div class="quiz-hdr">
+        <h3>🧠 Portfolio Projects Quiz</h3>
+        <div class="quiz-score" id="quiz-score">Score: 0 / 5</div>
+      </div>
+      <div class="quiz-body">
+        <div class="quiz-q active" data-qi="0">
+          <div class="qnum">Question 1 of 5</div>
+          <div class="qtext">A local plumber's Google Business Profile is fully set up but they're not appearing in the Map Pack. Which issue is MOST likely the cause?</div>
+          <div class="qopts">
+            <div class="qopt" onclick="ansQ(this,false,0)"><span class="opt-l">A</span>Their website doesn't have enough blog content</div>
+            <div class="qopt" onclick="ansQ(this,true,0)"><span class="opt-l">B</span>Inconsistent NAP (Name, Address, Phone) across citation directories is undermining Google's ability to verify the business location and legitimacy</div>
+            <div class="qopt" onclick="ansQ(this,false,0)"><span class="opt-l">C</span>The website has no backlinks from other plumbing companies</div>
+            <div class="qopt" onclick="ansQ(this,false,0)"><span class="opt-l">D</span>They haven't responded to any Google reviews yet</div>
+          </div>
+          <div class="qfb" id="fb-0">✅ Correct! Inconsistent NAP is one of the top local ranking killers. Google uses NAP consistency across the web to confirm a business's legitimacy and location. When directories show different addresses, phone numbers, or business name variations, it undermines trust. Citation cleanup is always one of the first actions in any local SEO project.</div>
+        </div>
+
+        <div class="quiz-q" data-qi="1">
+          <div class="qnum">Question 2 of 5</div>
+          <div class="qtext">An e-commerce site with 500 product pages is getting almost no organic traffic. A crawl shows 60% of pages have duplicate title tags. What is the BEST first action?</div>
+          <div class="qopts">
+            <div class="qopt" onclick="ansQ(this,false,1)"><span class="opt-l">A</span>Build backlinks to each product page individually</div>
+            <div class="qopt" onclick="ansQ(this,true,1)"><span class="opt-l">B</span>Create unique, keyword-targeted title tags for all product pages — following the formula [Product Name] + [Modifier] | [Brand Name]</div>
+            <div class="qopt" onclick="ansQ(this,false,1)"><span class="opt-l">C</span>Noindex all product pages and focus only on the homepage</div>
+            <div class="qopt" onclick="ansQ(this,false,1)"><span class="opt-l">D</span>Submit all product URLs individually to Google Search Console for indexing</div>
+          </div>
+          <div class="qfb" id="fb-1">✅ Correct! Duplicate title tags tell Google multiple pages cover the same topic, causing keyword cannibalisation and poor ranking signals. Writing unique, keyword-targeted title tags is the highest-ROI technical fix for e-commerce sites. Each product should target a specific product + modifier keyword combination. This is the essential first step before any other optimisation.</div>
+        </div>
+
+        <div class="quiz-q" data-qi="2">
+          <div class="qnum">Question 3 of 5</div>
+          <div class="qtext">During a content audit, you find 3 blog posts all targeting the same keyword — "best running shoes for flat feet." What is the CORRECT action?</div>
+          <div class="qopts">
+            <div class="qopt" onclick="ansQ(this,false,2)"><span class="opt-l">A</span>Delete 2 of the 3 posts permanently without redirecting them</div>
+            <div class="qopt" onclick="ansQ(this,false,2)"><span class="opt-l">B</span>Keep all 3 posts but change the titles so they look different on the surface</div>
+            <div class="qopt" onclick="ansQ(this,true,2)"><span class="opt-l">C</span>Merge the best content from all 3 into one comprehensive post, then 301 redirect the 2 weaker posts to the consolidated URL</div>
+            <div class="qopt" onclick="ansQ(this,false,2)"><span class="opt-l">D</span>Noindex 2 of the posts and keep all 3 URLs live</div>
+          </div>
+          <div class="qfb" id="fb-2">✅ Correct! Consolidation + 301 redirect is the correct content cannibalisation fix. You retain all backlink equity from the old URLs (transferred via 301), remove the duplicate content problem, and create one definitive, comprehensive post that Google can rank clearly. Simply deleting or noindexing wastes acquired backlink equity. The merged post should be the most thorough treatment of the topic.</div>
+        </div>
+
+        <div class="quiz-q" data-qi="3">
+          <div class="qnum">Question 4 of 5</div>
+          <div class="qtext">A client asks why their new blog posts aren't ranking after 2 weeks. What is the MOST accurate and professional explanation to give?</div>
+          <div class="qopts">
+            <div class="qopt" onclick="ansQ(this,false,3)"><span class="opt-l">A</span>Google has likely penalised the site — submit a reconsideration request immediately</div>
+            <div class="qopt" onclick="ansQ(this,false,3)"><span class="opt-l">B</span>We need to build 100 backlinks to each new post urgently</div>
+            <div class="qopt" onclick="ansQ(this,true,3)"><span class="opt-l">C</span>New content typically takes 3–6 months to reach stable rankings. Google crawls, indexes, and then evaluates quality signals over time — we should track early impressions in GSC and assess progress at 60 and 90 days</div>
+            <div class="qopt" onclick="ansQ(this,false,3)"><span class="opt-l">D</span>The posts need more internal links added before Google will rank them</div>
+          </div>
+          <div class="qfb" id="fb-3">✅ Correct! Managing client expectations about ranking timelines is a critical professional skill. New content goes through: crawl discovery → indexation → initial ranking (often fluctuating) → stable ranking. This process typically takes 3–6 months for competitive keywords. Showing early GSC impressions data demonstrates the content is being seen, even before clicks materialise. Proactive timeline communication prevents client anxiety and early contract cancellations.</div>
+        </div>
+
+        <div class="quiz-q" data-qi="4">
+          <div class="qnum">Question 5 of 5</div>
+          <div class="qtext">Which element of a client SEO proposal is MOST important for converting a prospect into a paying client?</div>
+          <div class="qopts">
+            <div class="qopt" onclick="ansQ(this,false,4)"><span class="opt-l">A</span>Listing all the SEO tools you have access to and their monthly costs</div>
+            <div class="qopt" onclick="ansQ(this,false,4)"><span class="opt-l">B</span>Including as many SEO technical terms as possible to demonstrate expertise</div>
+            <div class="qopt" onclick="ansQ(this,true,4)"><span class="opt-l">C</span>Opening with the client's specific problem and the revenue or traffic opportunity they're missing — framing everything as "what's in it for them" not "how good you are"</div>
+            <div class="qopt" onclick="ansQ(this,false,4)"><span class="opt-l">D</span>Making the proposal as comprehensive as possible — 30+ slides demonstrating every service you offer</div>
+          </div>
+          <div class="qfb" id="fb-4">✅ Correct! The #1 proposal mistake is leading with your credentials instead of the client's problem. Clients hire SEOs because they want more organic traffic, leads, and revenue — not because they're impressed by jargon. A winning proposal opens with: "Here's what's happening to your site. Here's what you're missing. Here's how I fix it." Specificity and business-outcome framing convert prospects. Shorter, focused proposals (10–12 slides) outperform long, generic ones.</div>
+        </div>
+
+        <div class="quiz-nav">
+          <button class="qbtn qbtn-sec" onclick="prevQ()" id="q-prev" disabled>← Prev</button>
+          <div class="qdots" id="q-dots"></div>
+          <button class="qbtn qbtn-pri" onclick="nextQ()" id="q-next">Next →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ FLASHCARDS ═══ -->
+    <div class="flash-section" id="flash-sec">
+      <div class="flash-hdr">
+        <h3>🃏 Flashcards — Module 12</h3>
+        <span class="fc-count" id="fc-counter">1 / 10</span>
+      </div>
+      <div class="fc-wrap" onclick="flipCard()">
+        <div class="fc-card" id="flashcard">
+          <div class="fc-face fc-front">
+            <div class="fc-lbl">Concept / Term</div>
+            <div class="fc-txt" id="fc-front-txt">Loading...</div>
+            <div class="fc-hint">Tap to reveal answer</div>
+          </div>
+          <div class="fc-face fc-back">
+            <div class="fc-lbl">Answer</div>
+            <div class="fc-txt" id="fc-back-txt">Loading...</div>
+          </div>
+        </div>
+      </div>
+      <div class="fc-controls">
+        <button class="fc-btn" onclick="prevCard()" id="fc-prev" disabled>← Prev</button>
+        <button class="fc-btn" onclick="flipCard()">Flip Card</button>
+        <button class="fc-btn" onclick="nextCard()" id="fc-next">Next →</button>
+      </div>
+    </div>
+
+    <!-- ═══ PORTFOLIO CHECKLIST ═══ -->
+    <div class="checklist-section" id="cl-sec">
+      <div class="cl-hdr">
+        <h3>📋 Portfolio Completion Checklist</h3>
+        <div class="cl-prog" id="cl-prog">0 / 21 complete</div>
+      </div>
+      <div class="cl-tier tier-loc">
+        <div class="cl-tier-lbl">🔴 Local & E-Commerce SEO</div>
+        <div class="cl-items">
+          <div class="cl-item" onclick="toggleCL(this)"><span class="cl-chk">✓</span><span class="cl-txt">GBP fully optimised — all fields, 10+ photos, Q&As, booking link</span></div>
+          <div class="cl-item" onclick="toggleCL(this)"><span class="cl-chk">✓</span><span class="cl-txt">Local keyword research spreadsheet complete — 30+ keywords mapped to pages</span></div>
+          <div class="cl-item" onclick="toggleCL(this)"><span class="cl-chk">✓</span><span class="cl-txt">LocalBusiness schema written, implemented, and validated in Rich Results Test</span></div>
+          <div class="cl-item" onclick="toggleCL(this)"><span class="cl-chk">✓</span><span class="cl-txt">E-commerce product page title tags rewritten for 20 pages — all unique and keyword-targeted</span></div>
+          <div class="cl-item" onclick="toggleCL(this)"><span class="cl-chk">✓</span><span class="cl-txt">Product JSON-LD schema validated — price, availability, and aggregateRating present</span></div>
+        </div>
+      </div>
+      <div class="cl-tier tier-content">
+        <div class="cl-tier-lbl">🟣 Content & Technical SEO</div>
+        <div class="cl-items">
+          <div class="cl-item" onclick="toggleCL(this)"><span class="cl-chk">✓</span><span class="cl-txt">Content audit spreadsheet complete — all pages graded Keep / Improve / Consolidate / Delete</span></div>
+          <div class="cl-item" onclick="toggleCL(this)"><span class="cl-chk">✓</span><span class="cl-txt">Topic cluster map created — 1 pillar + 8 cluster posts visualised with linking structure</span></div>
+          <div class="cl-item" onclick="toggleCL(this)"><span class="cl-chk">✓</span><span class="cl-txt">Pillar content piece written — 2,500+ words, structured headings, FAQ, internal link placeholders</span></div>
+          <div class="cl-item" onclick="toggleCL(this)"><span class="cl-chk">✓</span><span class="cl-txt">Technical SEO audit report produced — 20+ pages, all issues prioritised by impact</span></div>
+          <div class="cl-item" onclick="toggleCL(this)"><span class="cl-chk">✓</span><span class="cl-txt">Core Web Vitals scores documented for 5 pages with specific, actionable fix recommendations</span></div>
+          <div class="cl-item" onclick="toggleCL(this)"><span class="cl-chk">✓</span><span class="cl-txt">Redirect chain audit complete — all 2+ hop chains identified and fix plan documented</span></div>
+        </div>
+      </div>
+      <div class="cl-tier tier-link">
+        <div class="cl-tier-lbl">🟡 Link Building & International SEO</div>
+        <div class="cl-items">
+          <div class="cl-item" onclick="toggleCL(this)"><span class="cl-chk">✓</span><span class="cl-txt">Backlink prospect list built — 50+ sites with DR, relevance score, and contact details</span></div>
+          <div class="cl-item" onclick="toggleCL(this)"><span class="cl-chk">✓</span><span class="cl-txt">Outreach email templates written — personalised cold email, follow-up, and resource pitch</span></div>
+          <div class="cl-item" onclick="toggleCL(this)"><span class="cl-chk">✓</span><span class="cl-txt">HARO monitored for 1 week — minimum 3 expert quote responses submitted</span></div>
+          <div class="cl-item" onclick="toggleCL(this)"><span class="cl-chk">✓</span><span class="cl-txt">Hreflang tags written and validated for 4 locales — self-referential + x-default present on all pages</span></div>
+          <div class="cl-item" onclick="toggleCL(this)"><span class="cl-chk">✓</span><span class="cl-txt">Per-market keyword research complete — 15 target keywords compared across 3 countries</span></div>
+        </div>
+      </div>
+      <div class="cl-tier tier-client">
+        <div class="cl-tier-lbl">🟣 Client-Facing Documents</div>
+        <div class="cl-items">
+          <div class="cl-item" onclick="toggleCL(this)"><span class="cl-chk">✓</span><span class="cl-txt">10-slide SEO proposal deck complete — opens with client's problem and includes 3-tier pricing</span></div>
+          <div class="cl-item" onclick="toggleCL(this)"><span class="cl-chk">✓</span><span class="cl-txt">90-day SEO strategy document written — specific weekly tasks for all 3 months</span></div>
+          <div class="cl-item" onclick="toggleCL(this)"><span class="cl-chk">✓</span><span class="cl-txt">Monthly SEO report template built — all 7 sections present, sample data pre-filled</span></div>
+          <div class="cl-item" onclick="toggleCL(this)"><span class="cl-chk">✓</span><span class="cl-txt">Client onboarding questionnaire written — 15+ questions covering goals, competitors, and access</span></div>
+          <div class="cl-item" onclick="toggleCL(this)"><span class="cl-chk">✓</span><span class="cl-txt">Portfolio site updated — at least 3 of the 7 projects showcased as case studies with results</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ COMPLETION ═══ -->
+    <div class="completion-card" id="completion">
+      <div class="completion-glow"></div>
+      <div class="completion-inner">
+        <div class="comp-icon">🚀</div>
+        <h2>Your Portfolio is <em>Ready</em>.<br>Time to Get Clients.</h2>
+        <p>You've completed every module of the SEO Mastery Roadmap 2025 — and now you have the projects to prove it. A portfolio without proof is just promises. You now have real deliverables, real documents, and real case studies that demonstrate exactly what you can do. Send that first proposal. Book that first call. Land that first client. Everything you need is already in your hands.</p>
+        <div class="comp-stats">
+          <div class="cs"><strong>11</strong><span>Modules</span></div>
+          <div class="cs"><strong>7</strong><span>Projects</span></div>
+          <div class="cs"><strong>35+</strong><span>Tasks Done</span></div>
+          <div class="cs"><strong>∞</strong><span>Potential</span></div>
+        </div>
+        <div class="comp-btns">
+          <a href="#t11-7" class="comp-btn comp-pri">📋 Write Your First Proposal</a>
+          <a href="https://ahrefs.com/blog" target="_blank" class="comp-btn comp-sec">📚 Keep Growing →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODULE NAV -->
+    <div class="module-nav">
+      <a href="module-11.html" class="mnav-btn">
+        <span class="mnav-arr">←</span>
+        <div><span class="mnav-lbl">Previous Module</span><span class="mnav-title">Module 12 — Interview Questions</span></div>
+      </a>
+      <div style="flex:1"></div>
+    </div>
+
+  </div><!-- /content-area -->
+</main>
+</div><!-- /shell -->
+
+<script>
+// ── THEME ──
+const saved = localStorage.getItem('seo-theme') || 'dark';
+document.documentElement.setAttribute('data-theme', saved);
+document.getElementById('theme-btn').textContent = saved === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
+function toggleTheme() {
+  const t = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', t);
+  localStorage.setItem('seo-theme', t);
+  document.getElementById('theme-btn').textContent = t === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
+}
+
+// ── SIDEBAR ──
+function openSB() { document.getElementById('sidebar').classList.add('open'); document.getElementById('overlay').classList.add('show'); }
+function closeSB() { document.getElementById('sidebar').classList.remove('open'); document.getElementById('overlay').classList.remove('show'); }
+
+// ── TOPICS ──
+function toggleTopic(header) {
+  const item = header.parentElement;
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.topic-item.open').forEach(el => el.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+
+// ── TASKS ──
+const TASK_KEY = 'mod11-tasks';
+function loadTasks() {
+  const s = JSON.parse(localStorage.getItem(TASK_KEY) || '[]');
+  document.querySelectorAll('.task-item').forEach((el, i) => { if (s[i]) el.classList.add('checked'); });
+  updateProgress();
+}
+function toggleTask(el) {
+  el.classList.toggle('checked');
+  const all = [...document.querySelectorAll('.task-item')];
+  localStorage.setItem(TASK_KEY, JSON.stringify(all.map(e => e.classList.contains('checked'))));
+  updateProgress();
+}
+function updateProgress() {
+  const all = document.querySelectorAll('.task-item').length;
+  const done = document.querySelectorAll('.task-item.checked').length;
+  const pct = all ? Math.round(done / all * 100) : 0;
+  document.getElementById('prog-fill').style.width = pct + '%';
+  document.getElementById('prog-pct').textContent = pct + '%';
+  document.querySelectorAll('.nav-link').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href && href.startsWith('#t11-')) {
+      const tasks = document.querySelectorAll(href + ' .task-item');
+      const d = [...tasks].filter(t => t.classList.contains('checked')).length;
+      link.classList.toggle('completed', d === tasks.length && tasks.length > 0);
+    }
+  });
+}
+
+// ── CHECKLIST ──
+const CL_KEY = 'mod11-cl';
+function loadCL() {
+  const s = JSON.parse(localStorage.getItem(CL_KEY) || '[]');
+  document.querySelectorAll('.cl-item').forEach((el, i) => { if (s[i]) el.classList.add('chk-done'); });
+  updateCL();
+}
+function toggleCL(el) {
+  el.classList.toggle('chk-done');
+  const all = [...document.querySelectorAll('.cl-item')];
+  localStorage.setItem(CL_KEY, JSON.stringify(all.map(e => e.classList.contains('chk-done'))));
+  updateCL();
+}
+function updateCL() {
+  const all = document.querySelectorAll('.cl-item').length;
+  const done = document.querySelectorAll('.cl-item.chk-done').length;
+  document.getElementById('cl-prog').textContent = `${done} / ${all} complete`;
+}
+
+// ── QUIZ ──
+let curQ = 0, score = 0, answered = Array(5).fill(false);
+function initDots() {
+  const d = document.getElementById('q-dots'); d.innerHTML = '';
+  for (let i = 0; i < 5; i++) { const dot = document.createElement('div'); dot.className = 'qdot' + (i === 0 ? ' cur' : ''); d.appendChild(dot); }
+}
+function ansQ(el, correct, qi) {
+  if (answered[qi]) return;
+  answered[qi] = true;
+  const opts = el.parentElement.querySelectorAll('.qopt');
+  opts.forEach(o => o.classList.add('disabled'));
+  if (correct) { el.classList.add('correct'); score++; document.getElementById('quiz-score').textContent = 'Score: ' + score + ' / 5'; }
+  else { el.classList.add('wrong'); }
+  const fb = document.getElementById('fb-' + qi);
+  if (fb) { fb.classList.add('show', correct ? 'ok' : 'no'); if (!correct) fb.textContent = '❌ ' + fb.textContent.replace(/^✅ /, ''); }
+}
+function nextQ() { if (curQ < 4) { curQ++; showQ(); } }
+function prevQ() { if (curQ > 0) { curQ--; showQ(); } }
+function showQ() {
+  document.querySelectorAll('.quiz-q').forEach((q, i) => q.classList.toggle('active', i === curQ));
+  document.querySelectorAll('.qdot').forEach((d, i) => { d.className = 'qdot' + (answered[i] ? ' done' : '') + (i === curQ ? ' cur' : ''); });
+  document.getElementById('q-prev').disabled = curQ === 0;
+  document.getElementById('q-next').disabled = curQ === 4;
+}
+initDots();
+
+// ── FLASHCARDS ──
+const cards = [
+  { f: 'NAP Consistency — Local SEO', b: 'Name, Address, Phone consistency across all directories (Google, Yelp, Facebook, Apple Maps, etc.). Inconsistent NAP is the #1 cause of poor Map Pack rankings. Google uses NAP data to verify a business is legitimate. Audit with BrightLocal or Whitespark and fix every discrepancy.' },
+  { f: 'Faceted Navigation — E-Commerce SEO Problem', b: 'Faceted navigation (filter/sort combinations) creates thousands of near-duplicate URLs. Fix: canonical tags pointing all filter combinations to the clean category URL, or robots.txt disallowing filter parameter crawling. Never let Google index price-sort or colour-filter URLs — they dilute crawl budget and create duplicate content.' },
+  { f: 'Topic Cluster Architecture', b: 'A pillar page covering a broad topic comprehensively + a group of cluster posts each covering a specific subtopic in depth. All cluster posts link to the pillar; the pillar links to all clusters. Creates topical authority that signals to Google you are a comprehensive, expert source on a subject.' },
+  { f: 'Content Consolidation (Merge + 301)', b: 'When multiple pages target the same keyword, merge the best content from all into one comprehensive page and 301 redirect the weaker pages to it. This eliminates keyword cannibalisation, preserves backlink equity from old URLs, and creates one authoritative page Google can rank clearly. Never delete without redirecting.' },
+  { f: 'Broken Link Building', b: 'Finding pages that have earned backlinks but are now dead (404). Create equivalent or better content on your site. Reach out to sites linking to the dead page offering your URL as a replacement. Highly effective because you are solving a real problem for the webmaster — broken links hurt their UX.' },
+  { f: 'Redirect Chain — Technical SEO Issue', b: 'When a URL redirects to another URL that also redirects (2+ hops). Each hop transfers slightly less link equity and adds load time. Fix: update all internal links to point directly to the final destination URL. Eliminate all chains — every redirect should be a direct 301 to the canonical final URL.' },
+  { f: 'HARO — Link Building Tactic', b: 'Help a Reporter Out. Free service connecting journalists with expert sources. SEOs sign up, respond daily to relevant queries with expert quotes (3–5 sentences, specific, quotable). Successful responses earn editorial backlinks from high-authority media sites — Forbes, BBC, Guardian. One of the highest-quality (and free) link acquisition tactics.' },
+  { f: 'Review Velocity — Local SEO KPI', b: 'The rate at which a business earns new Google reviews over time. Google\'s Map Pack algorithm rewards both review quantity and recency. Target: 3–10 new reviews per month, consistently. Tactics: post-service SMS with short review link, email follow-up sequence, in-person QR code. Respond to ALL reviews within 24 hours.' },
+  { f: 'Linkable Asset', b: 'A piece of content specifically designed to earn backlinks naturally — original research, statistics pages, interactive tools, free calculators, comprehensive industry reports. Linkable assets earn 10–200× more backlinks than standard blog posts because they provide unique value that other sites want to reference and cite.' },
+  { f: 'Three-Tier SEO Proposal Pricing', b: 'Presenting 3 pricing options in a client proposal (Basic / Growth / Enterprise). This uses the anchoring effect — clients compare options to each other rather than to an external benchmark. Most clients choose the middle tier. Always clarify what\'s included per tier and what results to expect. Avoids the "how much do you charge?" race to the bottom.' },
+];
+let curCard = 0, flipped = false;
+function showCard() {
+  document.getElementById('fc-front-txt').textContent = cards[curCard].f;
+  document.getElementById('fc-back-txt').textContent = cards[curCard].b;
+  document.getElementById('fc-counter').textContent = (curCard + 1) + ' / ' + cards.length;
+  document.getElementById('flashcard').classList.remove('flipped');
+  flipped = false;
+  document.getElementById('fc-prev').disabled = curCard === 0;
+  document.getElementById('fc-next').disabled = curCard === cards.length - 1;
+}
+function flipCard() { flipped = !flipped; document.getElementById('flashcard').classList.toggle('flipped', flipped); }
+function nextCard() { if (curCard < cards.length - 1) { curCard++; showCard(); } }
+function prevCard() { if (curCard > 0) { curCard--; showCard(); } }
+showCard();
+
+// ── SCROLL NAV HIGHLIGHT ──
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const id = e.target.id;
+      document.querySelectorAll('.nav-link').forEach(l => {
+        l.classList.toggle('active', l.getAttribute('href') === '#' + id);
+      });
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('[id^="t11-"]').forEach(el => observer.observe(el));
+
+// ── INIT ──
+loadTasks();
+loadCL();
+</script>
+</body>
+</html>
